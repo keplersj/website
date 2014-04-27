@@ -1,0 +1,92 @@
+/*
+ * Table of contents:
+ *
+ * Social buttons
+ * Topography
+ * Homepage
+ * Mod Pack Pages
+ */
+
+/*
+ * Social buttons
+ */
+
+.social{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.social-buttons {
+  display: inline-block;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.social-buttons li {
+  display: inline-block;
+  line-height: 1;
+  padding: 5px 8px;
+}
+
+
+/*
+ * Background colors are pretty.
+ */
+
+.homepage {
+	background-color: green;
+}
+.homepage .jumbotron {
+ 	background-color: green;
+}
+
+
+/*
+ * Homepage
+ *
+ * Tweaks to the homepage.
+ */
+ 
+.homepage {
+	position: relative;
+}
+.jumbotron img {
+	height: 250px;
+	width: 250px;
+	float: center;
+}
+
+@media screen and (max-width: 768px) {
+	.jumbotron .btn {
+		width: 250px;
+	}	
+}
+
+@media screen and (min-width: 768px) {
+	.jumbotron {
+		text-align: center;
+	}
+	.jumbotron.btn-group:before {
+    	margin: 0 auto; 
+    	text-align: center;
+    	width: inherit;
+    	display: inline-block;
+    	float: center;
+	}
+}
+
+/*
+ *Mod Page pages
+ */
+ 
+ .mod-included-table:before{
+	content: "Mods Included";
+	position: relative;
+	bottom: 0px;
+	left: 2px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+ }
