@@ -1,16 +1,19 @@
-{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}{% include head.html %}
-  <body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %} {% if page.sidebar == 'collapse' or site.sidebar == 'collapse' %} class="collapse-sidebar sidebar-footer" {% endif %}>
-    <div id="wrap">
-      <header role="banner">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include head.html %}
+    <!-- Place anything custom after this. -->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
         {% include navigation.html %}
-      </header>
-      <div id="main" class="container">
-        <div id="content">
+        <div id="col-xs-12 col-sm-12 col-md-9 col-lg-9">
           {{ content | expand_urls: root_url }}
         </div>
       </div>
     </div>
     <footer role="contentinfo">{% include footer.html %}</footer>
-    {% include after_footer.html %}
   </body>
 </html>

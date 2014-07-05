@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Kepler Sticka-Jones
 base_url: "./"
 ---
