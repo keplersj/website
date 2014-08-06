@@ -15,8 +15,12 @@ doctype html
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     /! Use title if it's in the page YAML frontmatter
-    title
-      == "#{current_page.data.title} | Kepler Sticka-Jones" || 'Kepler Sticka-Jones'
+    - if current_page.data.title == ''
+      title
+        == "#{current_page.data.title} | Kepler Sticka-Jones"
+    - else
+      title
+        == 'Kepler Sticka-Jones'
     meta name="description" content=""
     meta name="viewport" content="width=device-width"
 
@@ -53,7 +57,7 @@ doctype html
     script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1`/jquery.min.js"
 
     javascript:
-      window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>');
+      window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>');
 
     script src="js/plugins.js"
     script src="js/main.js"
