@@ -15,3 +15,6 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw]
 
 # I want to use GitHub Pages for Hosting Proper this time.
 gem 'middleman-gh-pages'
+
+# Slim Templates
+gem 'slim'

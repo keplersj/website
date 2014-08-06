@@ -1,3 +1,5 @@
+require 'slim'
+
 ###
 # Compass
 ###
@@ -70,3 +72,9 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+# Set slim-lang output style
+Slim::Engine.set_default_options :pretty => true
+
+# Set template languages
+set :slim, :layout_engine => :slim
