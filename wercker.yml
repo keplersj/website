@@ -6,7 +6,7 @@ build:
   # The steps that will be executed on build
   steps:
     - bundle-install
-    - script
+    - script:
         name: Build Static Site
         code: middleman build
     - script:
