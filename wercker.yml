@@ -1,0 +1,14 @@
+box: wercker/rvm
+# Build definition
+steps:
+  - wercker/bundle-install@1.1.1
+build:
+  # The steps that will be executed on build
+  steps:
+    - bundle-install
+    - script
+        name: Build Static Site
+        code: middleman build
+    - script:
+        name: Archive artifacts
+        code: cp build/libs/* $WERCKER_REPORT_ARTIFACTS_DIR
