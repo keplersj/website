@@ -8,7 +8,7 @@ build:
     - bundle-install
     - script:
         name: Build Static Site
-        code: middleman build
+        code: bundle exec middleman build
     - script:
         name: Archive artifacts
-        code: cp build/libs/* $WERCKER_REPORT_ARTIFACTS_DIR
+        code: cp build/* $WERCKER_REPORT_ARTIFACTS_DIR
