@@ -78,3 +78,6 @@ Slim::Engine.set_default_options :pretty => true
 
 # Set template languages
 set :slim, :layout_engine => :slim
+
+ignore 'README.md'
+ignore 'LICENSE.md'
