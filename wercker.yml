@@ -12,7 +12,7 @@ build:
 deploy:
   steps:
     - leipert/git-push@0.4.4
-    - git-push:
+    - leipert/git-push:
          repo: k2b6s9j/k2b6s9j.github.io
          gh_token: $GIT_TOKEN
          gh_pages: false
