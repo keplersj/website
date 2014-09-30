@@ -2,7 +2,6 @@ box: wercker/rvm
 # Build definition
 steps:
   - wercker/bundle-install@1.1.1
-  - leipert/git-push@0.4.4
 build:
   # The steps that will be executed on build
   steps:
@@ -12,6 +11,7 @@ build:
         code: bundle exec middleman build
 deploy:
   steps:
+  - leipert/git-push@0.4.4
     - leipert/git-push:
          repo: k2b6s9j/k2b6s9j.github.io
          gh_token: $GIT_TOKEN
