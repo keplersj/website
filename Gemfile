@@ -13,8 +13,5 @@ gem 'wdm', '~> 0.1.0', :platforms => [:mswin, :mingw]
 # Windows does not come with time zone data
 gem 'tzinfo-data', platforms: [:mswin, :mingw]
 
-# I want to use GitHub Pages for Hosting Proper this time.
-gem 'middleman-gh-pages'
-
 # Slim Templates
 gem 'slim'
