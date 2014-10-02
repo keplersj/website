@@ -15,3 +15,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw]
 
 # Slim Templates
 gem 'slim'
+
+# Opal
+gem 'opal'
+gem 'opal-sprockets'

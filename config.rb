@@ -81,3 +81,9 @@ set :slim, :layout_engine => :slim
 
 ignore 'README.md'
 ignore 'LICENSE.md'
+
+after_configuration do
+  Opal.paths.each do |p|
+    sprockets.append_path p
+  end
+end
