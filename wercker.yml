@@ -8,7 +8,7 @@ build:
   steps:
     - script:
         name: Checkout Master Branch into 'Build'
-        code: git clone https://github.com/k2b6s9j/k2b6s9j.github.io build
+        code: git clone https://github.com/k2b6s9j/k2b6s9j.github.io build -b master
     - bundle-install
     - script:
         name: Build Static Site
