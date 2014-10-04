@@ -31,30 +31,30 @@ html
       script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"
       script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"
 
-    body
-      /[if lt IE 7]
-        p class="chromeframe"
-          |You are using an outdated browser.
-          a href="http://browsehappy.com/" Upgrade your browser today
-          | or
-          a href="http://www.google.com/chromeframe/?redirect=true" install Google Chrome Frame
-          | to better experience this site.
-
+  body
+    /[if lt IE 7]
+      p class="chromeframe"
+        |You are using an outdated browser.
+        a href="http://browsehappy.com/" Upgrade your browser today
+        | or
+        a href="http://www.google.com/chromeframe/?redirect=true" install Google Chrome Frame
+        | to better experience this site.
+  
       div class="container-fluid"
         == yield
 
-      script src="//code.jquery.com/jquery-1.11.1.min.js"
+    script src="//code.jquery.com/jquery-1.11.1.min.js"
 
-      script src="js/plugins.js"
-      script src="js/main.js"
+    script src="js/plugins.js"
+    script src="js/main.js"
 
 
-      /! Latest compiled and minified JavaScript
-      script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+    /! Latest compiled and minified JavaScript
+    script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
 
-      /! Google Analytics: change UA-XXXXX-X to be your site's ID.
-      javascript:
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
+    /! Google Analytics: change UA-XXXXX-X to be your site's ID.
+    javascript:
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
