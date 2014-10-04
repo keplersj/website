@@ -12,6 +12,14 @@ build:
         code: bundle exec middleman build
 deploy:
   steps:
+    - script:
+        name: Create Empty Dir
+        code: mkdir empty
+    - leipert/git-push:
+        gh_token: $GIT_TOKEN
+        branch: master
+        gh_pages_domain: github.k2b6s9j.com
+        basedir: empty
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
