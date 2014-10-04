@@ -17,7 +17,9 @@ deploy:
         code: mkdir empty
     - script:
         name: Create Bullshit File
-        code: touch empty/.gitignore
+        code: |
+            touch empty/.gitignore
+            echo '*' > .gitignore
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
