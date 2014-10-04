@@ -15,6 +15,9 @@ deploy:
     - script:
         name: Create Empty Dir
         code: mkdir empty
+    - script:
+        name: Create Bullshit File
+        code: touch empty/.gitignore
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
