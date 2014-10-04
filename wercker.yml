@@ -6,22 +6,15 @@ steps:
 build:
   # The steps that will be executed on build
   steps:
+    - script:
+        name: Checkout Master Branch into 'Build'
+        code: git clone https://github.com/k2b6s9j/k2b6s9j.github.io 
     - bundle-install
     - script:
         name: Build Static Site
         code: bundle exec middleman build
 deploy:
   steps:
-    - script:
-        name: Create Empty Dir
-        code: mkdir empty
-    - script:
-        name: Copy Whoops File
-        code: cp whoops.html empty/index.html
-    - leipert/git-push:
-        gh_token: $GIT_TOKEN
-        branch: master
-        basedir: empty
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
