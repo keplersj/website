@@ -12,7 +12,7 @@ build:
     - bundle-install
     - script:
         name: Build Static Site
-        code: bundle exec middleman build
+        code: bundle exec middleman build --verbose
 deploy:
   steps:
     - leipert/git-push:
