@@ -1,7 +1,7 @@
 require 'opal'
 
 # Avoid `console` errors in browsers that lack a console.
-unless (Native(`window`).console && console.log)
+unless (Native(`window`).console && Native(`console`).log)
   methods = [
     :assert,
     :clear,
