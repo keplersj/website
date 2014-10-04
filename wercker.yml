@@ -16,10 +16,8 @@ deploy:
         name: Create Empty Dir
         code: mkdir empty
     - script:
-        name: Create Bullshit File
-        code: |
-            touch empty/.gitignore
-            echo '*' > .gitignore
+        name: Copy Whoops File
+        code: cp whoops.html empty/index.html
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
