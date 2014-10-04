@@ -16,8 +16,8 @@ build:
 deploy:
   steps:
     - script:
-      name: Remove and Add the Appropriate File
-      code: git add -u
+        name: Remove and Add the Appropriate File
+        code: git add -u
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
