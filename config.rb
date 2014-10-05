@@ -29,6 +29,10 @@ set :slim, :layout_engine => :slim
 #   page "/admin/*"
 # end
 
+new_hash = Temple::HTML::Fast::XHTML_DOCTYPES.dup
+new_hash['cross-domain'] = '<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">'
+Temple::HTML::Fast::XHTML_DOCTYPES = new_hash
+
 page "crossdomain.xml", :layout => false
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
