@@ -29,7 +29,7 @@ set :slim, :layout_engine => :slim
 #   page "/admin/*"
 # end
 
-page "crossdomain.xml.slim", :layout => :slim
+page "crossdomain.xml.slim", :layout => false
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
