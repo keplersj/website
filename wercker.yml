@@ -15,11 +15,12 @@ build:
 deploy:
   steps:
     - script:
-        name: Set Git User
+        name: Set Git Attributes
         code: |
             cd build
             git config user.email "pleasemailus@wercker.com"
             git config user.name "werckerbot"
+            git remote set-url origin https://$GIT_TOKEN@github.com/$WERCKER_GIT_OWNER/$WERCKER_GIT_REPOSITORY.git
     - script:
         name: Remove and Add the Appropriate Files
         code: cd build; git add -u .
