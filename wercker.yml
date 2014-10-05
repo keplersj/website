@@ -29,7 +29,7 @@ deploy:
         code: cd build; git status
     - script:
         name: Git Commit
-        code: cd build; git commit -m 'Auto deploy from $WERCKER_STARTED_BY'
+        code: cd build; git commit -m 'Auto deploy from $WERCKER_STARTED_BY' --allow-empty
     - script:
         name: Git Status
         code: cd build; git status
