@@ -15,28 +15,25 @@ build:
 deploy:
   steps:
     - script:
-        name: Work from Build Directory
-        code: cd build
-    - script:
         name: Set Git User
         code: |
-            git config user.email "pleasemailus@wercker.com"
-            git config user.name "werckerbot"
+            cd build; git config user.email "pleasemailus@wercker.com"
+            cd build; git config user.name "werckerbot"
     - script:
         name: Remove and Add the Appropriate Files
-        code: git add -u .
+        code: cd build; git add -u .
     - script:
         name: Git Status
-        code: git status
+        code: cd build; git status
     - script:
         name: Git Commit
-        code: git commit -m 'Auto deploy from $WERCKER_STARTED_BY'
+        code: cd build; git commit -m 'Auto deploy from $WERCKER_STARTED_BY'
     - script:
         name: Git Status
-        code: git status
+        code: cd build; git status
     - script:
         name: Git Push
-        code: git push origin
+        code: cd build; git push origin
     - script:
         name: Git Status
-        code: git status
+        code: cd build; git status
