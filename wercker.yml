@@ -16,9 +16,12 @@ build:
 deploy:
   steps:
     - script:
-        name: Remove and Add the Appropriate File
+        name: Remove and Add the Appropriate Files
         code: cd build; git add -u .; git status
     - leipert/git-push:
         gh_token: $GIT_TOKEN
         branch: master
         basedir: build
+    - script:
+        name: Git Status
+        code: cd build; git status
