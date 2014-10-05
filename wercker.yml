@@ -2,7 +2,6 @@ box: wercker/rvm
 # Build definition
 steps:
   - wercker/bundle-install@1.1.1
-  - leipert/git-push@0.4.4
 build:
   # The steps that will be executed on build
   steps:
@@ -16,12 +15,28 @@ build:
 deploy:
   steps:
     - script:
+        name: Work from Build Directory
+        code: cd build
+    - script:
+        name: Set Git User
+        code: |
+            git config user.email "pleasemailus@wercker.com"
+            git config user.name "werckerbot"
+    - script:
         name: Remove and Add the Appropriate Files
-        code: cd build; git add -u .; git status
-    - leipert/git-push:
-        gh_token: $GIT_TOKEN
-        branch: master
-        basedir: build
+        code: git add -u .
     - script:
         name: Git Status
-        code: cd build; git status
+        code: git status
+    - script:
+        name: Git Commit
+        code: git commit -m 'Auto deploy from $WERCKER_STARTED_BY'
+    - script:
+        name: Git Status
+        code: git status
+    - script:
+        name: Git Push
+        code: git push origin
+    - script:
+        name: Git Status
+        code: git status
