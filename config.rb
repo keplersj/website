@@ -36,6 +36,7 @@ new_hash['cross-domain'] = '<!DOCTYPE cross-domain-policy SYSTEM "http://www.ado
 Temple::HTML::Fast::XHTML_DOCTYPES = new_hash
 
 page "crossdomain.xml", :layout => false
+page "404.html", :layout => false
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
