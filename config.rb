@@ -13,6 +13,9 @@ require 'slim'
 # Page options, layouts, aliases and proxies
 ###
 
+Slim::Engine.set_default_options :pretty => true
+set :slim, :layout_engine => :slim
+
 # Per-page layout changes:
 #
 # With no layout
@@ -25,6 +28,8 @@ require 'slim'
 # with_layout :admin do
 #   page "/admin/*"
 # end
+
+page "crossdomain.xml", :layout => :slim
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
@@ -72,15 +77,6 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
-
-# Set slim-lang output style
-Slim::Engine.set_default_options :pretty => true
-
-# Set template languages
-set :slim, :layout_engine => :slim
-
-ignore 'README.md'
-ignore 'LICENSE.md'
 
 after_configuration do
   Opal.paths.each do |p|
