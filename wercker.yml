@@ -17,8 +17,9 @@ deploy:
     - script:
         name: Set Git User
         code: |
-            cd build; git config user.email "pleasemailus@wercker.com"
-            cd build; git config user.name "werckerbot"
+            cd build
+            git config user.email "pleasemailus@wercker.com"
+            git config user.name "werckerbot"
     - script:
         name: Remove and Add the Appropriate Files
         code: cd build; git add -u .
