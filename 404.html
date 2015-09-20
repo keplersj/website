@@ -1,10 +1,9 @@
-doctype html
-html lang="en"
-  head
-    meta charset="utf-8"
-      title
-        | Page Not Found :(
-      css:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Page Not Found :(</title>
+      <style type="text/css">
         ::-moz-selection {
           background: #b3d4fc;
           text-shadow: none;
@@ -138,19 +137,32 @@ html lang="en"
           padding: 0;
           border: 0;
         }
-  body
-    div class="container"
-      h1
-        | Not found <span>:(
-      p
-        | Sorry, but the page you were trying to view does not exist.
-      p
-        | It looks like this was the result of either:
-      ul
-        li
-          | a mistyped address
-        li
-          | an out-of-date link
-      javascript:
+      </style>
+    </meta>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        Not found <span>:(
+      </h1>
+      <p>
+        Sorry, but the page you were trying to view does not exist.
+      </p>
+      <p>
+        It looks like this was the result of either:
+      </p>
+      <ul>
+        <li>
+          a mistyped address
+        </li>
+        <li>
+          an out-of-date link
+        </li>
+      </ul>
+      <script type="text/javascript">
         var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
-    script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"
+      </script>
+    </div>
+    <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+  </body>
+</html>
