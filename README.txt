@@ -144,7 +144,7 @@ Instructions:
 	Contact Form:
 
 		To get this working, place a script on your server to receive the form data, then
-		point the "action" attribute to it (eg. action="http://mydomain.tld/mail.php").
+		point the "action" attribute to it (eg. action="https://mydomain.tld/mail.php").
 		More on how it all works here: 1stwebdesigner.com/tutorials/custom-php-contact-forms
 
 
