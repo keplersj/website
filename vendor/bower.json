@@ -16,6 +16,8 @@
   "dependencies": {
     "font-awesome": "~4.4.0",
     "skel": "~3.0.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "jquery.poptrox": "~2.5.0",
+    "jquery.scrollex": "~0.2.0"
   }
 }

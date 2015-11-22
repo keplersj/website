@@ -1,0 +1,27 @@
+{
+  "name": "jquery.scrollex",
+  "version": "0.2.0",
+  "description": "Nifty scroll events for jQuery.",
+  "keywords": [
+    "jquery",
+    "scroll",
+    "scrolling"
+  ],
+  "homepage": "http://n33.co",
+  "license": "MIT",
+  "ignore": [],
+  "main": "./jquery.scrollex.js",
+  "dependencies": {
+    "jquery": ">=1.11"
+  },
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "7535fe58ecd4029657f02462deba7291baf4826d"
+  },
+  "_source": "git://github.com/n33/jquery.scrollex.git",
+  "_target": "~0.2.0",
+  "_originalSource": "jquery.scrollex",
+  "_direct": true
+}
