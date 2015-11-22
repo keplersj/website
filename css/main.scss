@@ -1,9 +1,13 @@
+---
+# For Jekyll!
+---
+
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900');
-@import url('font-awesome.min.css');
+@import url('../vendor/bower/font-awesome/css/font-awesome.min.css');
 
 /*
 	Big Picture by HTML5 UP

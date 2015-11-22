@@ -1,0 +1,9 @@
+sass:
+  sass_dir: css
+
+exclude:
+  - vendor/gems
+  - vendor/bower.json
+  - script
+  - Gemfile*
+  - README.md
