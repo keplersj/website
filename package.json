@@ -10,6 +10,8 @@
   "dependencies": {
     "@types/react": "^16.4.6",
     "@types/react-helmet": "^5.0.6",
+    "bulma": "^0.7.1",
+    "font-awesome": "^4.7.0",
     "gatsby": "^2.0.0-beta.20",
     "gatsby-link": "^2.0.0-beta.4",
     "gatsby-plugin-manifest": "^2.0.2-beta.2",

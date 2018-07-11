@@ -1,3 +1,5 @@
+import "bulma/css/bulma.css";
+import "font-awesome/css/font-awesome.css";
 import * as React from "react";
 import Helmet from "react-helmet";
 import avatar from "../images/avatar.jpg";
@@ -22,14 +24,6 @@ const Index = () => (
       <meta name="twitter:site" content="@keplersj" />
       <meta name="twitter:creator" content="@keplersj" />
       <title>Kepler Sticka-Jones</title>
-      <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css"
-      />
     </Helmet>
     <section className="hero is-fullheight is-default">
       <div className="hero-head">
