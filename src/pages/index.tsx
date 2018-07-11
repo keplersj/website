@@ -26,26 +26,6 @@ const Index = () => (
       <title>Kepler Sticka-Jones</title>
     </Helmet>
     <section className="hero is-fullheight is-default">
-      <div className="hero-head">
-        <div className="container">
-          <nav className="nav has-shadow">
-            <div className="container">
-              <span className="nav-toggle">
-                <span />
-                <span />
-                <span />
-              </span>
-              <div className="nav-right nav-menu">
-                <span className="nav-item">
-                  <a className="button" href="#contact">
-                    Contact
-                  </a>
-                </span>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
       <div className="hero-body">
         <div className="container has-text-centered">
           <div className="columns is-vcentered">
