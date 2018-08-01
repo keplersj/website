@@ -71,7 +71,7 @@ const Index = () => (
           </h3>
           <h3 className="title is-3">
             Public Key:{" "}
-            <a href="https://keybase.io/k2b6s9j/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
+            <a href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
               BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
             </a>
           </h3>
