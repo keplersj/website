@@ -2,7 +2,7 @@ import "bulma/css/bulma.css";
 import "font-awesome/css/font-awesome.css";
 import * as React from "react";
 import Helmet from "react-helmet";
-import avatar from "../images/avatar.jpg";
+import avatar from "../images/avatar.jpeg";
 import "../style/main.css";
 
 const Index = () => (
