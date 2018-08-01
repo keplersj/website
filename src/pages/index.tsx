@@ -23,6 +23,27 @@ const Index = () => (
       <meta name="twitter:site" content="@keplersj" />
       <meta name="twitter:creator" content="@keplersj" />
       <title>Kepler Sticka-Jones</title>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "http://www.schema.org",
+          "@type": "person",
+          name: "Kepler Sticka-Jones",
+          url: "https://keplersj.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Salt Lake City",
+            addressRegion: "UT",
+            addressCountry: "USA"
+          },
+          email: "kepler@stickajones.org",
+          sameAs: [
+            "https://twitter.com/keplersj",
+            "https://www.instagram.com/keplersj_/",
+            "https://www.linkedin.com/in/keplersj/",
+            "https://github.com/keplersj"
+          ]
+        })}
+      </script>
     </Helmet>
 
     <MainHero />
