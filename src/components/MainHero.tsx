@@ -1,5 +1,8 @@
+import "bulma/css/bulma.css";
+import "font-awesome/css/font-awesome.css";
 import * as React from "react";
 import avatar from "../images/avatar.jpeg";
+import "../style/main.css";
 
 const MainHero = () => (
   <section className="hero is-fullheight is-default">

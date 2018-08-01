@@ -1,11 +1,8 @@
-import "bulma/css/bulma.css";
-import "font-awesome/css/font-awesome.css";
 import * as React from "react";
 import Helmet from "react-helmet";
 import ContactHero from "../components/ContactHero";
 import MainHero from "../components/MainHero";
 import avatar from "../images/avatar.jpeg";
-import "../style/main.css";
 
 const Index = () => (
   <>

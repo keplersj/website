@@ -1,4 +1,7 @@
+import "bulma/css/bulma.css";
+import "font-awesome/css/font-awesome.css";
 import * as React from "react";
+import "../style/main.css";
 
 const ContactHero = () => (
   <section className="hero is-fullheight is-primary">
