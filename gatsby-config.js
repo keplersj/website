@@ -6,7 +6,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Kepler Sticka-Jones",
-        short_name: "Kepler Sticka-Jones",
+        short_name: "Kepler S-J",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#409040",
