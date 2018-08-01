@@ -1,5 +1,13 @@
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-123145115-1",
+        anonymize: true,
+        respectDNT: true
+      }
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     {
