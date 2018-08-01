@@ -10,7 +10,13 @@ const MainHero = () => (
       <div className="container has-text-centered">
         <div className="columns is-vcentered">
           <div className="column is-two-thirds is-centered has-nice-link">
-            <img id="profile-pic" src={avatar} width="140" height="140" />
+            <img
+              id="profile-pic"
+              src={avatar}
+              width="140"
+              height="140"
+              alt=""
+            />
             <h1 className="title is-2">Kepler Sticka-Jones</h1>
             <h2 className="subtitle is-4" />
             <p />
