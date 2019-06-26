@@ -86,3 +86,17 @@ I speculate that TiVo chose to use the Apple Partition Map on its drives because
 ## The Search for More Apple Partition Map Prior Art
 
 While looking for anymore information on Apple Partition Map before completely jumping back in I found a [node.js module for loading Apple Partition Maps](https://github.com/jhermsmeier/node-apple-partition-map). I don't know why the author chose to implement their APM loader in JavaScript, but I absolutely love it. And thankfully they listed some of their references in the README of their module. There is some overlap between our references, but they also had some references to source code to Apple's IOStorageFamily for macOS. ([IOApplePartitionScheme.h](https://opensource.apple.com/source/IOStorageFamily/IOStorageFamily-116/IOApplePartitionScheme.h.auto.html) and [IOApplePartitionScheme.cpp](https://opensource.apple.com/source/IOStorageFamily/IOStorageFamily-116/IOApplePartitionScheme.cpp.auto.html)) Sadly, since Apple transitioned to using GUID Partition Tables during the Mac-Intel transition and the transition was largely finished by the end of the 2000's I imagine these files last copyright dated in 2009 are the last APM files to come out of Apple.
+
+## Using Hex Viewer to View Apple Partition Map
+
+Loading up the byte swapped ISO image I created into a Hex Viewer yields the following:
+
+![](/img/annotation-2019-06-26-153435.png)
+
+Here we can see `0x1492` in the first two bytes of the image, so we know this should be a valid TiVo disk image. As well, we can see `0x504d` in the 200 & 201st bytes indicating an Apple Partition Map Partition Entry.
+
+Thanks to the Wikipedia entry on APM, we know that the drive is likely divided into logical blocks of 512 bytes. Setting the hex viewer to display bytes in rows of 512 bytes yields the following:
+
+![](/img/annotation-2019-06-26-154008.png)
+
+Cool. Now we can more easily see the 13 partition entries on the drive. We can see the partition that contains the partition map we're currently interacting with. As well, as eight partitions related to the Linux install on the drive. The two `Ext2` partitions on there could be cool to poke around one day. We can see two MFS application partitions, and most importantly two MFS media regions. Awesome. Being able to visualize the disk like this has been incredibly helpful, and being able to reference the [partition map entry layout from Wikipedia](https://en.wikipedia.org/wiki/Apple_Partition_Map#Layout) is going to be very helpful as we charge forward.
