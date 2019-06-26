@@ -81,4 +81,8 @@ The `mfstools` code base helped show that TiVo was using the [Apple Partition Ma
 
 I speculate that TiVo chose to use the Apple Partition Map on its drives because [they were using PowerPC processors](https://en.wikipedia.org/wiki/TiVo_digital_video_recorders#Series1) and Apple had already created a partition map for their PowerPC machines known to work well with media. Because the Linux kernel (which the TiVo OS was based on) supported Apple partitions, this would mean less work for TiVo and they could spend more time perfecting the experience of the DVR instead of worrying about the low-level technical implementation of it.
 
-# Day 6 - June 24, 2019
+# Day 6 - June 25, 2019
+
+## The Search for More Apple Partition Map Prior Art
+
+While looking for anymore information on Apple Partition Map before completely jumping back in I found a [node.js module for loading Apple Partition Maps](https://github.com/jhermsmeier/node-apple-partition-map). I don't know why the author chose to implement their APM loader in JavaScript, but I absolutely love it. And thankfully they listed some of their references in the README of their module. There is some overlap between our references, but they also had some references to source code to Apple's IOStorageFamily for macOS. ([IOApplePartitionScheme.h](https://opensource.apple.com/source/IOStorageFamily/IOStorageFamily-116/IOApplePartitionScheme.h.auto.html) and [IOApplePartitionScheme.cpp](https://opensource.apple.com/source/IOStorageFamily/IOStorageFamily-116/IOApplePartitionScheme.cpp.auto.html)) Sadly, since Apple transitioned to using GUID Partition Tables during the Mac-Intel transition and the transition was largely finished by the end of the 2000's I imagine these files last copyright dated in 2009 are the last APM files to come out of Apple.
