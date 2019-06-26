@@ -2,6 +2,14 @@ module.exports = {
   plugins: [
     "gatsby-plugin-netlify-cms",
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    "gatsby-transformer-remark",
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-123145115-1",
