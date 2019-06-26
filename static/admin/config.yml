@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: source
 
+site_url: https://keplersj.com
+
 publish_mode: editorial_workflow
 
 media_folder: static/img
@@ -13,8 +15,7 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    editor:
-      preview: false
+    preview_path: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
