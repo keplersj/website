@@ -6,8 +6,7 @@ site_url: https://keplersj.com
 
 publish_mode: editorial_workflow
 
-media_folder: static/img
-public_folder: /img
+media_folder: content/images
 
 collections:
   - name: "blog"

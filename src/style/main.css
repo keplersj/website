@@ -59,14 +59,14 @@ a {
   margin-right: auto;
 }
 
-#profile-pic {
+.profile-pic {
   margin-top: -100px;
   margin-bottom: 10px;
   border-radius: 140px;
 }
 
 @media screen and (max-width: 768px) {
-  #profile-pic {
+  .profile-pic {
     margin-top: -60px;
   }
 }
