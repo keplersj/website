@@ -4,7 +4,38 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import "bulma/css/bulma.css";
 import "font-awesome/css/font-awesome.css";
-import "../style/main.css";
+import styled from "@emotion/styled";
+
+const Avatar = styled(Img)`
+  margin-top: -100px;
+  margin-bottom: 10px;
+  border-radius: 140px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: -60px;
+  }
+`;
+
+const ContactSectionContainer = styled.section`
+  background-color: #409040 !important;
+
+  * {
+    color: #363636 !important;
+  }
+
+  .has-nice-link a:not(.button):not(.no-underline) {
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .has-nice-link a:not(.button):not(.no-underline):hover {
+    box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, 0.7);
+  }
+`;
+
+const Centered = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`;
 
 export default ({
   data
@@ -59,11 +90,8 @@ export default ({
       <div className="hero-body">
         <div className="container has-text-centered">
           <div className="columns is-vcentered">
-            <div className="column is-two-thirds is-centered has-nice-link">
-              <Img
-                className="profile-pic"
-                fixed={data.file.childImageSharp.fixed}
-              />
+            <Centered className="column is-two-thirds has-nice-link">
+              <Avatar fixed={data.file.childImageSharp.fixed} />
               <h1 className="title is-2">Kepler Sticka-Jones</h1>
               <h2 className="subtitle is-4" />
               <p />
@@ -88,15 +116,15 @@ export default ({
                   <span>Tweets</span>
                 </a>
               </p>
-            </div>
+            </Centered>
           </div>
         </div>
       </div>
     </section>
 
-    <section className="hero is-fullheight is-primary">
+    <ContactSectionContainer className="hero is-fullheight">
       <div id="contact" className="hero-body">
-        <div className="container has-text-centered is-dark-text has-nice-link">
+        <div className="container has-text-centered has-nice-link">
           <h1 className="title is-1">Contact</h1>
           <h3 className="title is-3">
             Email:{" "}
@@ -110,7 +138,7 @@ export default ({
           </h3>
         </div>
       </div>
-    </section>
+    </ContactSectionContainer>
   </>
 );
 
