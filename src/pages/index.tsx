@@ -233,7 +233,7 @@ export default ({
           },
           email: "kepler@stickajones.org",
           sameAs: [
-            "https://twitter.com/keplersj",
+            "https://twitter.com/realKeplerSJ",
             "https://www.instagram.com/keplersj_/",
             "https://www.linkedin.com/in/keplersj/",
             "https://github.com/keplersj"
@@ -318,13 +318,13 @@ export default ({
               <Name>Kepler Sticka-Jones</Name>
               <br />
               <Centered>
-                <Button>
+                <Button href="https://github.com/keplersj">
                   <Icon>
                     <FontAwesomeIcon icon={faGithub} />
                   </Icon>
                   <span>Code</span>
                 </Button>
-                <Button>
+                <Button href="https://twitter.com/realKeplerSJ">
                   <Icon>
                     <FontAwesomeIcon icon={faTwitter} />
                   </Icon>
