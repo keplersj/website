@@ -5,6 +5,7 @@ module.exports = {
     siteUrl: `https://keplersj.com`
   },
   plugins: [
+    "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
     "gatsby-plugin-netlify-cms",
