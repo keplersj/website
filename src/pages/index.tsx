@@ -178,12 +178,6 @@ const Columns = styled.div`
   :last-child {
     margin-bottom: -0.75rem;
   }
-
-  @media screen and (min-width: 769px), print {
-    :not(.is-desktop) {
-      display: flex;
-    }
-  }
 `;
 
 const CenteredColumn = styled(Centered)`
