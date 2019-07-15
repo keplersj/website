@@ -2,7 +2,8 @@ import * as React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import "font-awesome/css/font-awesome.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 
@@ -319,13 +320,13 @@ export default ({
               <Centered>
                 <Button>
                   <Icon>
-                    <i className="fa fa-github" />
+                    <FontAwesomeIcon icon={faGithub} />
                   </Icon>
                   <span>Code</span>
                 </Button>
                 <Button>
                   <Icon>
-                    <i className="fa fa-twitter" />
+                    <FontAwesomeIcon icon={faTwitter} />
                   </Icon>
                   <span>Tweets</span>
                 </Button>
