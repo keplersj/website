@@ -125,6 +125,7 @@ const Button = styled.a`
   line-height: 1.5;
   position: relative;
   vertical-align: top;
+  text-decoration: none;
 
   border-width: 1px;
   cursor: pointer;
