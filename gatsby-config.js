@@ -1,7 +1,11 @@
 const path = require("path");
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://keplersj.com`
+  },
   plugins: [
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
     "gatsby-plugin-netlify-cms",
     {
