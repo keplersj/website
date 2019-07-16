@@ -1,6 +1,6 @@
 ---
 title: Hacking 18 Year Old TiVo Hard Drive
-date: 2019-06-22T23:17:09.523Z
+date: 2019-08-02T23:00:00.000Z
 description: >-
   Write up about my attempts to extract recordings from the hard drive of my
   childhood TiVo.
