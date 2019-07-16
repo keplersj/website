@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: "gatsby-plugin-feed",
       options: {
         query: `
           {
@@ -89,7 +89,26 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-emotion",
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          // gatsby-remark-relative-images must
+          // go before gatsby-remark-images
+          "gatsby-remark-autolink-headers",
+          "gatsby-remark-relative-images",
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
