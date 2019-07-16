@@ -93,9 +93,11 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          "gatsby-remark-smartypants",
+          "gatsby-remark-vscode",
+          "gatsby-remark-autolink-headers",
           // gatsby-remark-relative-images must
           // go before gatsby-remark-images
-          "gatsby-remark-autolink-headers",
           "gatsby-remark-relative-images",
           {
             resolve: "gatsby-remark-images",
