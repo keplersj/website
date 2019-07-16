@@ -91,12 +91,12 @@ While looking for anymore information on Apple Partition Map before completely j
 
 Loading up the byte swapped ISO image I created into a Hex Viewer yields the following:
 
-![](/img/annotation-2019-06-26-153435.png)
+![](/content/images/annotation-2019-06-26-153435.png)
 
 Here we can see `0x1492` in the first two bytes of the image, so we know this should be a valid TiVo disk image. As well, we can see `0x504d` in the 200 & 201st bytes indicating an Apple Partition Map Partition Entry.
 
 Thanks to the Wikipedia entry on APM, we know that the drive is likely divided into logical blocks of 512 bytes. Setting the hex viewer to display bytes in rows of 512 bytes yields the following:
 
-![](/img/annotation-2019-06-26-154008.png)
+![](/content/images/annotation-2019-06-26-154008.png)
 
 Cool. Now we can more easily see the 13 partition entries on the drive. We can see the partition that contains the partition map we're currently interacting with. As well, as eight partitions related to the Linux install on the drive. The two `Ext2` partitions on there could be cool to poke around one day. We can see two MFS application partitions, and most importantly two MFS media regions. Awesome. Being able to visualize the disk like this has been incredibly helpful, and being able to reference the [partition map entry layout from Wikipedia](https://en.wikipedia.org/wiki/Apple_Partition_Map#Layout) is going to be very helpful as we charge forward.
