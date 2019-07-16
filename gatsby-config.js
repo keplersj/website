@@ -3,8 +3,13 @@ const path = require("path");
 module.exports = {
   siteMetadata: {
     title: "Kepler Sticka-Jones",
-    description: "",
-    siteUrl: "https://keplersj.com"
+    description:
+      "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
+    siteUrl: "https://keplersj.com",
+    twitterUsername: "realKeplerSJ",
+    instagramUsername: "keplersj_",
+    linkedinUsername: "keplersj",
+    githubUsername: "keplersj"
   },
   plugins: [
     {

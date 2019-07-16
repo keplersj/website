@@ -3,12 +3,27 @@ import Helmet from "react-helmet";
 import { Global, css } from "@emotion/core";
 import { StaticQuery, graphql } from "gatsby";
 
-interface Props {}
+interface Props {
+  title?: String;
+  description?: String;
+}
 
-export default ({ children }: React.PropsWithChildren<Props>) => (
+export default (props: React.PropsWithChildren<Props>) => (
   <StaticQuery
     query={graphql`
       query {
+        site {
+          siteMetadata {
+            title
+            description
+            siteUrl
+            twitterUsername
+            instagramUsername
+            linkedinUsername
+            githubUsername
+          }
+        }
+
         file(
           relativePath: { eq: "avatar.jpg" }
           sourceInstanceName: { eq: "images" }
@@ -29,11 +44,17 @@ export default ({ children }: React.PropsWithChildren<Props>) => (
         <Helmet>
           <html lang="en" />
           <meta name="author" content="Kepler Sticka-Jones" />
-          <meta name="description" content="" />
+          <meta
+            name="description"
+            content={props.description || data.site.siteMetadata.description}
+          />
           <meta name="theme-color" content="#409040" />
-          <meta property="og:title" content="Kepler Sticka-Jones" />
+          <meta
+            property="og:title"
+            content={props.title || data.site.siteMetadata.title}
+          />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://keplersj.com" />
+          <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
           <meta
             property="og:image"
             content={data.file.childImageSharp.fixed.base64}
@@ -41,17 +62,26 @@ export default ({ children }: React.PropsWithChildren<Props>) => (
           <meta property="og:image:type" content="image/jpeg" />
           <meta property="og:image:width" content="480" />
           <meta property="og:image:height" content="480" />
-          <meta property="og:description" content="" />
+          <meta
+            property="og:description"
+            content={props.description || data.site.siteMetadata.description}
+          />
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@realKeplerSJ" />
-          <meta name="twitter:creator" content="@realKeplerSJ" />
+          <meta
+            name="twitter:site"
+            content={"@" + data.site.siteMetadata.twitterUsername}
+          />
+          <meta
+            name="twitter:creator"
+            content={"@" + data.site.siteMetadata.twitterUsername}
+          />
           <title>Kepler Sticka-Jones</title>
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "http://www.schema.org",
               "@type": "person",
               name: "Kepler Sticka-Jones",
-              url: "https://keplersj.com",
+              url: data.site.siteMetadata.siteUrl,
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Salt Lake City",
@@ -60,10 +90,10 @@ export default ({ children }: React.PropsWithChildren<Props>) => (
               },
               email: "kepler@stickajones.org",
               sameAs: [
-                "https://twitter.com/realKeplerSJ",
-                "https://www.instagram.com/keplersj_/",
-                "https://www.linkedin.com/in/keplersj/",
-                "https://github.com/keplersj"
+                `https://twitter.com/${data.site.siteMetadata.twitterUsername}`,
+                `https://www.instagram.com/${data.site.siteMetadata.instagramUsername}/`,
+                `https://www.linkedin.com/in/${data.site.siteMetadata.linkedinUsername}/`,
+                `https://github.com/${data.site.siteMetadata.githubUsername}`
               ]
             })}
           </script>
@@ -136,7 +166,7 @@ export default ({ children }: React.PropsWithChildren<Props>) => (
           `}
         />
 
-        {children}
+        {props.children}
       </>
     )}
   </StaticQuery>
