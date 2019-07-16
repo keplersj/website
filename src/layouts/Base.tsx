@@ -1,5 +1,5 @@
 import * as React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { Global, css } from "@emotion/core";
 import { StaticQuery, graphql } from "gatsby";
 
@@ -41,9 +41,13 @@ export default (props: React.PropsWithChildren<Props>) => (
   >
     {data => (
       <>
-        <Helmet>
+        <Helmet
+          titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+          defaultTitle={data.site.siteMetadata.title}
+        >
           <html lang="en" />
           <meta name="author" content="Kepler Sticka-Jones" />
+          props.title && <title>{props.title}</title>
           <meta
             name="description"
             content={props.description || data.site.siteMetadata.description}
@@ -51,7 +55,11 @@ export default (props: React.PropsWithChildren<Props>) => (
           <meta name="theme-color" content="#409040" />
           <meta
             property="og:title"
-            content={props.title || data.site.siteMetadata.title}
+            content={
+              (props.title &&
+                `${props.title} | ${data.site.siteMetadata.title}`) ||
+              data.site.siteMetadata.title
+            }
           />
           <meta property="og:type" content="website" />
           <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
@@ -75,7 +83,6 @@ export default (props: React.PropsWithChildren<Props>) => (
             name="twitter:creator"
             content={"@" + data.site.siteMetadata.twitterUsername}
           />
-          <title>Kepler Sticka-Jones</title>
           <script type="application/ld+json">
             {JSON.stringify({
               "@context": "http://www.schema.org",

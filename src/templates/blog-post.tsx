@@ -11,7 +11,10 @@ class BlogPostTemplate extends React.Component<IProps> {
     const post = this.props.data.markdownRemark;
 
     return (
-      <BaseLayout>
+      <BaseLayout
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      >
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
       </BaseLayout>
     );
