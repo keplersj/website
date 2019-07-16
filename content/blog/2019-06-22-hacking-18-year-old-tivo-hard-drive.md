@@ -114,20 +114,12 @@ Repo Commits:
 Repo Commits:
 - [`3d934d`](https://github.com/keplersj/ovit/commit/3d934d96e5711876bd7bc77d0ce2f41bc521925f)
 
-# Day 9 - June 28, 2019
-
-# Day 10 - June 29, 2019
-
-# Day 11 - June 30, 2019
-
-# Day 12 - July 1, 2019
-
-# Day 13 - July 2, 2019
+# Day 9 - July 2, 2019
 
 Repo Commits:
 - [`983d23`](https://github.com/keplersj/ovit/commit/983d23b395a45d37c6b3bd6e8f1006cee1637079)
 
-# Day 14 - July 3, 2019
+# Day 10 - July 3, 2019
 
 Repo Commits:
 - [`e30152`](https://github.com/keplersj/ovit/commit/e301529b78a29531f16be26b9504de8c1691eb4d)
@@ -138,24 +130,24 @@ Repo Commits:
 - [`4c7d24`](https://github.com/keplersj/ovit/commit/4c7d24917a607665943016a8eb9e2d8cd2feacd8)
 - [`c4109d`](https://github.com/keplersj/ovit/commit/c4109d5e541f3e311adef6a3b67d653ab378a0fc)
 
-# Day 15 - July 4, 2019
+# Day 11 - July 4, 2019
 
 Repo Commits:
 - [`95020e`](https://github.com/keplersj/ovit/commit/95020e0375e42fc9849e83ac36a3ca3b71e2c1e6)
 - [`706101`](https://github.com/keplersj/ovit/commit/706101519d5d542419070d796daae38f918eb1de)
 - [`3c9dff`](https://github.com/keplersj/ovit/commit/3c9dff0a5883887a276367232fecb9db33d41211)
 
-# Day 16 - July 5, 2019
+# Day 12 - July 5, 2019
 
 Repo Commits:
 - [`a01781`](https://github.com/keplersj/ovit/commit/a01781d6f71a610965c45c3be2793179e2fc27c9)
 
-# Day 17 - July 6, 2019
+# Day 13 - July 6, 2019
 
 Repo Commits:
 - [`fdb953`](https://github.com/keplersj/ovit/commit/fdb953930d5cbf8baa06db15e1865be82b9dc853)
 
-# Day 18 - July 7, 2019
+# Day 14 - July 7, 2019
 
 Repo Commits:
 - [`9ad2fe`](https://github.com/keplersj/ovit/commit/9ad2fe4f5e0382f05438dc7726624c8dbc1b34ae)
@@ -166,9 +158,7 @@ Repo Commits:
 - [`2623b9`](https://github.com/keplersj/ovit/commit/2623b919a7f5e5bb80821e7974cb0346593fba16)
 - [`974371`](https://github.com/keplersj/ovit/commit/9743716347fffe5cb179ccfc45d6f6a1aeb301ba)
 
-# Day 19 - July 8, 2019
-
-# Day 20 - July 9, 2019
+# Day 15 - July 9, 2019
 
 Repo Commits:
 - [`b22665`](https://github.com/keplersj/ovit/commit/b22665ff2de2f7b06429d4dc73da6b3ab28984ca)
@@ -179,22 +169,14 @@ Repo Commits:
 - [`500f84`](https://github.com/keplersj/ovit/commit/500f8410ba684c59b46d124becbc50d2b18571de)
 - [`c3aaa3`](https://github.com/keplersj/ovit/commit/c3aaa3f28bde6a58f62e8c549cb6ebd85108fbdf)
 
-# Day 21 - July 10, 2019
-
-# Day 22 - July 11, 2019
-
-# Day 23 - July 12, 2019
+# Day 16 - July 12, 2019
 
 Repo Commits:
 - [`d9132b`](https://github.com/keplersj/ovit/commit/d9132b826a85b408433c9072497d2b2c58f4469a)
 
-# Day 24 - July 13, 2019
+# Day 17 - July 13, 2019
 
 Repo Commits:
 - [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
 
-# Day 25 - July 14, 2019
-
-# Day 26 - July 15, 2019
-
-# Day 27 - July 16, 2019
+# Day 18 - July 16, 2019
