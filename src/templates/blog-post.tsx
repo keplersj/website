@@ -1,16 +1,21 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import BaseLayout from "../layouts/Base";
 
 interface IProps {
-    data: any;
+  data: any;
 }
 
 class BlogPostTemplate extends React.Component<IProps> {
-    render() {
-        const post = this.props.data.markdownRemark;
+  render() {
+    const post = this.props.data.markdownRemark;
 
-        return <div dangerouslySetInnerHTML={{ __html: post.html }} />;
-    }
+    return (
+      <BaseLayout>
+        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+      </BaseLayout>
+    );
+  }
 }
 
 export default BlogPostTemplate;
@@ -34,5 +39,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-
+`;

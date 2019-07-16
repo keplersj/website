@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
+import BaseLayout from "../layouts/Base";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
   height: 100vh;
@@ -17,65 +18,9 @@ export default ({
 }: {
   data: { desktop: { childImageSharp: { fluid: any } } };
 }) => (
-  <>
+  <BaseLayout>
     <Global
       styles={css`
-        html {
-          background-color: #fff;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          min-width: 300px;
-          overflow-x: hidden;
-          overflow-y: scroll;
-          text-rendering: optimizeLegibility;
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-        }
-
-        *,
-        :after,
-        :before {
-          box-sizing: inherit;
-        }
-
-        blockquote,
-        body,
-        dd,
-        dl,
-        dt,
-        fieldset,
-        figure,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        hr,
-        html,
-        iframe,
-        legend,
-        li,
-        ol,
-        p,
-        pre,
-        textarea,
-        ul {
-          margin: 0;
-          padding: 0;
-        }
-
-        body,
-        button,
-        input,
-        select,
-        textarea {
-          font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            Helvetica, Arial, sans-serif;
-        }
-
         body {
           color: #505050;
           font-size: 1.5em;
@@ -97,7 +42,7 @@ export default ({
         </span>
       </div>
     </StyledBackgroundImage>
-  </>
+  </BaseLayout>
 );
 
 export const query = graphql`
