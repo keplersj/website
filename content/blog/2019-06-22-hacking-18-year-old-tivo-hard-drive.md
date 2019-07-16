@@ -100,3 +100,101 @@ Thanks to the Wikipedia entry on APM, we know that the drive is likely divided i
 ![](/content/images/annotation-2019-06-26-154008.png)
 
 Cool. Now we can more easily see the 13 partition entries on the drive. We can see the partition that contains the partition map we're currently interacting with. As well, as eight partitions related to the Linux install on the drive. The two `Ext2` partitions on there could be cool to poke around one day. We can see two MFS application partitions, and most importantly two MFS media regions. Awesome. Being able to visualize the disk like this has been incredibly helpful, and being able to reference the [partition map entry layout from Wikipedia](https://en.wikipedia.org/wiki/Apple_Partition_Map#Layout) is going to be very helpful as we charge forward.
+
+# Day 7 - June 26, 2019
+
+Repo Commits:
+- [`91c115`](https://github.com/keplersj/ovit/commit/91c11543341ff71740e74de349a62f43b0facaf4)
+- [`666348`](https://github.com/keplersj/ovit/commit/6663489391eca079f42585e4a8f40187d515b44d)
+- [`b39ff5`](https://github.com/keplersj/ovit/commit/b39ff53609c567fcf3230c0e88a2ed830e10f87c)
+- [`fcb493`](https://github.com/keplersj/ovit/commit/fcb49349353650e021d6de155fb0a3c60e3d1d55)
+
+# Day 8 - June 27, 2019
+
+Repo Commits:
+- [`3d934d`](https://github.com/keplersj/ovit/commit/3d934d96e5711876bd7bc77d0ce2f41bc521925f)
+
+# Day 9 - June 28, 2019
+
+# Day 10 - June 29, 2019
+
+# Day 11 - June 30, 2019
+
+# Day 12 - July 1, 2019
+
+# Day 13 - July 2, 2019
+
+Repo Commits:
+- [`983d23`](https://github.com/keplersj/ovit/commit/983d23b395a45d37c6b3bd6e8f1006cee1637079)
+
+# Day 14 - July 3, 2019
+
+Repo Commits:
+- [`e30152`](https://github.com/keplersj/ovit/commit/e301529b78a29531f16be26b9504de8c1691eb4d)
+- [`46a9df`](https://github.com/keplersj/ovit/commit/46a9df2ee5883a2082a977f5af05e08b12255f0c)
+- [`6f1b1e`](https://github.com/keplersj/ovit/commit/6f1b1e37628095ffa7e99920f7fb6b7a8b7846ae)
+- [`5cd36a`](https://github.com/keplersj/ovit/commit/5cd36a79606e2d1069135469ae6d4fbdcc8895a5)
+- [`ebcfe0`](https://github.com/keplersj/ovit/commit/ebcfe05b9e8b2915a6218770db3ce479bb381413)
+- [`4c7d24`](https://github.com/keplersj/ovit/commit/4c7d24917a607665943016a8eb9e2d8cd2feacd8)
+- [`c4109d`](https://github.com/keplersj/ovit/commit/c4109d5e541f3e311adef6a3b67d653ab378a0fc)
+
+# Day 15 - July 4, 2019
+
+Repo Commits:
+- [`95020e`](https://github.com/keplersj/ovit/commit/95020e0375e42fc9849e83ac36a3ca3b71e2c1e6)
+- [`706101`](https://github.com/keplersj/ovit/commit/706101519d5d542419070d796daae38f918eb1de)
+- [`3c9dff`](https://github.com/keplersj/ovit/commit/3c9dff0a5883887a276367232fecb9db33d41211)
+
+# Day 16 - July 5, 2019
+
+Repo Commits:
+- [`a01781`](https://github.com/keplersj/ovit/commit/a01781d6f71a610965c45c3be2793179e2fc27c9)
+
+# Day 17 - July 6, 2019
+
+Repo Commits:
+- [`fdb953`](https://github.com/keplersj/ovit/commit/fdb953930d5cbf8baa06db15e1865be82b9dc853)
+
+# Day 18 - July 7, 2019
+
+Repo Commits:
+- [`9ad2fe`](https://github.com/keplersj/ovit/commit/9ad2fe4f5e0382f05438dc7726624c8dbc1b34ae)
+- [`5f8d46`](https://github.com/keplersj/ovit/commit/5f8d467abeb06e9404cf616bcfefec29eb09cbd6)
+- [`438db1`](https://github.com/keplersj/ovit/commit/438db1b2e47a35b1cdc5be746f369853d6a8d284)
+- [`a614f3`](https://github.com/keplersj/ovit/commit/a614f335eeaae4d731b46942acfbdd7891ce5ea6)
+- [`1686c2`](https://github.com/keplersj/ovit/commit/1686c254c3931e104d13974e4d18c72ac9a9861f)
+- [`2623b9`](https://github.com/keplersj/ovit/commit/2623b919a7f5e5bb80821e7974cb0346593fba16)
+- [`974371`](https://github.com/keplersj/ovit/commit/9743716347fffe5cb179ccfc45d6f6a1aeb301ba)
+
+# Day 19 - July 8, 2019
+
+# Day 20 - July 9, 2019
+
+Repo Commits:
+- [`b22665`](https://github.com/keplersj/ovit/commit/b22665ff2de2f7b06429d4dc73da6b3ab28984ca)
+- [`5549bd`](https://github.com/keplersj/ovit/commit/5549bdd48e38f88d9ee8cc4cc387174cc484b410)
+- [`e41402`](https://github.com/keplersj/ovit/commit/e41402ad820896009d95c9f05ae9ec4bbdba5875)
+- [`7fc888`](https://github.com/keplersj/ovit/commit/7fc88846d97b3e8789cd352ca902eddab1c9dbd3)
+- [`32528c`](https://github.com/keplersj/ovit/commit/32528ca4ea4a841b69aa9b591b05d5d0ca7ac38e)
+- [`500f84`](https://github.com/keplersj/ovit/commit/500f8410ba684c59b46d124becbc50d2b18571de)
+- [`c3aaa3`](https://github.com/keplersj/ovit/commit/c3aaa3f28bde6a58f62e8c549cb6ebd85108fbdf)
+
+# Day 21 - July 10, 2019
+
+# Day 22 - July 11, 2019
+
+# Day 23 - July 12, 2019
+
+Repo Commits:
+- [`d9132b`](https://github.com/keplersj/ovit/commit/d9132b826a85b408433c9072497d2b2c58f4469a)
+
+# Day 24 - July 13, 2019
+
+Repo Commits:
+- [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
+
+# Day 25 - July 14, 2019
+
+# Day 26 - July 15, 2019
+
+# Day 27 - July 16, 2019
