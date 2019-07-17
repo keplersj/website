@@ -18,7 +18,7 @@ export default ({
 }: {
   data: { desktop: { childImageSharp: { fluid: any } } };
 }) => (
-  <BaseLayout title="404!">
+  <BaseLayout title="404!" hideNavbar>
     <Global
       styles={css`
         body {

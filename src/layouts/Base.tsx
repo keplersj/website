@@ -2,10 +2,12 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Global, css } from "@emotion/core";
 import { StaticQuery, graphql } from "gatsby";
+import { Navbar } from "../components/Navbar";
 
 interface Props {
   title?: String;
   description?: String;
+  hideNavbar?: boolean;
 }
 
 export default (props: React.PropsWithChildren<Props>) => (
@@ -172,6 +174,8 @@ export default (props: React.PropsWithChildren<Props>) => (
             }
           `}
         />
+
+        {!props.hideNavbar && <Navbar />}
 
         {props.children}
       </>
