@@ -105,7 +105,8 @@ export default (props: React.PropsWithChildren<Props>) => (
                 `https://github.com/${data.site.siteMetadata.githubUsername}`
               ],
               image: data.file.childImageSharp.fixed.src,
-              gender: "Male"
+              gender: "Male",
+              description: data.site.siteMetadata.description
             })}
           </script>
         </Helmet>
