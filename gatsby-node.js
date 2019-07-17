@@ -5,18 +5,17 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve("./src/templates/blog-post.tsx");
+  const projectPage = path.resolve("./src/templates/project-page.tsx");
 
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        allMarkdownRemark {
           edges {
             node {
               fields {
                 slug
+                collection
               }
               frontmatter {
                 title
@@ -32,18 +31,41 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges;
+  const allEdges = result.data.allMarkdownRemark.edges;
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  const blogEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `blog`
+  );
+  const projectEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `projects`
+  );
+
+  blogEdges.forEach((post, index) => {
+    const previous =
+      index === blogEdges.length - 1 ? null : blogEdges[index + 1].node;
+    const next = index === 0 ? null : blogEdges[index - 1].node;
 
     createPage({
       path: post.node.fields.slug,
       component: blogPost,
       context: {
         slug: post.node.fields.slug,
+        previous,
+        next
+      }
+    });
+  });
+
+  projectEdges.forEach((project, index) => {
+    const previous =
+      index === projectEdges.length - 1 ? null : projectEdges[index + 1].node;
+    const next = index === 0 ? null : projectEdges[index - 1].node;
+
+    createPage({
+      path: project.node.fields.slug,
+      component: projectPage,
+      context: {
+        slug: project.node.fields.slug,
         previous,
         next
       }
@@ -57,18 +79,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    // Use `createFilePath` to turn markdown files in our `content/blog` directory into `/blog/slug`
+    const parent = getNode(node.parent);
+
+    const collection = parent.sourceInstanceName;
+
     const relativeFilePath = createFilePath({
       node,
       getNode,
-      basePath: "content/blog"
+      basePath: `content/${collection}`
     });
 
-    // Creates new query'able field with name of 'slug'
+    createNodeField({
+      node,
+      name: "collection",
+      value: collection
+    });
+
     createNodeField({
       node,
       name: "slug",
-      value: `/blog${relativeFilePath}`
+      value: `/${collection}${relativeFilePath}`
     });
   }
 };

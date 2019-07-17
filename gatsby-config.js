@@ -50,6 +50,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
+                  filter: {fields: {collection: {eq: "blog"}}},
                   sort: { order: DESC, fields: [frontmatter___date] },
                 ) {
                   edges {
@@ -106,6 +107,13 @@ module.exports = {
       options: {
         path: path.join(__dirname, "content", "blog"),
         name: "blog"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: path.join(__dirname, "content", "projects"),
+        name: "projects"
       }
     },
     {

@@ -14,31 +14,24 @@ const Posts = styled.div`
   }
 `;
 
-const Post = styled.div`
+const Project = styled.div`
   :not(:last-child) {
     margin-bottom: 1.5rem;
   }
 `;
 
 export default ({ data }: any) => (
-  <BaseLayout title="Blog">
+  <BaseLayout title="Projects">
     <Posts>
-      <h1>Blog</h1>
+      <h1>Projects</h1>
       <div>
         {data.allMarkdownRemark.edges.map(({ node }: any) => (
-          <Post key={node.id}>
+          <Project key={node.id}>
             <Link to={node.fields.slug}>
               <h2>{node.frontmatter.title}</h2>
             </Link>
-            <div>
-              <span>Published {node.frontmatter.date}</span>
-              <span>{" | "}</span>
-              <span>{node.wordCount.words} words</span>
-              <span>{" | "}</span>
-              <span>{node.timeToRead} minute read</span>
-            </div>
             <div>{node.frontmatter.description || node.excerpt}</div>
-          </Post>
+          </Project>
         ))}
       </div>
     </Posts>
@@ -48,8 +41,8 @@ export default ({ data }: any) => (
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { collection: { eq: "blog" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { fields: { collection: { eq: "projects" } } }
+      sort: { order: ASC, fields: [frontmatter___title] }
     ) {
       edges {
         node {
@@ -60,12 +53,7 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
             description
-          }
-          timeToRead
-          wordCount {
-            words
           }
         }
       }
