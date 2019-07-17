@@ -85,30 +85,6 @@ export default (props: React.PropsWithChildren<Props>) => (
             name="twitter:creator"
             content={"@" + data.site.siteMetadata.twitterUsername}
           />
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "http://www.schema.org",
-              "@type": "person",
-              name: "Kepler Sticka-Jones",
-              url: data.site.siteMetadata.siteUrl,
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Salt Lake City",
-                addressRegion: "UT",
-                addressCountry: "USA"
-              },
-              email: "kepler@stickajones.org",
-              sameAs: [
-                `https://twitter.com/${data.site.siteMetadata.twitterUsername}`,
-                `https://www.instagram.com/${data.site.siteMetadata.instagramUsername}/`,
-                `https://www.linkedin.com/in/${data.site.siteMetadata.linkedinUsername}/`,
-                `https://github.com/${data.site.siteMetadata.githubUsername}`
-              ],
-              image: data.file.childImageSharp.fixed.src,
-              gender: "Male",
-              description: data.site.siteMetadata.description
-            })}
-          </script>
         </Helmet>
 
         <Global

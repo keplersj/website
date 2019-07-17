@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
+import { Helmet } from "react-helmet";
 import Img from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -203,53 +204,126 @@ const CenteredColumn = styled(Centered)`
   width: 66.6666%;
 `;
 
-export default ({
-  data
-}: {
-  data: { file: { childImageSharp: { fixed: any } } };
-}) => (
-  <BaseLayout hideNavbar>
-    <Hero>
-      <HeroBody>
-        <Container>
-          <Columns>
-            <CenteredColumn>
-              <Avatar fixed={data.file.childImageSharp.fixed} />
-              <Name>Kepler Sticka-Jones</Name>
-              <br />
-              <Centered>
-                <Button href="https://github.com/keplersj">
-                  <Icon>
-                    <FontAwesomeIcon icon={faGithub} />
-                  </Icon>
-                  <span>Code</span>
-                </Button>
-                <Button href="https://twitter.com/realKeplerSJ">
-                  <Icon>
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </Icon>
-                  <span>Tweets</span>
-                </Button>
-                <LocalButton to="/blog">
-                  <span>Blog</span>
-                </LocalButton>
-                <LocalButton to="/projects">
-                  <span>Projects</span>
-                </LocalButton>
-                <LocalButton to="/contact">
-                  <span>Contact</span>
-                </LocalButton>
-              </Centered>
-            </CenteredColumn>
-          </Columns>
-        </Container>
-      </HeroBody>
-    </Hero>
-  </BaseLayout>
+export default ({ data, path }: any) => (
+  <>
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "http://www.schema.org",
+          "@type": "WebSite",
+          name: "Kepler Sticka-Jones",
+          description: data.site.siteMetadata.description,
+          url: data.site.siteMetadata.siteUrl,
+          about: {
+            "@type": "person",
+            name: "Kepler Sticka-Jones",
+            description: data.site.siteMetadata.description,
+            url: data.site.siteMetadata.siteUrl,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Salt Lake City",
+              addressRegion: "UT",
+              addressCountry: "USA"
+            },
+            email: "kepler@stickajones.org",
+            sameAs: [
+              `https://twitter.com/${data.site.siteMetadata.twitterUsername}`,
+              `https://www.instagram.com/${data.site.siteMetadata.instagramUsername}/`,
+              `https://www.linkedin.com/in/${data.site.siteMetadata.linkedinUsername}/`,
+              `https://github.com/${data.site.siteMetadata.githubUsername}`
+            ],
+            image: data.metadataImage.childImageSharp.fixed.src,
+            gender: "Male"
+          },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": path,
+                  name: "Kepler Sticka-Jones"
+                }
+              }
+            ]
+          }
+        })}
+      </script>
+    </Helmet>
+
+    <BaseLayout hideNavbar>
+      <Hero>
+        <HeroBody>
+          <Container>
+            <Columns>
+              <CenteredColumn>
+                <Avatar fixed={data.file.childImageSharp.fixed} />
+                <Name>Kepler Sticka-Jones</Name>
+                <br />
+                <Centered>
+                  <Button
+                    href={`https://github.com/${data.site.siteMetadata.githubUsername}`}
+                  >
+                    <Icon>
+                      <FontAwesomeIcon icon={faGithub} />
+                    </Icon>
+                    <span>Code</span>
+                  </Button>
+                  <Button
+                    href={`https://twitter.com/${data.site.siteMetadata.twitterUsername}`}
+                  >
+                    <Icon>
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </Icon>
+                    <span>Tweets</span>
+                  </Button>
+                  <LocalButton to="/blog">
+                    <span>Blog</span>
+                  </LocalButton>
+                  <LocalButton to="/projects">
+                    <span>Projects</span>
+                  </LocalButton>
+                  <LocalButton to="/contact">
+                    <span>Contact</span>
+                  </LocalButton>
+                </Centered>
+              </CenteredColumn>
+            </Columns>
+          </Container>
+        </HeroBody>
+      </Hero>
+    </BaseLayout>
+  </>
 );
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+        twitterUsername
+        instagramUsername
+        linkedinUsername
+        githubUsername
+      }
+    }
+
+    metadataImage: file(
+      relativePath: { eq: "avatar.jpg" }
+      sourceInstanceName: { eq: "images" }
+    ) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(width: 480, height: 480) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
     file(
       relativePath: { eq: "avatar.jpg" }
       sourceInstanceName: { eq: "images" }

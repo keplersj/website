@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
+import { Helmet } from "react-helmet";
 
 interface IProps {
   data: any;
@@ -23,23 +24,37 @@ class BlogPostTemplate extends React.Component<IProps> {
     const post = this.props.data.markdownRemark;
 
     return (
-      <BaseLayout
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      >
-        <Post>
-          <h1>{post.frontmatter.title}</h1>
-          <div>
-            <span>Published {post.frontmatter.date}</span>
-            <span>{" | "}</span>
-            <span>{post.wordCount.words} words</span>
-            <span>{" | "}</span>
-            <span>{post.timeToRead} minute read</span>
-          </div>
-          <br />
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Post>
-      </BaseLayout>
+      <>
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "http://www.schema.org",
+              "@type": "WebPage",
+              name: `${post.frontmatter.title} | Kepler Sticka-Jones`,
+              description: post.frontmatter.description || post.excerpt,
+              url: post.fields.slug
+            })}
+          </script>
+        </Helmet>
+
+        <BaseLayout
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+        >
+          <Post>
+            <h1>{post.frontmatter.title}</h1>
+            <div>
+              <span>Published {post.frontmatter.date}</span>
+              <span>{" | "}</span>
+              <span>{post.wordCount.words} words</span>
+              <span>{" | "}</span>
+              <span>{post.timeToRead} minute read</span>
+            </div>
+            <br />
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Post>
+        </BaseLayout>
+      </>
     );
   }
 }
@@ -57,6 +72,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

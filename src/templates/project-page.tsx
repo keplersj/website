@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
+import Helmet from "react-helmet";
 
 interface IProps {
   data: any;
@@ -23,16 +24,30 @@ class ProjectPageTemplate extends React.Component<IProps> {
     const post = this.props.data.markdownRemark;
 
     return (
-      <BaseLayout
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      >
-        <Content>
-          <h1>{post.frontmatter.title}</h1>
-          <br />
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Content>
-      </BaseLayout>
+      <>
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "http://www.schema.org",
+              "@type": "WebPage",
+              name: `${post.frontmatter.title} | Kepler Sticka-Jones`,
+              description: post.frontmatter.description || post.excerpt,
+              url: post.fields.slug
+            })}
+          </script>
+        </Helmet>
+
+        <BaseLayout
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+        >
+          <Content>
+            <h1>{post.frontmatter.title}</h1>
+            <br />
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Content>
+        </BaseLayout>
+      </>
     );
   }
 }
@@ -50,6 +65,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         description

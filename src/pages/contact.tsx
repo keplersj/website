@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
+import { Helmet } from "react-helmet";
 
 const Container = styled.div`
   text-align: center !important;
@@ -79,25 +80,38 @@ const NiceLink = styled.a`
 `;
 
 export default () => (
-  <BaseLayout title="Contact">
-    <ContactHero>
-      <HeroBody>
-        <Container>
-          <Contact>Contact</Contact>
-          <ContactItems>
-            Email:{" "}
-            <NiceLink href="mailto:kepler@stickajones.org">
-              kepler@stickajones.org
-            </NiceLink>
-          </ContactItems>
-          <ContactItems>
-            Public Key:{" "}
-            <NiceLink href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
-              BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
-            </NiceLink>
-          </ContactItems>
-        </Container>
-      </HeroBody>
-    </ContactHero>
-  </BaseLayout>
+  <>
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "http://www.schema.org",
+          "@type": "ContactPage",
+          name: "Contact | Kepler Sticka-Jones",
+          url: "/contact"
+        })}
+      </script>
+    </Helmet>
+
+    <BaseLayout title="Contact">
+      <ContactHero>
+        <HeroBody>
+          <Container>
+            <Contact>Contact</Contact>
+            <ContactItems>
+              Email:{" "}
+              <NiceLink href="mailto:kepler@stickajones.org">
+                kepler@stickajones.org
+              </NiceLink>
+            </ContactItems>
+            <ContactItems>
+              Public Key:{" "}
+              <NiceLink href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
+                BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
+              </NiceLink>
+            </ContactItems>
+          </Container>
+        </HeroBody>
+      </ContactHero>
+    </BaseLayout>
+  </>
 );
