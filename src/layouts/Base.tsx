@@ -103,7 +103,9 @@ export default (props: React.PropsWithChildren<Props>) => (
                 `https://www.instagram.com/${data.site.siteMetadata.instagramUsername}/`,
                 `https://www.linkedin.com/in/${data.site.siteMetadata.linkedinUsername}/`,
                 `https://github.com/${data.site.siteMetadata.githubUsername}`
-              ]
+              ],
+              image: data.file.childImageSharp.fixed.src,
+              gender: "Male"
             })}
           </script>
         </Helmet>
