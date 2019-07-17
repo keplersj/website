@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 const StyledBackgroundImage = styled(BackgroundImage)`
   height: 3rem;
   width: 100vw;
+  margin-bottom: 1em;
 `;
 
 const NavContainer = styled.nav`
