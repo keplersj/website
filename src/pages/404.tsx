@@ -6,11 +6,18 @@ import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
+  max-height: 100vh;
+  max-width: 100vw;
+`;
+
+const Container = styled.div`
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  backdrop-filter: blur(5px);
 `;
 
 export default ({
@@ -35,12 +42,14 @@ export default ({
       fluid={data.desktop.childImageSharp.fluid}
       backgroundColor={`#040e18`}
     >
-      <div>
-        <h1>404!</h1>
-        <span>
-          Maybe, go back to the <Link to="/">home page</Link>?
-        </span>
-      </div>
+      <Container>
+        <div>
+          <h1>404!</h1>
+          <span>
+            Maybe, go back to the <Link to="/">home page</Link>?
+          </span>
+        </div>
+      </Container>
     </StyledBackgroundImage>
   </BaseLayout>
 );
