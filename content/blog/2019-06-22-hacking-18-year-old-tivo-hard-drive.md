@@ -104,80 +104,91 @@ Cool. Now we can more easily see the 13 partition entries on the drive. We can s
 # Day 7 - June 26, 2019
 
 Repo Commits:
-- [`91c115`](https://github.com/keplersj/ovit/commit/91c11543341ff71740e74de349a62f43b0facaf4)
-- [`666348`](https://github.com/keplersj/ovit/commit/6663489391eca079f42585e4a8f40187d515b44d)
-- [`b39ff5`](https://github.com/keplersj/ovit/commit/b39ff53609c567fcf3230c0e88a2ed830e10f87c)
-- [`fcb493`](https://github.com/keplersj/ovit/commit/fcb49349353650e021d6de155fb0a3c60e3d1d55)
+
+* [`91c115`](https://github.com/keplersj/ovit/commit/91c11543341ff71740e74de349a62f43b0facaf4)
+* [`666348`](https://github.com/keplersj/ovit/commit/6663489391eca079f42585e4a8f40187d515b44d)
+* [`b39ff5`](https://github.com/keplersj/ovit/commit/b39ff53609c567fcf3230c0e88a2ed830e10f87c)
+* [`fcb493`](https://github.com/keplersj/ovit/commit/fcb49349353650e021d6de155fb0a3c60e3d1d55)
 
 # Day 8 - June 27, 2019
 
 Repo Commits:
-- [`3d934d`](https://github.com/keplersj/ovit/commit/3d934d96e5711876bd7bc77d0ce2f41bc521925f)
+
+* [`3d934d`](https://github.com/keplersj/ovit/commit/3d934d96e5711876bd7bc77d0ce2f41bc521925f)
 
 # Day 9 - July 2, 2019
 
 Repo Commits:
-- [`983d23`](https://github.com/keplersj/ovit/commit/983d23b395a45d37c6b3bd6e8f1006cee1637079)
+
+* [`983d23`](https://github.com/keplersj/ovit/commit/983d23b395a45d37c6b3bd6e8f1006cee1637079)
 
 # Day 10 - July 3, 2019
 
 Repo Commits:
-- [`e30152`](https://github.com/keplersj/ovit/commit/e301529b78a29531f16be26b9504de8c1691eb4d)
-- [`46a9df`](https://github.com/keplersj/ovit/commit/46a9df2ee5883a2082a977f5af05e08b12255f0c)
-- [`6f1b1e`](https://github.com/keplersj/ovit/commit/6f1b1e37628095ffa7e99920f7fb6b7a8b7846ae)
-- [`5cd36a`](https://github.com/keplersj/ovit/commit/5cd36a79606e2d1069135469ae6d4fbdcc8895a5)
-- [`ebcfe0`](https://github.com/keplersj/ovit/commit/ebcfe05b9e8b2915a6218770db3ce479bb381413)
-- [`4c7d24`](https://github.com/keplersj/ovit/commit/4c7d24917a607665943016a8eb9e2d8cd2feacd8)
-- [`c4109d`](https://github.com/keplersj/ovit/commit/c4109d5e541f3e311adef6a3b67d653ab378a0fc)
+
+* [`e30152`](https://github.com/keplersj/ovit/commit/e301529b78a29531f16be26b9504de8c1691eb4d)
+* [`46a9df`](https://github.com/keplersj/ovit/commit/46a9df2ee5883a2082a977f5af05e08b12255f0c)
+* [`6f1b1e`](https://github.com/keplersj/ovit/commit/6f1b1e37628095ffa7e99920f7fb6b7a8b7846ae)
+* [`5cd36a`](https://github.com/keplersj/ovit/commit/5cd36a79606e2d1069135469ae6d4fbdcc8895a5)
+* [`ebcfe0`](https://github.com/keplersj/ovit/commit/ebcfe05b9e8b2915a6218770db3ce479bb381413)
+* [`4c7d24`](https://github.com/keplersj/ovit/commit/4c7d24917a607665943016a8eb9e2d8cd2feacd8)
+* [`c4109d`](https://github.com/keplersj/ovit/commit/c4109d5e541f3e311adef6a3b67d653ab378a0fc)
 
 # Day 11 - July 4, 2019
 
 Repo Commits:
-- [`95020e`](https://github.com/keplersj/ovit/commit/95020e0375e42fc9849e83ac36a3ca3b71e2c1e6)
-- [`706101`](https://github.com/keplersj/ovit/commit/706101519d5d542419070d796daae38f918eb1de)
-- [`3c9dff`](https://github.com/keplersj/ovit/commit/3c9dff0a5883887a276367232fecb9db33d41211)
+
+* [`95020e`](https://github.com/keplersj/ovit/commit/95020e0375e42fc9849e83ac36a3ca3b71e2c1e6)
+* [`706101`](https://github.com/keplersj/ovit/commit/706101519d5d542419070d796daae38f918eb1de)
+* [`3c9dff`](https://github.com/keplersj/ovit/commit/3c9dff0a5883887a276367232fecb9db33d41211)
 
 # Day 12 - July 5, 2019
 
 Repo Commits:
-- [`a01781`](https://github.com/keplersj/ovit/commit/a01781d6f71a610965c45c3be2793179e2fc27c9)
+
+* [`a01781`](https://github.com/keplersj/ovit/commit/a01781d6f71a610965c45c3be2793179e2fc27c9)
 
 # Day 13 - July 6, 2019
 
 Repo Commits:
-- [`fdb953`](https://github.com/keplersj/ovit/commit/fdb953930d5cbf8baa06db15e1865be82b9dc853)
+
+* [`fdb953`](https://github.com/keplersj/ovit/commit/fdb953930d5cbf8baa06db15e1865be82b9dc853)
 
 # Day 14 - July 7, 2019
 
 Repo Commits:
-- [`9ad2fe`](https://github.com/keplersj/ovit/commit/9ad2fe4f5e0382f05438dc7726624c8dbc1b34ae)
-- [`5f8d46`](https://github.com/keplersj/ovit/commit/5f8d467abeb06e9404cf616bcfefec29eb09cbd6)
-- [`438db1`](https://github.com/keplersj/ovit/commit/438db1b2e47a35b1cdc5be746f369853d6a8d284)
-- [`a614f3`](https://github.com/keplersj/ovit/commit/a614f335eeaae4d731b46942acfbdd7891ce5ea6)
-- [`1686c2`](https://github.com/keplersj/ovit/commit/1686c254c3931e104d13974e4d18c72ac9a9861f)
-- [`2623b9`](https://github.com/keplersj/ovit/commit/2623b919a7f5e5bb80821e7974cb0346593fba16)
-- [`974371`](https://github.com/keplersj/ovit/commit/9743716347fffe5cb179ccfc45d6f6a1aeb301ba)
+
+* [`9ad2fe`](https://github.com/keplersj/ovit/commit/9ad2fe4f5e0382f05438dc7726624c8dbc1b34ae)
+* [`5f8d46`](https://github.com/keplersj/ovit/commit/5f8d467abeb06e9404cf616bcfefec29eb09cbd6)
+* [`438db1`](https://github.com/keplersj/ovit/commit/438db1b2e47a35b1cdc5be746f369853d6a8d284)
+* [`a614f3`](https://github.com/keplersj/ovit/commit/a614f335eeaae4d731b46942acfbdd7891ce5ea6)
+* [`1686c2`](https://github.com/keplersj/ovit/commit/1686c254c3931e104d13974e4d18c72ac9a9861f)
+* [`2623b9`](https://github.com/keplersj/ovit/commit/2623b919a7f5e5bb80821e7974cb0346593fba16)
+* [`974371`](https://github.com/keplersj/ovit/commit/9743716347fffe5cb179ccfc45d6f6a1aeb301ba)
 
 # Day 15 - July 9, 2019
 
 Repo Commits:
-- [`b22665`](https://github.com/keplersj/ovit/commit/b22665ff2de2f7b06429d4dc73da6b3ab28984ca)
-- [`5549bd`](https://github.com/keplersj/ovit/commit/5549bdd48e38f88d9ee8cc4cc387174cc484b410)
-- [`e41402`](https://github.com/keplersj/ovit/commit/e41402ad820896009d95c9f05ae9ec4bbdba5875)
-- [`7fc888`](https://github.com/keplersj/ovit/commit/7fc88846d97b3e8789cd352ca902eddab1c9dbd3)
-- [`32528c`](https://github.com/keplersj/ovit/commit/32528ca4ea4a841b69aa9b591b05d5d0ca7ac38e)
-- [`500f84`](https://github.com/keplersj/ovit/commit/500f8410ba684c59b46d124becbc50d2b18571de)
-- [`c3aaa3`](https://github.com/keplersj/ovit/commit/c3aaa3f28bde6a58f62e8c549cb6ebd85108fbdf)
+
+* [`b22665`](https://github.com/keplersj/ovit/commit/b22665ff2de2f7b06429d4dc73da6b3ab28984ca)
+* [`5549bd`](https://github.com/keplersj/ovit/commit/5549bdd48e38f88d9ee8cc4cc387174cc484b410)
+* [`e41402`](https://github.com/keplersj/ovit/commit/e41402ad820896009d95c9f05ae9ec4bbdba5875)
+* [`7fc888`](https://github.com/keplersj/ovit/commit/7fc88846d97b3e8789cd352ca902eddab1c9dbd3)
+* [`32528c`](https://github.com/keplersj/ovit/commit/32528ca4ea4a841b69aa9b591b05d5d0ca7ac38e)
+* [`500f84`](https://github.com/keplersj/ovit/commit/500f8410ba684c59b46d124becbc50d2b18571de)
+* [`c3aaa3`](https://github.com/keplersj/ovit/commit/c3aaa3f28bde6a58f62e8c549cb6ebd85108fbdf)
 
 # Day 16 - July 12, 2019
 
 Repo Commits:
-- [`d9132b`](https://github.com/keplersj/ovit/commit/d9132b826a85b408433c9072497d2b2c58f4469a)
+
+* [`d9132b`](https://github.com/keplersj/ovit/commit/d9132b826a85b408433c9072497d2b2c58f4469a)
 
 # Day 17 - July 13, 2019
 
 Repo Commits:
-- [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
+
+* [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
 
 # Day 18 - July 18, 2019
 
@@ -185,4 +196,4 @@ It's been a bit since I last did anything with this project. I've spent some tim
 
 While watching Carol's talk it occured to me that while writting all of oViT by hand in Rust definetly has its strengths, it is slower and more painful process. If I want a proper tool sooner than later, I should treat `mfs-tools` and `mfs-utils` as legacy code libraries and use the already written functions that I haven't implemented yet.
 
-Going to use the [`cc` crate](https://crates.io/crates/cc) to build the existing C code into oViT.
+Going to use the [`cc` crate](https://crates.io/crates/cc) to build the existing C code into oViT. Because it is very likely I'm going to need to patch and modify the C code for these projects, I'm not going to use git submodules to clone the codebases in. I've cloned `mfs-utils` from the [elitak/mfs-utils](https://github.com/elitak/mfs-utils) repo on GitHub, and `mfs-tools` from their [SourceForge page](https://sourceforge.net/p/mfstools/mfstools/ci/master/tree/). This should ensure I am working against the most recent copies of both codebases; with `mfs-utils`'s last commit in 2009 and `mfs-tools`'s last commit in 2015.
