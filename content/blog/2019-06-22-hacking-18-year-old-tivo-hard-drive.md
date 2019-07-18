@@ -179,4 +179,10 @@ Repo Commits:
 Repo Commits:
 - [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
 
-# Day 18 - July 16, 2019
+# Day 18 - July 18, 2019
+
+It's been a bit since I last did anything with this project. I've spent some time working on my website and have gotten cognitive distance from what I'm trying to do here. Earlier today I got to watch a really great talk from Carol Nichols called [Rust: A Language for the Next 40 Years](https://www.youtube.com/watch?v=A3AdN7U24iU&t=2914s). It was a great talk with a heavy dose of computational history. As someone that really values the intersection of technology and society, the comparision of systems languages to American railroads was amazing -- especially watching it a day after [the U.S. House Committee on Financial Services discussed the Rust language in respect to Facebook's Libra](https://www.c-span.org/video/?c4808083/rust-language-chosen).
+
+While watching Carol's talk it occured to me that while writting all of oViT by hand in Rust definetly has its strengths, it is slower and more painful process. If I want a proper tool sooner than later, I should treat `mfs-tools` and `mfs-utils` as legacy code libraries and use the already written functions that I haven't implemented yet.
+
+Going to use the [`cc` crate](https://crates.io/crates/cc) to build the existing C code into oViT.
