@@ -49,6 +49,7 @@
     "@types/jest": "^24.0.15",
     "@types/react-test-renderer": "^16.8.2",
     "babel-jest": "^24.8.0",
+    "babel-plugin-emotion": "^10.0.14",
     "babel-preset-gatsby": "^0.2.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
