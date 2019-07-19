@@ -17,5 +17,6 @@ module.exports = {
   },
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/loadershim.js"],
-  snapshotSerializers: ["jest-emotion"]
+  snapshotSerializers: ["jest-emotion"],
+  collectCoverage: true
 };
