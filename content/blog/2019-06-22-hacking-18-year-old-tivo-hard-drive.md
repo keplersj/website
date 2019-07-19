@@ -197,3 +197,7 @@ It's been a bit since I last did anything with this project. I've spent some tim
 While watching Carol's talk it occured to me that while writting all of oViT by hand in Rust definetly has its strengths, it is slower and more painful process. If I want a proper tool sooner than later, I should treat `mfs-tools` and `mfs-utils` as legacy code libraries and use the already written functions that I haven't implemented yet.
 
 Going to use the [`cc` crate](https://crates.io/crates/cc) to build the existing C code into oViT. Because it is very likely I'm going to need to patch and modify the C code for these projects, I'm not going to use git submodules to clone the codebases in. I've cloned `mfs-utils` from the [elitak/mfs-utils](https://github.com/elitak/mfs-utils) repo on GitHub, and `mfs-tools` from their [SourceForge page](https://sourceforge.net/p/mfstools/mfstools/ci/master/tree/). This should ensure I am working against the most recent copies of both codebases; with `mfs-utils`'s last commit in 2009 and `mfs-tools`'s last commit in 2015.
+
+![_Three Hours Later_](/content/images/wet_painters_063.jpg)
+
+Nope. Giving up on the FFI & Legacy Code idea. Good idea in concept, maybe not for this project right now. Got stuck with the code getting compiled, but not linked. Going to move all of today's commits into a seperate branch for later.
