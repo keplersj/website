@@ -8,13 +8,25 @@ beforeEach(() => {
     file: {
       childImageSharp: {
         fixed: {
-          base64: ""
+          base64: "",
+          width: 100,
+          height: 100,
+          src: "",
+          srcSet: ""
         }
       }
     },
     backdrop: {
       childImageSharp: {
-        fluid: {}
+        fluid: {
+          base64: "",
+          aspectRatio: "",
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
       }
     },
     site: {
@@ -50,12 +62,24 @@ describe("Index Page", () => {
             },
             metadataImage: {
               childImageSharp: {
-                fixed: {}
+                fixed: {
+                  base64: "",
+                  width: 100,
+                  height: 100,
+                  src: "",
+                  srcSet: ""
+                }
               }
             },
             file: {
               childImageSharp: {
-                fixed: {}
+                fixed: {
+                  base64: "",
+                  width: 100,
+                  height: 100,
+                  src: "",
+                  srcSet: ""
+                }
               }
             }
           }}

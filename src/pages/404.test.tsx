@@ -7,13 +7,25 @@ beforeEach(() => {
   (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
     backdrop: {
       childImageSharp: {
-        fluid: {}
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
       }
     },
     file: {
       childImageSharp: {
         fixed: {
-          base64: ""
+          base64: "",
+          width: 100,
+          height: 100,
+          src: "",
+          srcSet: ""
         }
       }
     },
@@ -28,7 +40,25 @@ beforeEach(() => {
 describe("404 Page", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Page data={{ desktop: { childImageSharp: { fluid: {} } } }} />)
+      .create(
+        <Page
+          data={{
+            desktop: {
+              childImageSharp: {
+                fluid: {
+                  base64: "",
+                  aspectRatio: 1.333,
+                  src: "",
+                  srcSet: "",
+                  srcWebp: "",
+                  srcSetWebp: "",
+                  sizes: ""
+                }
+              }
+            }
+          }}
+        />
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

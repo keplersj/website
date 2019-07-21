@@ -7,7 +7,15 @@ beforeEach(() => {
   (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
     backdrop: {
       childImageSharp: {
-        fluid: {}
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
       }
     }
   }));

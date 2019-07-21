@@ -8,13 +8,25 @@ beforeEach(() => {
     file: {
       childImageSharp: {
         fixed: {
-          base64: ""
+          base64: "",
+          width: 100,
+          height: 100,
+          src: "",
+          srcSet: ""
         }
       }
     },
     backdrop: {
       childImageSharp: {
-        fluid: {}
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
       }
     },
     site: {
