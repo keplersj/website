@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql, Link, StaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
 
@@ -44,40 +44,38 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export const Navbar = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        backdrop: file(
-          relativePath: { eq: "banner.jpg" }
-          sourceInstanceName: { eq: "images" }
-        ) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 4608) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+export const Navbar = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      backdrop: file(
+        relativePath: { eq: "banner.jpg" }
+        sourceInstanceName: { eq: "images" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 4608) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
-    `}
-  >
-    {data => (
-      <StyledBackgroundImage
-        Tag="div"
-        fluid={data.backdrop.childImageSharp.fluid}
-        backgroundColor={`#040e18`}
-      >
-        <NavContainer>
-          <LeftContent>
-            <StyledLink to="/">Kepler Sticka-Jones</StyledLink>
-          </LeftContent>
-          <RightContent>
-            <StyledLink to="/blog">Blog</StyledLink>
-            <StyledLink to="/projects">Projects</StyledLink>
-            <StyledLink to="/contact">Contact</StyledLink>
-          </RightContent>
-        </NavContainer>
-      </StyledBackgroundImage>
-    )}
-  </StaticQuery>
-);
+    }
+  `);
+
+  return (
+    <StyledBackgroundImage
+      Tag="div"
+      fluid={data.backdrop.childImageSharp.fluid}
+      backgroundColor={`#040e18`}
+    >
+      <NavContainer>
+        <LeftContent>
+          <StyledLink to="/">Kepler Sticka-Jones</StyledLink>
+        </LeftContent>
+        <RightContent>
+          <StyledLink to="/blog">Blog</StyledLink>
+          <StyledLink to="/projects">Projects</StyledLink>
+          <StyledLink to="/contact">Contact</StyledLink>
+        </RightContent>
+      </NavContainer>
+    </StyledBackgroundImage>
+  );
+};

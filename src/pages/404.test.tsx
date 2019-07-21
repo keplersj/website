@@ -1,30 +1,28 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { StaticQuery } from "gatsby";
+import { useStaticQuery } from "gatsby";
 import Page from "./404";
 
 beforeEach(() => {
-  (StaticQuery as jest.Mock).mockImplementationOnce(({ children }) =>
-    children({
-      backdrop: {
-        childImageSharp: {
-          fluid: {}
-        }
-      },
-      file: {
-        childImageSharp: {
-          fixed: {
-            base64: ""
-          }
-        }
-      },
-      site: {
-        siteMetadata: {
-          title: ""
+  (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
+    backdrop: {
+      childImageSharp: {
+        fluid: {}
+      }
+    },
+    file: {
+      childImageSharp: {
+        fixed: {
+          base64: ""
         }
       }
-    })
-  );
+    },
+    site: {
+      siteMetadata: {
+        title: ""
+      }
+    }
+  }));
 });
 
 describe("404 Page", () => {
