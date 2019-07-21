@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Projects Page renders correctly 1`] = `
+exports[`Blog Post Template renders correctly 1`] = `
 Array [
   .emotion-7 {
   height: 3rem;

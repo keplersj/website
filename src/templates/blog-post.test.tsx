@@ -33,7 +33,7 @@ beforeEach(() => {
   );
 });
 
-describe("Projects Page", () => {
+describe("Blog Post Template", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
