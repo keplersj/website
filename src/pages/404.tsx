@@ -68,7 +68,7 @@ export default ({
 );
 
 export const query = graphql`
-  query {
+  query FourOhFourPageData {
     desktop: file(
       relativePath: { eq: "banner.jpg" }
       sourceInstanceName: { eq: "images" }

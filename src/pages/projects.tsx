@@ -68,7 +68,7 @@ export default ({ data }: any) => (
 );
 
 export const query = graphql`
-  query {
+  query ProjectsPageData {
     allMarkdownRemark(
       filter: { fields: { collection: { eq: "projects" } } }
       sort: { order: ASC, fields: [frontmatter___title] }

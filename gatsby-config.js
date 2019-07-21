@@ -25,7 +25,7 @@ module.exports = {
       resolve: "gatsby-plugin-feed",
       options: {
         query: `
-          {
+          query SiteMetadataForRSS {
             site {
               siteMetadata {
                 title
@@ -48,7 +48,7 @@ module.exports = {
                 custom_elements: [{ "content:encoded": edge.node.html }]
               })),
             query: `
-              {
+              query BlogPostsForRSS {
                 allMarkdownRemark(
                   filter: {fields: {collection: {eq: "blog"}}},
                   sort: { order: DESC, fields: [frontmatter___date] },

@@ -213,7 +213,7 @@ export default ({ data, path }: any) => (
 );
 
 export const query = graphql`
-  query {
+  query IndexPageData {
     site {
       siteMetadata {
         title

@@ -73,7 +73,7 @@ export default ({ data, path }: any) => (
 );
 
 export const query = graphql`
-  query {
+  query BlogPageData {
     allMarkdownRemark(
       filter: { fields: { collection: { eq: "blog" } } }
       sort: { order: DESC, fields: [frontmatter___date] }

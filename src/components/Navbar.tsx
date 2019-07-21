@@ -46,7 +46,7 @@ const StyledLink = styled(Link)`
 
 export const Navbar = () => {
   const data = useStaticQuery(graphql`
-    query Navbar {
+    query NavbarData {
       backdrop: file(
         relativePath: { eq: "banner.jpg" }
         sourceInstanceName: { eq: "images" }
