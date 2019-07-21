@@ -2,8 +2,6 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Img from "gatsby-image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 
@@ -55,14 +53,6 @@ const Container = styled.div`
   @media screen and (min-width: 1216px) {
     max-width: 1152px;
   }
-`;
-
-const Icon = styled.span`
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  height: 1.5rem;
-  width: 1.5rem;
 `;
 
 const HeroBody = styled.div`
@@ -117,72 +107,9 @@ const Button = styled.a`
     border-color: transparent;
     color: #0a0a0a;
   }
-
-  ${Icon} {
-    height: 1.5em;
-    width: 1.5em;
-  }
-
-  ${Icon}:first-of-type:not(:last-child) {
-    margin-left: calc(-0.375em - 1px);
-    margin-right: 0.1875em;
-  }
 `;
 
-const LocalButton = styled(Link)`
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: none;
-  display: inline-flex;
-  height: 2.25em;
-  line-height: 1.5;
-  position: relative;
-  vertical-align: top;
-  text-decoration: none;
-
-  border-width: 1px;
-  cursor: pointer;
-  justify-content: center;
-  padding-bottom: calc(0.375em - 1px);
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  padding-top: calc(0.375em - 1px);
-  text-align: center;
-  white-space: nowrap;
-
-  background-color: white;
-  border-color: transparent;
-  color: #0a0a0a;
-
-  font-size: 1.5rem;
-
-  :hover {
-    border-color: #b5b5b5;
-    background-color: #f9f9f9;
-    border-color: transparent;
-    color: #0a0a0a;
-  }
-
-  :active {
-    outline: none;
-    background-color: #f2f2f2;
-    border-color: transparent;
-    color: #0a0a0a;
-  }
-
-  ${Icon} {
-    height: 1.5em;
-    width: 1.5em;
-  }
-
-  ${Icon}:first-of-type:not(:last-child) {
-    margin-left: calc(-0.375em - 1px);
-    margin-right: 0.1875em;
-  }
-`;
+const LocalButton = Button.withComponent(Link);
 
 const Columns = styled.div`
   align-items: center;
@@ -265,28 +192,16 @@ export default ({ data, path }: any) => (
                   <Button
                     href={`https://github.com/${data.site.siteMetadata.githubUsername}`}
                   >
-                    <Icon>
-                      <FontAwesomeIcon icon={faGithub} />
-                    </Icon>
-                    <span>Code</span>
+                    Code
                   </Button>
                   <Button
                     href={`https://twitter.com/${data.site.siteMetadata.twitterUsername}`}
                   >
-                    <Icon>
-                      <FontAwesomeIcon icon={faTwitter} />
-                    </Icon>
-                    <span>Tweets</span>
+                    Tweets
                   </Button>
-                  <LocalButton to="/blog">
-                    <span>Blog</span>
-                  </LocalButton>
-                  <LocalButton to="/projects">
-                    <span>Projects</span>
-                  </LocalButton>
-                  <LocalButton to="/contact">
-                    <span>Contact</span>
-                  </LocalButton>
+                  <LocalButton to="/blog">Blog</LocalButton>
+                  <LocalButton to="/projects">Projects</LocalButton>
+                  <LocalButton to="/contact">Contact</LocalButton>
                 </Centered>
               </CenteredColumn>
             </Columns>
