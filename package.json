@@ -5,7 +5,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "jest"
+    "test": "jest",
+    "lint:css": "stylelint './src/**/*.tsx'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
@@ -53,6 +54,8 @@
     "jest-emotion": "^10.0.14",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
     "ts-jest": "^24.0.2"
   }
 }
