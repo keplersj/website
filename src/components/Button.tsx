@@ -14,7 +14,6 @@ export const Button = styled.a`
   position: relative;
   vertical-align: top;
   text-decoration: none;
-
   border-width: 1px;
   cursor: pointer;
   justify-content: center;
@@ -26,6 +25,7 @@ export const Button = styled.a`
   white-space: nowrap;
   border-color: transparent;
   font-size: 1.5rem;
+
   /* outline: none; */
 
   :hover {

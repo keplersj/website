@@ -103,8 +103,8 @@ export default (props: React.PropsWithChildren<Props>) => {
           }
 
           *,
-          :after,
-          :before {
+          ::after,
+          ::before {
             box-sizing: inherit;
           }
 

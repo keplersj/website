@@ -6,10 +6,8 @@ import { Link as NiceLink } from "../components/Link";
 
 const Container = styled.div`
   text-align: center !important;
-
   flex-grow: 1;
   flex-shrink: 1;
-
   margin: 0 auto;
   position: relative;
   width: auto;
@@ -26,7 +24,6 @@ const Container = styled.div`
 const HeroBody = styled.div`
   align-items: center;
   display: flex;
-
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
@@ -34,7 +31,6 @@ const HeroBody = styled.div`
 
 const ContactHero = styled.section`
   min-height: 100vh;
-
   align-items: stretch;
   display: flex;
   flex-direction: column;
