@@ -276,3 +276,89 @@ exports[`Index Page renders correctly 1`] = `
   </div>
 </section>
 `;
+
+exports[`Index Page renders correctly 2`] = `
+Object {
+  "baseTag": Array [],
+  "bodyAttributes": Object {},
+  "defer": true,
+  "encode": true,
+  "htmlAttributes": Object {
+    "lang": "en",
+  },
+  "linkTags": Array [],
+  "metaTags": Array [
+    Object {
+      "content": "Kepler Sticka-Jones",
+      "name": "author",
+    },
+    Object {
+      "content": "",
+      "name": "description",
+    },
+    Object {
+      "content": "#409040",
+      "name": "theme-color",
+    },
+    Object {
+      "content": "",
+      "property": "og:title",
+    },
+    Object {
+      "content": "website",
+      "property": "og:type",
+    },
+    Object {
+      "content": "",
+      "property": "og:url",
+    },
+    Object {
+      "content": "",
+      "property": "og:image",
+    },
+    Object {
+      "content": "image/jpeg",
+      "property": "og:image:type",
+    },
+    Object {
+      "content": "480",
+      "property": "og:image:width",
+    },
+    Object {
+      "content": "480",
+      "property": "og:image:height",
+    },
+    Object {
+      "content": "",
+      "property": "og:description",
+    },
+    Object {
+      "content": "summary",
+      "name": "twitter:card",
+    },
+    Object {
+      "content": "@",
+      "name": "twitter:site",
+    },
+    Object {
+      "content": "@",
+      "name": "twitter:creator",
+    },
+    Object {
+      "content": "E5D802A305BE2DD99EB4484A4B1DD90E",
+      "name": "msvalidate.01",
+    },
+  ],
+  "noscriptTags": Array [],
+  "onChangeClientState": [Function],
+  "scriptTags": Array [
+    Object {
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"address\\":{\\"@type\\":\\"PostalAddress\\",\\"addressLocality\\":\\"Salt Lake City\\",\\"addressRegion\\":\\"UT\\",\\"addressCountry\\":\\"USA\\"},\\"email\\":\\"kepler@stickajones.org\\",\\"sameAs\\":[\\"https://twitter.com/\\",\\"https://www.instagram.com//\\",\\"https://www.linkedin.com/in//\\",\\"https://github.com/\\"],\\"image\\":\\"\\",\\"gender\\":\\"Male\\"},\\"breadcrumb\\":{\\"@type\\":\\"BreadcrumbList\\",\\"itemListElement\\":[{\\"@type\\":\\"ListItem\\",\\"position\\":1,\\"item\\":{\\"@id\\":\\"/\\",\\"name\\":\\"Kepler Sticka-Jones\\"}}]}}",
+      "type": "application/ld+json",
+    },
+  ],
+  "styleTags": Array [],
+  "title": undefined,
+  "titleAttributes": Object {},
+}
+`;

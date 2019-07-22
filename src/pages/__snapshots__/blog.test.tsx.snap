@@ -216,3 +216,89 @@ background-size: cover;
   </div>,
 ]
 `;
+
+exports[`Blog Page renders correctly 2`] = `
+Object {
+  "baseTag": Array [],
+  "bodyAttributes": Object {},
+  "defer": true,
+  "encode": true,
+  "htmlAttributes": Object {
+    "lang": "en",
+  },
+  "linkTags": Array [],
+  "metaTags": Array [
+    Object {
+      "content": "Kepler Sticka-Jones",
+      "name": "author",
+    },
+    Object {
+      "content": "",
+      "name": "description",
+    },
+    Object {
+      "content": "#409040",
+      "name": "theme-color",
+    },
+    Object {
+      "content": "Blog | ",
+      "property": "og:title",
+    },
+    Object {
+      "content": "website",
+      "property": "og:type",
+    },
+    Object {
+      "content": "",
+      "property": "og:url",
+    },
+    Object {
+      "content": "",
+      "property": "og:image",
+    },
+    Object {
+      "content": "image/jpeg",
+      "property": "og:image:type",
+    },
+    Object {
+      "content": "480",
+      "property": "og:image:width",
+    },
+    Object {
+      "content": "480",
+      "property": "og:image:height",
+    },
+    Object {
+      "content": "",
+      "property": "og:description",
+    },
+    Object {
+      "content": "summary",
+      "name": "twitter:card",
+    },
+    Object {
+      "content": "@",
+      "name": "twitter:site",
+    },
+    Object {
+      "content": "@",
+      "name": "twitter:creator",
+    },
+    Object {
+      "content": "E5D802A305BE2DD99EB4484A4B1DD90E",
+      "name": "msvalidate.01",
+    },
+  ],
+  "noscriptTags": Array [],
+  "onChangeClientState": [Function],
+  "scriptTags": Array [
+    Object {
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"CollectionPage\\",\\"name\\":\\"Blog | Kepler Sticka-Jones\\",\\"url\\":\\"/blog\\",\\"about\\":{\\"@type\\":\\"Blog | Kepler Sticka-Jones\\",\\"url\\":\\"/blog\\",\\"blogPosts\\":[{\\"@type\\":\\"BlogPost\\",\\"wordCount\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"url\\":\\"\\"}]}}",
+      "type": "application/ld+json",
+    },
+  ],
+  "styleTags": Array [],
+  "title": "Blog | ",
+  "titleAttributes": Object {},
+}
+`;
