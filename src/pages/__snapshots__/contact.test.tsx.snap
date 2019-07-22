@@ -173,10 +173,6 @@ background-size: cover;
   justify-content: space-between;
 }
 
-.emotion-7 * {
-  color: #363636 !important;
-}
-
 .emotion-6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -223,7 +219,6 @@ background-size: cover;
 }
 
 .emotion-0 {
-  color: #363636;
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.125;
@@ -234,7 +229,6 @@ background-size: cover;
 }
 
 .emotion-2 {
-  color: #363636;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125;
@@ -252,6 +246,16 @@ background-size: cover;
 
 .emotion-1:hover {
   box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.7);
+}
+
+@media (prefers-color-scheme:dark) {
+  .emotion-1 {
+    box-shadow: inset 0 -1px 0 0 rgba(255,255,255,0.5);
+  }
+
+  .emotion-1:hover {
+    box-shadow: inset 0 -2px 0 0 rgba(255,255,255,0.7);
+  }
 }
 
 <section

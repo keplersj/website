@@ -131,7 +131,25 @@ module.exports = {
       options: {
         plugins: [
           "gatsby-remark-smartypants",
-          "gatsby-remark-vscode",
+          {
+            resolve: "gatsby-remark-vscode",
+            options: {
+              colorTheme: {
+                defaultTheme: "Atom One Light",
+                prefersDarkTheme: "Atom One Dark"
+              },
+              extensions: [
+                {
+                  identifier: "akamud.vscode-theme-onedark",
+                  version: "2.1.0"
+                },
+                {
+                  identifier: "akamud.vscode-theme-onelight",
+                  version: "2.1.0"
+                }
+              ]
+            }
+          },
           "gatsby-remark-autolink-headers",
           // gatsby-remark-relative-images must
           // go before gatsby-remark-images

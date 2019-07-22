@@ -103,7 +103,6 @@ exports[`Index Page renders correctly 1`] = `
 }
 
 .emotion-1 {
-  color: #363636;
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.125;
@@ -146,24 +145,26 @@ exports[`Index Page renders correctly 1`] = `
   padding-top: calc(0.375em - 1px);
   text-align: center;
   white-space: nowrap;
-  background-color: white;
   border-color: transparent;
-  color: #0a0a0a;
   font-size: 1.5rem;
 }
 
 .emotion-2:hover {
-  border-color: #b5b5b5;
   background-color: #f9f9f9;
-  border-color: transparent;
-  color: #0a0a0a;
 }
 
 .emotion-2:active {
-  outline: none;
   background-color: #f2f2f2;
-  border-color: transparent;
-  color: #0a0a0a;
+}
+
+@media (prefers-color-scheme:dark) {
+  .emotion-2:hover {
+    background-color: #606060;
+  }
+
+  .emotion-2:active {
+    background-color: #d0d0d0;
+  }
 }
 
 <section

@@ -152,9 +152,26 @@ export default (props: React.PropsWithChildren<Props>) => {
             line-height: 1.5;
           }
 
-          /* li {
-            margin-left: 2em;
-          } */
+          a {
+            color: #4a4a4a;
+          }
+
+          @media (prefers-color-scheme: dark) {
+            html,
+            body {
+              background-color: #4a4a4a;
+              color: white;
+            }
+
+            a {
+              color: white;
+            }
+
+            /* For some reason Atom One Dark is setting this element to black, manual override. */
+            span.mtk1 {
+              color: white !important;
+            }
+          }
         `}
       />
 

@@ -30,7 +30,6 @@ const Centered = styled.div`
 `;
 
 const Name = styled.h1`
-  color: #363636;
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.125;
@@ -87,25 +86,26 @@ const Button = styled.a`
   padding-top: calc(0.375em - 1px);
   text-align: center;
   white-space: nowrap;
-
-  background-color: white;
   border-color: transparent;
-  color: #0a0a0a;
-
   font-size: 1.5rem;
+  /* outline: none; */
 
   :hover {
-    border-color: #b5b5b5;
     background-color: #f9f9f9;
-    border-color: transparent;
-    color: #0a0a0a;
   }
 
   :active {
-    outline: none;
     background-color: #f2f2f2;
-    border-color: transparent;
-    color: #0a0a0a;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :hover {
+      background-color: #606060;
+    }
+
+    :active {
+      background-color: #d0d0d0;
+    }
   }
 `;
 

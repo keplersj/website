@@ -38,16 +38,10 @@ const ContactHero = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  /* background-color: #409040 !important; */
-
-  * {
-    color: #363636 !important;
-  }
 `;
 
 const Contact = styled.h1`
-  color: #363636;
+  /* color: #363636; */
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.125;
@@ -58,7 +52,7 @@ const Contact = styled.h1`
 `;
 
 const ContactItems = styled.h3`
-  color: #363636;
+  /* color: #363636; */
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125;
@@ -70,12 +64,18 @@ const ContactItems = styled.h3`
 
 const NiceLink = styled.a`
   text-decoration: none;
-  /* box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5); */
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.5);
 
   :hover {
-    /* box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, 0.7); */
     box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
+
+    :hover {
+      box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, 0.7);
+    }
   }
 `;
 
