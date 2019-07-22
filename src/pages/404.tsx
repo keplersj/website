@@ -21,7 +21,7 @@ const Container = styled.div`
   backdrop-filter: blur(5px);
 `;
 
-export default ({
+const FourOhFourPage = ({
   data
 }: {
   data: { desktop: { childImageSharp: { fluid: any } } };
@@ -46,7 +46,7 @@ export default ({
             font-weight: 500;
             line-height: 1.5;
           }
-`}
+        `}
       />
 
       <StyledBackgroundImage
@@ -66,6 +66,8 @@ export default ({
     </BaseLayout>
   </>
 );
+
+export default FourOhFourPage;
 
 export const query = graphql`
   query FourOhFourPageData {

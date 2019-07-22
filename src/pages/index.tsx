@@ -78,7 +78,7 @@ const CenteredColumn = styled(Centered)`
   width: 66.6666%;
 `;
 
-export default ({ data, path }: any) => (
+const IndexPage = ({ data, path }: any) => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -158,6 +158,8 @@ export default ({ data, path }: any) => (
     </BaseLayout>
   </>
 );
+
+export default IndexPage;
 
 export const query = graphql`
   query IndexPageData {

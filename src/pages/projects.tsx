@@ -21,7 +21,7 @@ const Project = styled.div`
   }
 `;
 
-export default ({ data }: any) => (
+const ProjectsPage = ({ data }: any) => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -66,6 +66,8 @@ export default ({ data }: any) => (
     </BaseLayout>
   </>
 );
+
+export default ProjectsPage;
 
 export const query = graphql`
   query ProjectsPageData {

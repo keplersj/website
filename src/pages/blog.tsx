@@ -21,7 +21,7 @@ const Post = styled.div`
   }
 `;
 
-export default ({ data, path }: any) => (
+const BlogPage = ({ data, path }: any) => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -71,6 +71,8 @@ export default ({ data, path }: any) => (
     </BaseLayout>
   </>
 );
+
+export default BlogPage;
 
 export const query = graphql`
   query BlogPageData {

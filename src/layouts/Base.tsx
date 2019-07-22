@@ -5,12 +5,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Navbar } from "../components/Navbar";
 
 interface Props {
-  title?: String;
-  description?: String;
+  title?: string;
+  description?: string;
   hideNavbar?: boolean;
 }
 
-export default (props: React.PropsWithChildren<Props>) => {
+const BaseLayout = (props: React.PropsWithChildren<Props>) => {
   const data = useStaticQuery(graphql`
     query BaseLayoutData {
       site {
@@ -181,3 +181,5 @@ export default (props: React.PropsWithChildren<Props>) => {
     </>
   );
 };
+
+export default BaseLayout;

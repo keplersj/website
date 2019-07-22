@@ -59,7 +59,7 @@ const ContactItems = styled.h3`
   }
 `;
 
-export default () => (
+const ContactPage = () => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -95,3 +95,5 @@ export default () => (
     </BaseLayout>
   </>
 );
+
+export default ContactPage;
