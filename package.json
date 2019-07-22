@@ -62,6 +62,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "jest-emotion": "^10.0.14",
+    "jest-runner-eslint": "^0.7.4",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",
     "stylelint": "^10.1.0",
