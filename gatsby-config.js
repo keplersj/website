@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require("path");
 
 const {
@@ -21,6 +22,7 @@ module.exports = {
     githubUsername: "keplersj"
   },
   plugins: [
+    "gatsby-plugin-extract-schema",
     {
       resolve: "gatsby-plugin-feed",
       options: {

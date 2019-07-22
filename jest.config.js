@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
