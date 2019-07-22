@@ -173,8 +173,7 @@ background-size: cover;
     <h1>
       
     </h1>
-    <br />
-    <div
+    <section
       dangerouslySetInnerHTML={
         Object {
           "__html": "",

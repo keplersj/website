@@ -43,8 +43,8 @@ class ProjectPageTemplate extends React.Component<IProps> {
         >
           <Content>
             <h1>{post.frontmatter.title}</h1>
-            <br />
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            {/* <br /> */}
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </BaseLayout>
       </>

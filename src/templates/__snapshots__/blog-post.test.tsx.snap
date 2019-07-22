@@ -193,8 +193,7 @@ background-size: cover;
          minute read
       </span>
     </div>
-    <br />
-    <div
+    <article
       dangerouslySetInnerHTML={
         Object {
           "__html": "",

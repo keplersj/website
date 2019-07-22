@@ -50,8 +50,8 @@ class BlogPostTemplate extends React.Component<IProps> {
               <span>{" | "}</span>
               <span>{post.timeToRead} minute read</span>
             </div>
-            <br />
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            {/* <br /> */}
+            <article dangerouslySetInnerHTML={{ __html: post.html }} />
           </Post>
         </BaseLayout>
       </>

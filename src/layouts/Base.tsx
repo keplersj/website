@@ -125,12 +125,12 @@ export default (props: React.PropsWithChildren<Props>) => {
           html,
           iframe,
           legend,
-          li,
+          /* li, */
+          /* ul, */
           ol,
-          p,
-          pre,
-          textarea,
-          ul {
+          /* p, */
+          /* pre, */
+          textarea {
             margin: 0;
             padding: 0;
           }
@@ -151,6 +151,10 @@ export default (props: React.PropsWithChildren<Props>) => {
             font-weight: 400;
             line-height: 1.5;
           }
+
+          /* li {
+            margin-left: 2em;
+          } */
         `}
       />
 
