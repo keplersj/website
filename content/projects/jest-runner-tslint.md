@@ -1,7 +1,9 @@
 ---
 title: jest-runner-tslint
 description: Jest plugin to check all files in a projects against TSLint.
+github_repo: https://github.com/keplersj/jest-runner-tslint
 ---
+
 [GitHub Repo](https://github.com/keplersj/jest-runner-tslint)
 
 [![Build Status](https://travis-ci.org/keplersj/jest-runner-tslint.svg?branch=master)](https://travis-ci.org/keplersj/jest-runner-tslint)
@@ -26,6 +28,7 @@ npm install --save-dev jest jest-runner-tslint
 ### Add it to your Jest config
 
 In your `package.json`
+
 ```json
 {
   "jest": {
@@ -37,15 +40,17 @@ In your `package.json`
 ```
 
 Or in `jest.config.js`
+
 ```js
 module.exports = {
-  runner: 'jest-runner-tslint',
+  runner: "jest-runner-tslint",
   moduleFileExtensions: ["ts"],
-  testMatch: ["**/*.ts"],
-}
+  testMatch: ["**/*.ts"]
+};
 ```
 
 ### Run Jest
+
 ```bash
 yarn jest
 ```
@@ -53,12 +58,13 @@ yarn jest
 ## Options
 
 This project uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig), so you can provide config via:
-* a `jest-runner-tslint` property in your `package.json`
-* a `jest-runner-tslint.config.js` JS file
-* a `.jest-runner-tslintrc` JSON file
 
+- a `jest-runner-tslint` property in your `package.json`
+- a `jest-runner-tslint.config.js` JS file
+- a `.jest-runner-tslintrc` JSON file
 
 In `package.json`
+
 ```json
 {
   "jest-runner-tslint": {
@@ -70,21 +76,21 @@ In `package.json`
 ```
 
 or in `jest-runner-tslint.config.js`
+
 ```js
 module.exports = {
   cliOptions: {
     // Options here
   }
-}
+};
 ```
-
 
 ### cliOptions
 
 jest-runner-tslint maps a lot of ESLint CLI arguments to config options. For example `--fix` is `cliOptions.fix`
 
 | option              | default     | example                                                                                     |
-|---------------------|-------------|---------------------------------------------------------------------------------------------|
+| ------------------- | ----------- | ------------------------------------------------------------------------------------------- |
 | fix                 | `false`     | `"fix": true`                                                                               |
 | formatter           | `"stylish"` | `"formatter": "tap"`                                                                        |
 | formattersDirectory | `null`      | `"formattersDirectory": "node_modules/custom-tslint-formatters/formatters"`                 |

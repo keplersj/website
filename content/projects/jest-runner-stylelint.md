@@ -1,7 +1,9 @@
 ---
 title: jest-runner-stylelint
 description: Jest plugin to check all files in a projects against stylelint.
+github_repo: https://github.com/keplersj/jest-runner-stylelint
 ---
+
 [GitHub Repo](https://github.com/keplersj/jest-runner-stylelint)
 
 [![Build Status](https://travis-ci.org/keplersj/jest-runner-stylelint.svg?branch=master)](https://travis-ci.org/keplersj/jest-runner-stylelint)
@@ -47,12 +49,8 @@ In your `package.json`
 {
   "jest": {
     "runner": "jest-runner-stylelint",
-    "moduleFileExtensions": [
-      "css"
-    ],
-    "testMatch": [
-      "**/*.css"
-    ]
+    "moduleFileExtensions": ["css"],
+    "testMatch": ["**/*.css"]
   }
 }
 ```
@@ -62,12 +60,8 @@ Or in `jest.config.js`
 ```js
 module.exports = {
   runner: "jest-runner-stylelint",
-  moduleFileExtensions: [
-    "css"
-  ],
-  testMatch: [
-    "**/*.css"
-  ]
+  moduleFileExtensions: ["css"],
+  testMatch: ["**/*.css"]
 };
 ```
 
