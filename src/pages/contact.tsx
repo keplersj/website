@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
+import { Link as NiceLink } from "../components/Link";
 
 const Container = styled.div`
   text-align: center !important;
@@ -59,23 +60,6 @@ const ContactItems = styled.h3`
 
   :not(:last-child) {
     margin-bottom: 1.5rem;
-  }
-`;
-
-const NiceLink = styled.a`
-  text-decoration: none;
-  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.5);
-
-  :hover {
-    box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.7);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.5);
-
-    :hover {
-      box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, 0.7);
-    }
   }
 `;
 
