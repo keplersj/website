@@ -3,4 +3,5 @@ node_js:
   - node
   - lts/*
 after_success:
+  - npx stryker
   - bash <(curl -s https://codecov.io/bash)
