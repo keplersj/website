@@ -1,9 +1,10 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
+import { Button, GatsbyButton as LocalButton } from "../components/Button";
 
 const Avatar = styled(Img)`
   margin-top: -100px;
@@ -62,54 +63,6 @@ const HeroBody = styled.div`
   flex-shrink: 0;
   padding: 3rem 1.5rem;
 `;
-
-const Button = styled.a`
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: none;
-  display: inline-flex;
-  height: 2.25em;
-  line-height: 1.5;
-  position: relative;
-  vertical-align: top;
-  text-decoration: none;
-
-  border-width: 1px;
-  cursor: pointer;
-  justify-content: center;
-  padding-bottom: calc(0.375em - 1px);
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  padding-top: calc(0.375em - 1px);
-  text-align: center;
-  white-space: nowrap;
-  border-color: transparent;
-  font-size: 1.5rem;
-  /* outline: none; */
-
-  :hover {
-    background-color: #f9f9f9;
-  }
-
-  :active {
-    background-color: #f2f2f2;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :hover {
-      background-color: #606060;
-    }
-
-    :active {
-      background-color: #d0d0d0;
-    }
-  }
-`;
-
-const LocalButton = Button.withComponent(Link);
 
 const Columns = styled.div`
   align-items: center;
