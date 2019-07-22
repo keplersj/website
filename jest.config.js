@@ -1,5 +1,6 @@
 /* eslint-disable */
 module.exports = {
+  collectCoverage: true,
   projects: [
     {
       displayName: "test",
@@ -22,7 +23,8 @@ module.exports = {
       testURL: "http://localhost",
       setupFiles: ["<rootDir>/loadershim.js"],
       snapshotSerializers: ["jest-emotion"],
-      collectCoverage: true
+      collectCoverage: true,
+      coverageReporters: ["json", "text"]
     },
     {
       runner: "jest-runner-eslint",
