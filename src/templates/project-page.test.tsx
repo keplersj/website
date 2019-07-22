@@ -57,7 +57,6 @@ describe("Project Page Template", (): void => {
               },
               frontmatter: {
                 title: "",
-                date: "",
                 description: ""
               },
               timeToRead: "",
