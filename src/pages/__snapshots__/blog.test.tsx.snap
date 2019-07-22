@@ -181,27 +181,36 @@ background-size: cover;
       <div
         className="emotion-0"
       >
-        <a>
-          <h2 />
+        <a
+          href=""
+        >
+          <h2>
+            
+          </h2>
         </a>
         <div>
           <span>
             Published 
+            
           </span>
           <span>
              | 
           </span>
           <span>
+            
              words
           </span>
           <span>
              | 
           </span>
           <span>
+            
              minute read
           </span>
         </div>
-        <div />
+        <div>
+          
+        </div>
       </div>
     </div>
   </div>,

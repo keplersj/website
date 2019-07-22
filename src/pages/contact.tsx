@@ -59,7 +59,7 @@ const ContactItems = styled.h3`
   }
 `;
 
-const ContactPage = () => (
+const ContactPage = (): React.ReactElement => (
   <>
     <Helmet>
       <script type="application/ld+json">

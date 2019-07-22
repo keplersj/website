@@ -4,10 +4,6 @@ import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
 
-interface Props {
-  data: any;
-}
-
 const Post = styled.div`
   max-width: 55em;
   margin-left: auto;
@@ -19,7 +15,28 @@ const Post = styled.div`
   }
 `;
 
-const BlogPostTemplate = (props: Props) => {
+interface Props {
+  data: {
+    markdownRemark: {
+      excerpt: string;
+      html: string;
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        title: string;
+        date: string;
+        description: string;
+      };
+      timeToRead: string;
+      wordCount: {
+        words: string;
+      };
+    };
+  };
+}
+
+const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
   const post = props.data.markdownRemark;
 
   return (

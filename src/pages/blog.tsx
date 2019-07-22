@@ -21,7 +21,33 @@ const Post = styled.div`
   }
 `;
 
-const BlogPage = ({ data, path }: any) => (
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          id: string;
+          rawMarkdownBody: string;
+          excerpt: string;
+          fields: {
+            slug: string;
+          };
+          frontmatter: {
+            title: string;
+            date: string;
+            description: string;
+          };
+          timeToRead: string;
+          wordCount: {
+            words: string;
+          };
+        };
+      }[];
+    };
+  };
+}
+
+const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -33,7 +59,7 @@ const BlogPage = ({ data, path }: any) => (
           about: {
             "@type": "Blog | Kepler Sticka-Jones",
             url: "/blog",
-            blogPosts: data.allMarkdownRemark.edges.map(({ node }: any) => ({
+            blogPosts: data.allMarkdownRemark.edges.map(({ node }): object => ({
               "@type": "BlogPost",
               // articleBody: node.rawMarkdownBody,
               wordCount: node.wordCount.words,
@@ -51,21 +77,23 @@ const BlogPage = ({ data, path }: any) => (
       <Posts>
         <h1>Blog</h1>
         <div>
-          {data.allMarkdownRemark.edges.map(({ node }: any) => (
-            <Post key={node.id}>
-              <Link to={node.fields.slug}>
-                <h2>{node.frontmatter.title}</h2>
-              </Link>
-              <div>
-                <span>Published {node.frontmatter.date}</span>
-                <span>{" | "}</span>
-                <span>{node.wordCount.words} words</span>
-                <span>{" | "}</span>
-                <span>{node.timeToRead} minute read</span>
-              </div>
-              <div>{node.frontmatter.description || node.excerpt}</div>
-            </Post>
-          ))}
+          {data.allMarkdownRemark.edges.map(
+            ({ node }): React.ReactElement => (
+              <Post key={node.id}>
+                <Link to={node.fields.slug}>
+                  <h2>{node.frontmatter.title}</h2>
+                </Link>
+                <div>
+                  <span>Published {node.frontmatter.date}</span>
+                  <span>{" | "}</span>
+                  <span>{node.wordCount.words} words</span>
+                  <span>{" | "}</span>
+                  <span>{node.timeToRead} minute read</span>
+                </div>
+                <div>{node.frontmatter.description || node.excerpt}</div>
+              </Post>
+            )
+          )}
         </div>
       </Posts>
     </BaseLayout>

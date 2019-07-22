@@ -10,7 +10,9 @@ interface Props {
   hideNavbar?: boolean;
 }
 
-const BaseLayout = (props: React.PropsWithChildren<Props>) => {
+const BaseLayout = (
+  props: React.PropsWithChildren<Props>
+): React.ReactElement<React.PropsWithChildren<Props>> => {
   const data = useStaticQuery(graphql`
     query BaseLayoutData {
       site {

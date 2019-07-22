@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export const Navbar = () => {
+export const Navbar = (): React.ReactElement<{}> => {
   const data = useStaticQuery(graphql`
     query NavbarData {
       backdrop: file(

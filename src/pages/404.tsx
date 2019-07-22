@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import BackgroundImage, { IFluidObject } from "gatsby-background-image";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
@@ -21,11 +21,11 @@ const Container = styled.div`
   backdrop-filter: blur(5px);
 `;
 
-const FourOhFourPage = ({
-  data
-}: {
-  data: { desktop: { childImageSharp: { fluid: any } } };
-}) => (
+interface Props {
+  data: { desktop: { childImageSharp: { fluid: IFluidObject } } };
+}
+
+const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (
   <>
     <Helmet>
       <script type="application/ld+json">

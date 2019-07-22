@@ -54,19 +54,19 @@ describe("Blog Page", (): void => {
                 {
                   node: {
                     id: "",
-                    rawMarkdownBodyid: "",
-                    excerptid: "",
+                    rawMarkdownBody: "",
+                    excerpt: "",
                     fields: {
-                      slugid: ""
+                      slug: ""
                     },
                     frontmatter: {
-                      titleid: "",
-                      dateid: "",
-                      descriptionid: ""
+                      title: "",
+                      date: "",
+                      description: ""
                     },
-                    timeToReadid: "",
+                    timeToRead: "",
                     wordCount: {
-                      wordsid: ""
+                      words: ""
                     }
                   }
                 }

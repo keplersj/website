@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import Img from "gatsby-image";
+import Img, { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Button, GatsbyButton as LocalButton } from "../components/Button";
@@ -78,7 +78,36 @@ const CenteredColumn = styled(Centered)`
   width: 66.6666%;
 `;
 
-const IndexPage = ({ data, path }: any) => (
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        siteUrl: string;
+        twitterUsername: string;
+        instagramUsername: string;
+        linkedinUsername: string;
+        githubUsername: string;
+      };
+    };
+
+    metadataImage: {
+      childImageSharp: {
+        fixed: FixedObject;
+      };
+    };
+
+    file: {
+      childImageSharp: {
+        fixed: FixedObject;
+      };
+    };
+  };
+  path: string;
+}
+
+const IndexPage = ({ data, path }: Props): React.ReactElement<Props> => (
   <>
     <Helmet>
       <script type="application/ld+json">

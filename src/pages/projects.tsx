@@ -21,7 +21,28 @@ const Project = styled.div`
   }
 `;
 
-const ProjectsPage = ({ data }: any) => (
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          id: string;
+          rawMarkdownBody: string;
+          excerpt: string;
+          fields: {
+            slug: string;
+          };
+          frontmatter: {
+            title: string;
+            description: string;
+          };
+        };
+      }[];
+    };
+  };
+}
+
+const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -36,7 +57,7 @@ const ProjectsPage = ({ data }: any) => (
             url: "/projects",
             numberOfItems: data.allMarkdownRemark.edges.length,
             itemListElement: data.allMarkdownRemark.edges.map(
-              ({ node }: any) => ({
+              ({ node }): object => ({
                 "@type": "Thing",
                 name: node.frontmatter.title,
                 description: node.frontmatter.description || node.excerpt,
@@ -53,14 +74,16 @@ const ProjectsPage = ({ data }: any) => (
       <Posts>
         <h1>Projects</h1>
         <div>
-          {data.allMarkdownRemark.edges.map(({ node }: any) => (
-            <Project key={node.id}>
-              <Link to={node.fields.slug}>
-                <h2>{node.frontmatter.title}</h2>
-              </Link>
-              <div>{node.frontmatter.description || node.excerpt}</div>
-            </Project>
-          ))}
+          {data.allMarkdownRemark.edges.map(
+            ({ node }): React.ReactElement => (
+              <Project key={node.id}>
+                <Link to={node.fields.slug}>
+                  <h2>{node.frontmatter.title}</h2>
+                </Link>
+                <div>{node.frontmatter.description || node.excerpt}</div>
+              </Project>
+            )
+          )}
         </div>
       </Posts>
     </BaseLayout>
