@@ -3,8 +3,8 @@ import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
 import { Navbar } from "./Navbar";
 
-beforeEach(() => {
-  (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
+beforeEach((): void => {
+  (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
     backdrop: {
       childImageSharp: {
         fluid: {
@@ -21,8 +21,8 @@ beforeEach(() => {
   }));
 });
 
-describe("Navbar", () => {
-  it("renders correctly", () => {
+describe("Navbar", (): void => {
+  it("renders correctly", (): void => {
     const tree = renderer.create(<Navbar />).toJSON();
     expect(tree).toMatchSnapshot();
   });

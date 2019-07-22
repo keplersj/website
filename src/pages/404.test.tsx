@@ -3,8 +3,8 @@ import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
 import Page from "./404";
 
-beforeEach(() => {
-  (useStaticQuery as jest.Mock).mockImplementationOnce(() => ({
+beforeEach((): void => {
+  (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
     backdrop: {
       childImageSharp: {
         fluid: {
@@ -37,8 +37,8 @@ beforeEach(() => {
   }));
 });
 
-describe("404 Page", () => {
-  it("renders correctly", () => {
+describe("404 Page", (): void => {
+  it("renders correctly", (): void => {
     const tree = renderer
       .create(
         <Page

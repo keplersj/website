@@ -3,8 +3,8 @@ import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
 import Page from "./blog";
 
-beforeEach(() => {
-  (useStaticQuery as jest.Mock).mockImplementation(() => ({
+beforeEach((): void => {
+  (useStaticQuery as jest.Mock).mockImplementation((): object => ({
     file: {
       childImageSharp: {
         fixed: {
@@ -43,8 +43,8 @@ beforeEach(() => {
   }));
 });
 
-describe("Blog Page", () => {
-  it("renders correctly", () => {
+describe("Blog Page", (): void => {
+  it("renders correctly", (): void => {
     const tree = renderer
       .create(
         <Page
