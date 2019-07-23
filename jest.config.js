@@ -30,6 +30,48 @@ module.exports = {
       runner: "jest-runner-eslint",
       displayName: "lint:eslint",
       testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
+    },
+    {
+      runner: "jest-runner-prettier",
+      displayName: "lint:prettier",
+      moduleFileExtensions: [
+        "js",
+        "jsx",
+        "json",
+        "ts",
+        "tsx",
+        "css",
+        "less",
+        "scss",
+        "graphql",
+        "md",
+        "markdown"
+      ],
+      testMatch: [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.json",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.css",
+        "**/*.less",
+        "**/*.scss",
+        "**/*.graphql",
+        "**/*.md",
+        "**/*.markdown"
+      ],
+      testPathIgnorePatterns: [
+        "/.cache/",
+        "/coverage/",
+        "/content/", // Because the markdown files are likely to be written in CMS don't worry about this.
+        "/node_modules/",
+        "/public/",
+        "/reports/",
+        "/static/",
+        "/package-lock.json",
+        "package.json",
+        "/schema.json"
+      ]
     }
   ]
 };
