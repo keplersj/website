@@ -68,6 +68,7 @@
     "jest-emotion": "^10.0.14",
     "jest-runner-eslint": "^0.7.4",
     "jest-runner-prettier": "^0.2.7",
+    "jest-runner-stylelint": "^2.0.0",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.8.6",
     "stylelint": "^10.1.0",

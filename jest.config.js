@@ -72,6 +72,11 @@ module.exports = {
         "package.json",
         "/schema.json"
       ]
+    },
+    {
+      runner: "jest-runner-stylelint",
+      displayName: "lint:stylelint",
+      testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
     }
   ]
 };
