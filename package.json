@@ -56,7 +56,7 @@
     "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-emotion": "^10.0.14",
-    "babel-preset-gatsby": "^0.2.7",
+    "babel-preset-gatsby": "^0.2.8",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-graphql": "^3.0.3",
