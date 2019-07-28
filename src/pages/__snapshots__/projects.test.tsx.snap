@@ -67,7 +67,6 @@ Array [
         "position": "relative",
       }
     }
-    title=""
   >
     <style
       dangerouslySetInnerHTML={
