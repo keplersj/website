@@ -21,7 +21,7 @@ This is a simple little mod in both idea and execution. This mod will automatica
 
 Do you enjoy seeing statistical numbers? This mod is for you. All the statistics this mod collects are available on the
 
-[MCStats website](http://mcstats.org/).
+[MCStats website](https://mcstats.org/).
 
 Download v1.0 for Minecraft 1.6.2
 
@@ -45,10 +45,10 @@ Source Code? Wiki? Bug Reports?
 
 Can all be found at the [GitHub repository](https://github.com/keplersj/Alfred).
 
-Need to contact me? You can find me on [twitter](http://twitter.com/realKeplerSJ).
+Need to contact me? You can find me on [twitter](https://twitter.com/realKeplerSJ).
 
 Special Thanks goes out to:
 
 Hidendra, for providing an awesome open source Minecraft statistics service!
 
-![](http://api.mcstats.org/signature/cloaked+batman.png)
+![](https://api.mcstats.org/signature/cloaked+batman.png)
