@@ -5,6 +5,7 @@ description: >-
   An archive of a prompted discussion post discussing Anonymity and Governmental
   Surveillance.
 ---
+
 I was incredibly fortunate to have taken an AP English class during my senior year of high school. In this class, we analyzed and discussed a variety of books ranging from Robert Reich’s Aftershock: The Next Economy and America’s Future to George Orwell’s 1984. But more than the rich curriculum of literature we studied I’m thankful for the writing we did in the later part of the course.
 
 The teacher who taught the course was taking part in an experimental program, in collaboration with English teachers from other high schools throughout the country, to give high school seniors exposure to digital writing and publishing. In order to complete their writing assignments, students would publish prompted writing to [http://www.youthvoices.net/](http://www.youthvoices.net/) and use the platform to give feedback to other students on their writing. Shortly after graduating I got an email from the service alerting me that they were changing domains and the version I used for class was going to be archived. In the spirit of preserving my published writing from the service, below is one of the prompted articles I wrote.

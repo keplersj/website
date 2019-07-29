@@ -7,6 +7,7 @@ description: >-
   An archive of the Minecraft Forums post announcing the release of, Minecraft
   1.7.2 mod, BoatCraft v2.0.1.
 ---
+
 Below is an archive of the post announcing the release of version 2.0.1 of my Minecraft 1.7.2 mod BoatCraft on the Minecraft Forums on May 9, 2014.
 
 The content below was edited with correct URLs on July 28, 2019. The original post can be found on [Minecraft Forums](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1290984-1-7-2-forge-boatcraft-2-0-1-the-end-of-the-great).
@@ -14,6 +15,7 @@ The content below was edited with correct URLs on July 28, 2019. The original po
 ---
 
 # BoatCraft
+
 **By: [Kepler Sticka-Jones](https://keplersj.com/)**
 
 **Maintained By: [Open Code Developers](https://github.com/Open-Code-Developers)**
@@ -31,6 +33,7 @@ Feeling a bit risky? Want bleeding edge stuff? Aren't you lucky then that we off
 ## Support
 
 Support is offered by members of Open Code Developers in the following channels:
+
 - [The BoatCraft Thread on Minecraft Forums](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1290984-1-7-2-forge-boatcraft-2-0-1-the-end-of-the-great)
 - [The BoatCraft Gitter Chat Room](https://gitter.im/Open-Code-Developers/BoatCraft)
 - [The BoatCraft Issue Tracker on GitHub](https://github.com/keplersj/BoatCraft/issues)

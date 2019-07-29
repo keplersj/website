@@ -7,11 +7,12 @@ description: >-
   An archive of the Minecraft Forums post announcing the release of, Minecraft
   1.6 mod install statistics uploader, cloaked batman v1.0.2.
 ---
+
 Below is an archive of the post announcing the release of version 1.0.2 of my Minecraft 1.6.X mod cloaked batman on the Minecraft Forums on November 27, 2013.
 
 The content below was edited with correct URLs on July 28, 2019. The original post can be found on [Minecraft Forums](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1291302-1-6-x-fml-cloaked-batman-mod-statistics-publisher).
 
-- - -
+---
 
 cloaked batman
 
@@ -43,7 +44,7 @@ Need to contact me? You can find me on [twitter](http://twitter.com/realKeplerSJ
 
 Special Thanks goes out to:
 
-* Hidendra, for providing an awesome open source Minecraft statistics service!
-* ChickenBones, for making a great runtime dependency loader
+- Hidendra, for providing an awesome open source Minecraft statistics service!
+- ChickenBones, for making a great runtime dependency loader
 
 ![](https://api.mcstats.org/signature/cloaked%20batman.png)

@@ -3,13 +3,14 @@ title: Archive From Youth Voices — The “Issue” of Encryption
 date: 2016-02-02T07:00:00.000Z
 description: An archive of a prompted discussion post discussing the history of encryption.
 ---
+
 I was incredibly fortunate to have taken an AP English class during my senior year of high school. In this class, we analyzed and discussed a variety of books ranging from Robert Reich’s Aftershock: The Next Economy and America’s Future to George Orwell’s 1984. But more than the rich curriculum of literature we studied I’m thankful for the writing we did in the later part of the course.
 
 The teacher who taught the course was taking part in an experimental program, in collaboration with English teachers from other high schools throughout the country, to give high school seniors exposure to digital writing and publishing. In order to complete their writing assignments, students would publish prompted writing to [http://www.youthvoices.net/](http://www.youthvoices.net/) and use the platform to give feedback to other students on their writing. Shortly after graduating I got an email from the service alerting me that they were changing domains and the version I used for class was going to be archived. In the spirit of preserving my published writing from the service, below is one of the prompted articles I wrote.
 
 The original post can be found on [Archive.org](https://web.archive.org/web/20160419145749/http://www.youthvoices.net/discussion/issue-encryption).
 
-- - -
+---
 
 Since before the World Wars we as a people have made use of encryption and other forms of cryptography to protect themselves and their ideas. For most of this time cryptography had been considered a good thing which should be used and implemented by more people than heads of state and enterprise. However, in this postmodern age of terrorism cryptography has become the new boogieman feared by intelligence agencies and law enforcement alike; and beyond government officials cryptography has become the latest topic of fear pandered by mainstream media outlets, spreading the message that this technique of security is one of harm.
 
