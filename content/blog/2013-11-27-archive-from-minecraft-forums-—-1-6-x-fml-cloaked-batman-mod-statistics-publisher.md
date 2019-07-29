@@ -21,15 +21,15 @@ This is a simple little mod in both idea and execution. This mod will automatica
 
 Do you enjoy seeing statistical numbers? This mod is for you. All the statistics this mod collects are available on the [MCStats website](http://mcstats.org/).
 
-Download v1.0.2 for Minecraft 1.6.X [[Direct](https://github.com/keplersj/cloaked-batman/releases/download/v1.0.2/cloaked-batman-1.0.2.jar)]
+Download v1.0.2 for Minecraft 1.6.X [[Direct](https://github.com/keplersj/Alfred/releases/download/v1.0.2/cloaked-batman-1.0.2.jar)]
 
 Just drop in your 'mods' folder to install
 
-[Changelog and Older Versions](https://github.com/keplersj/cloaked-batman/releases)
+[Changelog and Older Versions](https://github.com/keplersj/Alfred/releases)
 
 License:
 
-cloaked batman is under the [Minecraft Mod Public License](https://github.com/keplersj/cloaked-batman/blob/master/LICENSE.md).
+cloaked batman is under the [Minecraft Mod Public License](https://github.com/keplersj/Alfred/blob/master/LICENSE.md).
 
 Modpacks:
 
@@ -37,7 +37,7 @@ Go nuts! In fact I encourage it! I would like it if I were credited and a link t
 
 Source Code? Wiki? Bug Reports?
 
-Can all be found at the [GitHub repository](http://github.com/keplersj/cloaked-batman).
+Can all be found at the [GitHub repository](http://github.com/keplersj/Alfred).
 
 Need to contact me? You can find me on [twitter](http://twitter.com/realKeplerSJ).
 
