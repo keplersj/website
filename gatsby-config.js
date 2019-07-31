@@ -22,6 +22,7 @@ module.exports = {
     githubUsername: "keplersj"
   },
   plugins: [
+    "gatsby-plugin-catch-links",
     "gatsby-plugin-extract-schema",
     {
       resolve: "gatsby-plugin-feed",
