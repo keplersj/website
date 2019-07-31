@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
 import { BlogPostItem as Post } from "../components/BlogPostItem";
+import { getDescription } from "../util";
 
 const Posts = styled.div`
   max-width: 55em;
@@ -59,7 +60,10 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
               // articleBody: node.rawMarkdownBody,
               wordCount: node.wordCount.words,
               name: node.frontmatter.title,
-              description: node.frontmatter.description || node.excerpt,
+              description: getDescription(
+                node.excerpt,
+                node.frontmatter.description
+              ),
               url: node.fields.slug
               // text: node.rawMarkdownBody
             }))
@@ -81,7 +85,10 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
                 publishDate={node.frontmatter.date}
                 wordCount={node.wordCount.words}
                 minutesNeededToRead={node.timeToRead}
-                description={node.frontmatter.description || node.excerpt}
+                description={getDescription(
+                  node.excerpt,
+                  node.frontmatter.description
+                )}
               />
             )
           )}

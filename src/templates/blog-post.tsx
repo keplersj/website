@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
+import { getDescription } from "../util";
 
 const Post = styled.div`
   max-width: 55em;
@@ -47,7 +48,10 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
             "@context": "http://www.schema.org",
             "@type": "WebPage",
             name: `${post.frontmatter.title} | Kepler Sticka-Jones`,
-            description: post.frontmatter.description || post.excerpt,
+            description: getDescription(
+              post.excerpt,
+              post.frontmatter.description
+            ),
             url: post.fields.slug
           })}
         </script>
@@ -55,7 +59,7 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
 
       <BaseLayout
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={getDescription(post.excerpt, post.frontmatter.description)}
       >
         <Post>
           <h1>{post.frontmatter.title}</h1>

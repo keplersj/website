@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { PortfolioListItem as Project } from "../components/PortfolioListItem";
+import { getDescription } from "../util";
 
 const Posts = styled.div`
   max-width: 55em;
@@ -55,7 +56,10 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
               ({ node }): object => ({
                 "@type": "Thing",
                 name: node.frontmatter.title,
-                description: node.frontmatter.description || node.excerpt,
+                description: getDescription(
+                  node.excerpt,
+                  node.frontmatter.description
+                ),
                 url: node.fields.slug
                 // text: node.rawMarkdownBody
               })
@@ -75,7 +79,10 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
                 key={node.id}
                 location={node.fields.slug}
                 title={node.frontmatter.title}
-                description={node.frontmatter.description || node.excerpt}
+                description={getDescription(
+                  node.excerpt,
+                  node.frontmatter.description
+                )}
               />
             )
           )}
