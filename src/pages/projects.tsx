@@ -1,8 +1,9 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
+import { PortfolioListItem as Project } from "../components/PortfolioListItem";
 
 const Posts = styled.div`
   max-width: 55em;
@@ -12,12 +13,6 @@ const Posts = styled.div`
   @media (max-width: 55em) {
     margin-left: 2em;
     margin-right: 2em;
-  }
-`;
-
-const Project = styled.div`
-  :not(:last-child) {
-    margin-bottom: 1.5rem;
   }
 `;
 
@@ -76,12 +71,12 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
         <div>
           {data.allMarkdownRemark.edges.map(
             ({ node }): React.ReactElement => (
-              <Project key={node.id}>
-                <Link to={node.fields.slug}>
-                  <h2>{node.frontmatter.title}</h2>
-                </Link>
-                <div>{node.frontmatter.description || node.excerpt}</div>
-              </Project>
+              <Project
+                key={node.id}
+                location={node.fields.slug}
+                title={node.frontmatter.title}
+                description={node.frontmatter.description || node.excerpt}
+              />
             )
           )}
         </div>
