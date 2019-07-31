@@ -7,7 +7,9 @@
     "format": "prettier --write 'src/**/*.js'",
     "test": "jest",
     "lint:css": "stylelint './src/**/*.tsx'",
-    "lint:js": "eslint './src/**/*.tsx'"
+    "lint:js": "eslint './src/**/*.tsx'",
+    "storybook": "NODE_ENV=production start-storybook -p 6006",
+    "build-storybook": "NODE_ENV=production build-storybook"
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
@@ -47,6 +49,12 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-actions": "^5.2.0-beta.19",
+    "@storybook/addon-knobs": "^5.2.0-beta.19",
+    "@storybook/addon-links": "^5.2.0-beta.19",
+    "@storybook/addons": "^5.2.0-beta.19",
+    "@storybook/react": "^5.2.0-beta.19",
     "@stryker-mutator/core": "^2.0.2",
     "@stryker-mutator/html-reporter": "^2.0.2",
     "@stryker-mutator/jest-runner": "^2.0.2",
@@ -56,6 +64,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.14",
     "babel-preset-gatsby": "^0.2.8",
     "eslint": "^6.1.0",
