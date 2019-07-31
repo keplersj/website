@@ -5,8 +5,9 @@ module.exports = {
   ...gatsby,
   graphql: jest.fn(),
   Link: jest.fn().mockImplementation(
-    // these props are invalid for an `a` tag
     ({
+      // these props are invalid for an `a` tag
+      /* eslint-disable @typescript-eslint/no-unused-vars */
       activeClassName,
       activeStyle,
       getProps,
@@ -14,9 +15,10 @@ module.exports = {
       partiallyActive,
       ref,
       replace,
+      /* eslint-enable @typescript-eslint/no-unused-vars */
       to,
       ...rest
-    }) =>
+    }): React.ReactElement =>
       React.createElement("a", {
         ...rest,
         href: to
