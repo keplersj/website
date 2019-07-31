@@ -7,6 +7,7 @@ module.exports = function(config) {
     mutate: [
       "src/**/*.ts?(x)",
       "!src/**/*@(.test|.spec|Spec).ts?(x)",
+      "!src/**/*@(.stories).ts?(x)",
       "!src/__mocks__/**/*.ts?(x)"
     ],
     mutator: "typescript",
