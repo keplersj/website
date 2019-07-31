@@ -1,8 +1,9 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
+import { BlogPostItem as Post } from "../components/BlogPostItem";
 
 const Posts = styled.div`
   max-width: 55em;
@@ -12,12 +13,6 @@ const Posts = styled.div`
   @media (max-width: 55em) {
     margin-left: 2em;
     margin-right: 2em;
-  }
-`;
-
-const Post = styled.div`
-  :not(:last-child) {
-    margin-bottom: 1.5rem;
   }
 `;
 
@@ -79,19 +74,15 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
         <div>
           {data.allMarkdownRemark.edges.map(
             ({ node }): React.ReactElement => (
-              <Post key={node.id}>
-                <Link to={node.fields.slug}>
-                  <h2>{node.frontmatter.title}</h2>
-                </Link>
-                <div>
-                  <span>Published {node.frontmatter.date}</span>
-                  <span>{" | "}</span>
-                  <span>{node.wordCount.words} words</span>
-                  <span>{" | "}</span>
-                  <span>{node.timeToRead} minute read</span>
-                </div>
-                <div>{node.frontmatter.description || node.excerpt}</div>
-              </Post>
+              <Post
+                key={node.id}
+                location={node.fields.slug}
+                title={node.frontmatter.title}
+                publishDate={node.frontmatter.date}
+                wordCount={node.wordCount.words}
+                minutesNeededToRead={node.timeToRead}
+                description={node.frontmatter.description || node.excerpt}
+              />
             )
           )}
         </div>
