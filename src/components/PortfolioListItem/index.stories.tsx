@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PortfolioListItem } from "./PortfolioListItem";
+import { PortfolioListItem } from ".";
 import { text, withKnobs } from "@storybook/addon-knobs";
 
 export default {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { BlogPostItem } from "./BlogPostItem";
+import { BlogPostItem } from ".";
 
 describe("Blog Post List Item", (): void => {
   it("renders correctly", (): void => {

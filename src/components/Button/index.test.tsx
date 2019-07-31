@@ -1,6 +1,6 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { Button, GatsbyButton } from "./Button";
+import { Button, GatsbyButton } from ".";
 
 describe("Button", (): void => {
   it("renders correctly", (): void => {

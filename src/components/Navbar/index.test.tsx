@@ -1,7 +1,7 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
-import { Navbar } from "./Navbar";
+import { Navbar } from ".";
 
 beforeEach((): void => {
   (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({

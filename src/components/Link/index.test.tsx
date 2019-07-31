@@ -1,6 +1,6 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { Link, GatsbyLink } from "./Link";
+import { Link, GatsbyLink } from ".";
 
 describe("Link", (): void => {
   it("renders correctly", (): void => {

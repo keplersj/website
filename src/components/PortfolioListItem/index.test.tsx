@@ -1,6 +1,6 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
-import { PortfolioListItem } from "./PortfolioListItem";
+import { PortfolioListItem } from ".";
 
 describe("Portfolio List Item", (): void => {
   it("renders correctly", (): void => {

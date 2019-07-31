@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BlogPostItem } from "./BlogPostItem";
+import { BlogPostItem } from ".";
 import { text, withKnobs, date, number } from "@storybook/addon-knobs";
 
 export default {

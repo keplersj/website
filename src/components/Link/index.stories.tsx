@@ -1,18 +1,18 @@
 import * as React from "react";
 import { text, withKnobs } from "@storybook/addon-knobs";
-import { Button, GatsbyButton } from "./Button";
+import { Link, GatsbyLink } from ".";
 
 export default {
-  title: "Button",
+  title: "Link",
   decorators: [withKnobs]
 };
 
 export const regular = (): React.ReactElement => (
-  <Button href={text("Location", "/test")}>{text("Content", "Test")}</Button>
+  <Link href={text("Location", "/test")}>{text("Content", "Test")}</Link>
 );
 
 export const gatsby = (): React.ReactElement => (
-  <GatsbyButton to={text("Location", "/test")}>
+  <GatsbyLink to={text("Location", "/test")}>
     {text("Content", "Test")}
-  </GatsbyButton>
+  </GatsbyLink>
 );
