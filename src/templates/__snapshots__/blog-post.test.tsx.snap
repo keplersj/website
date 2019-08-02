@@ -63,7 +63,6 @@ Array [
         "backgroundRepeat": "no-repeat",
         "backgroundSize": "cover",
         "opacity": 0.99,
-        "overflow": "hidden",
         "position": "relative",
       }
     }
