@@ -1,38 +1,22 @@
 /* eslint-disable */
 module.exports = {
   collectCoverage: true,
+  coverageReporters: ["json", "text"],
   projects: [
     {
       displayName: "test",
-      transform: {
-        "^.+\\.tsx?$": "ts-jest",
-        "^.+\\.jsx?$": "<rootDir>/.jest/gatsby-preprocess.js"
-      },
-      testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.([tj]sx?)$",
-      moduleNameMapper: {
-        ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-        ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-          "jest-raw-loader"
-      },
-      moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-      testPathIgnorePatterns: ["node_modules", ".cache"],
-      transformIgnorePatterns: ["node_modules/(?!(gatsby)/)"],
-      globals: {
-        __PATH_PREFIX__: ""
-      },
-      testURL: "http://localhost",
-      setupFiles: ["<rootDir>/.jest/loadershim.js"],
+      preset: "jest-preset-gatsby/typescript",
       snapshotSerializers: ["jest-emotion"],
       collectCoverage: true,
       coverageReporters: ["json", "text"]
     },
     {
-      runner: "jest-runner-eslint",
+      runner: "eslint",
       displayName: "lint:eslint",
       testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
     },
     {
-      runner: "jest-runner-prettier",
+      runner: "prettier",
       displayName: "lint:prettier",
       moduleFileExtensions: [
         "js",
@@ -74,7 +58,7 @@ module.exports = {
       ]
     },
     {
-      runner: "jest-runner-stylelint",
+      runner: "stylelint",
       displayName: "lint:stylelint",
       testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
     }
