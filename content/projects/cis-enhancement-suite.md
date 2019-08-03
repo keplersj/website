@@ -4,6 +4,7 @@ description: >-
   A browser extension that incrementally improves on the University of Utah CIS
   experience.
 ---
+
 [GitHub Repo](https://github.com/keplersj/cises)
 
 [![Build Status](https://travis-ci.org/keplersj/cises.svg?branch=master)](https://travis-ci.org/keplersj/cises)
@@ -18,12 +19,12 @@ A browser extension that incrementally improves on the University of Utah CIS ex
 
 ## Features
 
-* Rate My Professor Integration in Schedule Builder
+- Rate My Professor Integration in Schedule Builder
 
 ## Planned Features
 
-* (Planned) Rate My Professor Intergration in Class Checkout/Registration
-* (Planned) Google Calendar export for class registration
-* (Planned) CIS Search
+- (Planned) Rate My Professor Intergration in Class Checkout/Registration
+- (Planned) Google Calendar export for class registration
+- (Planned) CIS Search
 
 ![](/content/images/screenshot-1-chrome.png)
