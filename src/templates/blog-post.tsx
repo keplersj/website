@@ -52,7 +52,18 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
               post.excerpt,
               post.frontmatter.description
             ),
-            url: post.fields.slug
+            url: post.fields.slug,
+            about: {
+              "@type": "BlogPosting",
+              articleBody: post.html,
+              wordCount: post.wordCount,
+              headline: post.frontmatter.title,
+              name: post.frontmatter.title,
+              description: getDescription(
+                post.excerpt,
+                post.frontmatter.description
+              )
+            }
           })}
         </script>
       </Helmet>

@@ -278,7 +278,7 @@ Object {
   "onChangeClientState": [Function],
   "scriptTags": Array [
     Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\"}",
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"BlogPosting\\",\\"articleBody\\":\\"\\",\\"wordCount\\":{\\"words\\":\\"\\"},\\"headline\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\"}}",
       "type": "application/ld+json",
     },
   ],
