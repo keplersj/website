@@ -137,6 +137,9 @@ module.exports = {
           {
             resolve: "gatsby-remark-vscode",
             options: {
+              languageAliases: {
+                shell: "bash"
+              },
               colorTheme: {
                 defaultTheme: "Atom One Light",
                 prefersDarkTheme: "Atom One Dark"
