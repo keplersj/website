@@ -64,7 +64,7 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
                 post.frontmatter.description
               ),
               wordCount: post.wordCount.words,
-              datePublished: post.frontmatter.date,
+              datePublished: post.frontmatter.isoDate,
               author: {
                 "@type": "Person",
                 name: "Kepler Sticka-Jones",
@@ -126,6 +126,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        isoDate: date
         description
       }
       timeToRead

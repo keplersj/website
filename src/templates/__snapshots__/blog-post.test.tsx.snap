@@ -278,7 +278,7 @@ Object {
   "onChangeClientState": [Function],
   "scriptTags": Array [
     Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"BlogPosting\\",\\"headline\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"wordCount\\":\\"\\",\\"datePublished\\":\\"\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"},\\"publisher\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"}}}",
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"BlogPosting\\",\\"headline\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"wordCount\\":\\"\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"},\\"publisher\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"}}}",
       "type": "application/ld+json",
     },
   ],

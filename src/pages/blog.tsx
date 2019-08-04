@@ -60,7 +60,7 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
               url: node.fields.slug,
               name: node.frontmatter.title,
               headline: node.frontmatter.title,
-              datePublished: node.frontmatter.date,
+              datePublished: node.frontmatter.isoDate,
               wordCount: node.wordCount.words,
               description: getDescription(
                 node.excerpt,
@@ -127,6 +127,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            isoDate: date
             description
           }
           timeToRead
