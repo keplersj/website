@@ -53,10 +53,10 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
           name: "Blog | Kepler Sticka-Jones",
           url: "/blog",
           about: {
-            "@type": "Blog | Kepler Sticka-Jones",
+            "@type": "Blog",
             url: "/blog",
             blogPosts: data.allMarkdownRemark.edges.map(({ node }): object => ({
-              "@type": "BlogPost",
+              "@type": "BlogPosting",
               // articleBody: node.rawMarkdownBody,
               wordCount: node.wordCount.words,
               name: node.frontmatter.title,
