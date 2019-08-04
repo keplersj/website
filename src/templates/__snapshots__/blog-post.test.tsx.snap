@@ -278,7 +278,7 @@ Object {
   "onChangeClientState": [Function],
   "scriptTags": Array [
     Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"BlogPosting\\",\\"headline\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"wordCount\\":\\"\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"},\\"publisher\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"}}}",
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\" | Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"breadcrumb\\":{\\"@type\\":\\"BreadcrumbList\\",\\"itemListElement\\":[{\\"@type\\":\\"ListItem\\",\\"position\\":1,\\"item\\":{\\"@id\\":\\"https://keplersj.com/\\",\\"name\\":\\"Kepler Sticka-Jones\\"}},{\\"@type\\":\\"ListItem\\",\\"position\\":2,\\"item\\":{\\"@id\\":\\"https://keplersj.com/blog/\\",\\"name\\":\\"Blog\\"}},{\\"@type\\":\\"ListItem\\",\\"position\\":3,\\"item\\":{\\"@id\\":\\"https://keplersj.com\\",\\"name\\":\\"\\"}}]},\\"about\\":{\\"@type\\":\\"BlogPosting\\",\\"headline\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"wordCount\\":\\"\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"},\\"publisher\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"}}}",
       "type": "application/ld+json",
     },
   ],

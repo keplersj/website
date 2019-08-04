@@ -67,7 +67,28 @@ const ContactPage = (): React.ReactElement => (
           "@context": "http://www.schema.org",
           "@type": "ContactPage",
           name: "Contact | Kepler Sticka-Jones",
-          url: "/contact"
+          url: "/contact",
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": "https://keplersj.com/",
+                  name: "Kepler Sticka-Jones"
+                }
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": "https://keplersj.com/contact/",
+                  name: "Contact"
+                }
+              }
+            ]
+          }
         })}
       </script>
     </Helmet>

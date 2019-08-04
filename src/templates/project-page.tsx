@@ -51,7 +51,36 @@ const ProjectPageTemplate = (props: Props): React.ReactElement<Props> => {
               post.excerpt,
               post.frontmatter.description
             ),
-            url: post.fields.slug
+            url: post.fields.slug,
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  item: {
+                    "@id": "https://keplersj.com/",
+                    name: "Kepler Sticka-Jones"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  item: {
+                    "@id": "https://keplersj.com/projects/",
+                    name: "Projects"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  item: {
+                    "@id": `https://keplersj.com${post.fields.slug}`,
+                    name: post.frontmatter.title
+                  }
+                }
+              ]
+            }
           })}
         </script>
       </Helmet>

@@ -31,6 +31,7 @@ interface Props {
           frontmatter: {
             title: string;
             date: string;
+            isoDate: string;
             description: string;
           };
           timeToRead: string;
@@ -52,6 +53,27 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
           "@type": "CollectionPage",
           name: "Blog | Kepler Sticka-Jones",
           url: "/blog",
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": "https://keplersj.com/",
+                  name: "Kepler Sticka-Jones"
+                }
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": "https://keplersj.com/blog/",
+                  name: "Blog"
+                }
+              }
+            ]
+          },
           about: {
             "@type": "Blog",
             url: "/blog",

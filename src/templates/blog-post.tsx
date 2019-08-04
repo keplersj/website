@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
 import { getDescription } from "../util";
-import { prependOnceListener } from "cluster";
 
 const Post = styled.div`
   max-width: 55em;
@@ -29,6 +28,7 @@ interface Props {
       frontmatter: {
         title: string;
         date: string;
+        isoDate: string;
         description: string;
       };
       timeToRead: string;
@@ -55,6 +55,35 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
               post.frontmatter.description
             ),
             url: post.fields.slug,
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  item: {
+                    "@id": "https://keplersj.com/",
+                    name: "Kepler Sticka-Jones"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  item: {
+                    "@id": "https://keplersj.com/blog/",
+                    name: "Blog"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  item: {
+                    "@id": `https://keplersj.com${post.fields.slug}`,
+                    name: post.frontmatter.title
+                  }
+                }
+              ]
+            },
             about: {
               "@type": "BlogPosting",
               headline: post.frontmatter.title,

@@ -47,6 +47,27 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
           "@type": "CollectionPage",
           name: "Projects | Kepler Sticka-Jones",
           url: "/projects",
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": "https://keplersj.com/",
+                  name: "Kepler Sticka-Jones"
+                }
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": "https://keplersj.com/projects/",
+                  name: "Projects"
+                }
+              }
+            ]
+          },
           about: {
             "@type": "ItemList",
             name: "Projects | Kepler Sticka-Jones",
