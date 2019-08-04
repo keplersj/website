@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
 import { getDescription } from "../util";
+import { prependOnceListener } from "cluster";
 
 const Post = styled.div`
   max-width: 55em;
@@ -20,6 +21,7 @@ interface Props {
   data: {
     markdownRemark: {
       excerpt: string;
+      rawMarkdownBody: string;
       html: string;
       fields: {
         slug: string;
@@ -55,14 +57,25 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
             url: post.fields.slug,
             about: {
               "@type": "BlogPosting",
-              articleBody: post.html,
-              wordCount: post.wordCount,
               headline: post.frontmatter.title,
               name: post.frontmatter.title,
               description: getDescription(
                 post.excerpt,
                 post.frontmatter.description
-              )
+              ),
+              wordCount: post.wordCount.words,
+              datePublished: post.frontmatter.date,
+              author: {
+                "@type": "Person",
+                name: "Kepler Sticka-Jones",
+                url: "https://keplersj.com"
+              },
+              publisher: {
+                "@type": "Person",
+                name: "Kepler Sticka-Jones",
+                url: "https://keplersj.com"
+              },
+              articleBody: post.rawMarkdownBody
             }
           })}
         </script>
@@ -106,6 +119,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
       html
+      rawMarkdownBody
       fields {
         slug
       }

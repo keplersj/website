@@ -57,14 +57,25 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
             url: "/blog",
             blogPosts: data.allMarkdownRemark.edges.map(({ node }): object => ({
               "@type": "BlogPosting",
-              wordCount: node.wordCount.words,
+              url: node.fields.slug,
               name: node.frontmatter.title,
+              headline: node.frontmatter.title,
+              datePublished: node.frontmatter.date,
+              wordCount: node.wordCount.words,
               description: getDescription(
                 node.excerpt,
                 node.frontmatter.description
               ),
-              url: node.fields.slug,
-              headline: node.frontmatter.title
+              author: {
+                "@type": "Person",
+                name: "Kepler Sticka-Jones",
+                url: "https://keplersj.com"
+              },
+              publisher: {
+                "@type": "Person",
+                name: "Kepler Sticka-Jones",
+                url: "https://keplersj.com"
+              }
             }))
           }
         })}

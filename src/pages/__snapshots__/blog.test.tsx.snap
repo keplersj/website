@@ -291,7 +291,7 @@ Object {
   "onChangeClientState": [Function],
   "scriptTags": Array [
     Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"CollectionPage\\",\\"name\\":\\"Blog | Kepler Sticka-Jones\\",\\"url\\":\\"/blog\\",\\"about\\":{\\"@type\\":\\"Blog\\",\\"url\\":\\"/blog\\",\\"blogPosts\\":[{\\"@type\\":\\"BlogPosting\\",\\"wordCount\\":\\"\\",\\"name\\":\\"\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"headline\\":\\"\\"}]}}",
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"CollectionPage\\",\\"name\\":\\"Blog | Kepler Sticka-Jones\\",\\"url\\":\\"/blog\\",\\"about\\":{\\"@type\\":\\"Blog\\",\\"url\\":\\"/blog\\",\\"blogPosts\\":[{\\"@type\\":\\"BlogPosting\\",\\"url\\":\\"\\",\\"name\\":\\"\\",\\"headline\\":\\"\\",\\"datePublished\\":\\"\\",\\"wordCount\\":\\"\\",\\"description\\":\\"\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"},\\"publisher\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"url\\":\\"https://keplersj.com\\"}}]}}",
       "type": "application/ld+json",
     },
   ],
