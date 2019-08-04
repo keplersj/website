@@ -353,7 +353,7 @@ Object {
   "onChangeClientState": [Function],
   "scriptTags": Array [
     Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"address\\":{\\"@type\\":\\"PostalAddress\\",\\"addressLocality\\":\\"Salt Lake City\\",\\"addressRegion\\":\\"UT\\",\\"addressCountry\\":\\"USA\\"},\\"email\\":\\"kepler@stickajones.org\\",\\"sameAs\\":[\\"https://twitter.com/\\",\\"https://www.instagram.com//\\",\\"https://www.linkedin.com/in//\\",\\"https://github.com/\\"],\\"image\\":\\"\\",\\"gender\\":\\"Male\\"},\\"breadcrumb\\":{\\"@type\\":\\"BreadcrumbList\\",\\"itemListElement\\":[{\\"@type\\":\\"ListItem\\",\\"position\\":1,\\"item\\":{\\"@id\\":\\"/\\",\\"name\\":\\"Kepler Sticka-Jones\\"}}]}}",
+      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"about\\":{\\"@type\\":\\"person\\",\\"name\\":\\"Kepler Sticka-Jones\\",\\"description\\":\\"\\",\\"url\\":\\"\\",\\"address\\":{\\"@type\\":\\"PostalAddress\\",\\"addressLocality\\":\\"Salt Lake City\\",\\"addressRegion\\":\\"UT\\",\\"addressCountry\\":\\"USA\\"},\\"email\\":\\"kepler@stickajones.org\\",\\"sameAs\\":[\\"https://twitter.com/\\",\\"https://www.instagram.com//\\",\\"https://www.linkedin.com/in//\\",\\"https://github.com/\\"],\\"image\\":\\"\\",\\"gender\\":\\"Male\\"}}",
       "type": "application/ld+json",
     },
   ],

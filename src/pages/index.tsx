@@ -107,7 +107,7 @@ interface Props {
   path: string;
 }
 
-const IndexPage = ({ data, path }: Props): React.ReactElement<Props> => (
+const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -137,19 +137,6 @@ const IndexPage = ({ data, path }: Props): React.ReactElement<Props> => (
             ],
             image: data.metadataImage.childImageSharp.fixed.src,
             gender: "Male"
-          },
-          breadcrumb: {
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                  "@id": path,
-                  name: "Kepler Sticka-Jones"
-                }
-              }
-            ]
           }
         })}
       </script>
