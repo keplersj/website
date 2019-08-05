@@ -12,7 +12,7 @@
     "build-storybook": "NODE_ENV=production build-storybook"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.14",
+    "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.14",
     "@types/react": "^16.8.24",
     "@types/react-helmet": "^5.0.8",
