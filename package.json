@@ -59,7 +59,7 @@
     "@stryker-mutator/html-reporter": "^2.0.2",
     "@stryker-mutator/jest-runner": "^2.0.2",
     "@stryker-mutator/typescript": "^2.0.2",
-    "@types/jest": "^24.0.16",
+    "@types/jest": "^24.0.17",
     "@types/react-test-renderer": "^16.8.3",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
