@@ -26,6 +26,78 @@ exports[`404 Page renders correctly 1`] = `
   backdrop-filter: blur(5px);
 }
 
+<head>
+  <meta
+    content="Kepler Sticka-Jones"
+    name="author"
+  />
+  <meta
+    name="description"
+  />
+  <meta
+    content="#409040"
+    name="theme-color"
+  />
+  <meta
+    content="404! | "
+    property="og:title"
+  />
+  <meta
+    content="website"
+    property="og:type"
+  />
+  <meta
+    property="og:url"
+  />
+  <meta
+    content=""
+    property="og:image"
+  />
+  <meta
+    content="image/jpeg"
+    property="og:image:type"
+  />
+  <meta
+    content="480"
+    property="og:image:width"
+  />
+  <meta
+    content="480"
+    property="og:image:height"
+  />
+  <meta
+    property="og:description"
+  />
+  <meta
+    content="summary"
+    name="twitter:card"
+  />
+  <meta
+    content="@undefined"
+    name="twitter:site"
+  />
+  <meta
+    content="@undefined"
+    name="twitter:creator"
+  />
+  <meta
+    content="E5D802A305BE2DD99EB4484A4B1DD90E"
+    name="msvalidate.01"
+  />
+  <script
+    type="application/ld+json"
+  >
+    Object {
+    "@context": "http://www.schema.org",
+    "@type": "WebPage",
+    "name": "404! | Kepler Sticka-Jones",
+  }
+  </script>
+  <title>
+    404! | 
+  </title>
+</head>
+
 <section
   className="emotion-1 gatsby-image-wrapper"
   style={
@@ -105,90 +177,4 @@ background-size: cover;
     </div>
   </div>
 </section>
-`;
-
-exports[`404 Page renders correctly 2`] = `
-Object {
-  "baseTag": Array [],
-  "bodyAttributes": Object {},
-  "defer": true,
-  "encode": true,
-  "htmlAttributes": Object {
-    "lang": "en",
-  },
-  "linkTags": Array [],
-  "metaTags": Array [
-    Object {
-      "content": "Kepler Sticka-Jones",
-      "name": "author",
-    },
-    Object {
-      "content": undefined,
-      "name": "description",
-    },
-    Object {
-      "content": "#409040",
-      "name": "theme-color",
-    },
-    Object {
-      "content": "404! | ",
-      "property": "og:title",
-    },
-    Object {
-      "content": "website",
-      "property": "og:type",
-    },
-    Object {
-      "content": undefined,
-      "property": "og:url",
-    },
-    Object {
-      "content": "",
-      "property": "og:image",
-    },
-    Object {
-      "content": "image/jpeg",
-      "property": "og:image:type",
-    },
-    Object {
-      "content": "480",
-      "property": "og:image:width",
-    },
-    Object {
-      "content": "480",
-      "property": "og:image:height",
-    },
-    Object {
-      "content": undefined,
-      "property": "og:description",
-    },
-    Object {
-      "content": "summary",
-      "name": "twitter:card",
-    },
-    Object {
-      "content": "@undefined",
-      "name": "twitter:site",
-    },
-    Object {
-      "content": "@undefined",
-      "name": "twitter:creator",
-    },
-    Object {
-      "content": "E5D802A305BE2DD99EB4484A4B1DD90E",
-      "name": "msvalidate.01",
-    },
-  ],
-  "noscriptTags": Array [],
-  "onChangeClientState": [Function],
-  "scriptTags": Array [
-    Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"WebPage\\",\\"name\\":\\"404! | Kepler Sticka-Jones\\"}",
-      "type": "application/ld+json",
-    },
-  ],
-  "styleTags": Array [],
-  "title": "404! | ",
-  "titleAttributes": Object {},
-}
 `;

@@ -6,7 +6,11 @@ module.exports = {
     {
       displayName: "test",
       preset: "jest-preset-gatsby/typescript",
-      snapshotSerializers: ["jest-emotion"],
+      snapshotSerializers: [
+        "jest-emotion",
+        "<rootDir>/.jest/react-helmet-serializer.tsx",
+        "<rootDir>/.jest/ld-json-serializer.tsx"
+      ],
       collectCoverage: true,
       coverageReporters: ["json", "text"]
     },

@@ -55,6 +55,103 @@ Array [
   margin-right: 1em;
 }
 
+<head>
+    <meta
+      content="Kepler Sticka-Jones"
+      name="author"
+    />
+    <meta
+      content=""
+      name="description"
+    />
+    <meta
+      content="#409040"
+      name="theme-color"
+    />
+    <meta
+      content="Contact | "
+      property="og:title"
+    />
+    <meta
+      content="website"
+      property="og:type"
+    />
+    <meta
+      content=""
+      property="og:url"
+    />
+    <meta
+      content=""
+      property="og:image"
+    />
+    <meta
+      content="image/jpeg"
+      property="og:image:type"
+    />
+    <meta
+      content="480"
+      property="og:image:width"
+    />
+    <meta
+      content="480"
+      property="og:image:height"
+    />
+    <meta
+      content=""
+      property="og:description"
+    />
+    <meta
+      content="summary"
+      name="twitter:card"
+    />
+    <meta
+      content="@"
+      name="twitter:site"
+    />
+    <meta
+      content="@"
+      name="twitter:creator"
+    />
+    <meta
+      content="E5D802A305BE2DD99EB4484A4B1DD90E"
+      name="msvalidate.01"
+    />
+    <script
+      type="application/ld+json"
+    >
+      Object {
+      "@context": "http://www.schema.org",
+      "@type": "ContactPage",
+      "breadcrumb": Object {
+        "@type": "BreadcrumbList",
+        "itemListElement": Array [
+          Object {
+            "@type": "ListItem",
+            "item": Object {
+              "@id": "https://keplersj.com/",
+              "name": "Kepler Sticka-Jones",
+            },
+            "position": 1,
+          },
+          Object {
+            "@type": "ListItem",
+            "item": Object {
+              "@id": "https://keplersj.com/contact/",
+              "name": "Contact",
+            },
+            "position": 2,
+          },
+        ],
+      },
+      "name": "Contact | Kepler Sticka-Jones",
+      "url": "/contact",
+    }
+    </script>
+    <title>
+      Contact | 
+    </title>
+  </head>
+
 <div
     className="emotion-7 gatsby-image-wrapper"
     style={
@@ -298,90 +395,4 @@ background-size: cover;
     </div>
   </section>,
 ]
-`;
-
-exports[`Contact Page renders correctly 2`] = `
-Object {
-  "baseTag": Array [],
-  "bodyAttributes": Object {},
-  "defer": true,
-  "encode": true,
-  "htmlAttributes": Object {
-    "lang": "en",
-  },
-  "linkTags": Array [],
-  "metaTags": Array [
-    Object {
-      "content": "Kepler Sticka-Jones",
-      "name": "author",
-    },
-    Object {
-      "content": "",
-      "name": "description",
-    },
-    Object {
-      "content": "#409040",
-      "name": "theme-color",
-    },
-    Object {
-      "content": "Contact | ",
-      "property": "og:title",
-    },
-    Object {
-      "content": "website",
-      "property": "og:type",
-    },
-    Object {
-      "content": "",
-      "property": "og:url",
-    },
-    Object {
-      "content": "",
-      "property": "og:image",
-    },
-    Object {
-      "content": "image/jpeg",
-      "property": "og:image:type",
-    },
-    Object {
-      "content": "480",
-      "property": "og:image:width",
-    },
-    Object {
-      "content": "480",
-      "property": "og:image:height",
-    },
-    Object {
-      "content": "",
-      "property": "og:description",
-    },
-    Object {
-      "content": "summary",
-      "name": "twitter:card",
-    },
-    Object {
-      "content": "@",
-      "name": "twitter:site",
-    },
-    Object {
-      "content": "@",
-      "name": "twitter:creator",
-    },
-    Object {
-      "content": "E5D802A305BE2DD99EB4484A4B1DD90E",
-      "name": "msvalidate.01",
-    },
-  ],
-  "noscriptTags": Array [],
-  "onChangeClientState": [Function],
-  "scriptTags": Array [
-    Object {
-      "innerHTML": "{\\"@context\\":\\"http://www.schema.org\\",\\"@type\\":\\"ContactPage\\",\\"name\\":\\"Contact | Kepler Sticka-Jones\\",\\"url\\":\\"/contact\\",\\"breadcrumb\\":{\\"@type\\":\\"BreadcrumbList\\",\\"itemListElement\\":[{\\"@type\\":\\"ListItem\\",\\"position\\":1,\\"item\\":{\\"@id\\":\\"https://keplersj.com/\\",\\"name\\":\\"Kepler Sticka-Jones\\"}},{\\"@type\\":\\"ListItem\\",\\"position\\":2,\\"item\\":{\\"@id\\":\\"https://keplersj.com/contact/\\",\\"name\\":\\"Contact\\"}}]}}",
-      "type": "application/ld+json",
-    },
-  ],
-  "styleTags": Array [],
-  "title": "Contact | ",
-  "titleAttributes": Object {},
-}
 `;

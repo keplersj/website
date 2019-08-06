@@ -1,7 +1,6 @@
 import * as React from "react";
 import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
-import { Helmet } from "react-helmet";
 import Page from "./contact";
 
 beforeEach((): void => {
@@ -48,9 +47,5 @@ describe("Contact Page", (): void => {
   it("renders correctly", (): void => {
     const tree = renderer.create(<Page />).toJSON();
     expect(tree).toMatchSnapshot();
-
-    // Get a snapshot of the head since this component modifies it.
-    const helmet = Helmet.peek();
-    expect(helmet).toMatchSnapshot();
   });
 });
