@@ -63,6 +63,7 @@ describe("Blog Page", (): void => {
                     frontmatter: {
                       title: "",
                       date: "",
+                      isoDate: "",
                       description: ""
                     },
                     timeToRead: "",

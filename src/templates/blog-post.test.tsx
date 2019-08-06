@@ -52,6 +52,7 @@ describe("Blog Post Template", (): void => {
           data={{
             markdownRemark: {
               excerpt: "",
+              rawMarkdownBody: "",
               html: "",
               fields: {
                 slug: ""
@@ -59,6 +60,7 @@ describe("Blog Post Template", (): void => {
               frontmatter: {
                 title: "",
                 date: "",
+                isoDate: "",
                 description: ""
               },
               timeToRead: "",
