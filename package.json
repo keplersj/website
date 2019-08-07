@@ -52,7 +52,7 @@
     "@babel/core": "^7.5.5",
     "@storybook/addon-actions": "^5.2.0-beta.24",
     "@storybook/addon-knobs": "^5.2.0-beta.24",
-    "@storybook/addon-links": "^5.2.0-beta.23",
+    "@storybook/addon-links": "^5.2.0-beta.24",
     "@storybook/addons": "^5.2.0-beta.24",
     "@storybook/react": "^5.2.0-beta.24",
     "@stryker-mutator/core": "^2.0.2",
