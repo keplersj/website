@@ -12,7 +12,8 @@ module.exports = {
         "<rootDir>/.jest/ld-json-serializer.tsx"
       ],
       collectCoverage: true,
-      coverageReporters: ["json", "text"]
+      coverageReporters: ["json", "text"],
+      coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/.jest/"]
     },
     {
       runner: "eslint",
