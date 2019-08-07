@@ -1,9 +1,11 @@
 import * as React from "react";
 
 export function print(val, serialize) {
-  const { innerHTML, ...tag } = val.props;
+  const { dangerouslySetInnerHTML, ...tag } = val.props;
   return serialize(
-    <script {...tag}>{serialize(JSON.parse(innerHTML))}</script>
+    <script {...tag}>
+      {serialize(JSON.parse(dangerouslySetInnerHTML.__html))}
+    </script>
   );
 }
 
@@ -12,7 +14,7 @@ export function test(val) {
     val &&
     val.$$typeof === Symbol.for("react.element") &&
     val.type === "script" &&
-    val.props.innerHTML &&
+    val.props.dangerouslySetInnerHTML &&
     val.props.type &&
     val.props.type === "application/ld+json"
   );

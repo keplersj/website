@@ -56,67 +56,87 @@ Array [
 }
 
 <head>
+    Object {}
+    Object {
+      "lang": "en",
+    }
     <meta
       content="Kepler Sticka-Jones"
+      data-react-helmet={true}
       name="author"
     />
     <meta
       content=""
+      data-react-helmet={true}
       name="description"
     />
     <meta
       content="#409040"
+      data-react-helmet={true}
       name="theme-color"
     />
     <meta
       content="Contact | "
+      data-react-helmet={true}
       property="og:title"
     />
     <meta
       content="website"
+      data-react-helmet={true}
       property="og:type"
     />
     <meta
       content=""
+      data-react-helmet={true}
       property="og:url"
     />
     <meta
       content=""
+      data-react-helmet={true}
       property="og:image"
     />
     <meta
       content="image/jpeg"
+      data-react-helmet={true}
       property="og:image:type"
     />
     <meta
       content="480"
+      data-react-helmet={true}
       property="og:image:width"
     />
     <meta
       content="480"
+      data-react-helmet={true}
       property="og:image:height"
     />
     <meta
       content=""
+      data-react-helmet={true}
       property="og:description"
     />
     <meta
       content="summary"
+      data-react-helmet={true}
       name="twitter:card"
     />
     <meta
       content="@"
+      data-react-helmet={true}
       name="twitter:site"
     />
     <meta
       content="@"
+      data-react-helmet={true}
       name="twitter:creator"
     />
     <meta
       content="E5D802A305BE2DD99EB4484A4B1DD90E"
+      data-react-helmet={true}
       name="msvalidate.01"
     />
     <script
+      data-react-helmet={true}
       type="application/ld+json"
     >
       Object {
@@ -147,7 +167,9 @@ Array [
       "url": "/contact",
     }
     </script>
-    <title>
+    <title
+      data-react-helmet={true}
+    >
       Contact | 
     </title>
   </head>

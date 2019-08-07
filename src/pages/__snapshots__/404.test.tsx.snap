@@ -27,64 +27,84 @@ exports[`404 Page renders correctly 1`] = `
 }
 
 <head>
+  Object {}
+  Object {
+    "lang": "en",
+  }
   <meta
     content="Kepler Sticka-Jones"
+    data-react-helmet={true}
     name="author"
   />
   <meta
+    data-react-helmet={true}
     name="description"
   />
   <meta
     content="#409040"
+    data-react-helmet={true}
     name="theme-color"
   />
   <meta
     content="404! | "
+    data-react-helmet={true}
     property="og:title"
   />
   <meta
     content="website"
+    data-react-helmet={true}
     property="og:type"
   />
   <meta
+    data-react-helmet={true}
     property="og:url"
   />
   <meta
     content=""
+    data-react-helmet={true}
     property="og:image"
   />
   <meta
     content="image/jpeg"
+    data-react-helmet={true}
     property="og:image:type"
   />
   <meta
     content="480"
+    data-react-helmet={true}
     property="og:image:width"
   />
   <meta
     content="480"
+    data-react-helmet={true}
     property="og:image:height"
   />
   <meta
+    data-react-helmet={true}
     property="og:description"
   />
   <meta
     content="summary"
+    data-react-helmet={true}
     name="twitter:card"
   />
   <meta
     content="@undefined"
+    data-react-helmet={true}
     name="twitter:site"
   />
   <meta
     content="@undefined"
+    data-react-helmet={true}
     name="twitter:creator"
   />
   <meta
     content="E5D802A305BE2DD99EB4484A4B1DD90E"
+    data-react-helmet={true}
     name="msvalidate.01"
   />
   <script
+    data-react-helmet={true}
     type="application/ld+json"
   >
     Object {
@@ -93,7 +113,9 @@ exports[`404 Page renders correctly 1`] = `
     "name": "404! | Kepler Sticka-Jones",
   }
   </script>
-  <title>
+  <title
+    data-react-helmet={true}
+  >
     404! | 
   </title>
 </head>
