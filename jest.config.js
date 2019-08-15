@@ -8,8 +8,8 @@ module.exports = {
       preset: "jest-preset-gatsby/typescript",
       snapshotSerializers: [
         "jest-emotion",
-        "<rootDir>/.jest/react-helmet-serializer.tsx",
-        "<rootDir>/.jest/ld-json-serializer.tsx"
+        "jest-serializer-react-helmet",
+        "jest-serializer-json-ld-script"
       ],
       collectCoverage: true,
       coverageReporters: ["json", "text"],
