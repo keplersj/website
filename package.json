@@ -8,8 +8,14 @@
     "test": "jest",
     "lint:css": "stylelint './src/**/*.tsx'",
     "lint:js": "eslint './src/**/*.tsx'",
+    "lint:md": "remark .",
     "storybook": "NODE_ENV=production start-storybook -p 6006",
     "build-storybook": "NODE_ENV=production build-storybook"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
@@ -81,6 +87,8 @@
     "jest-serializer-react-helmet": "^1.0.1",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.9.0",
+    "remark-cli": "^7.0.0",
+    "remark-preset-lint-recommended": "^3.0.3",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-recommended": "^2.2.0",
