@@ -239,8 +239,10 @@ background-size: cover;
       </div>
     </nav>
   </div>,
-  <span>
-    Test
-  </span>,
+  <main>
+    <span>
+      Test
+    </span>
+  </main>,
 ]
 `;

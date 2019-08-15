@@ -375,46 +375,48 @@ background-size: cover;
   }
 }
 
-<section
-    className="emotion-7"
-  >
-    <div
-      className="emotion-6"
+<main>
+    <section
+      className="emotion-7"
     >
       <div
-        className="emotion-5"
+        className="emotion-6"
       >
-        <h1
-          className="emotion-0"
+        <div
+          className="emotion-5"
         >
-          Contact
-        </h1>
-        <h3
-          className="emotion-2"
-        >
-          Email:
-           
-          <a
-            className="emotion-1"
-            href="mailto:kepler@stickajones.org"
+          <h1
+            className="emotion-0"
           >
-            kepler@stickajones.org
-          </a>
-        </h3>
-        <h3
-          className="emotion-2"
-        >
-          Public Key:
-           
-          <a
-            className="emotion-1"
-            href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
+            Contact
+          </h1>
+          <h3
+            className="emotion-2"
           >
-            BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
-          </a>
-        </h3>
+            Email:
+             
+            <a
+              className="emotion-1"
+              href="mailto:kepler@stickajones.org"
+            >
+              kepler@stickajones.org
+            </a>
+          </h3>
+          <h3
+            className="emotion-2"
+          >
+            Public Key:
+             
+            <a
+              className="emotion-1"
+              href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
+            >
+              BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
+            </a>
+          </h3>
+        </div>
       </div>
-    </div>
-  </section>,
+    </section>
+  </main>,
 ]
 `;

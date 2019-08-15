@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
 import { getDescription } from "../util";
 
-const Post = styled.div`
+const Post = styled.article`
   max-width: 55em;
   margin-left: auto;
   margin-right: auto;
@@ -115,16 +115,18 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
         description={getDescription(post.excerpt, post.frontmatter.description)}
       >
         <Post>
-          <h1>{post.frontmatter.title}</h1>
-          <div>
-            <span>Published {post.frontmatter.date}</span>
-            <span>{" | "}</span>
-            <span>{post.wordCount.words} words</span>
-            <span>{" | "}</span>
-            <span>{post.timeToRead} minute read</span>
-          </div>
+          <header>
+            <h1>{post.frontmatter.title}</h1>
+            <div>
+              <span>Published {post.frontmatter.date}</span>
+              <span>{" | "}</span>
+              <span>{post.wordCount.words} words</span>
+              <span>{" | "}</span>
+              <span>{post.timeToRead} minute read</span>
+            </div>
+          </header>
           {/* <br /> */}
-          <article
+          <div
             dangerouslySetInnerHTML={{
               __html: post.html
             }}

@@ -313,48 +313,50 @@ background-size: cover;
   margin-bottom: 1.5rem;
 }
 
-<div
-    className="emotion-1"
-  >
-    <h1>
-      Blog
-    </h1>
-    <div>
-      <div
-        className="emotion-0"
-      >
-        <a
-          href=""
+<main>
+    <div
+      className="emotion-1"
+    >
+      <h1>
+        Blog
+      </h1>
+      <div>
+        <div
+          className="emotion-0"
         >
-          <h2>
+          <a
+            href=""
+          >
+            <h2>
+              
+            </h2>
+          </a>
+          <div>
+            <span>
+              Published 
+              
+            </span>
+            <span>
+               | 
+            </span>
+            <span>
+              
+               words
+            </span>
+            <span>
+               | 
+            </span>
+            <span>
+              
+               minute read
+            </span>
+          </div>
+          <div>
             
-          </h2>
-        </a>
-        <div>
-          <span>
-            Published 
-            
-          </span>
-          <span>
-             | 
-          </span>
-          <span>
-            
-             words
-          </span>
-          <span>
-             | 
-          </span>
-          <span>
-            
-             minute read
-          </span>
-        </div>
-        <div>
-          
+          </div>
         </div>
       </div>
     </div>
-  </div>,
+  </main>,
 ]
 `;

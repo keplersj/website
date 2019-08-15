@@ -179,7 +179,7 @@ const BaseLayout = (
 
       {!props.hideNavbar && <Navbar />}
 
-      {props.children}
+      <main>{props.children}</main>
     </>
   );
 };

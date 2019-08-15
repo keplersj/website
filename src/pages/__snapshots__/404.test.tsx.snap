@@ -120,22 +120,23 @@ exports[`404 Page renders correctly 1`] = `
   </title>
 </head>
 
-<section
-  className="emotion-1 gatsby-image-wrapper"
-  style={
-    Object {
-      "backgroundPosition": "center",
-      "backgroundRepeat": "no-repeat",
-      "backgroundSize": "cover",
-      "opacity": 0.99,
-      "position": "relative",
-    }
-  }
->
-  <style
-    dangerouslySetInnerHTML={
+<main>
+  <section
+    className="emotion-1 gatsby-image-wrapper"
+    style={
       Object {
-        "__html": "
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "opacity": 0.99,
+        "position": "relative",
+      }
+    }
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
           .emotion-1:before,
           .emotion-1:after {
             content: '';
@@ -164,39 +165,40 @@ background-size: cover;
             
           }
         ",
+        }
       }
-    }
-  />
-  <noscript>
-    <style
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
+    />
+    <noscript>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
           .emotion-1:before {
             opacity: 1;
             background-image: ;
           }",
+          }
         }
-      }
-    />
-  </noscript>
-  <div
-    className="emotion-0"
-  >
-    <div>
-      <h1>
-        404!
-      </h1>
-      <span>
-        Maybe, go back to the 
-        <a
-          href="/"
-        >
-          home page
-        </a>
-        ?
-      </span>
+      />
+    </noscript>
+    <div
+      className="emotion-0"
+    >
+      <div>
+        <h1>
+          404!
+        </h1>
+        <span>
+          Maybe, go back to the 
+          <a
+            href="/"
+          >
+            home page
+          </a>
+          ?
+        </span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 `;

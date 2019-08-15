@@ -293,19 +293,21 @@ background-size: cover;
   }
 }
 
-<div
-    className="emotion-0"
-  >
-    <h1>
-      
-    </h1>
-    <section
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "",
+<main>
+    <div
+      className="emotion-0"
+    >
+      <h1>
+        
+      </h1>
+      <section
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
         }
-      }
-    />
-  </div>,
+      />
+    </div>
+  </main>,
 ]
 `;

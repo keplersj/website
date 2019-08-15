@@ -312,39 +312,43 @@ background-size: cover;
   }
 }
 
-<div
-    className="emotion-0"
-  >
-    <h1>
-      
-    </h1>
-    <div>
-      <span>
-        Published 
-        
-      </span>
-      <span>
-         | 
-      </span>
-      <span>
-        
-         words
-      </span>
-      <span>
-         | 
-      </span>
-      <span>
-        
-         minute read
-      </span>
-    </div>
+<main>
     <article
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "",
+      className="emotion-0"
+    >
+      <header>
+        <h1>
+          
+        </h1>
+        <div>
+          <span>
+            Published 
+            
+          </span>
+          <span>
+             | 
+          </span>
+          <span>
+            
+             words
+          </span>
+          <span>
+             | 
+          </span>
+          <span>
+            
+             minute read
+          </span>
+        </div>
+      </header>
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
         }
-      }
-    />
-  </div>,
+      />
+    </article>
+  </main>,
 ]
 `;
