@@ -27,5 +27,9 @@ module.exports = {
         tagName: "graphql"
       }
     ]
+  },
+  env: {
+    browser: true,
+    node: true
   }
 };
