@@ -81,7 +81,7 @@
     "jest-emotion": "^10.0.14",
     "jest-preset-gatsby": "^1.0.0",
     "jest-runner-eslint": "^0.7.4",
-    "jest-runner-prettier": "^0.2.7",
+    "jest-runner-prettier": "^0.2.8",
     "jest-runner-stylelint": "^2.0.0",
     "jest-serializer-json-ld-script": "^1.0.0",
     "jest-serializer-react-helmet": "^1.0.1",
