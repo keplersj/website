@@ -59,7 +59,7 @@
     "@storybook/addon-actions": "^5.2.0-beta.30",
     "@storybook/addon-knobs": "^5.2.0-beta.30",
     "@storybook/addon-links": "^5.2.0-beta.30",
-    "@storybook/addons": "^5.2.0-beta.30",
+    "@storybook/addons": "^5.2.0-beta.31",
     "@storybook/react": "^5.2.0-beta.30",
     "@stryker-mutator/core": "^2.0.2",
     "@stryker-mutator/html-reporter": "^2.0.2",
