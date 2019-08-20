@@ -60,7 +60,7 @@
     "@storybook/addon-knobs": "^5.2.0-beta.33",
     "@storybook/addon-links": "^5.2.0-beta.33",
     "@storybook/addons": "^5.2.0-beta.37",
-    "@storybook/react": "^5.2.0-beta.33",
+    "@storybook/react": "^5.2.0-beta.37",
     "@stryker-mutator/core": "^2.0.2",
     "@stryker-mutator/html-reporter": "^2.0.2",
     "@stryker-mutator/jest-runner": "^2.0.2",
