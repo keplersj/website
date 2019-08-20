@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - node
-  - lts/*
-after_success:
-  - npx stryker run
-  - bash <(curl -s https://codecov.io/bash)
