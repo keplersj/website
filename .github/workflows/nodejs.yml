@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and test
-        run: |
-          npm install
-          npm test
+      - name: Install npm dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
       - name: Run Stryker
         run: npx stryker run
       - name: Upload coverage to Codecov
