@@ -18,10 +18,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install npm dependencies
         uses: actions/npm@1.0.0
-        args: install
+        args:
+          - install
       - name: Run tests
         uses: actions/npm@1.0.0
-        args: install
+        args:
+          - test
       - name: Run Stryker
         run: npx stryker run
       - name: Upload coverage to Codecov
