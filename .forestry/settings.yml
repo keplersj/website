@@ -29,4 +29,4 @@ build:
   preview_docker_image: node:10
   mount_path: "/srv"
   working_dir: "/srv"
-  instant_preview_command: npm run build
+  instant_preview_command: npm run develop -- -p 8080 -H 0.0.0.0
