@@ -9,6 +9,8 @@ sections:
   label: Portfolio
   create: documents
   match: "**/*"
+  templates:
+  - portfolio-item
 - type: directory
   path: content/blog
   label: Blog
