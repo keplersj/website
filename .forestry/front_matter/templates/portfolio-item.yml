@@ -1,0 +1,13 @@
+---
+label: Portfolio item
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: description
+  label: description
+- type: text
+  name: github_repo
+  label: github_repo
