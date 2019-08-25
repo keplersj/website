@@ -23,7 +23,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-catch-links",
-    "gatsby-plugin-extract-schema",
     {
       resolve: "gatsby-plugin-feed",
       options: {
@@ -103,7 +102,6 @@ module.exports = {
       }
     },
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-filesystem",
       options: {
