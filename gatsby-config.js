@@ -104,7 +104,6 @@ module.exports = {
     },
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
-    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-source-filesystem",
       options: {
