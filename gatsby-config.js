@@ -1,21 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 
-const {
-  NODE_ENV,
-  URL: NETLIFY_SITE_URL = "https://keplersj.com",
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env;
-const isNetlifyProduction = NETLIFY_ENV === "production";
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
-
 module.exports = {
   siteMetadata: {
     title: "Kepler Sticka-Jones",
     description:
       "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
-    siteUrl,
+    siteUrl: "https://keplersj.com",
     twitterUsername: "realKeplerSJ",
     instagramUsername: "keplersj_",
     linkedinUsername: "keplersj",
@@ -80,27 +71,7 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        resolveEnv: () => NETLIFY_ENV,
-        env: {
-          production: {
-            policy: [{ userAgent: "*", allow: ["/"], disallow: ["/admin"] }]
-          },
-          "branch-deploy": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null
-          },
-          "deploy-preview": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null
-          }
-        }
-      }
-    },
+    "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-filesystem",
