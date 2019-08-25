@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   extends: [
     "eslint:recommended",
@@ -16,17 +14,6 @@ module.exports = {
     react: {
       version: "detect" // React version. "detect" automatically picks the version you have installed.
     }
-  },
-  plugins: ["graphql"],
-  rules: {
-    "graphql/template-strings": [
-      "error",
-      {
-        env: "relay",
-        schemaJsonFilepath: path.resolve(__dirname, "./schema.json"),
-        tagName: "graphql"
-      }
-    ]
   },
   env: {
     browser: true,
