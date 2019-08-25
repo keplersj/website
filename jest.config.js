@@ -17,7 +17,23 @@ module.exports = {
     {
       runner: "eslint",
       displayName: "lint:eslint",
-      testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
+      testMatch: [
+        "<rootDir>/**/*.jsx",
+        "<rootDir>/**/*.js",
+        "<rootDir>/**/*.tsx",
+        "<rootDir>/**/*.ts"
+      ],
+      testPathIgnorePatterns: [
+        "/.cache/",
+        "/coverage/",
+        "/content/", // Because the markdown files are likely to be written in CMS don't worry about this.
+        "/node_modules/",
+        "/public/",
+        "/reports/",
+        "/static/",
+        "/package-lock.json",
+        "/package.json"
+      ]
     },
     {
       runner: "prettier",
@@ -57,8 +73,7 @@ module.exports = {
         "/reports/",
         "/static/",
         "/package-lock.json",
-        "package.json",
-        "/schema.json"
+        "/package.json"
       ]
     },
     {
