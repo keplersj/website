@@ -36,36 +36,11 @@ module.exports = {
       ]
     },
     {
-      runner: "prettier",
+      preset: "jest-runner-prettier",
       displayName: "lint:prettier",
-      moduleFileExtensions: [
-        "js",
-        "jsx",
-        "json",
-        "ts",
-        "tsx",
-        "css",
-        "less",
-        "scss",
-        "graphql",
-        "md",
-        "markdown"
-      ],
-      testMatch: [
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.json",
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.css",
-        "**/*.less",
-        "**/*.scss",
-        "**/*.graphql",
-        "**/*.md",
-        "**/*.markdown"
-      ],
       testPathIgnorePatterns: [
         "/.cache/",
+        "/.forestry/", // Forestry is handling these programatically, not bother Prettier with it
         "/coverage/",
         "/content/", // Because the markdown files are likely to be written in CMS don't worry about this.
         "/node_modules/",
