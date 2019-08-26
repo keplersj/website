@@ -52,9 +52,15 @@ module.exports = {
       ]
     },
     {
-      runner: "stylelint",
+      preset: "jest-runner-stylelint",
       displayName: "lint:stylelint",
-      testMatch: ["<rootDir>/src/**/*.tsx", "<rootDir>/src/**/*.ts"]
+      testPathIgnorePatterns: [
+        "/.cache/",
+        "/coverage/",
+        "/node_modules/",
+        "/public/",
+        "/reports/"
+      ]
     }
   ]
 };
