@@ -61,6 +61,10 @@ module.exports = {
         "/public/",
         "/reports/"
       ]
+    },
+    {
+      preset: "jest-runner-remark",
+      displayName: "lint:remark"
     }
   ]
 };
