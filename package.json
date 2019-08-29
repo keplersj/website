@@ -23,7 +23,7 @@
     "@types/react": "^16.9.2",
     "@types/react-helmet": "^5.0.9",
     "gatsby": "^2.14.6",
-    "gatsby-background-image": "^0.8.3",
+    "gatsby-background-image": "^0.8.5",
     "gatsby-image": "^2.2.14",
     "gatsby-link": "^2.2.10",
     "gatsby-plugin-catch-links": "^2.1.5",
