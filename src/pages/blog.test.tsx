@@ -49,25 +49,30 @@ describe("Blog Page", (): void => {
       .create(
         <Page
           data={{
-            allMarkdownRemark: {
+            allFile: {
               edges: [
                 {
                   node: {
                     id: "",
-                    rawMarkdownBody: "",
-                    excerpt: "",
-                    fields: {
-                      slug: ""
-                    },
-                    frontmatter: {
-                      title: "",
-                      date: "",
-                      isoDate: "",
-                      description: ""
-                    },
-                    timeToRead: "",
-                    wordCount: {
-                      words: ""
+                    name: "",
+                    sourceInstanceName: "",
+                    childMarkdownRemark: {
+                      id: "",
+                      rawMarkdownBody: "",
+                      excerpt: "",
+                      fields: {
+                        slug: ""
+                      },
+                      frontmatter: {
+                        title: "",
+                        date: "",
+                        isoDate: "",
+                        description: ""
+                      },
+                      timeToRead: "",
+                      wordCount: {
+                        words: ""
+                      }
                     }
                   }
                 }

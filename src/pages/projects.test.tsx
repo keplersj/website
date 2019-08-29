@@ -49,19 +49,21 @@ describe("Projects Page", (): void => {
       .create(
         <Page
           data={{
-            allMarkdownRemark: {
+            allFile: {
               edges: [
                 {
                   node: {
-                    id: "",
-                    rawMarkdownBody: "",
-                    excerpt: "",
-                    fields: {
-                      slug: ""
-                    },
-                    frontmatter: {
-                      title: "",
-                      description: ""
+                    childMarkdownRemark: {
+                      id: "",
+                      rawMarkdownBody: "",
+                      excerpt: "",
+                      fields: {
+                        slug: ""
+                      },
+                      frontmatter: {
+                        title: "",
+                        description: ""
+                      }
                     }
                   }
                 }
