@@ -2,104 +2,68 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  // We only want to operate on `MarkdownRemark` nodes. If we had content from a
+  // remote CMS we could also check to see if the parent node was a
+  // `File` node here
+  if (node.internal.type === "MarkdownRemark") {
+    const collection = getNode(node.parent).sourceInstanceName;
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      // Name of the field you are adding
+      name: "slug",
+      // Individual Markdown node
+      node,
+      // Generated value based on filepath with collection prefix. We
+      // don't need a separating "/" before the value because
+      // createFilePath returns a path with the leading "/".
+      value: `/${collection}${value}`
+    });
+  }
+};
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // Destructure the createPage function from the actions object
   const { createPage } = actions;
-
-  const blogPost = path.resolve("./src/templates/blog-post.tsx");
-  const projectPage = path.resolve("./src/templates/project-page.tsx");
-
-  const result = await graphql(
-    `
-      query AllMarkdownPages {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-                collection
-              }
-              frontmatter {
-                title
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            parent {
+              ... on File {
+                sourceInstanceName
               }
             }
           }
         }
       }
-    `
-  );
-
+    }
+  `);
   if (result.errors) {
-    throw result.errors;
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
-
-  const allEdges = result.data.allMarkdownRemark.edges;
-
-  const blogEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `blog`
-  );
-  const projectEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `projects`
-  );
-
-  blogEdges.forEach((post, index) => {
-    const previous =
-      index === blogEdges.length - 1 ? null : blogEdges[index + 1].node;
-    const next = index === 0 ? null : blogEdges[index - 1].node;
-
+  // Create blog post pages.
+  const posts = result.data.allMarkdownRemark.edges;
+  // We'll call `createPage` for each result
+  posts.forEach(({ node }) => {
     createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next
-      }
+      // This is the slug we created before
+      // (or `node.frontmatter.slug`)
+      path: node.fields.slug,
+      // This component will wrap our MDX content
+      component: {
+        blog: path.resolve("./src/templates/blog-post.tsx"),
+        projects: path.resolve("./src/templates/project-page.tsx")
+      }[node.parent.sourceInstanceName],
+      // We can use the values in this context in
+      // our page layout component
+      context: { id: node.id }
     });
   });
-
-  projectEdges.forEach((project, index) => {
-    const previous =
-      index === projectEdges.length - 1 ? null : projectEdges[index + 1].node;
-    const next = index === 0 ? null : projectEdges[index - 1].node;
-
-    createPage({
-      path: project.node.fields.slug,
-      component: projectPage,
-      context: {
-        slug: project.node.fields.slug,
-        previous,
-        next
-      }
-    });
-  });
-
-  return null;
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === "MarkdownRemark") {
-    const parent = getNode(node.parent);
-
-    const collection = parent.sourceInstanceName;
-
-    const relativeFilePath = createFilePath({
-      node,
-      getNode,
-      basePath: `content/${collection}`
-    });
-
-    createNodeField({
-      node,
-      name: "collection",
-      value: collection
-    });
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: `/${collection}${relativeFilePath}`
-    });
-  }
 };

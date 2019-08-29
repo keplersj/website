@@ -19,24 +19,29 @@ const Posts = styled.div`
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allFile: {
       edges: {
         node: {
           id: string;
-          rawMarkdownBody: string;
-          excerpt: string;
-          fields: {
-            slug: string;
-          };
-          frontmatter: {
-            title: string;
-            date: string;
-            isoDate: string;
-            description: string;
-          };
-          timeToRead: string;
-          wordCount: {
-            words: string;
+          name: string;
+          sourceInstanceName: string;
+          childMarkdownRemark: {
+            id: string;
+            rawMarkdownBody: string;
+            excerpt: string;
+            fields: {
+              slug: string;
+            };
+            frontmatter: {
+              title: string;
+              date: string;
+              isoDate: string;
+              description: string;
+            };
+            timeToRead: string;
+            wordCount: {
+              words: string;
+            };
           };
         };
       }[];
@@ -77,28 +82,30 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
           about: {
             "@type": "Blog",
             url: "/blog",
-            blogPosts: data.allMarkdownRemark.edges.map(({ node }): object => ({
-              "@type": "BlogPosting",
-              url: node.fields.slug,
-              name: node.frontmatter.title,
-              headline: node.frontmatter.title,
-              datePublished: node.frontmatter.isoDate,
-              wordCount: node.wordCount.words,
-              description: getDescription(
-                node.excerpt,
-                node.frontmatter.description
-              ),
-              author: {
-                "@type": "Person",
-                name: "Kepler Sticka-Jones",
-                url: "https://keplersj.com"
-              },
-              publisher: {
-                "@type": "Person",
-                name: "Kepler Sticka-Jones",
-                url: "https://keplersj.com"
-              }
-            }))
+            blogPosts: data.allFile.edges.map(
+              ({ node: { childMarkdownRemark: post } }): object => ({
+                "@type": "BlogPosting",
+                url: post.fields.slug,
+                name: post.frontmatter.title,
+                headline: post.frontmatter.title,
+                datePublished: post.frontmatter.isoDate,
+                wordCount: post.wordCount.words,
+                description: getDescription(
+                  post.excerpt,
+                  post.frontmatter.description
+                ),
+                author: {
+                  "@type": "Person",
+                  name: "Kepler Sticka-Jones",
+                  url: "https://keplersj.com"
+                },
+                publisher: {
+                  "@type": "Person",
+                  name: "Kepler Sticka-Jones",
+                  url: "https://keplersj.com"
+                }
+              })
+            )
           }
         })}
       </script>
@@ -108,18 +115,18 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
       <Posts>
         <h1>Blog</h1>
         <div>
-          {data.allMarkdownRemark.edges.map(
-            ({ node }): React.ReactElement => (
+          {data.allFile.edges.map(
+            ({ node: { childMarkdownRemark: post } }): React.ReactElement => (
               <Post
-                key={node.id}
-                location={node.fields.slug}
-                title={node.frontmatter.title}
-                publishDate={node.frontmatter.date}
-                wordCount={node.wordCount.words}
-                minutesNeededToRead={node.timeToRead}
+                key={post.id}
+                location={post.fields.slug}
+                title={post.frontmatter.title}
+                publishDate={post.frontmatter.date}
+                wordCount={post.wordCount.words}
+                minutesNeededToRead={post.timeToRead}
                 description={getDescription(
-                  node.excerpt,
-                  node.frontmatter.description
+                  post.excerpt,
+                  post.frontmatter.description
                 )}
               />
             )
@@ -134,27 +141,32 @@ export default BlogPage;
 
 export const query = graphql`
   query BlogPageData {
-    allMarkdownRemark(
-      filter: { fields: { collection: { eq: "blog" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+    allFile(
+      filter: { sourceInstanceName: { eq: "blog" } }
+      sort: { order: DESC, fields: [childMarkdownRemark___frontmatter___date] }
     ) {
       edges {
         node {
           id
-          rawMarkdownBody
-          excerpt(pruneLength: 160)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            isoDate: date
-            description
-          }
-          timeToRead
-          wordCount {
-            words
+          name
+          sourceInstanceName
+          childMarkdownRemark {
+            id
+            rawMarkdownBody
+            excerpt(pruneLength: 160)
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              date(formatString: "MMMM DD, YYYY")
+              isoDate: date
+              description
+            }
+            timeToRead
+            wordCount {
+              words
+            }
           }
         }
       }

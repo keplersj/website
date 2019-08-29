@@ -19,18 +19,20 @@ const Posts = styled.div`
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allFile: {
       edges: {
         node: {
-          id: string;
-          rawMarkdownBody: string;
-          excerpt: string;
-          fields: {
-            slug: string;
-          };
-          frontmatter: {
-            title: string;
-            description: string;
+          childMarkdownRemark: {
+            id: string;
+            rawMarkdownBody: string;
+            excerpt: string;
+            fields: {
+              slug: string;
+            };
+            frontmatter: {
+              title: string;
+              description: string;
+            };
           };
         };
       }[];
@@ -72,17 +74,16 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
             "@type": "ItemList",
             name: "Projects | Kepler Sticka-Jones",
             url: "/projects",
-            numberOfItems: data.allMarkdownRemark.edges.length,
-            itemListElement: data.allMarkdownRemark.edges.map(
-              ({ node }): object => ({
+            numberOfItems: data.allFile.edges.length,
+            itemListElement: data.allFile.edges.map(
+              ({ node: { childMarkdownRemark: post } }): object => ({
                 "@type": "Thing",
-                name: node.frontmatter.title,
+                name: post.frontmatter.title,
                 description: getDescription(
-                  node.excerpt,
-                  node.frontmatter.description
+                  post.excerpt,
+                  post.frontmatter.description
                 ),
-                url: node.fields.slug
-                // text: node.rawMarkdownBody
+                url: post.fields.slug
               })
             )
           }
@@ -94,15 +95,15 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
       <Posts>
         <h1>Projects</h1>
         <div>
-          {data.allMarkdownRemark.edges.map(
-            ({ node }): React.ReactElement => (
+          {data.allFile.edges.map(
+            ({ node: { childMarkdownRemark: post } }): React.ReactElement => (
               <Project
-                key={node.id}
-                location={node.fields.slug}
-                title={node.frontmatter.title}
+                key={post.id}
+                location={post.fields.slug}
+                title={post.frontmatter.title}
                 description={getDescription(
-                  node.excerpt,
-                  node.frontmatter.description
+                  post.excerpt,
+                  post.frontmatter.description
                 )}
               />
             )
@@ -117,21 +118,23 @@ export default ProjectsPage;
 
 export const query = graphql`
   query ProjectsPageData {
-    allMarkdownRemark(
-      filter: { fields: { collection: { eq: "projects" } } }
-      sort: { order: ASC, fields: [frontmatter___title] }
+    allFile(
+      filter: { sourceInstanceName: { eq: "projects" } }
+      sort: { order: ASC, fields: [childMarkdownRemark___frontmatter___title] }
     ) {
       edges {
         node {
-          id
-          rawMarkdownBody
-          excerpt(pruneLength: 160)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            description
+          childMarkdownRemark {
+            id
+            rawMarkdownBody
+            excerpt(pruneLength: 160)
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+            }
           }
         }
       }

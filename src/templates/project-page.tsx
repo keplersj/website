@@ -106,14 +106,8 @@ const ProjectPageTemplate = (props: Props): React.ReactElement<Props> => {
 export default ProjectPageTemplate;
 
 export const pageQuery = graphql`
-  query ProjectBySlug($slug: String!) {
-    # site {
-    #   siteMetadata {
-    #     title
-    #     author
-    #   }
-    # }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query ProjectBySlug($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       excerpt(pruneLength: 160)
       html
       fields {

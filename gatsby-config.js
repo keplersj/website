@@ -32,29 +32,38 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge => ({
-                ...edge.node.frontmatter,
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ "content:encoded": edge.node.html }]
+            serialize: ({
+              query: {
+                site,
+                allFile: { edges: posts }
+              }
+            }) =>
+              posts.map(({ node: { childMarkdownRemark: post } }) => ({
+                ...post.frontmatter,
+                description: post.excerpt,
+                date: post.frontmatter.date,
+                url: site.siteMetadata.siteUrl + post.fields.slug,
+                guid: site.siteMetadata.siteUrl + post.fields.slug,
+                custom_elements: [{ "content:encoded": post.html }]
               })),
             query: `
               query BlogPostsForRSS {
-                allMarkdownRemark(
-                  filter: {fields: {collection: {eq: "blog"}}},
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
+                allFile(filter: {sourceInstanceName: {eq: "blog"}}, sort: {order: DESC, fields: [childMarkdownRemark___frontmatter___date]}) {
                   edges {
                     node {
-                      excerpt
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
-                        date
+                      id
+                      name
+                      sourceInstanceName
+                      childMarkdownRemark {
+                        excerpt
+                        html
+                        fields {
+                          slug
+                        }
+                        frontmatter {
+                          title
+                          date
+                        }
                       }
                     }
                   }

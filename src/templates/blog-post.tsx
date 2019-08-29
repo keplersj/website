@@ -140,14 +140,8 @@ const BlogPostTemplate = (props: Props): React.ReactElement<Props> => {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    # site {
-    #   siteMetadata {
-    #     title
-    #     author
-    #   }
-    # }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query BlogPostBySlug($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       excerpt(pruneLength: 160)
       html
       rawMarkdownBody
