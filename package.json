@@ -40,7 +40,7 @@
     "gatsby-remark-autolink-headers": "^2.1.9",
     "gatsby-remark-images": "^3.1.19",
     "gatsby-remark-relative-images": "^0.2.3",
-    "gatsby-remark-smartypants": "^2.1.5",
+    "gatsby-remark-smartypants": "^2.1.6",
     "gatsby-remark-vscode": "^1.2.0",
     "gatsby-source-filesystem": "^2.1.19",
     "gatsby-transformer-remark": "^2.6.21",
