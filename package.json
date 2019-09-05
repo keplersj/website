@@ -55,7 +55,7 @@
     "@storybook/addon-actions": "^5.2.0-rc.5",
     "@storybook/addon-knobs": "^5.2.0-rc.5",
     "@storybook/addon-links": "^5.2.0-rc.5",
-    "@storybook/addons": "^5.2.0-rc.5",
+    "@storybook/addons": "^5.2.0-rc.6",
     "@storybook/react": "^5.2.0-rc.5",
     "@stryker-mutator/core": "^2.0.2",
     "@stryker-mutator/html-reporter": "^2.0.2",
