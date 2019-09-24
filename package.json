@@ -20,7 +20,7 @@
     "@emotion/styled": "^10.0.17",
     "@types/react": "^16.9.3",
     "@types/react-helmet": "^5.0.10",
-    "gatsby": "^2.15.18",
+    "gatsby": "^2.15.22",
     "gatsby-background-image": "^0.8.3",
     "gatsby-image": "^2.2.21",
     "gatsby-link": "^2.2.15",
