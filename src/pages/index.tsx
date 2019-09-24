@@ -1,10 +1,10 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Img, { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
+import { Hyperbutton } from "starstuff-components";
 import BaseLayout from "../layouts/Base";
-import { Button, GatsbyButton as LocalButton } from "../components/Button";
 
 const Avatar = styled(Img)`
   margin-top: -100px;
@@ -77,6 +77,8 @@ const CenteredColumn = styled(Centered)`
   flex: none;
   width: 66.6666%;
 `;
+
+export const LocalButton = Hyperbutton.withComponent(Link);
 
 interface Props {
   data: {
@@ -152,16 +154,16 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
                 <Name>Kepler Sticka-Jones</Name>
                 <br />
                 <Centered>
-                  <Button
+                  <Hyperbutton
                     href={`https://github.com/${data.site.siteMetadata.githubUsername}`}
                   >
                     Code
-                  </Button>
-                  <Button
+                  </Hyperbutton>
+                  <Hyperbutton
                     href={`https://twitter.com/${data.site.siteMetadata.twitterUsername}`}
                   >
                     Tweets
-                  </Button>
+                  </Hyperbutton>
                   <LocalButton to="/blog">Blog</LocalButton>
                   <LocalButton to="/projects">Projects</LocalButton>
                   <LocalButton to="/contact">Contact</LocalButton>
