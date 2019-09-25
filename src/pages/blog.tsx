@@ -19,29 +19,24 @@ const Posts = styled.div`
 
 interface Props {
   data: {
-    allFile: {
+    allMarkdownRemark: {
       edges: {
         node: {
           id: string;
-          name: string;
-          sourceInstanceName: string;
-          childMarkdownRemark: {
-            id: string;
-            rawMarkdownBody: string;
-            excerpt: string;
-            fields: {
-              slug: string;
-            };
-            frontmatter: {
-              title: string;
-              date: string;
-              isoDate: string;
-              description: string;
-            };
-            timeToRead: string;
-            wordCount: {
-              words: string;
-            };
+          rawMarkdownBody: string;
+          excerpt: string;
+          fields: {
+            slug: string;
+          };
+          frontmatter: {
+            title: string;
+            date: string;
+            isoDate: string;
+            description: string;
+          };
+          timeToRead: string;
+          wordCount: {
+            words: string;
           };
         };
       }[];
@@ -82,8 +77,8 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
           about: {
             "@type": "Blog",
             url: "/blog",
-            blogPosts: data.allFile.edges.map(
-              ({ node: { childMarkdownRemark: post } }): object => ({
+            blogPosts: data.allMarkdownRemark.edges.map(
+              ({ node: post }): object => ({
                 "@type": "BlogPosting",
                 url: post.fields.slug,
                 name: post.frontmatter.title,
@@ -115,8 +110,8 @@ const BlogPage = ({ data }: Props): React.ReactElement<Props> => (
       <Posts>
         <h1>Blog</h1>
         <div>
-          {data.allFile.edges.map(
-            ({ node: { childMarkdownRemark: post } }): React.ReactElement => (
+          {data.allMarkdownRemark.edges.map(
+            ({ node: post }): React.ReactElement => (
               <Post
                 key={post.id}
                 location={post.fields.slug}
@@ -141,32 +136,27 @@ export default BlogPage;
 
 export const query = graphql`
   query BlogPageData {
-    allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
-      sort: { order: DESC, fields: [childMarkdownRemark___frontmatter___date] }
+    allMarkdownRemark(
+      filter: { fields: { sourceInstanceName: { eq: "blog" } } }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
         node {
           id
-          name
-          sourceInstanceName
-          childMarkdownRemark {
-            id
-            rawMarkdownBody
-            excerpt(pruneLength: 160)
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              date(formatString: "MMMM DD, YYYY")
-              isoDate: date
-              description
-            }
-            timeToRead
-            wordCount {
-              words
-            }
+          rawMarkdownBody
+          excerpt(pruneLength: 160)
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            isoDate: date
+            description
+          }
+          timeToRead
+          wordCount {
+            words
           }
         }
       }

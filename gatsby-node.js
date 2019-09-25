@@ -10,6 +10,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === "MarkdownRemark") {
     const collection = getNode(node.parent).sourceInstanceName;
     const value = createFilePath({ node, getNode });
+
+    // Add sourceInstanceName as a field, so that we can query Markdown from a specific collection
+    createNodeField({
+      name: "sourceInstanceName",
+      node,
+      value: collection
+    });
+
+    // Add known slug to the node, for building the file path
     createNodeField({
       // Name of the field you are adding
       name: "slug",
