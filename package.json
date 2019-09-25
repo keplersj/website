@@ -68,7 +68,7 @@
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
-    "jest-preset-gatsby": "^1.0.8",
+    "jest-preset-gatsby": "^1.0.9",
     "jest-runner-eslint": "^0.7.4",
     "jest-runner-prettier": "^0.3.1",
     "jest-runner-remark": "^1.0.0",
