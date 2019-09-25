@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
-import { Link as NiceLink } from "../components/Link";
+import { Hyperlink } from "starstuff-components";
 
 const Container = styled.div`
   text-align: center !important;
@@ -100,15 +100,15 @@ const ContactPage = (): React.ReactElement => (
             <Contact>Contact</Contact>
             <ContactItems>
               Email:{" "}
-              <NiceLink href="mailto:kepler@stickajones.org">
+              <Hyperlink href="mailto:kepler@stickajones.org">
                 kepler@stickajones.org
-              </NiceLink>
+              </Hyperlink>
             </ContactItems>
             <ContactItems>
               Public Key:{" "}
-              <NiceLink href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
+              <Hyperlink href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c">
                 BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C
-              </NiceLink>
+              </Hyperlink>
             </ContactItems>
           </Container>
         </HeroBody>
