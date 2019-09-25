@@ -1,12 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import styled from "@emotion/styled";
-
-const PostContainer = styled.div`
-  :not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-`;
+import { Card } from "starstuff-components";
 
 interface Props {
   location: string;
@@ -18,17 +12,25 @@ interface Props {
 }
 
 export const BlogPostItem = (props: Props): React.ReactElement<Props> => (
-  <PostContainer>
-    <Link to={props.location}>
-      <h2>{props.title}</h2>
-    </Link>
-    <div>
-      <span>Published {props.publishDate}</span>
-      <span>{" | "}</span>
-      <span>{props.wordCount} words</span>
-      <span>{" | "}</span>
-      <span>{props.minutesNeededToRead} minute read</span>
-    </div>
-    <div>{props.description}</div>
-  </PostContainer>
+  <Card
+    title={props.title}
+    location={props.location}
+    customLinkComponent={(title, location): React.ReactElement => (
+      <Link to={location}>
+        <h2>{title}</h2>
+      </Link>
+    )}
+    supporting={
+      <>
+        <div>
+          <span>Published {props.publishDate}</span>
+          <span>{" | "}</span>
+          <span>{props.wordCount} words</span>
+          <span>{" | "}</span>
+          <span>{props.minutesNeededToRead} minute read</span>
+        </div>
+        <div>{props.description}</div>
+      </>
+    }
+  />
 );

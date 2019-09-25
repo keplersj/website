@@ -324,13 +324,9 @@ background-size: cover;
         <div
           className="emotion-0"
         >
-          <a
-            href=""
-          >
-            <h2>
-              
-            </h2>
-          </a>
+          <h2>
+            
+          </h2>
           <div>
             <span>
               Published 

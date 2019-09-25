@@ -1,12 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "@emotion/styled";
-
-const Container = styled.div`
-  :not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-`;
+import { Card } from "starstuff-components";
 
 interface Props {
   location: string;
@@ -15,10 +9,14 @@ interface Props {
 }
 
 export const PortfolioListItem = (props: Props): React.ReactElement<Props> => (
-  <Container>
-    <Link to={props.location}>
-      <h2>{props.title}</h2>
-    </Link>
-    <div>{props.description}</div>
-  </Container>
+  <Card
+    title={props.title}
+    location={props.location}
+    customLinkComponent={(title, location): React.ReactElement => (
+      <Link to={location}>
+        <h2>{title}</h2>
+      </Link>
+    )}
+    supporting={<div>{props.description}</div>}
+  />
 );
