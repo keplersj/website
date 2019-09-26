@@ -43,6 +43,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               slug
+              sourceInstanceName
             }
             parent {
               ... on File {
@@ -58,7 +59,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
   // Create blog post pages.
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = result.data.allMarkdownRemark.edges.filter(
+    ({ node }) =>
+      node.parent && node.parent.sourceInstanceName !== "content/blog"
+  );
   // We'll call `createPage` for each result
   posts.forEach(({ node }) => {
     createPage({
@@ -67,7 +71,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: node.fields.slug,
       // This component will wrap our MDX content
       component: {
-        blog: path.resolve("./src/templates/blog-post.tsx"),
         projects: path.resolve("./src/templates/project-page.tsx")
       }[node.parent.sourceInstanceName],
       // We can use the values in this context in

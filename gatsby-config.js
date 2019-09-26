@@ -2,6 +2,45 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const path = require("path");
 
+const gatsbyRemarkPlugins = [
+  "gatsby-remark-smartypants",
+  {
+    resolve: "gatsby-remark-vscode",
+    options: {
+      languageAliases: {
+        shell: "bash"
+      },
+      colorTheme: {
+        defaultTheme: "Atom One Light",
+        prefersDarkTheme: "Atom One Dark"
+      },
+      extensions: [
+        {
+          identifier: "akamud.vscode-theme-onedark",
+          version: "2.1.0"
+        },
+        {
+          identifier: "akamud.vscode-theme-onelight",
+          version: "2.1.0"
+        }
+      ]
+    }
+  },
+  "gatsby-remark-autolink-headers",
+  // gatsby-remark-relative-images must
+  // go before gatsby-remark-images
+  "gatsby-remark-relative-images",
+  {
+    resolve: "gatsby-remark-images",
+    options: {
+      // It's important to specify the maxWidth (in pixels) of
+      // the content container as this plugin uses this as the
+      // base for generating different widths of each image.
+      maxWidth: 590
+    }
+  }
+];
+
 module.exports = {
   siteMetadata: {
     title: "Kepler Sticka-Jones",
@@ -15,81 +54,8 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-catch-links",
-    {
-      resolve: "gatsby-plugin-feed",
-      options: {
-        query: `
-          query SiteMetadataForRSS {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({
-              query: {
-                site,
-                allFile: { edges: posts }
-              }
-            }) =>
-              posts.map(({ node: { childMarkdownRemark: post } }) => ({
-                ...post.frontmatter,
-                description: post.excerpt,
-                date: post.frontmatter.date,
-                url: site.siteMetadata.siteUrl + post.fields.slug,
-                guid: site.siteMetadata.siteUrl + post.fields.slug,
-                custom_elements: [{ "content:encoded": post.html }]
-              })),
-            query: `
-              query BlogPostsForRSS {
-                allFile(filter: {sourceInstanceName: {eq: "blog"}}, sort: {order: DESC, fields: [childMarkdownRemark___frontmatter___date]}) {
-                  edges {
-                    node {
-                      id
-                      name
-                      sourceInstanceName
-                      childMarkdownRemark {
-                        excerpt
-                        html
-                        fields {
-                          slug
-                        }
-                        frontmatter {
-                          title
-                          date
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss.xml",
-            title: "RSS Feed",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blog/"
-          }
-        ]
-      }
-    },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: path.join(__dirname, "content", "blog"),
-        name: "blog"
-      }
-    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -106,48 +72,25 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-theme-early-bird",
+      options: {
+        basePath: "/blog",
+        contentPath: "content/blog",
+        assetPath: "content/images"
+      }
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins
+      }
+    },
     "gatsby-plugin-emotion",
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [
-          "gatsby-remark-smartypants",
-          {
-            resolve: "gatsby-remark-vscode",
-            options: {
-              languageAliases: {
-                shell: "bash"
-              },
-              colorTheme: {
-                defaultTheme: "Atom One Light",
-                prefersDarkTheme: "Atom One Dark"
-              },
-              extensions: [
-                {
-                  identifier: "akamud.vscode-theme-onedark",
-                  version: "2.1.0"
-                },
-                {
-                  identifier: "akamud.vscode-theme-onelight",
-                  version: "2.1.0"
-                }
-              ]
-            }
-          },
-          "gatsby-remark-autolink-headers",
-          // gatsby-remark-relative-images must
-          // go before gatsby-remark-images
-          "gatsby-remark-relative-images",
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 590
-            }
-          }
-        ]
+        plugins: gatsbyRemarkPlugins
       }
     },
     {

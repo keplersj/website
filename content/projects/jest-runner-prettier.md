@@ -11,18 +11,12 @@ github_repo: https://github.com/keplersj/jest-runner-prettier
 [![codecov](https://codecov.io/gh/keplersj/jest-runner-prettier/branch/master/graph/badge.svg)](https://codecov.io/gh/keplersj/jest-runner-prettier)
 
 <div align="center">
-  <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
-  <img width="150" height="150" src="https://github.com/prettier/prettier-logo/raw/master/images/prettier-icon-light.png">
+  <img width="150" height="150" src="https://github.com/prettier/prettier-logo/raw/master/images/prettier-icon-light.png"/>
   <a href="https://facebook.github.io/jest/">
-    <img width="150" height="150" vspace="" hspace="25" src="https://user-images.githubusercontent.com/2440089/37489554-6f776bd2-286e-11e8-862f-cb6c398cf752.png">
+    <img width="150" height="150" vspace="" hspace="25" src="https://user-images.githubusercontent.com/2440089/37489554-6f776bd2-286e-11e8-862f-cb6c398cf752.png"/>
   </a>
   <h1>jest-runner-prettier</h1>
   <p>Prettier runner for Jest</p>
-</div>
-
-<div align="center">
-  <!--<img src="https://user-images.githubusercontent.com/574806/30197438-9681385c-941c-11e7-80a8-2b11f15bd412.gif">-->
-  <!-- TODO: Create GIF showing off runner -->
 </div>
 
 ## Usage

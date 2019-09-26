@@ -11,20 +11,14 @@ github_repo: https://github.com/keplersj/jest-runner-stylelint
 [![codecov](https://codecov.io/gh/keplersj/jest-runner-stylelint/branch/master/graph/badge.svg)](https://codecov.io/gh/keplersj/jest-runner-stylelint)
 
 <div align="center">
-  <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
   <a href="https://stylelint.io/">
-    <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/stylelint.svg">
+    <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/stylelint.svg"/>
   </a>
   <a href="https://facebook.github.io/jest/">
-    <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/jest.svg">
+    <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/jest.svg"/>
   </a>
   <h1>jest-runner-stylelint</h1>
   <p>Stylelint runner for Jest</p>
-</div>
-
-<div align="center">
-  <!--<img src="https://user-images.githubusercontent.com/574806/30197438-9681385c-941c-11e7-80a8-2b11f15bd412.gif">-->
-  <!-- TODO: Create GIF showing off runner -->
 </div>
 
 ## Usage
