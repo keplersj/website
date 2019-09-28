@@ -1,5 +1,5 @@
 ---
-name: gatsby-theme-sputnik
+title: gatsby-theme-sputnik
 description: Simple Gatsby theme to power landing pages built with MDX
 npm_package_name: gatsby-theme-sputnik
 github_repo: keplersj/gatsby-theme-sputnik
