@@ -122,7 +122,7 @@ exports[`404 Page renders correctly 1`] = `
 
 <main>
   <section
-    className="emotion-1 gatsby-image-wrapper"
+    className="emotion-1 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
     style={
       Object {
         "backgroundPosition": "center",
@@ -137,8 +137,8 @@ exports[`404 Page renders correctly 1`] = `
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-          .emotion-1:before,
-          .emotion-1:after {
+          .emotion-1.gbi-00000000000-0000000000000000000000:before,
+          .emotion-1.gbi-00000000000-0000000000000000000000:after {
             content: '';
             display: block;
             position: absolute;
@@ -153,14 +153,15 @@ background-repeat: no-repeat;
 background-size: cover;
 
           }
-          .emotion-1:before {
+          .emotion-1.gbi-00000000000-0000000000000000000000:before {
             z-index: -100;
             
             
             opacity: 0; 
           }
-          .emotion-1:after {
+          .emotion-1.gbi-00000000000-0000000000000000000000:after {
             z-index: -101;
+            
             
             
           }
@@ -173,7 +174,7 @@ background-size: cover;
         dangerouslySetInnerHTML={
           Object {
             "__html": "
-          .emotion-1:before {
+          .emotion-1.gbi-00000000000-0000000000000000000000:before {
             opacity: 1;
             background-image: ;
           }",

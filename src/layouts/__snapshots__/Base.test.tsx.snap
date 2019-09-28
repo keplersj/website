@@ -143,7 +143,7 @@ Array [
   </head>
 
 <div
-    className="emotion-7 gatsby-image-wrapper"
+    className="emotion-7 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
     style={
       Object {
         "backgroundPosition": "center",
@@ -158,8 +158,8 @@ Array [
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-          .emotion-7:before,
-          .emotion-7:after {
+          .emotion-7.gbi-00000000000-0000000000000000000000:before,
+          .emotion-7.gbi-00000000000-0000000000000000000000:after {
             content: '';
             display: block;
             position: absolute;
@@ -174,14 +174,15 @@ background-repeat: no-repeat;
 background-size: cover;
 
           }
-          .emotion-7:before {
+          .emotion-7.gbi-00000000000-0000000000000000000000:before {
             z-index: -100;
             
             
             opacity: 0; 
           }
-          .emotion-7:after {
+          .emotion-7.gbi-00000000000-0000000000000000000000:after {
             z-index: -101;
+            
             
             
           }
@@ -194,7 +195,7 @@ background-size: cover;
         dangerouslySetInnerHTML={
           Object {
             "__html": "
-          .emotion-7:before {
+          .emotion-7.gbi-00000000000-0000000000000000000000:before {
             opacity: 1;
             background-image: ;
           }",
