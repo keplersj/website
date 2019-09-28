@@ -1,10 +1,9 @@
 ---
 title: jest-runner-stylelint
 description: Jest plugin to check all files in a projects against stylelint.
-github_repo: https://github.com/keplersj/jest-runner-stylelint
+npm_package_name: jest-runner-stylelint
+github_repo: keplersj/jest-runner-stylelint
 ---
-
-[GitHub Repo](https://github.com/keplersj/jest-runner-stylelint)
 
 [![Build Status](https://travis-ci.org/keplersj/jest-runner-stylelint.svg?branch=master)](https://travis-ci.org/keplersj/jest-runner-stylelint)
 [![npm version](https://badge.fury.io/js/jest-runner-stylelint.svg)](https://badge.fury.io/js/jest-runner-stylelint)

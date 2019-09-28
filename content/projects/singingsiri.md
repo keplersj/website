@@ -1,7 +1,7 @@
 ---
 title: singingSiri
 description: An iOS 6 jailbreak tweak injecting some song lyrics into Siri.
-github_repo: https://github.com/keplersj/singingSiri
+github_repo: keplersj/singingSiri
 status: inactive
 first_active: 2012-05-14T00:00:00.000Z
 last_active: 2013-06-12T00:00:00.000Z

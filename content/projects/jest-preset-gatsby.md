@@ -1,10 +1,9 @@
 ---
 title: jest-preset-gatsby
 description: Preset for testing Gatsby sites using Jest.
-github_repo: https://github.com/keplersj/jest-preset-gatsby
+npm_package_name: jest-preset-gatsby
+github_repo: keplersj/jest-preset-gatsby
 ---
-
-[GitHub Repo](https://github.com/keplersj/jest-preset-gatsby)
 
 [![Build Status](https://travis-ci.org/keplersj/jest-preset-gatsby.svg?branch=master)](https://travis-ci.org/keplersj/jest-preset-gatsby)
 [![npm version](https://badge.fury.io/js/jest-preset-gatsby.svg)](https://badge.fury.io/js/jest-preset-gatsby)

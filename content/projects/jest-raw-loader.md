@@ -1,10 +1,9 @@
 ---
 title: jest-raw-loader
 description: Jest transformer mimicking webpack-contrib/raw-loader's functionality.
-github_repo: https://github.com/keplersj/jest-raw-loader
+npm_package_name: jest-raw-loader
+github_repo: keplersj/jest-raw-loader
 ---
-
-[GitHub Repo](https://github.com/keplersj/jest-raw-loader)
 
 [![npm](https://img.shields.io/npm/v/jest-raw-loader.svg)](https://www.npmjs.com/package/jest-raw-loader)
 [![Build Status](https://travis-ci.org/keplersj/jest-raw-loader.svg?branch=master)](https://travis-ci.org/keplersj/jest-raw-loader)

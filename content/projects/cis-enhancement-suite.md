@@ -3,9 +3,8 @@ title: CIS Enhancement Suite
 description: >-
   A browser extension that incrementally improves on the University of Utah CIS
   experience.
+github_repo: keplersj/cises
 ---
-
-[GitHub Repo](https://github.com/keplersj/cises)
 
 [![Build Status](https://travis-ci.org/keplersj/cises.svg?branch=master)](https://travis-ci.org/keplersj/cises)
 [![codecov](https://codecov.io/gh/keplersj/cises/branch/master/graph/badge.svg)](https://codecov.io/gh/keplersj/cises)

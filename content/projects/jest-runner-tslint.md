@@ -1,10 +1,9 @@
 ---
 title: jest-runner-tslint
 description: Jest plugin to check all files in a projects against TSLint.
-github_repo: https://github.com/keplersj/jest-runner-tslint
+npm_package_name: jest-runner-tslint
+github_repo: keplersj/jest-runner-tslint
 ---
-
-[GitHub Repo](https://github.com/keplersj/jest-runner-tslint)
 
 [![Build Status](https://travis-ci.org/keplersj/jest-runner-tslint.svg?branch=master)](https://travis-ci.org/keplersj/jest-runner-tslint)
 [![npm version](https://badge.fury.io/js/jest-runner-tslint.svg)](https://badge.fury.io/js/jest-runner-tslint)
