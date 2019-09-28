@@ -6,15 +6,16 @@ import BaseLayout from "../layouts/Base";
 import { PortfolioListItem as Project } from "../components/PortfolioListItem";
 import { getDescription } from "../util";
 
-const Posts = styled.div`
-  max-width: 55em;
-  margin-left: auto;
-  margin-right: auto;
+const Projects = styled.div`
+  margin-left: 2em;
+  margin-right: 2em;
+`;
 
-  @media (max-width: 55em) {
-    margin-left: 2em;
-    margin-right: 2em;
-  }
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 interface Props {
@@ -92,9 +93,9 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
     </Helmet>
 
     <BaseLayout title="Projects">
-      <Posts>
+      <Projects>
         <h1>Projects</h1>
-        <div>
+        <ListContainer>
           {data.allFile.edges.map(
             ({ node: { childMarkdownRemark: post } }): React.ReactElement => (
               <Project
@@ -108,8 +109,8 @@ const ProjectsPage = ({ data }: Props): React.ReactElement<Props> => (
               />
             )
           )}
-        </div>
-      </Posts>
+        </ListContainer>
+      </Projects>
     </BaseLayout>
   </>
 );
