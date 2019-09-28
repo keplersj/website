@@ -47,7 +47,7 @@
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-helmet": "^5.2.1",
-    "starstuff-components": "^1.2.0",
+    "starstuff-components": "^1.2.1",
     "typescript": "^3.6.3"
   },
   "devDependencies": {
