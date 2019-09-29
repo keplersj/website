@@ -76,7 +76,7 @@ module.exports = {
       options: {
         basePath: "/projects",
         contentPath: "content/projects",
-        assetPath: "connect/images"
+        assetPath: "content/images"
       }
     },
     {
