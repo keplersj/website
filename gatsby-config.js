@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/camelcase */
-const path = require("path");
 
 const gatsbyRemarkPlugins = [
   "gatsby-remark-smartypants",
@@ -59,15 +57,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: path.join(__dirname, "content", "projects"),
-        name: "projects"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         name: "images",
-        path: path.join(__dirname, "content", "images")
+        path: "./content/images"
       }
     },
     "gatsby-transformer-sharp",
@@ -81,12 +72,19 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-theme-curiousity",
+      options: {
+        basePath: "/projects",
+        contentPath: "content/projects",
+        assetPath: "connect/images"
+      }
+    },
+    {
       resolve: "gatsby-plugin-mdx",
       options: {
         gatsbyRemarkPlugins
       }
     },
-    "gatsby-plugin-emotion",
     {
       resolve: "gatsby-transformer-remark",
       options: {
