@@ -34,7 +34,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
-    "@types/react": "^16.9.3",
+    "@types/react": "^16.9.4",
     "@types/react-helmet": "^5.0.11",
     "gatsby": "^2.15.28",
     "gatsby-background-image": "^0.8.14",
