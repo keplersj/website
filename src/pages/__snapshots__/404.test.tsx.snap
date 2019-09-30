@@ -98,11 +98,6 @@ exports[`404 Page renders correctly 1`] = `
     data-react-helmet={true}
     name="twitter:creator"
   />
-  <meta
-    content="E5D802A305BE2DD99EB4484A4B1DD90E"
-    data-react-helmet={true}
-    name="msvalidate.01"
-  />
   <script
     data-react-helmet={true}
     type="application/ld+json"

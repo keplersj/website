@@ -86,7 +86,6 @@ const BaseLayout = (
           name="twitter:creator"
           content={"@" + data.site.siteMetadata.twitterUsername}
         />
-        <meta name="msvalidate.01" content="E5D802A305BE2DD99EB4484A4B1DD90E" />
       </Helmet>
 
       <Global
