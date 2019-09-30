@@ -10,14 +10,25 @@
     "lint:js": "eslint './src/**/*.tsx'",
     "lint:md": "remark ."
   },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-lint-recommended"
-    ]
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-starstuff/typescript",
+      "eslint-config-starstuff/react",
+      "plugin:jest/recommended"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
   },
   "stylelint": {
     "extends": [
       "stylelint-config-starstuff/css-in-js"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended"
     ]
   },
   "dependencies": {
@@ -65,15 +76,11 @@
     "@stryker-mutator/typescript": "^2.1.0",
     "@types/jest": "^24.0.18",
     "@types/react-test-renderer": "^16.9.0",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.19",
     "eslint": "^6.5.0",
-    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-starstuff": "^1.0.0",
     "eslint-plugin-jest": "^22.17.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.14.3",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
     "jest-preset-gatsby": "^1.0.10",
