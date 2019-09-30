@@ -99,6 +99,12 @@ module.exports = {
         respectDNT: true
       }
     },
+    {
+      resolve: "gatsby-plugin-verify-bing",
+      options: {
+        userIds: ["E5D802A305BE2DD99EB4484A4B1DD90E"]
+      }
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     {
