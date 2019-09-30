@@ -15,6 +15,11 @@
       "remark-preset-lint-recommended"
     ]
   },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-starstuff/css-in-js"
+    ]
+  },
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
@@ -83,9 +88,6 @@
     "remark-cli": "^7.0.0",
     "remark-preset-lint-recommended": "^3.0.3",
     "stylelint": "^11.0.0",
-    "stylelint-config-prettier": "^6.0.0",
-    "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-standard": "^19.0.0",
-    "stylelint-prettier": "^1.1.1"
+    "stylelint-config-starstuff": "^1.0.1"
   }
 }
