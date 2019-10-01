@@ -3,6 +3,11 @@ title: jest-preset-gatsby
 description: Preset for testing Gatsby sites using Jest.
 npm_package_name: jest-preset-gatsby
 github_repo: keplersj/jest-preset-gatsby
+status:
+  - active
+role:
+  - creator
+  - maintainer
 ---
 
 [![Build Status](https://travis-ci.org/keplersj/jest-preset-gatsby.svg?branch=master)](https://travis-ci.org/keplersj/jest-preset-gatsby)

@@ -3,6 +3,11 @@ title: jest-runner-prettier
 description: Jest plugin to check all files in a projects against Prettier.
 npm_package_name: jest-runner-prettier
 github_repo: keplersj/jest-runner-prettier
+status:
+  - active
+role:
+  - creator
+  - maintainer
 ---
 
 [![Build Status](https://travis-ci.org/keplersj/jest-runner-prettier.svg?branch=master)](https://travis-ci.org/keplersj/jest-runner-prettier)

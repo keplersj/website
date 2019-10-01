@@ -4,6 +4,11 @@ description: >-
   A browser extension that incrementally improves on the University of Utah CIS
   experience.
 github_repo: keplersj/cises
+status:
+  - inactive
+role:
+  - creator
+  - maintainer
 ---
 
 [![Build Status](https://travis-ci.org/keplersj/cises.svg?branch=master)](https://travis-ci.org/keplersj/cises)
