@@ -159,7 +159,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
                   </Hyperbutton>
                   <LocalButton to="/blog">Blog</LocalButton>
                   <LocalButton to="/projects">Projects</LocalButton>
-                  <LocalButton to="/contact">Contact</LocalButton>
+                  <LocalButton to="/about">About</LocalButton>
                 </Centered>
               </CenteredColumn>
             </Columns>

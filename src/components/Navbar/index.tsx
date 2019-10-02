@@ -73,7 +73,7 @@ export const Navbar = (): React.ReactElement<{}> => {
         <RightContent>
           <StyledLink to="/blog">Blog</StyledLink>
           <StyledLink to="/projects">Projects</StyledLink>
-          <StyledLink to="/contact">Contact</StyledLink>
+          <StyledLink to="/about">About</StyledLink>
         </RightContent>
       </NavContainer>
     </StyledBackgroundImage>
