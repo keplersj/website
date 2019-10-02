@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { Global, css } from "@emotion/core";
 import { useStaticQuery, graphql } from "gatsby";
 import { Navbar } from "../components/Navbar";
 
 import "modern-normalize";
+import "./styles.css";
 
 interface Props {
   title?: string;
@@ -88,63 +88,6 @@ const BaseLayout = (
         <meta name="twitter:site" content={twitter.id} />
         <meta name="twitter:creator" content={twitter.id} />
       </Helmet>
-
-      <Global
-        styles={css`
-          html {
-            text-rendering: optimizeLegibility;
-            text-size-adjust: 100%;
-          }
-
-          blockquote,
-          body,
-          dd,
-          dl,
-          dt,
-          fieldset,
-          figure,
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6,
-          hr,
-          html,
-          iframe,
-          legend,
-          ol,
-          textarea {
-            margin: 0;
-            padding: 0;
-          }
-
-          body {
-            color: #4a4a4a;
-            line-height: 1.5;
-          }
-
-          a {
-            color: #4a4a4a;
-          }
-
-          @media (prefers-color-scheme: dark) {
-            body {
-              background-color: #4a4a4a;
-              color: white;
-            }
-
-            a {
-              color: white;
-            }
-
-            /* For some reason Atom One Dark is setting this element to black, manual override. */
-            span.mtk1 {
-              color: white !important;
-            }
-          }
-        `}
-      />
 
       {!props.hideNavbar && <Navbar />}
 
