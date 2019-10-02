@@ -16,6 +16,17 @@ beforeEach((): void => {
         }
       }
     },
+    image: {
+      childImageSharp: {
+        fixed: {
+          base64: "",
+          width: 100,
+          height: 100,
+          src: "",
+          srcSet: ""
+        }
+      }
+    },
     backdrop: {
       childImageSharp: {
         fluid: {
@@ -62,17 +73,6 @@ describe("Index Page", (): void => {
               }
             },
             metadataImage: {
-              childImageSharp: {
-                fixed: {
-                  base64: "",
-                  width: 100,
-                  height: 100,
-                  src: "",
-                  srcSet: ""
-                }
-              }
-            },
-            file: {
               childImageSharp: {
                 fixed: {
                   base64: "",

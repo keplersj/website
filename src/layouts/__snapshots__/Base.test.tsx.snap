@@ -228,9 +228,9 @@ background-size: cover;
         </a>
         <a
           className="emotion-0"
-          href="/contact"
+          href="/about"
         >
-          Contact
+          About
         </a>
       </div>
     </nav>
