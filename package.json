@@ -56,7 +56,7 @@
     "gatsby-remark-vscode": "^1.2.1",
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-theme-curiousity": "^1.0.1",
-    "gatsby-theme-early-bird": "^1.0.4",
+    "gatsby-theme-early-bird": "^1.0.5",
     "gatsby-transformer-remark": "^2.6.26",
     "gatsby-transformer-sharp": "^2.2.19",
     "react": "^16.10.1",
