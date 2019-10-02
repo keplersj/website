@@ -87,12 +87,7 @@ module.exports = {
         url: "https://www.instagram.com/keplersj_/",
         isProfile: true
       }
-    ],
-    // The following is needed for my themes right now.. Will fix it.
-    twitterUsername: "realKeplerSJ",
-    instagramUsername: "keplersj_",
-    linkedinUsername: "keplersj",
-    githubUsername: "keplersj"
+    ]
   },
   plugins: [
     "gatsby-plugin-meta-redirect",
