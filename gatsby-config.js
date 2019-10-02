@@ -51,6 +51,7 @@ module.exports = {
     githubUsername: "keplersj"
   },
   plugins: [
+    "gatsby-plugin-meta-redirect",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
