@@ -89,12 +89,12 @@ exports[`404 Page renders correctly 1`] = `
     name="twitter:card"
   />
   <meta
-    content="@undefined"
+    content="@test"
     data-react-helmet={true}
     name="twitter:site"
   />
   <meta
-    content="@undefined"
+    content="@test"
     data-react-helmet={true}
     name="twitter:creator"
   />

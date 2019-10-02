@@ -226,12 +226,12 @@ exports[`Index Page renders correctly 1`] = `
     name="twitter:card"
   />
   <meta
-    content="@"
+    content="@test"
     data-react-helmet={true}
     name="twitter:site"
   />
   <meta
-    content="@"
+    content="@test"
     data-react-helmet={true}
     name="twitter:creator"
   />
@@ -256,10 +256,8 @@ exports[`Index Page renders correctly 1`] = `
       "image": "",
       "name": "Kepler Sticka-Jones",
       "sameAs": Array [
-        "https://twitter.com/",
-        "https://www.instagram.com//",
-        "https://www.linkedin.com/in//",
-        "https://github.com/",
+        "https://twitter.com/test",
+        "https://github.com/test",
       ],
       "url": "",
     },
@@ -350,13 +348,13 @@ exports[`Index Page renders correctly 1`] = `
             >
               <a
                 className="emotion-2"
-                href="https://github.com/"
+                href="https://github.com/test"
               >
                 Code
               </a>
               <a
                 className="emotion-2"
-                href="https://twitter.com/"
+                href="https://twitter.com/test"
               >
                 Tweets
               </a>

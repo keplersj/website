@@ -6,7 +6,6 @@ import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
 import BaseLayout from "../layouts/Base";
 import { Avatar } from "../components/Avatar";
-import { platform } from "os";
 
 const StyledAvatar = styled(Avatar)`
   margin-top: -100px;
@@ -87,10 +86,6 @@ interface Props {
         title: string;
         description: string;
         siteUrl: string;
-        twitterUsername: string;
-        instagramUsername: string;
-        linkedinUsername: string;
-        githubUsername: string;
         social: {
           name: string;
           id: string;

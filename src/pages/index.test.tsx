@@ -45,10 +45,20 @@ beforeEach((): void => {
         title: "",
         description: "",
         siteUrl: "",
-        twitterUsername: "",
-        instagramUsername: "",
-        linkedinUsername: "",
-        githubUsername: ""
+        social: [
+          {
+            name: "Twitter",
+            id: "@test",
+            url: "https://twitter.com/test",
+            isProfile: true
+          },
+          {
+            name: "GitHub",
+            id: "test",
+            url: "https://github.com/test",
+            isProfile: true
+          }
+        ]
       }
     }
   }));
@@ -66,10 +76,20 @@ describe("Index Page", (): void => {
                 title: "",
                 description: "",
                 siteUrl: "",
-                twitterUsername: "",
-                instagramUsername: "",
-                linkedinUsername: "",
-                githubUsername: ""
+                social: [
+                  {
+                    name: "Twitter",
+                    id: "@test",
+                    url: "https://twitter.com/test",
+                    isProfile: true
+                  },
+                  {
+                    name: "GitHub",
+                    id: "test",
+                    url: "https://github.com/test",
+                    isProfile: true
+                  }
+                ]
               }
             },
             metadataImage: {

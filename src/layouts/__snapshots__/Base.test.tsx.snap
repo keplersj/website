@@ -121,12 +121,12 @@ Array [
       name="twitter:card"
     />
     <meta
-      content="@"
+      content="@test"
       data-react-helmet={true}
       name="twitter:site"
     />
     <meta
-      content="@"
+      content="@test"
       data-react-helmet={true}
       name="twitter:creator"
     />
