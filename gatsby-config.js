@@ -45,6 +45,39 @@ module.exports = {
     description:
       "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
     siteUrl: "https://keplersj.com",
+    social: [
+      {
+        name: "Email",
+        id: "kepler@stickajones.org",
+        url: "mailto:kepler@stickajones.org"
+      },
+      {
+        name: "PGP",
+        id: "BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C",
+        url:
+          "https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
+      },
+      {
+        name: "GitHub",
+        id: "keplersj",
+        url: "https://github.com/keplersj"
+      },
+      {
+        name: "Twitter",
+        id: "@realKeplerSJ",
+        url: "https://twitter.com/realKeplerSJ"
+      },
+      {
+        name: "LinkedIn",
+        id: "keplersj",
+        url: "https://www.linkedin.com/in/keplersj/"
+      },
+      {
+        name: "Keybase",
+        id: "keplersj",
+        url: "https://keybase.io/keplersj"
+      }
+    ],
     twitterUsername: "realKeplerSJ",
     instagramUsername: "keplersj_",
     linkedinUsername: "keplersj",

@@ -1,15 +1,8 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import {
-  FaGithub,
-  FaTwitter,
-  FaKeybase,
-  FaEnvelope,
-  FaKey,
-  FaLinkedin
-} from "react-icons/fa";
 import BaseLayout from "../layouts/Base";
 import { Avatar } from "../components/Avatar";
+import { SocialLinks } from "../components/SocialLinks";
 import { Card } from "starstuff-components";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
@@ -40,23 +33,11 @@ const ProfileContainer = styled.div`
   }
 `;
 
-const ProfileLinksContainer = styled.section`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const LinkSize = "1.5em";
-
 const ExperienceContainer = styled.div`
   margin: 1em;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-`;
-
-const SocialLink = styled.a`
-  padding: 0.5em;
 `;
 
 const Name = styled.span`
@@ -74,53 +55,7 @@ const AboutPage = (): React.ReactElement => (
         <Avatar />
         <Name>Kepler Sticka-Jones</Name>
         <Location>Salt Lake City, UT, USA</Location>
-        <ProfileLinksContainer id="#contact">
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="mailto:kepler@stickajones.org"
-          >
-            <FaEnvelope size={LinkSize} title="Email: kepler@stickajones.org" />
-          </SocialLink>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
-          >
-            <FaKey
-              size={LinkSize}
-              title="PGP Public Key: BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C"
-            />
-          </SocialLink>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/keplersj"
-          >
-            <FaGithub size={LinkSize} title="GitHub: keplersj" />
-          </SocialLink>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://twitter.com/realKeplerSJ"
-          >
-            <FaTwitter size={LinkSize} title="Twitter: @realKeplerSJ" />
-          </SocialLink>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/keplersj/"
-          >
-            <FaLinkedin size={LinkSize} title="LinkedIn: keplersj" />
-          </SocialLink>
-          <SocialLink
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://keybase.io/keplersj"
-          >
-            <FaKeybase size={LinkSize} title="Keybase: keplersj" />
-          </SocialLink>
-        </ProfileLinksContainer>
+        <SocialLinks id="#contact" />
       </ProfileContainer>
       <ExperienceContainer>
         <Card
