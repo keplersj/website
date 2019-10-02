@@ -20,10 +20,11 @@ const BaseLayout = (
           title
           description
           siteUrl
-          twitterUsername
-          instagramUsername
-          linkedinUsername
-          githubUsername
+          social {
+            name
+            id
+            url
+          }
         }
       }
 
@@ -41,6 +42,10 @@ const BaseLayout = (
       }
     }
   `);
+
+  const twitter = data.site.siteMetadata.social.find(
+    (social: { name: string }): boolean => social.name === "Twitter"
+  );
 
   return (
     <>
@@ -78,14 +83,8 @@ const BaseLayout = (
           content={props.description || data.site.siteMetadata.description}
         />
         <meta name="twitter:card" content="summary" />
-        <meta
-          name="twitter:site"
-          content={"@" + data.site.siteMetadata.twitterUsername}
-        />
-        <meta
-          name="twitter:creator"
-          content={"@" + data.site.siteMetadata.twitterUsername}
-        />
+        <meta name="twitter:site" content={twitter.id} />
+        <meta name="twitter:creator" content={twitter.id} />
       </Helmet>
 
       <Global

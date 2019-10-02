@@ -60,24 +60,35 @@ module.exports = {
       {
         name: "GitHub",
         id: "keplersj",
-        url: "https://github.com/keplersj"
+        url: "https://github.com/keplersj",
+        isProfile: true
       },
       {
         name: "Twitter",
         id: "@realKeplerSJ",
-        url: "https://twitter.com/realKeplerSJ"
+        url: "https://twitter.com/realKeplerSJ",
+        isProfile: true
       },
       {
         name: "LinkedIn",
         id: "keplersj",
-        url: "https://www.linkedin.com/in/keplersj/"
+        url: "https://www.linkedin.com/in/keplersj/",
+        isProfile: true
       },
       {
         name: "Keybase",
         id: "keplersj",
-        url: "https://keybase.io/keplersj"
+        url: "https://keybase.io/keplersj",
+        isProfile: true
+      },
+      {
+        name: "Instagram",
+        id: "keplersj_",
+        url: "https://www.instagram.com/keplersj_/",
+        isProfile: true
       }
     ],
+    // The following is needed for my themes right now.. Will fix it.
     twitterUsername: "realKeplerSJ",
     instagramUsername: "keplersj_",
     linkedinUsername: "keplersj",

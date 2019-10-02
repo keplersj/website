@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaKey,
   FaLinkedin,
+  FaInstagram,
   FaExternalLinkSquareAlt
 } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -43,6 +44,7 @@ const Icons: { [index: string]: IconType } = {
   Twitter: FaTwitter,
   LinkedIn: FaLinkedin,
   Keybase: FaKeybase,
+  Instagram: FaInstagram,
   default: FaExternalLinkSquareAlt
 };
 
@@ -59,6 +61,8 @@ export const SocialLinks = (
     site: {
       siteMetadata: { social }
     }
+  }: {
+    site: { siteMetadata: { social: Platform[] } };
   } = useStaticQuery(graphql`
     query AboutPageQuery {
       site {
@@ -76,7 +80,7 @@ export const SocialLinks = (
   return (
     <ProfileLinksContainer {...props}>
       {social.map(
-        (platform: Platform): React.ReactElement => {
+        (platform): React.ReactElement => {
           const Icon = Icons[platform.name];
 
           return (

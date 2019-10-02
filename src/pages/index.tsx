@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
 import BaseLayout from "../layouts/Base";
 import { Avatar } from "../components/Avatar";
+import { platform } from "os";
 
 const StyledAvatar = styled(Avatar)`
   margin-top: -100px;
@@ -90,6 +91,12 @@ interface Props {
         instagramUsername: string;
         linkedinUsername: string;
         githubUsername: string;
+        social: {
+          name: string;
+          id: string;
+          url: string;
+          isProfile?: boolean;
+        }[];
       };
     };
 
@@ -102,42 +109,46 @@ interface Props {
   path: string;
 }
 
-const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
-  <>
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "http://www.schema.org",
-          "@type": "WebSite",
-          name: "Kepler Sticka-Jones",
-          description: data.site.siteMetadata.description,
-          url: data.site.siteMetadata.siteUrl,
-          about: {
-            "@type": "person",
+const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
+  const twitter = data.site.siteMetadata.social.find(
+    (social: { name: string }): boolean => social.name === "Twitter"
+  );
+  const github = data.site.siteMetadata.social.find(
+    (social: { name: string }): boolean => social.name === "GitHub"
+  );
+
+  return (
+    <BaseLayout hideNavbar>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://www.schema.org",
+            "@type": "WebSite",
             name: "Kepler Sticka-Jones",
             description: data.site.siteMetadata.description,
             url: data.site.siteMetadata.siteUrl,
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Salt Lake City",
-              addressRegion: "UT",
-              addressCountry: "USA"
-            },
-            email: "kepler@stickajones.org",
-            sameAs: [
-              `https://twitter.com/${data.site.siteMetadata.twitterUsername}`,
-              `https://www.instagram.com/${data.site.siteMetadata.instagramUsername}/`,
-              `https://www.linkedin.com/in/${data.site.siteMetadata.linkedinUsername}/`,
-              `https://github.com/${data.site.siteMetadata.githubUsername}`
-            ],
-            image: data.metadataImage.childImageSharp.fixed.src,
-            gender: "Male"
-          }
-        })}
-      </script>
-    </Helmet>
+            about: {
+              "@type": "person",
+              name: "Kepler Sticka-Jones",
+              description: data.site.siteMetadata.description,
+              url: data.site.siteMetadata.siteUrl,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Salt Lake City",
+                addressRegion: "UT",
+                addressCountry: "USA"
+              },
+              email: "kepler@stickajones.org",
+              sameAs: data.site.siteMetadata.social
+                .filter((platform): boolean => platform.isProfile === true)
+                .map((platform): string => platform.url),
+              image: data.metadataImage.childImageSharp.fixed.src,
+              gender: "Male"
+            }
+          })}
+        </script>
+      </Helmet>
 
-    <BaseLayout hideNavbar>
       <Hero>
         <HeroBody>
           <Container>
@@ -147,16 +158,10 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
                 <Name>Kepler Sticka-Jones</Name>
                 <br />
                 <Centered>
-                  <Hyperbutton
-                    href={`https://github.com/${data.site.siteMetadata.githubUsername}`}
-                  >
-                    Code
-                  </Hyperbutton>
-                  <Hyperbutton
-                    href={`https://twitter.com/${data.site.siteMetadata.twitterUsername}`}
-                  >
-                    Tweets
-                  </Hyperbutton>
+                  {github && <Hyperbutton href={github.url}>Code</Hyperbutton>}
+                  {twitter && (
+                    <Hyperbutton href={twitter.url}>Tweets</Hyperbutton>
+                  )}
                   <LocalButton to="/blog">Blog</LocalButton>
                   <LocalButton to="/projects">Projects</LocalButton>
                   <LocalButton to="/about">About</LocalButton>
@@ -167,8 +172,8 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
         </HeroBody>
       </Hero>
     </BaseLayout>
-  </>
-);
+  );
+};
 
 export default IndexPage;
 
@@ -179,10 +184,12 @@ export const query = graphql`
         title
         description
         siteUrl
-        twitterUsername
-        instagramUsername
-        linkedinUsername
-        githubUsername
+        social {
+          name
+          id
+          url
+          isProfile
+        }
       }
     }
 
