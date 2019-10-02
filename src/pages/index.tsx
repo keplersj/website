@@ -1,15 +1,14 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import Img, { FixedObject } from "gatsby-image";
+import { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
 import BaseLayout from "../layouts/Base";
+import { Avatar } from "../components/Avatar";
 
-const Avatar = styled(Img)`
+const StyledAvatar = styled(Avatar)`
   margin-top: -100px;
-  margin-bottom: 10px;
-  border-radius: 140px;
 
   @media screen and (max-width: 768px) {
     margin-top: -60px;
@@ -99,12 +98,6 @@ interface Props {
         fixed: FixedObject;
       };
     };
-
-    file: {
-      childImageSharp: {
-        fixed: FixedObject;
-      };
-    };
   };
   path: string;
 }
@@ -150,7 +143,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => (
           <Container>
             <Columns>
               <CenteredColumn>
-                <Avatar fixed={data.file.childImageSharp.fixed} />
+                <StyledAvatar />
                 <Name>Kepler Sticka-Jones</Name>
                 <br />
                 <Centered>
@@ -201,19 +194,6 @@ export const query = graphql`
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
         fixed(width: 480, height: 480) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-
-    file(
-      relativePath: { eq: "avatar.jpg" }
-      sourceInstanceName: { eq: "images" }
-    ) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fixed(width: 140, height: 140) {
           ...GatsbyImageSharpFixed
         }
       }
