@@ -4,6 +4,8 @@ import { Global, css } from "@emotion/core";
 import { useStaticQuery, graphql } from "gatsby";
 import { Navbar } from "../components/Navbar";
 
+import "modern-normalize";
+
 interface Props {
   title?: string;
   description?: string;
@@ -90,22 +92,8 @@ const BaseLayout = (
       <Global
         styles={css`
           html {
-            background-color: #fff;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-            min-width: 300px;
-            overflow-x: hidden;
-            overflow-y: scroll;
             text-rendering: optimizeLegibility;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
             text-size-adjust: 100%;
-          }
-
-          *,
-          ::after,
-          ::before {
-            box-sizing: inherit;
           }
 
           blockquote,
@@ -125,30 +113,14 @@ const BaseLayout = (
           html,
           iframe,
           legend,
-          /* li, */
-          /* ul, */
           ol,
-          /* p, */
-          /* pre, */
           textarea {
             margin: 0;
             padding: 0;
           }
 
-          body,
-          button,
-          input,
-          select,
-          textarea {
-            font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto,
-              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-              Helvetica, Arial, sans-serif;
-          }
-
           body {
             color: #4a4a4a;
-            font-size: 1em;
-            font-weight: 400;
             line-height: 1.5;
           }
 
@@ -157,7 +129,6 @@ const BaseLayout = (
           }
 
           @media (prefers-color-scheme: dark) {
-            html,
             body {
               background-color: #4a4a4a;
               color: white;
