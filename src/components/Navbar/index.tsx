@@ -9,7 +9,7 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   margin-bottom: 1em;
 `;
 
-const NavContainer = styled.nav`
+const ContentContainer = styled.div`
   height: 3rem;
   max-width: 100vw;
   display: flex;
@@ -68,11 +68,11 @@ export const Navbar = (): React.ReactElement<{}> => {
 
   return (
     <StyledBackgroundImage
-      Tag="div"
+      Tag="nav"
       fluid={data.backdrop.childImageSharp.fluid}
       backgroundColor={`#040e18`}
     >
-      <NavContainer>
+      <ContentContainer>
         <LeftContent>
           <StyledLink to="/">{data.site.siteMetadata.title}</StyledLink>
         </LeftContent>
@@ -81,7 +81,7 @@ export const Navbar = (): React.ReactElement<{}> => {
           <StyledLink to="/projects">Projects</StyledLink>
           <StyledLink to="/about">About</StyledLink>
         </RightContent>
-      </NavContainer>
+      </ContentContainer>
     </StyledBackgroundImage>
   );
 };
