@@ -117,6 +117,9 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
   const github = data.site.siteMetadata.social.find(
     (social: { name: string }): boolean => social.name === "GitHub"
   );
+  const email = data.site.siteMetadata.social.find(
+    (social: { name: string }): boolean => social.name === "Email"
+  );
 
   return (
     <BaseLayout hideNavbar>
@@ -125,26 +128,19 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
           {JSON.stringify({
             "@context": "http://www.schema.org",
             "@type": "WebSite",
-            name: "Kepler Sticka-Jones",
+            name: data.site.siteMetadata.title,
             description: data.site.siteMetadata.description,
             url: data.site.siteMetadata.siteUrl,
             about: {
               "@type": "person",
-              name: "Kepler Sticka-Jones",
+              name: data.site.siteMetadata.title,
               description: data.site.siteMetadata.description,
               url: data.site.siteMetadata.siteUrl,
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Salt Lake City",
-                addressRegion: "UT",
-                addressCountry: "USA"
-              },
-              email: "kepler@stickajones.org",
+              email: email ? email.id : undefined,
               sameAs: data.site.siteMetadata.social
                 .filter((platform): boolean => platform.isProfile === true)
                 .map((platform): string => platform.url),
-              image: data.metadataImage.childImageSharp.fixed.src,
-              gender: "Male"
+              image: data.metadataImage.childImageSharp.fixed.src
             }
           })}
         </script>
@@ -156,7 +152,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
             <Columns>
               <CenteredColumn>
                 <StyledAvatar />
-                <Name>Kepler Sticka-Jones</Name>
+                <Name>{data.site.siteMetadata.title}</Name>
                 <br />
                 <Centered>
                   {github && <Hyperbutton href={github.url}>Code</Hyperbutton>}
