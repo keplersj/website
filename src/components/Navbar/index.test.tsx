@@ -7,7 +7,21 @@ beforeEach((): void => {
   (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
     site: {
       siteMetadata: {
-        title: "Kepler Sticka-Jones"
+        title: "Kepler Sticka-Jones",
+        nav: [
+          {
+            name: "Blog",
+            url: "/blog"
+          },
+          {
+            name: "Projects",
+            url: "/projects"
+          },
+          {
+            name: "About",
+            url: "/about"
+          }
+        ]
       }
     },
     backdrop: {

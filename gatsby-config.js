@@ -87,6 +87,20 @@ module.exports = {
         url: "https://www.instagram.com/keplersj_/",
         isProfile: true
       }
+    ],
+    nav: [
+      {
+        name: "Blog",
+        url: "/blog"
+      },
+      {
+        name: "Projects",
+        url: "/projects"
+      },
+      {
+        name: "About",
+        url: "/about"
+      }
     ]
   },
   plugins: [

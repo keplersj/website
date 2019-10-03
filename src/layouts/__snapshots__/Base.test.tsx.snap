@@ -137,7 +137,7 @@ Array [
     </title>
   </head>
 
-<div
+<nav
     className="emotion-7 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
     style={
       Object {
@@ -198,7 +198,7 @@ background-size: cover;
         }
       />
     </noscript>
-    <nav
+    <div
       className="emotion-6"
     >
       <div
@@ -233,8 +233,8 @@ background-size: cover;
           About
         </a>
       </div>
-    </nav>
-  </div>,
+    </div>
+  </nav>,
   <main>
     <span>
       Test

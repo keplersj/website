@@ -47,6 +47,20 @@ beforeEach((): void => {
             url: "https://github.com/test",
             isProfile: true
           }
+        ],
+        nav: [
+          {
+            name: "Blog",
+            url: "/blog"
+          },
+          {
+            name: "Projects",
+            url: "/projects"
+          },
+          {
+            name: "About",
+            url: "/about"
+          }
         ]
       }
     }

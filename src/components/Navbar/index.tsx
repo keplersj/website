@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
+import { FluidObject } from "gatsby-image";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
   height: 3rem;
@@ -44,12 +45,33 @@ const StyledLink = styled(Link)`
   }
 `;
 
+interface NavbarData {
+  site: {
+    siteMetadata: {
+      title: string;
+      nav: {
+        name: string;
+        url: string;
+      }[];
+    };
+  };
+  backdrop: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+}
+
 export const Navbar = (): React.ReactElement<{}> => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<NavbarData>(graphql`
     query NavbarData {
       site {
         siteMetadata {
           title
+          nav {
+            name
+            url
+          }
         }
       }
 
@@ -77,9 +99,13 @@ export const Navbar = (): React.ReactElement<{}> => {
           <StyledLink to="/">{data.site.siteMetadata.title}</StyledLink>
         </LeftContent>
         <RightContent>
-          <StyledLink to="/blog">Blog</StyledLink>
-          <StyledLink to="/projects">Projects</StyledLink>
-          <StyledLink to="/about">About</StyledLink>
+          {data.site.siteMetadata.nav.map(
+            (link): React.ReactElement => (
+              <StyledLink to={link.url} key={link.name}>
+                {link.name}
+              </StyledLink>
+            )
+          )}
         </RightContent>
       </ContentContainer>
     </StyledBackgroundImage>
