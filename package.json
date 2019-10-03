@@ -64,6 +64,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "starstuff-components": "^1.2.1",
+    "starstuff-style": "^1.0.1",
     "typescript": "^3.6.3"
   },
   "devDependencies": {

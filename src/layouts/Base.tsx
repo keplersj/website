@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Navbar } from "../components/Navbar";
 
 import "modern-normalize";
+import "starstuff-style";
 import "./styles.css";
 
 interface Props {
