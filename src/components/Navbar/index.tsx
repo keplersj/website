@@ -47,6 +47,12 @@ const StyledLink = styled(Link)`
 export const Navbar = (): React.ReactElement<{}> => {
   const data = useStaticQuery(graphql`
     query NavbarData {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+
       backdrop: file(
         relativePath: { eq: "banner.jpg" }
         sourceInstanceName: { eq: "images" }
@@ -68,7 +74,7 @@ export const Navbar = (): React.ReactElement<{}> => {
     >
       <NavContainer>
         <LeftContent>
-          <StyledLink to="/">Kepler Sticka-Jones</StyledLink>
+          <StyledLink to="/">{data.site.siteMetadata.title}</StyledLink>
         </LeftContent>
         <RightContent>
           <StyledLink to="/blog">Blog</StyledLink>

@@ -31,7 +31,7 @@ beforeEach((): void => {
     },
     site: {
       siteMetadata: {
-        title: "",
+        title: "Kepler Sticka-Jones",
         description: "",
         siteUrl: "",
         social: [

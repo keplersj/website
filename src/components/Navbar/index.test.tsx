@@ -5,6 +5,11 @@ import { Navbar } from ".";
 
 beforeEach((): void => {
   (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
+    site: {
+      siteMetadata: {
+        title: "Kepler Sticka-Jones"
+      }
+    },
     backdrop: {
       childImageSharp: {
         fluid: {

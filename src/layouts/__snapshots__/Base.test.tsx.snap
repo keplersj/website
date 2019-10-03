@@ -76,7 +76,7 @@ Array [
       name="theme-color"
     />
     <meta
-      content=""
+      content="Kepler Sticka-Jones"
       data-react-helmet={true}
       property="og:title"
     />
@@ -133,7 +133,7 @@ Array [
     <title
       data-react-helmet={true}
     >
-      
+      Kepler Sticka-Jones
     </title>
   </head>
 
