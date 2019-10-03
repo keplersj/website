@@ -244,15 +244,7 @@ exports[`Index Page renders correctly 1`] = `
     "@type": "WebSite",
     "about": Object {
       "@type": "person",
-      "address": Object {
-        "@type": "PostalAddress",
-        "addressCountry": "USA",
-        "addressLocality": "Salt Lake City",
-        "addressRegion": "UT",
-      },
       "description": "",
-      "email": "kepler@stickajones.org",
-      "gender": "Male",
       "image": "",
       "name": "Kepler Sticka-Jones",
       "sameAs": Array [

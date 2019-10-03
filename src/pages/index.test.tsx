@@ -73,7 +73,7 @@ describe("Index Page", (): void => {
           data={{
             site: {
               siteMetadata: {
-                title: "",
+                title: "Kepler Sticka-Jones",
                 description: "",
                 siteUrl: "",
                 social: [
@@ -88,6 +88,20 @@ describe("Index Page", (): void => {
                     id: "test",
                     url: "https://github.com/test",
                     isProfile: true
+                  }
+                ],
+                nav: [
+                  {
+                    name: "Blog",
+                    url: "/blog"
+                  },
+                  {
+                    name: "Projects",
+                    url: "/projects"
+                  },
+                  {
+                    name: "About",
+                    url: "/about"
                   }
                 ]
               }

@@ -112,13 +112,13 @@ interface Props {
 
 const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
   const twitter = data.site.siteMetadata.social.find(
-    (social: { name: string }): boolean => social.name === "Twitter"
+    (social): boolean => social.name === "Twitter"
   );
   const github = data.site.siteMetadata.social.find(
-    (social: { name: string }): boolean => social.name === "GitHub"
+    (social): boolean => social.name === "GitHub"
   );
   const email = data.site.siteMetadata.social.find(
-    (social: { name: string }): boolean => social.name === "Email"
+    (social): boolean => social.name === "Email"
   );
 
   return (

@@ -68,18 +68,18 @@ const BaseLayout = (
   `);
 
   const twitter = data.site.siteMetadata.social.find(
-    (social: { name: string }): boolean => social.name === "Twitter"
+    (social): boolean => social.name === "Twitter"
   );
 
   return (
     <>
       <Helmet
+        title={props.title}
         titleTemplate={`%s | ${data.site.siteMetadata.title}`}
         defaultTitle={data.site.siteMetadata.title}
       >
         <html lang="en" />
         <meta name="author" content="Kepler Sticka-Jones" />
-        props.title && <title>{props.title}</title>
         <meta
           name="description"
           content={props.description || data.site.siteMetadata.description}
