@@ -79,28 +79,30 @@ const CenteredColumn = styled(Centered)`
 
 export const LocalButton = Hyperbutton.withComponent(Link);
 
-interface Props {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-        siteUrl: string;
-        social: {
-          name: string;
-          id: string;
-          url: string;
-          isProfile?: boolean;
-        }[];
-      };
-    };
-
-    metadataImage: {
-      childImageSharp: {
-        fixed: FixedObject;
-      };
+interface IndexPageData {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      siteUrl: string;
+      social: {
+        name: string;
+        id: string;
+        url: string;
+        isProfile?: boolean;
+      }[];
     };
   };
+
+  metadataImage: {
+    childImageSharp: {
+      fixed: FixedObject;
+    };
+  };
+}
+
+interface Props {
+  data: IndexPageData;
   path: string;
 }
 

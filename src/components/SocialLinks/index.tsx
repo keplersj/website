@@ -15,6 +15,18 @@ interface Platform {
   url: string;
 }
 
+interface AboutPageQuery {
+  site: {
+    siteMetadata: {
+      social: {
+        name: string;
+        id: string;
+        url: string;
+      }[];
+    };
+  };
+}
+
 export const SocialLinks = (
   props: React.ComponentProps<"section">
 ): React.ReactElement => {
@@ -22,9 +34,7 @@ export const SocialLinks = (
     site: {
       siteMetadata: { social }
     }
-  }: {
-    site: { siteMetadata: { social: Platform[] } };
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<AboutPageQuery>(graphql`
     query AboutPageQuery {
       site {
         siteMetadata {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Image from "gatsby-image";
+import Image, { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 
 const RoundedImage = styled(Image)`
@@ -8,8 +8,16 @@ const RoundedImage = styled(Image)`
   border-radius: 140px;
 `;
 
+interface AvatarComponentQuery {
+  image: {
+    childImageSharp: {
+      fixed: FixedObject;
+    };
+  };
+}
+
 export const Avatar = (): React.ReactElement => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<AvatarComponentQuery>(graphql`
     query AvatarComponentQuery {
       image: file(
         relativePath: { eq: "avatar.jpg" }

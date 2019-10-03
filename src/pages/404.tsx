@@ -1,10 +1,11 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import BackgroundImage, { IFluidObject } from "gatsby-background-image";
+import BackgroundImage from "gatsby-background-image";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 import BaseLayout from "../layouts/Base";
 import { Helmet } from "react-helmet";
+import { FluidObject } from "gatsby-image";
 
 const StyledBackgroundImage = styled(BackgroundImage)`
   max-height: 100vh;
@@ -21,8 +22,16 @@ const Container = styled.div`
   backdrop-filter: blur(5px);
 `;
 
+interface FourOhFourPageData {
+  desktop: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+}
+
 interface Props {
-  data: { desktop: { childImageSharp: { fluid: IFluidObject } } };
+  data: FourOhFourPageData;
 }
 
 const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (

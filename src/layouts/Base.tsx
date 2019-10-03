@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar";
 import "modern-normalize";
 import "starstuff-style";
 import "./styles.css";
+import { FixedObject } from "gatsby-image";
 
 interface Props {
   title?: string;
@@ -13,10 +14,30 @@ interface Props {
   hideNavbar?: boolean;
 }
 
+interface BaseLayoutData {
+  site: {
+    siteMetadata: {
+      title: string;
+      description: string;
+      siteUrl: string;
+      social: {
+        name: string;
+        id: string;
+        url: string;
+      }[];
+    };
+  };
+  file: {
+    childImageSharp: {
+      fixed: FixedObject;
+    };
+  };
+}
+
 const BaseLayout = (
   props: React.PropsWithChildren<Props>
 ): React.ReactElement<React.PropsWithChildren<Props>> => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<BaseLayoutData>(graphql`
     query BaseLayoutData {
       site {
         siteMetadata {
@@ -86,8 +107,8 @@ const BaseLayout = (
           content={props.description || data.site.siteMetadata.description}
         />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content={twitter.id} />
-        <meta name="twitter:creator" content={twitter.id} />
+        {twitter && <meta name="twitter:site" content={twitter.id} />}
+        {twitter && <meta name="twitter:creator" content={twitter.id} />}
       </Helmet>
 
       {!props.hideNavbar && <Navbar />}
