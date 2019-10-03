@@ -91,6 +91,10 @@ interface IndexPageData {
         url: string;
         isProfile?: boolean;
       }[];
+      nav: {
+        name: string;
+        url: string;
+      }[];
     };
   };
 
@@ -159,9 +163,13 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
                   {twitter && (
                     <Hyperbutton href={twitter.url}>Tweets</Hyperbutton>
                   )}
-                  <LocalButton to="/blog">Blog</LocalButton>
-                  <LocalButton to="/projects">Projects</LocalButton>
-                  <LocalButton to="/about">About</LocalButton>
+                  {data.site.siteMetadata.nav.map(
+                    (link): React.ReactElement => (
+                      <LocalButton to={link.url} key={link.name}>
+                        {link.name}
+                      </LocalButton>
+                    )
+                  )}
                 </Centered>
               </CenteredColumn>
             </Columns>
@@ -186,6 +194,10 @@ export const query = graphql`
           id
           url
           isProfile
+        }
+        nav {
+          name
+          url
         }
       }
     }
