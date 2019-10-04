@@ -118,24 +118,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-theme-early-bird",
-      options: {
-        basePath: "/blog",
-        contentPath: "content/blog",
-        assetPath: "content/images"
-      }
-    },
-    {
-      resolve: "gatsby-theme-curiousity",
-      options: {
-        basePath: "/projects",
-        contentPath: "content/projects",
-        assetPath: "content/images"
-      }
-    },
-    {
       resolve: "gatsby-plugin-mdx",
       options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          default: require.resolve("./src/layouts/Base.tsx")
+        },
         gatsbyRemarkPlugins
       }
     },
@@ -143,6 +131,24 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: gatsbyRemarkPlugins
+      }
+    },
+    {
+      resolve: "gatsby-theme-early-bird",
+      options: {
+        basePath: "/blog",
+        contentPath: "content/blog",
+        assetPath: "content/images",
+        mdx: false
+      }
+    },
+    {
+      resolve: "gatsby-theme-curiousity",
+      options: {
+        basePath: "/projects",
+        contentPath: "content/projects",
+        assetPath: "content/images",
+        mdx: false
       }
     },
     {
