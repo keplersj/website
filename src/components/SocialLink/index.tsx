@@ -25,9 +25,12 @@ const Icons: { [index: string]: IconType } = {
   Twitter: FaTwitter,
   LinkedIn: FaLinkedin,
   Keybase: FaKeybase,
-  Instagram: FaInstagram,
-  default: FaExternalLinkSquareAlt
+  Instagram: FaInstagram
 };
+
+function getIcon(name: string): IconType {
+  return Icons[name] || FaExternalLinkSquareAlt;
+}
 
 interface Props {
   url: string;
@@ -36,7 +39,7 @@ interface Props {
 }
 
 export const SocialLink = (props: Props): React.ReactElement => {
-  const Icon = Icons[props.name];
+  const Icon = getIcon(props.name);
 
   return (
     <Link
