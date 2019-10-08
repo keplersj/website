@@ -53,7 +53,7 @@
     "gatsby-remark-relative-images": "^0.2.3",
     "gatsby-remark-smartypants": "^2.1.11",
     "gatsby-remark-vscode": "^1.2.1",
-    "gatsby-source-filesystem": "^2.1.29",
+    "gatsby-source-filesystem": "^2.1.30",
     "gatsby-theme-curiousity": "^1.0.11",
     "gatsby-theme-early-bird": "^1.0.11",
     "gatsby-transformer-remark": "^2.6.27",
