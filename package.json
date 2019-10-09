@@ -51,7 +51,7 @@
     "gatsby-remark-autolink-headers": "^2.1.14",
     "gatsby-remark-images": "^3.1.26",
     "gatsby-remark-relative-images": "^0.2.3",
-    "gatsby-remark-smartypants": "^2.1.11",
+    "gatsby-remark-smartypants": "^2.1.12",
     "gatsby-remark-vscode": "^1.2.1",
     "gatsby-source-filesystem": "^2.1.30",
     "gatsby-theme-curiousity": "^1.0.13",
