@@ -67,7 +67,7 @@
     "schema-dts": "^0.4.2",
     "starstuff-components": "^1.2.1",
     "starstuff-style": "^1.0.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.3",
