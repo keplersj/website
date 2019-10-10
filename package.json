@@ -85,7 +85,7 @@
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
     "jest-preset-gatsby": "^1.0.11",
-    "jest-runner-eslint": "^0.7.4",
+    "jest-runner-eslint": "^0.7.5",
     "jest-runner-prettier": "^0.3.1",
     "jest-runner-remark": "^1.0.0",
     "jest-runner-stylelint": "^2.2.0",
