@@ -80,11 +80,11 @@ Admittedly, not much work on this project is going to get done this weekend. In 
 
 ## More Research
 
-The last thing I implemented in this project was functionality to byte swap the ISO file I made of the hard drive. While this was a fun and very helpful exercise for getting more comfortable with Rust and the data I’m working with, It’s not very practical for the long term. Going forward I think I’ll just let the `[byteorder](https://crates.io/crates/byteorder)` crate handle the BigEndian-ness of the TiVo’s hard drive data.
+The last thing I implemented in this project was functionality to byte swap the ISO file I made of the hard drive. While this was a fun and very helpful exercise for getting more comfortable with Rust and the data I’m working with, It’s not very practical for the long term. Going forward I think I’ll just let the [`byteorder`](https://crates.io/crates/byteorder) crate handle the BigEndian-ness of the TiVo’s hard drive data.
 
 Looking through the `mfstools` source code has been very helpful in figuring out how to interact with the TiVo drive data. Using it and a hex viewer I’ve been able to see around the general binary of the ISO file I created. The first helpful thing I’ve found was [using the first byte of the drive to determine if it is a valid TiVo hard drive](https://github.com/TygerStripe/mfstools/blob/f5997458aa470b0984e2f3580bfdefbf00aad35a/lib/macpart.c#L193-L208), and if the drive is byte swapped ([Little Endian](https://github.com/TygerStripe/mfstools/blob/f5997458aa470b0984e2f3580bfdefbf00aad35a/include/macpart.h#L6) or [Big Endian](https://github.com/TygerStripe/mfstools/blob/f5997458aa470b0984e2f3580bfdefbf00aad35a/include/macpart.h#L7).)
 
-The `mfstools` code base helped show that TiVo was using the [Apple Partition Map](https://en.wikipedia.org/wiki/Apple_Partition_Map) for its hard drives. I was confused why the mfstools author kept referring to “Mac partitions” on the TiVo, until I Googled the Hex value in the [`MAC_PARTITION_MAGIC` constant](https://github.com/TygerStripe/mfstools/blob/f5997458aa470b0984e2f3580bfdefbf00aad35a/include/macpart.h#L8) and found a [book chapter on the forensic analysis of Macintosh hard drives](http://www.informit.com/articles/article.aspx?p=376123&seqNum=3) explaining that `0x504d` was used as a signature byte on drives using Apple Partition Map.
+The `mfstools` code base helped show that TiVo was using the [Apple Partition Map](https://en.wikipedia.org/wiki/Apple_Partition_Map) for its hard drives. I was confused why the `mfstools` author kept referring to “Mac partitions” on the TiVo, until I Googled the Hex value in the [`MAC_PARTITION_MAGIC` constant](https://github.com/TygerStripe/mfstools/blob/f5997458aa470b0984e2f3580bfdefbf00aad35a/include/macpart.h#L8) and found a [book chapter on the forensic analysis of Macintosh hard drives](http://www.informit.com/articles/article.aspx?p=376123&seqNum=3) explaining that `0x504d` was used as a signature byte on drives using Apple Partition Map.
 
 I speculate that TiVo chose to use the Apple Partition Map on its drives because [they were using PowerPC processors](https://en.wikipedia.org/wiki/TiVo_digital_video_recorders#Series1) and Apple had already created a partition map for their PowerPC machines known to work well with media. Because the Linux kernel (which the TiVo OS was based on) supported Apple partitions, this would mean less work for TiVo and they could spend more time perfecting the experience of the DVR instead of worrying about the low-level technical implementation of it.
 
@@ -108,94 +108,11 @@ Thanks to the Wikipedia entry on APM, we know that the drive is likely divided i
 
 Cool. Now we can more easily see the 13 partition entries on the drive. We can see the partition that contains the partition map we’re currently interacting with. As well, as eight partitions related to the Linux install on the drive. The two `Ext2` partitions on there could be cool to poke around one day. We can see two MFS application partitions, and most importantly two MFS media regions. Awesome. Being able to visualize the disk like this has been incredibly helpful, and being able to reference the [partition map entry layout from Wikipedia](https://en.wikipedia.org/wiki/Apple_Partition_Map#Layout) is going to be very helpful as we charge forward.
 
-# Day 7 - June 26, 2019
+---
 
-Repo Commits:
+> Note from Future Kepler: Because they were just lists of commits done in the oViT repo that day and not explaining what was worked on or learned those days, days 7 through 17 have been removed from this post. (October 12, 2019)
 
-- [`91c115`](https://github.com/keplersj/ovit/commit/91c11543341ff71740e74de349a62f43b0facaf4)
-- [`666348`](https://github.com/keplersj/ovit/commit/6663489391eca079f42585e4a8f40187d515b44d)
-- [`b39ff5`](https://github.com/keplersj/ovit/commit/b39ff53609c567fcf3230c0e88a2ed830e10f87c)
-- [`fcb493`](https://github.com/keplersj/ovit/commit/fcb49349353650e021d6de155fb0a3c60e3d1d55)
-
-# Day 8 - June 27, 2019
-
-Repo Commits:
-
-- [`3d934d`](https://github.com/keplersj/ovit/commit/3d934d96e5711876bd7bc77d0ce2f41bc521925f)
-
-# Day 9 - July 2, 2019
-
-Repo Commits:
-
-- [`983d23`](https://github.com/keplersj/ovit/commit/983d23b395a45d37c6b3bd6e8f1006cee1637079)
-
-# Day 10 - July 3, 2019
-
-Repo Commits:
-
-- [`e30152`](https://github.com/keplersj/ovit/commit/e301529b78a29531f16be26b9504de8c1691eb4d)
-- [`46a9df`](https://github.com/keplersj/ovit/commit/46a9df2ee5883a2082a977f5af05e08b12255f0c)
-- [`6f1b1e`](https://github.com/keplersj/ovit/commit/6f1b1e37628095ffa7e99920f7fb6b7a8b7846ae)
-- [`5cd36a`](https://github.com/keplersj/ovit/commit/5cd36a79606e2d1069135469ae6d4fbdcc8895a5)
-- [`ebcfe0`](https://github.com/keplersj/ovit/commit/ebcfe05b9e8b2915a6218770db3ce479bb381413)
-- [`4c7d24`](https://github.com/keplersj/ovit/commit/4c7d24917a607665943016a8eb9e2d8cd2feacd8)
-- [`c4109d`](https://github.com/keplersj/ovit/commit/c4109d5e541f3e311adef6a3b67d653ab378a0fc)
-
-# Day 11 - July 4, 2019
-
-Repo Commits:
-
-- [`95020e`](https://github.com/keplersj/ovit/commit/95020e0375e42fc9849e83ac36a3ca3b71e2c1e6)
-- [`706101`](https://github.com/keplersj/ovit/commit/706101519d5d542419070d796daae38f918eb1de)
-- [`3c9dff`](https://github.com/keplersj/ovit/commit/3c9dff0a5883887a276367232fecb9db33d41211)
-
-# Day 12 - July 5, 2019
-
-Repo Commits:
-
-- [`a01781`](https://github.com/keplersj/ovit/commit/a01781d6f71a610965c45c3be2793179e2fc27c9)
-
-# Day 13 - July 6, 2019
-
-Repo Commits:
-
-- [`fdb953`](https://github.com/keplersj/ovit/commit/fdb953930d5cbf8baa06db15e1865be82b9dc853)
-
-# Day 14 - July 7, 2019
-
-Repo Commits:
-
-- [`9ad2fe`](https://github.com/keplersj/ovit/commit/9ad2fe4f5e0382f05438dc7726624c8dbc1b34ae)
-- [`5f8d46`](https://github.com/keplersj/ovit/commit/5f8d467abeb06e9404cf616bcfefec29eb09cbd6)
-- [`438db1`](https://github.com/keplersj/ovit/commit/438db1b2e47a35b1cdc5be746f369853d6a8d284)
-- [`a614f3`](https://github.com/keplersj/ovit/commit/a614f335eeaae4d731b46942acfbdd7891ce5ea6)
-- [`1686c2`](https://github.com/keplersj/ovit/commit/1686c254c3931e104d13974e4d18c72ac9a9861f)
-- [`2623b9`](https://github.com/keplersj/ovit/commit/2623b919a7f5e5bb80821e7974cb0346593fba16)
-- [`974371`](https://github.com/keplersj/ovit/commit/9743716347fffe5cb179ccfc45d6f6a1aeb301ba)
-
-# Day 15 - July 9, 2019
-
-Repo Commits:
-
-- [`b22665`](https://github.com/keplersj/ovit/commit/b22665ff2de2f7b06429d4dc73da6b3ab28984ca)
-- [`5549bd`](https://github.com/keplersj/ovit/commit/5549bdd48e38f88d9ee8cc4cc387174cc484b410)
-- [`e41402`](https://github.com/keplersj/ovit/commit/e41402ad820896009d95c9f05ae9ec4bbdba5875)
-- [`7fc888`](https://github.com/keplersj/ovit/commit/7fc88846d97b3e8789cd352ca902eddab1c9dbd3)
-- [`32528c`](https://github.com/keplersj/ovit/commit/32528ca4ea4a841b69aa9b591b05d5d0ca7ac38e)
-- [`500f84`](https://github.com/keplersj/ovit/commit/500f8410ba684c59b46d124becbc50d2b18571de)
-- [`c3aaa3`](https://github.com/keplersj/ovit/commit/c3aaa3f28bde6a58f62e8c549cb6ebd85108fbdf)
-
-# Day 16 - July 12, 2019
-
-Repo Commits:
-
-- [`d9132b`](https://github.com/keplersj/ovit/commit/d9132b826a85b408433c9072497d2b2c58f4469a)
-
-# Day 17 - July 13, 2019
-
-Repo Commits:
-
-- [`999e48`](https://github.com/keplersj/ovit/commit/999e4814d021ded893807df9d1cddd755de77898)
+---
 
 # Day 18 - July 18, 2019
 
@@ -212,3 +129,15 @@ _Three Hours Later_
 Nope. Giving up on the FFI & Legacy Code idea. Good idea in concept, maybe not for this project right now. Got stuck with the code getting compiled, but not linked. Going to move all of today’s commits into a separate branch for later.
 
 ---
+
+Sadly, I never wrote anything more on this write-up after the 18th. I did continue to work on oViT a bit more that month, but had to move had to move on and work on other things as school started back just a few weeks later in August. The oViT source code can be found in its [GitHub repo](https://github.com/keplersj/ovit/). One day I hope to get back to this project, but I don't forsee that happening for a while.
+
+This project was often very frustrating to work on. Going into the project I knew that much of the material I was going to be referring to wasn't going to be from first hand sources. But as I continued to research and work on this drive I kept encountering the issue of [link rot](https://en.wikipedia.org/wiki/Link_rot) in the increasingly aging pages I was looking for. While [Tivopedia](http://www.tivopedia.com/) and [The TiVo Community Forum](https://www.tivocommunity.com/community/index.php) remain online after all of these years, many of the hyperlinks in the 14-18 year old posts I was reading had simply gone dead. People hosting information, software, and source code on personal websites that they have long stopped paying for hosting, domain registration, and otherwise abondoned. While looking for information from others who reverse engineered the first generation TiVo before me, I often related to Randell Monroe's [xkcd #979](https://xkcd.com/979/):
+
+![xkcd #979: Wisdom of the Ancients](/content/images/wisdom_of_the_ancients.png)
+
+There is a bright side to this experience though. Before starting work on oViT, I was incredibly burnt out of software development. Working on oViT allowed me to work on and research an incredibly interesting problem, allowed me to learn a new programming language in Rust, and reignited my interest in website development. Writing this write-up gave me a reason to build my website up, and get back into development.
+
+# Conclusion
+
+Burnout sucks. Link rot sucks. Both are incredibly important to overcome. Burn out is inevitable when you're constantly spinning your wheels on everything in life (academic and professional.) And sadly, link rot is inevitable with the current state of the web and the often fleeting nature of information. We must do everything in our power to preserve our personal energies and the important work we do with that energy.
