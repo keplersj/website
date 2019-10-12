@@ -104,6 +104,7 @@ module.exports = {
     ]
   },
   plugins: [
+    "gatsby-plugin-redirects",
     "gatsby-plugin-meta-redirect",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-robots-txt",
