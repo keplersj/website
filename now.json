@@ -1,6 +1,11 @@
 {
   "version": 2,
   "routes": [
+    {
+      "src": "/contact/index.html",
+      "status": 301,
+      "headers": { "Location": "/about#contact" }
+    },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404" }
   ]
