@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/contact/index.html",
+      "src": "/contact",
       "status": 301,
       "headers": { "Location": "/about#contact" }
     },
