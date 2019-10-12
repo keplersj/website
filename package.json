@@ -81,7 +81,7 @@
     "babel-plugin-emotion": "^10.0.21",
     "eslint": "^6.5.1",
     "eslint-config-starstuff": "^1.0.4",
-    "eslint-plugin-jest": "^22.18.0",
+    "eslint-plugin-jest": "^22.19.0",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
     "jest-preset-gatsby": "^1.0.11",
