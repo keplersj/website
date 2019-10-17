@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import { Navbar } from "../Navbar";
-
+import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
+import { FixedObject } from "gatsby-image";
 import "modern-normalize";
 import "starstuff-style";
+import "@reach/skip-nav/styles.css";
+import { Navbar } from "../Navbar";
 import "./styles.css";
-import { FixedObject } from "gatsby-image";
 
 interface Props {
   title?: string;
@@ -110,7 +111,13 @@ const BaseLayout = (
         {twitter && <meta name="twitter:creator" content={twitter.id} />}
       </Helmet>
 
-      {!props.hideNavbar && <Navbar />}
+      {!props.hideNavbar && (
+        <>
+          <SkipNavLink />
+          <Navbar />
+          <SkipNavContent />
+        </>
+      )}
 
       <main>{props.children}</main>
     </>

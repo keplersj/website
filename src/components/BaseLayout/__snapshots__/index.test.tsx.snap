@@ -2,60 +2,7 @@
 
 exports[`Base Layout renders correctly 1`] = `
 Array [
-  .emotion-7 {
-  height: 3rem;
-  width: 100vw;
-  margin-bottom: 1em;
-}
-
-.emotion-6 {
-  height: 3rem;
-  max-width: 100vw;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.emotion-1 {
-  text-align: start;
-  max-width: 50%;
-}
-
-.emotion-0 {
-  font-weight: 600;
-  color: #141414;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-5 {
-  text-align: end;
-  max-width: 50%;
-}
-
-.emotion-5 > :not(:last-child) {
-  margin-right: 1em;
-}
-
-<head>
+  <head>
     Object {}
     Object {
       "lang": "en",
@@ -131,6 +78,65 @@ Array [
       Kepler Sticka-Jones
     </title>
   </head>
+
+<a
+    data-reach-skip-link={true}
+    href="#reach-skip-nav"
+  >
+    Skip to content
+  </a>,
+  .emotion-7 {
+  height: 3rem;
+  width: 100vw;
+  margin-bottom: 1em;
+}
+
+.emotion-6 {
+  height: 3rem;
+  max-width: 100vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-1 {
+  text-align: start;
+  max-width: 50%;
+}
+
+.emotion-0 {
+  font-weight: 600;
+  color: #141414;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5 {
+  text-align: end;
+  max-width: 50%;
+}
+
+.emotion-5 > :not(:last-child) {
+  margin-right: 1em;
+}
 
 <nav
     className="emotion-7 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
@@ -230,6 +236,9 @@ background-size: cover;
       </div>
     </div>
   </nav>,
+  <div
+    id="reach-skip-nav"
+  />,
   <main>
     <span>
       Test
