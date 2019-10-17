@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
-import BaseLayout from "../layouts/Base";
+import BaseLayout from "../components/BaseLayout";
 import { Helmet } from "react-helmet";
 import { FluidObject } from "gatsby-image";
 

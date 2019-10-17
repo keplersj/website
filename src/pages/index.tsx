@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
-import BaseLayout from "../layouts/Base";
+import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
 
 const StyledAvatar = styled(Avatar)`

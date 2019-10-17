@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import BaseLayout from "../../layouts/Base";
+import BaseLayout from "../BaseLayout";
 import { Avatar } from "../Avatar";
 import { SocialLinks } from "../SocialLinks";
 
