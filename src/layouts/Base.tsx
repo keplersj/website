@@ -84,7 +84,6 @@ const BaseLayout = (
           name="description"
           content={props.description || data.site.siteMetadata.description}
         />
-        <meta name="theme-color" content="#409040" />
         <meta
           property="og:title"
           content={

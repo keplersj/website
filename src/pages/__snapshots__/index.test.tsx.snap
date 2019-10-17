@@ -176,11 +176,6 @@ exports[`Index Page renders correctly 1`] = `
     name="description"
   />
   <meta
-    content="#409040"
-    data-react-helmet={true}
-    name="theme-color"
-  />
-  <meta
     content=""
     data-react-helmet={true}
     property="og:title"

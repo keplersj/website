@@ -71,11 +71,6 @@ Array [
       name="description"
     />
     <meta
-      content="#409040"
-      data-react-helmet={true}
-      name="theme-color"
-    />
-    <meta
       content="Kepler Sticka-Jones"
       data-react-helmet={true}
       property="og:title"
