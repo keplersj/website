@@ -239,10 +239,8 @@ background-size: cover;
   <div
     id="reach-skip-nav"
   />,
-  <main>
-    <span>
-      Test
-    </span>
-  </main>,
+  <span>
+    Test
+  </span>,
 ]
 `;

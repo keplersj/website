@@ -20,7 +20,7 @@ const AboutContainer = styled.div`
   }
 `;
 
-const ProfileContainer = styled.div`
+const ProfileContainer = styled.header`
   margin: 1em;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ const ProfileContainer = styled.div`
   }
 `;
 
-const ExperienceContainer = styled.div`
+const ExperienceContainer = styled.main`
   margin: 1em;
   flex-grow: 1;
   display: flex;
@@ -51,12 +51,16 @@ export const AboutTemplate = (
   props: React.PropsWithChildren<{}>
 ): React.ReactElement => (
   <BaseLayout>
-    <AboutContainer>
+    <AboutContainer role="region">
       <ProfileContainer>
         <Avatar />
-        <Name>Kepler Sticka-Jones</Name>
-        <Location>Salt Lake City, UT, USA</Location>
-        <SocialLinks id="#contact" />
+        <Name role="heading" aria-level={1} title="Name">
+          Kepler Sticka-Jones
+        </Name>
+        <Location role="heading" aria-level={2} title="Location">
+          Salt Lake City, UT, USA
+        </Location>
+        <SocialLinks id="contact" />
       </ProfileContainer>
       <ExperienceContainer>{props.children}</ExperienceContainer>
     </AboutContainer>

@@ -32,11 +32,14 @@ function getIcon(name: string): IconType {
   return Icons[name] || FaExternalLinkSquareAlt;
 }
 
-interface Props {
+type Props = {
   url: string;
   name: string;
   id: string;
-}
+} & React.DetailedHTMLProps<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>;
 
 export const SocialLink = (props: Props): React.ReactElement => {
   const Icon = getIcon(props.name);
@@ -47,6 +50,7 @@ export const SocialLink = (props: Props): React.ReactElement => {
       rel="noopener noreferrer"
       href={props.url}
       key={props.name}
+      {...props}
     >
       <Icon size={LinkSize} title={`${props.name}: ${props.id}`} />
     </Link>

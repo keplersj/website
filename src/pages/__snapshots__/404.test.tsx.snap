@@ -110,23 +110,22 @@ exports[`404 Page renders correctly 1`] = `
   </title>
 </head>
 
-<main>
-  <section
-    className="emotion-1 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
-    style={
-      Object {
-        "backgroundPosition": "center",
-        "backgroundRepeat": "no-repeat",
-        "backgroundSize": "cover",
-        "opacity": 0.99,
-        "position": "relative",
-      }
+<section
+  className="emotion-1 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
+  style={
+    Object {
+      "backgroundPosition": "center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+      "opacity": 0.99,
+      "position": "relative",
     }
-  >
-    <style
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
           .emotion-1.gbi-00000000000-0000000000000000000000:before,
           .emotion-1.gbi-00000000000-0000000000000000000000:after {
             content: '';
@@ -156,40 +155,39 @@ background-size: cover;
             
           }
         ",
-        }
       }
-    />
-    <noscript>
-      <style
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "
+    }
+  />
+  <noscript>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
           .emotion-1.gbi-00000000000-0000000000000000000000:before {
             opacity: 1;
             background-image: ;
           }",
-          }
         }
-      />
-    </noscript>
-    <div
-      className="emotion-0"
-    >
-      <div>
-        <h1>
-          404!
-        </h1>
-        <span>
-          Maybe, go back to the 
-          <a
-            href="/"
-          >
-            home page
-          </a>
-          ?
-        </span>
-      </div>
+      }
+    />
+  </noscript>
+  <div
+    className="emotion-0"
+  >
+    <div>
+      <h1>
+        404!
+      </h1>
+      <span>
+        Maybe, go back to the 
+        <a
+          href="/"
+        >
+          home page
+        </a>
+        ?
+      </span>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 `;

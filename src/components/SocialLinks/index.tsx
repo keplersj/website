@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { SocialLink } from "../SocialLink";
 
-const ProfileLinksContainer = styled.section`
+const ProfileLinksContainer = styled.address`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,10 +49,11 @@ export const SocialLinks = (
   `);
 
   return (
-    <ProfileLinksContainer {...props}>
+    <ProfileLinksContainer role="list" {...props}>
       {social.map(
         (platform): React.ReactElement => (
           <SocialLink
+            role="listitem"
             key={platform.id}
             name={platform.name}
             id={platform.id}

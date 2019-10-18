@@ -34,5 +34,9 @@ export const Avatar = (): React.ReactElement => {
     }
   `);
 
-  return <RoundedImage fixed={data.image.childImageSharp.fixed} />;
+  return (
+    <div role="img" aria-label="Avatar">
+      <RoundedImage alt="Avatar" fixed={data.image.childImageSharp.fixed} />
+    </div>
+  );
 };

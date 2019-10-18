@@ -260,21 +260,24 @@ exports[`Index Page renders correctly 1`] = `
   </title>
 </head>
 
-<main>
-  <section
-    className="emotion-12"
+<section
+  className="emotion-12"
+>
+  <div
+    className="emotion-11"
   >
     <div
-      className="emotion-11"
+      className="emotion-10"
     >
       <div
-        className="emotion-10"
+        className="emotion-9"
       >
         <div
-          className="emotion-9"
+          className="emotion-8"
         >
           <div
-            className="emotion-8"
+            aria-label="Avatar"
+            role="img"
           >
             <div
               className="emotion-0 gatsby-image-wrapper"
@@ -294,7 +297,7 @@ exports[`Index Page renders correctly 1`] = `
                   srcSet=""
                 />
                 <img
-                  alt=""
+                  alt="Avatar"
                   height={100}
                   loading="lazy"
                   onLoad={[Function]}
@@ -319,55 +322,55 @@ exports[`Index Page renders correctly 1`] = `
               <noscript
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
+                    "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"Avatar\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                   }
                 }
               />
             </div>
-            <h1
-              className="emotion-1"
+          </div>
+          <h1
+            className="emotion-1"
+          >
+            Kepler Sticka-Jones
+          </h1>
+          <br />
+          <div
+            className="emotion-7"
+          >
+            <a
+              className="emotion-2"
+              href="https://github.com/test"
             >
-              Kepler Sticka-Jones
-            </h1>
-            <br />
-            <div
-              className="emotion-7"
+              Code
+            </a>
+            <a
+              className="emotion-2"
+              href="https://twitter.com/test"
             >
-              <a
-                className="emotion-2"
-                href="https://github.com/test"
-              >
-                Code
-              </a>
-              <a
-                className="emotion-2"
-                href="https://twitter.com/test"
-              >
-                Tweets
-              </a>
-              <a
-                className="emotion-2"
-                href="/blog"
-              >
-                Blog
-              </a>
-              <a
-                className="emotion-2"
-                href="/projects"
-              >
-                Projects
-              </a>
-              <a
-                className="emotion-2"
-                href="/about"
-              >
-                About
-              </a>
-            </div>
+              Tweets
+            </a>
+            <a
+              className="emotion-2"
+              href="/blog"
+            >
+              Blog
+            </a>
+            <a
+              className="emotion-2"
+              href="/projects"
+            >
+              Projects
+            </a>
+            <a
+              className="emotion-2"
+              href="/about"
+            >
+              About
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 `;

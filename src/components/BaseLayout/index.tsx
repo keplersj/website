@@ -119,7 +119,7 @@ const BaseLayout = (
         </>
       )}
 
-      <main>{props.children}</main>
+      {props.children}
     </>
   );
 };
