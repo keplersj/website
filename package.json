@@ -58,7 +58,7 @@
     "gatsby-theme-curiousity": "^1.0.30",
     "gatsby-theme-early-bird": "^1.0.28",
     "gatsby-transformer-remark": "^2.6.30",
-    "gatsby-transformer-sharp": "^2.2.23",
+    "gatsby-transformer-sharp": "^2.3.0",
     "modern-normalize": "^0.5.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
