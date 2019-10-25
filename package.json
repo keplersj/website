@@ -31,7 +31,7 @@
     "@emotion/styled": "^10.0.22",
     "@reach/skip-nav": "^0.4.0",
     "@types/reach__skip-nav": "^0.1.0",
-    "@types/react": "^16.9.10",
+    "@types/react": "^16.9.11",
     "@types/react-helmet": "^5.0.13",
     "gatsby": "^2.17.2",
     "gatsby-background-image": "^0.8.15",
