@@ -82,7 +82,7 @@
     "babel-plugin-emotion": "^10.0.22",
     "eslint": "^6.6.0",
     "eslint-config-starstuff": "^1.0.8",
-    "eslint-plugin-jest": "^22.20.0",
+    "eslint-plugin-jest": "^22.20.1",
     "graphql": "^14.5.8",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.17",
