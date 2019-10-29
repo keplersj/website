@@ -76,7 +76,7 @@
     "@stryker-mutator/html-reporter": "^2.1.0",
     "@stryker-mutator/jest-runner": "^2.1.0",
     "@stryker-mutator/typescript": "^2.1.0",
-    "@types/jest": "^24.0.20",
+    "@types/jest": "^24.0.21",
     "@types/react-test-renderer": "^16.9.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.23",
