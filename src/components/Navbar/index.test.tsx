@@ -36,6 +36,19 @@ beforeEach((): void => {
           sizes: ""
         }
       }
+    },
+    backdropDark: {
+      childImageSharp: {
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
+      }
     }
   }));
 });

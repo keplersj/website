@@ -91,6 +91,16 @@ Array [
   margin-bottom: 1em;
 }
 
+@media (prefers-color-scheme:dark) {
+  .emotion-7::before {
+    background-image: url() !important;
+  }
+
+  .emotion-7::after {
+    background-image: url() !important;
+  }
+}
+
 .emotion-6 {
   height: 3rem;
   max-width: 100vw;
@@ -127,6 +137,12 @@ Array [
 .emotion-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
+}
+
+@media (prefers-color-scheme:dark) {
+  .emotion-0 {
+    color: white;
+  }
 }
 
 .emotion-5 {
