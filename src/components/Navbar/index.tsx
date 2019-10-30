@@ -4,10 +4,28 @@ import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
 import { FluidObject } from "gatsby-image";
 
-const StyledBackgroundImage = styled(BackgroundImage)`
+interface StyledBackgroundImageProps {
+  fluidDark: FluidObject;
+}
+
+const StyledBackgroundImage = styled(BackgroundImage)<
+  StyledBackgroundImageProps
+>`
   height: 3rem;
   width: 100vw;
   margin-bottom: 1em;
+
+  @media (prefers-color-scheme: dark) {
+    ::before {
+      background-image: url(${(props): string =>
+        props.fluidDark.src}) !important;
+    }
+
+    ::after {
+      background-image: url(${(props): string =>
+        props.fluidDark.src}) !important;
+    }
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -43,6 +61,10 @@ const StyledLink = styled(Link)`
   :hover {
     text-decoration: underline;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 `;
 
 interface NavbarData {
@@ -56,6 +78,11 @@ interface NavbarData {
     };
   };
   backdrop: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+  backdropDark: {
     childImageSharp: {
       fluid: FluidObject;
     };
@@ -85,6 +112,17 @@ export const Navbar = (): React.ReactElement<{}> => {
           }
         }
       }
+
+      backdropDark: file(
+        relativePath: { eq: "banner_dark.jpg" }
+        sourceInstanceName: { eq: "images" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 4608) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
     }
   `);
 
@@ -92,6 +130,7 @@ export const Navbar = (): React.ReactElement<{}> => {
     <StyledBackgroundImage
       Tag="nav"
       fluid={data.backdrop.childImageSharp.fluid}
+      fluidDark={data.backdropDark.childImageSharp.fluid}
       backgroundColor={`#040e18`}
     >
       <ContentContainer>
