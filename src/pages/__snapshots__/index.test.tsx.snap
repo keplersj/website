@@ -238,7 +238,7 @@ exports[`Index Page renders correctly 1`] = `
     "@context": "http://www.schema.org",
     "@type": "WebSite",
     "about": Object {
-      "@type": "person",
+      "@type": "Person",
       "description": "",
       "image": "",
       "name": "Kepler Sticka-Jones",

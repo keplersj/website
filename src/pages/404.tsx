@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import BaseLayout from "../components/BaseLayout";
 import { Helmet } from "react-helmet";
 import { FluidObject } from "gatsby-image";
+import { WebPage } from "schema-dts";
 
 type StyledBackgroundImageProps = {
   fluidDark: FluidObject;
@@ -70,7 +71,7 @@ const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (
           "@context": "http://www.schema.org",
           "@type": "WebPage",
           name: "404! | Kepler Sticka-Jones"
-        })}
+        } as WebPage)}
       </script>
     </Helmet>
 

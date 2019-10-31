@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
+import { WebSite } from "schema-dts";
 import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
 
@@ -132,7 +133,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
             description: data.site.siteMetadata.description,
             url: data.site.siteMetadata.siteUrl,
             about: {
-              "@type": "person",
+              "@type": "Person",
               name: data.site.siteMetadata.title,
               description: data.site.siteMetadata.description,
               url: data.site.siteMetadata.siteUrl,
@@ -142,7 +143,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
                 .map((platform): string => platform.url),
               image: data.metadataImage.childImageSharp.fixed.src
             }
-          })}
+          } as WebSite)}
         </script>
       </Helmet>
 
