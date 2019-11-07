@@ -3,6 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
 import { FluidObject } from "gatsby-image";
+import css from "@emotion/css";
 
 interface StyledBackgroundImageProps {
   fluidDark: FluidObject;
@@ -10,23 +11,23 @@ interface StyledBackgroundImageProps {
 
 const StyledBackgroundImage = styled(BackgroundImage)<
   StyledBackgroundImageProps
->`
-  height: 3rem;
-  width: 100vw;
-  margin-bottom: 1em;
+>(
+  props => css`
+    height: 3rem;
+    width: 100vw;
+    margin-bottom: 1em;
 
-  @media (prefers-color-scheme: dark) {
-    ::before {
-      background-image: url(${(props): string =>
-        props.fluidDark.src}) !important;
-    }
+    @media (prefers-color-scheme: dark) {
+      ::before {
+        background-image: url(${props.fluidDark.src}) !important;
+      }
 
-    ::after {
-      background-image: url(${(props): string =>
-        props.fluidDark.src}) !important;
+      ::after {
+        background-image: url(${props.fluidDark.src}) !important;
+      }
     }
-  }
-`;
+  `
+);
 
 const ContentContainer = styled.div`
   height: 3rem;
