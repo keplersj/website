@@ -107,7 +107,7 @@ export const Navbar = (): React.ReactElement<{}> => {
         sourceInstanceName: { eq: "images" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 4608) {
+          fluid(quality: 10, maxWidth: 4608) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -118,7 +118,7 @@ export const Navbar = (): React.ReactElement<{}> => {
         sourceInstanceName: { eq: "images" }
       ) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 4608) {
+          fluid(quality: 10, maxWidth: 4608) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
