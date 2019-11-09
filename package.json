@@ -93,7 +93,7 @@
     "jest-serializer-json-ld-script": "^1.0.2",
     "jest-serializer-react-helmet": "^1.0.2",
     "jest-transform-stub": "^2.0.0",
-    "prettier": "^1.19.0",
+    "prettier": "^1.19.1",
     "react-test-renderer": "^16.11.0",
     "remark-preset-lint-starstuff": "^1.0.0",
     "stylelint": "^11.1.1",
