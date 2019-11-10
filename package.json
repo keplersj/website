@@ -37,7 +37,7 @@
     "gatsby-background-image": "^0.8.18",
     "gatsby-image": "^2.2.31",
     "gatsby-link": "^2.2.23",
-    "gatsby-plugin-catch-links": "^2.1.15",
+    "gatsby-plugin-catch-links": "^2.1.16",
     "gatsby-plugin-emotion": "^4.1.14",
     "gatsby-plugin-google-analytics": "^2.1.24",
     "gatsby-plugin-manifest": "^2.2.26",
