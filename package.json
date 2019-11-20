@@ -91,7 +91,7 @@
     "jest-runner-remark": "^1.0.1",
     "jest-runner-stylelint": "^2.2.0",
     "jest-serializer-json-ld-script": "^1.0.2",
-    "jest-serializer-react-helmet": "^1.0.2",
+    "jest-serializer-react-helmet": "^1.0.3",
     "jest-transform-stub": "^2.0.0",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0",
