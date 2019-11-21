@@ -47,10 +47,20 @@ const Location = styled.span`
   font-size: 1em;
 `;
 
+interface AboutProps {
+  location: {
+    key: string;
+    pathname: string;
+    search: string;
+    hash: string;
+    state: object;
+  };
+}
+
 export const AboutTemplate = (
-  props: React.PropsWithChildren<{}>
+  props: React.PropsWithChildren<AboutProps>
 ): React.ReactElement => (
-  <BaseLayout>
+  <BaseLayout location={props.location}>
     <AboutContainer role="region">
       <ProfileContainer>
         <Avatar />

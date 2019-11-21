@@ -8,11 +8,19 @@ import "starstuff-style";
 import "@reach/skip-nav/styles.css";
 import { Navbar } from "../Navbar";
 import "./styles.css";
+import { BreadcrumbList, ListItem } from "schema-dts";
 
 interface Props {
   title?: string;
   description?: string;
   hideNavbar?: boolean;
+  location?: {
+    key: string;
+    pathname: string;
+    search: string;
+    hash: string;
+    state: object;
+  };
 }
 
 interface BaseLayoutData {
@@ -109,6 +117,37 @@ const BaseLayout = (
         <meta name="twitter:card" content="summary" />
         {twitter && <meta name="twitter:site" content={twitter.id} />}
         {twitter && <meta name="twitter:creator" content={twitter.id} />}
+        {props.location && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "BreadcrumbList",
+              itemListElement: props.location.pathname
+                .substr(0, props.location.pathname.length - 1)
+                .split("/")
+                .reduce((accumulator, value) => {
+                  if (accumulator.length === 0) {
+                    accumulator.push("/");
+                  } else {
+                    accumulator.push(
+                      `${accumulator[accumulator.length - 1]}${value}/`
+                    );
+                  }
+                  return accumulator;
+                }, [] as string[])
+                .map(
+                  (part, index): ListItem => ({
+                    "@type": "ListItem",
+                    position: index,
+                    item: {
+                      "@id": `${data.site.siteMetadata.siteUrl}${part}`,
+                      "@type": "WebPage"
+                    }
+                  })
+                )
+            } as BreadcrumbList)}
+          </script>
+        )}
       </Helmet>
 
       {!props.hideNavbar && (

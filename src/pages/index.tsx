@@ -109,9 +109,16 @@ interface IndexPageData {
 interface Props {
   data: IndexPageData;
   path: string;
+  location: {
+    key: string;
+    pathname: string;
+    search: string;
+    hash: string;
+    state: object;
+  };
 }
 
-const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
+const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
   const twitter = data.site.siteMetadata.social.find(
     (social): boolean => social.name === "Twitter"
   );
@@ -123,7 +130,7 @@ const IndexPage = ({ data }: Props): React.ReactElement<Props> => {
   );
 
   return (
-    <BaseLayout hideNavbar>
+    <BaseLayout hideNavbar location={location}>
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify({
