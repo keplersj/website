@@ -9,6 +9,7 @@ import "@reach/skip-nav/styles.css";
 import { Navbar } from "../Navbar";
 import "./styles.css";
 import { BreadcrumbList, ListItem } from "schema-dts";
+import { argsToArgsConfig } from "graphql/type/definition";
 
 interface Props {
   title?: string;
@@ -128,26 +129,30 @@ const BaseLayout = (
                 // Break the path down to its (assumed hiearchy)
                 .split("/")
                 // Assuming every part of the path is a page, create all of the paths
-                .reduce((accumulator, value) => {
+                .reduce((accumulator, value, currentIndex, array) => {
                   if (accumulator.length === 0) {
-                    accumulator.push("/");
+                    accumulator.push(["/", data.site.siteMetadata.title]);
                   } else {
-                    accumulator.push(
-                      `${accumulator[accumulator.length - 1]}${value}/`
-                    );
+                    accumulator.push([
+                      `${accumulator[accumulator.length - 1][0]}${value}/`,
+                      // If we're on the last crumb in the trail and there is a page title, use it. Otherwise...
+                      currentIndex === array.length - 1 && props.title
+                        ? props.title
+                        : // Take the value we have and capitalize it
+                          `${value[0].toUpperCase()}${value.slice(1)}`
+                    ]);
                   }
                   return accumulator;
-                }, [] as string[])
+                }, [] as [string, string][])
                 // Make the path a schema.org ListItem
                 .map(
-                  (part, index): ListItem => ({
+                  ([part, name], index): ListItem => ({
                     "@type": "ListItem",
                     position: index + 1,
                     item: {
                       "@id": `${data.site.siteMetadata.siteUrl}${part}`,
                       "@type": "WebPage",
-                      // TODO: Figure out a better way to find the actual page name, instead of the url
-                      name: `${data.site.siteMetadata.siteUrl}${part}`
+                      name
                     }
                   })
                 )
