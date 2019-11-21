@@ -123,8 +123,11 @@ const BaseLayout = (
               "@context": "https://schema.org/",
               "@type": "BreadcrumbList",
               itemListElement: props.location.pathname
+                // Remove Trailing Slash
                 .substr(0, props.location.pathname.length - 1)
+                // Break the path down to its (assumed hiearchy)
                 .split("/")
+                // Assuming every part of the path is a page, create all of the paths
                 .reduce((accumulator, value) => {
                   if (accumulator.length === 0) {
                     accumulator.push("/");
@@ -135,13 +138,16 @@ const BaseLayout = (
                   }
                   return accumulator;
                 }, [] as string[])
+                // Make the path a schema.org ListItem
                 .map(
                   (part, index): ListItem => ({
                     "@type": "ListItem",
-                    position: index,
+                    position: index + 1,
                     item: {
                       "@id": `${data.site.siteMetadata.siteUrl}${part}`,
-                      "@type": "WebPage"
+                      "@type": "WebPage",
+                      // TODO: Figure out a better way to find the actual page name, instead of the url
+                      name: `${data.site.siteMetadata.siteUrl}${part}`
                     }
                   })
                 )
