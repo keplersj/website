@@ -65,7 +65,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
     "schema-dts": "^0.4.5",
-    "starstuff-components": "^1.2.3",
+    "starstuff-components": "^1.2.4",
     "starstuff-style": "^1.0.2",
     "typescript": "^3.7.2"
   },
