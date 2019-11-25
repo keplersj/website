@@ -208,7 +208,7 @@ export const query = graphql`
 
     metadataImage: file(
       relativePath: { eq: "avatar.jpg" }
-      sourceInstanceName: { eq: "images" }
+      sourceInstanceName: { eq: "assets" }
     ) {
       childImageSharp {
         # Specify the image processing specifications right in the query.

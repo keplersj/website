@@ -22,7 +22,7 @@ The content below was edited with correct URLs on July 28, 2019. The original po
 
 Rails had their turn, now out to the Minecraftian seas. Out there we will interact with our boats in ways that we had only dreamed of and ways that we had never thought of before. This mod will overhaul your oceans and how you will experience them. Will you turn your shoreline into an industrial outlet, or will you take advantage of your nearby Seaport and get all the booty you could ever wish for? So go ahead take your world out to sea and never worry about a creeper destroying your rails and pipes again, but watch out because one day you might turn around and see them, the pirate mobs!
 
-![](/content/images/e1c091fc-99cd-11e3-8654-9d734ba3d9d3.png)
+![](/content/assets/e1c091fc-99cd-11e3-8654-9d734ba3d9d3.png)
 
 ## Downloads
 

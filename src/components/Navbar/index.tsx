@@ -105,7 +105,7 @@ export const Navbar = (): React.ReactElement<{}> => {
 
       backdrop: file(
         relativePath: { eq: "banner.jpg" }
-        sourceInstanceName: { eq: "images" }
+        sourceInstanceName: { eq: "assets" }
       ) {
         childImageSharp {
           fluid(quality: 10, maxWidth: 4608) {
@@ -116,7 +116,7 @@ export const Navbar = (): React.ReactElement<{}> => {
 
       backdropDark: file(
         relativePath: { eq: "banner_dark.jpg" }
-        sourceInstanceName: { eq: "images" }
+        sourceInstanceName: { eq: "assets" }
       ) {
         childImageSharp {
           fluid(quality: 10, maxWidth: 4608) {

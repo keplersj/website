@@ -112,7 +112,7 @@ export const query = graphql`
   query FourOhFourPageData {
     desktop: file(
       relativePath: { eq: "banner.jpg" }
-      sourceInstanceName: { eq: "images" }
+      sourceInstanceName: { eq: "assets" }
     ) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 4608) {
@@ -123,7 +123,7 @@ export const query = graphql`
 
     desktopDark: file(
       relativePath: { eq: "banner_dark.jpg" }
-      sourceInstanceName: { eq: "images" }
+      sourceInstanceName: { eq: "assets" }
     ) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 4608) {

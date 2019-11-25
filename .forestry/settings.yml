@@ -1,26 +1,26 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: ''
-webhook_url: 
+admin_path: ""
+webhook_url:
 sections:
-- type: directory
-  path: content/projects
-  label: Portfolio
-  create: documents
-  match: "**/*"
-  templates:
-  - portfolio-item
-- type: directory
-  path: content/blog
-  label: Blog
-  create: documents
-  match: "**/*"
-  templates:
-  - blog-post
-upload_dir: content/images
-public_path: "/static/images"
-front_matter_path: ''
+  - type: directory
+    path: content/projects
+    label: Portfolio
+    create: documents
+    match: "**/*"
+    templates:
+      - portfolio-item
+  - type: directory
+    path: content/blog
+    label: Blog
+    create: documents
+    match: "**/*"
+    templates:
+      - blog-post
+upload_dir: content/assets
+public_path: "/static/assets"
+front_matter_path: ""
 use_front_matter_path: false
 file_template: ":filename:"
 build:

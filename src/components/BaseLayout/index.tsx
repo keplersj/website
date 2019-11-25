@@ -9,7 +9,6 @@ import "@reach/skip-nav/styles.css";
 import { Navbar } from "../Navbar";
 import "./styles.css";
 import { BreadcrumbList, ListItem } from "schema-dts";
-import { argsToArgsConfig } from "graphql/type/definition";
 
 interface Props {
   title?: string;
@@ -64,7 +63,7 @@ const BaseLayout = (
 
       file(
         relativePath: { eq: "avatar.jpg" }
-        sourceInstanceName: { eq: "images" }
+        sourceInstanceName: { eq: "assets" }
       ) {
         childImageSharp {
           # Specify the image processing specifications right in the query.
