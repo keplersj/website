@@ -136,7 +136,6 @@ module.exports = {
       resolve: "gatsby-theme-early-bird",
       options: {
         basePath: "/blog",
-        contentPath: "content/blog",
         mdx: false
       }
     },
