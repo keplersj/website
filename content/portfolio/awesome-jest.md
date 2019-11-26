@@ -10,11 +10,11 @@ role:
 
 [Awesome Jest](https://github.com/jest-community/awesome-jest) is an awesome list of [Jest](https://facebook.github.io/jest/) packages and resources on GitHub. Several of my Jest-related projects are featured on the list, including:
 
-- [`jest-runner-prettier`](/projects/jest-runner-prettier)
-- [`jest-runner-stylelint`](/projects/jest-runner-stylelint)
-- [`jest-serializer-react-helmet`](/projects/jest-serializer-react-helmet)
-- [`jest-serializer-json-ld-script`](/projects/jest-serializer-json-ld-script)
-- [`jest-preset-gatsby`](/projects/jest-preset-gatsby)
+- [`jest-runner-prettier`](/portfolio/jest-runner-prettier)
+- [`jest-runner-stylelint`](/portfolio/jest-runner-stylelint)
+- [`jest-serializer-react-helmet`](/portfolio/jest-serializer-react-helmet)
+- [`jest-serializer-json-ld-script`](/portfolio/jest-serializer-json-ld-script)
+- [`jest-preset-gatsby`](/portfolio/jest-preset-gatsby)
 
 As well, I have contributed several pull requests to the list:
 

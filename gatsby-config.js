@@ -94,8 +94,8 @@ module.exports = {
         url: "/blog"
       },
       {
-        name: "Projects",
-        url: "/projects"
+        name: "Portfolio",
+        url: "/portfolio"
       },
       {
         name: "About",
@@ -142,7 +142,7 @@ module.exports = {
     {
       resolve: "gatsby-theme-curiousity",
       options: {
-        basePath: "/projects",
+        basePath: "/portfolio",
         mdx: false
       }
     },

@@ -5,9 +5,10 @@ description: >-
   Introducing jest-preset-gatsby, a preset for Jest to simplify unit testing
   Gatsby codebases.
 ---
+
 Recently I have been expanding [the codebase for this website and blog](https://github.com/keplersj/website) in order to have a more robust web presence. Part of this of course includes unit testing the source code using Jest. This code base's test suite is primarilly composed of [Jest Snapshot Tests](https://jestjs.io/docs/en/snapshot-testing) to ensure components and the pages they build are behaving and rendering as expected. Like any codebase, creating robust unit tests like this has many advantages; the primary ones for this code base being automated dependency updates using [Dependabot](https://dependabot.com) and mutation testing (to ensure tests are working effectively) using [Stryker](https://stryker-mutator.io).
 
-I've used Jest for many projects before, and have built a few Jest plugins to improve the experience. I've built Jest runners to run linters alongside unit tests ([`jest-runner-prettier`](/projects/jest-runner-prettier), [`jest-runner-stylelint`](/projects/jest-runner-stylelint), and [`jest-runner-tslint`](/projects/jest-runner-tslint)) and I've built a transformer module to make working with `webpack` projects easier [`jest-raw-loader`](/projects/jest-raw-loader). So when I saw room for improvement in testing my Gatsby codebase I knew exactly what to do.
+I've used Jest for many projects before, and have built a few Jest plugins to improve the experience. I've built Jest runners to run linters alongside unit tests ([`jest-runner-prettier`](/portfolio/jest-runner-prettier), [`jest-runner-stylelint`](/portfolio/jest-runner-stylelint), and [`jest-runner-tslint`](/portfolio/jest-runner-tslint)) and I've built a transformer module to make working with `webpack` projects easier [`jest-raw-loader`](/portfolio/jest-raw-loader). So when I saw room for improvement in testing my Gatsby codebase I knew exactly what to do.
 
 # Using Jest's Preset Functionality to Reduce Configuration Boilerplate
 
@@ -15,7 +16,7 @@ The [Gatsby documentation on unit testing](https://www.gatsbyjs.org/docs/unit-te
 
 Jest presets are found throughout the Jest documentation as a reccomended method to make testing easier in known environments. They're used to [test React Native](https://jestjs.io/docs/en/tutorial-react-native) projects, [run tests with Puppeteer](https://jestjs.io/docs/en/puppeteer), and make testing [MongoDB](https://jestjs.io/docs/en/mongodb) and [DynamoDB](https://jestjs.io/docs/en/dynamodb) easier. Given this, let's abstract away the boilerplate needed to configure Jest to run Gatsby code and make life just a bit easier for us.
 
-I've created [a module](/projects/jest-preset-gatsby) which exports [the default Jest config from the Gatsby documentation](https://www.gatsbyjs.org/docs/unit-testing/#2-creating-a-configuration-file-for-jest) as a Jest preset. By using it our Jest config goes from this:
+I've created [a module](/portfolio/jest-preset-gatsby) which exports [the default Jest config from the Gatsby documentation](https://www.gatsbyjs.org/docs/unit-testing/#2-creating-a-configuration-file-for-jest) as a Jest preset. By using it our Jest config goes from this:
 
 ```js
 module.exports = {

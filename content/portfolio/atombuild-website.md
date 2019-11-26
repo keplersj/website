@@ -9,4 +9,4 @@ role:
   - contributor
 ---
 
-I created the logo and website for the AtomBuild project. The website is based off the work I did for the [AtomLinter Website](/projects/atomlinter-website). It allows the project to maintain a list of Atom packages that provide AtomBuild providers.
+I created the logo and website for the AtomBuild project. The website is based off the work I did for the [AtomLinter Website](/portfolio/atomlinter-website). It allows the project to maintain a list of Atom packages that provide AtomBuild providers.
