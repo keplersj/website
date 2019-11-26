@@ -144,7 +144,6 @@ module.exports = {
       resolve: "gatsby-theme-curiousity",
       options: {
         basePath: "/projects",
-        contentPath: "content/projects",
         mdx: false
       }
     },
