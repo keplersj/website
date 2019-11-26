@@ -137,7 +137,6 @@ module.exports = {
       options: {
         basePath: "/blog",
         contentPath: "content/blog",
-        assetPath: "content/assets",
         mdx: false
       }
     },
@@ -146,7 +145,6 @@ module.exports = {
       options: {
         basePath: "/projects",
         contentPath: "content/projects",
-        assetPath: "content/assets",
         mdx: false
       }
     },
