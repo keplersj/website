@@ -179,10 +179,10 @@ background-size: cover;
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-          .emotion-1.gbi-00000000000-0000000000000000000000:before {
-            opacity: 1;
-            background-image: ;
-          }",
+    .emotion-1.gbi-00000000000-0000000000000000000000:before {
+      opacity: 1;
+      background-image: ;
+    }",
         }
       }
     />
