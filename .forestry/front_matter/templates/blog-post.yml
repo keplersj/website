@@ -12,5 +12,3 @@ fields:
 - type: text
   name: description
   label: description
-pages:
-- content/blog/battling-bit-rot-link-rot-and-chaos-hacking-an-18-year-old-tivo-hard-drive.md
