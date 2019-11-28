@@ -135,14 +135,14 @@ module.exports = {
     {
       resolve: "gatsby-theme-early-bird",
       options: {
-        basePath: "/blog",
+        basePath: "/blog/",
         mdx: false
       }
     },
     {
       resolve: "gatsby-theme-curiousity",
       options: {
-        basePath: "/portfolio",
+        basePath: "/portfolio/",
         mdx: false
       }
     },
