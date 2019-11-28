@@ -57,38 +57,9 @@ exports[`404 Page renders correctly 1`] = `
     name="description"
   />
   <meta
-    content="404! | "
+    content="404!"
     data-react-helmet={true}
     property="og:title"
-  />
-  <meta
-    content="website"
-    data-react-helmet={true}
-    property="og:type"
-  />
-  <meta
-    data-react-helmet={true}
-    property="og:url"
-  />
-  <meta
-    content=""
-    data-react-helmet={true}
-    property="og:image"
-  />
-  <meta
-    content="image/jpeg"
-    data-react-helmet={true}
-    property="og:image:type"
-  />
-  <meta
-    content="480"
-    data-react-helmet={true}
-    property="og:image:width"
-  />
-  <meta
-    content="480"
-    data-react-helmet={true}
-    property="og:image:height"
   />
   <meta
     data-react-helmet={true}
