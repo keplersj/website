@@ -57,6 +57,11 @@ exports[`404 Page renders correctly 1`] = `
     name="description"
   />
   <meta
+    content=""
+    data-react-helmet={true}
+    property="og:site_name"
+  />
+  <meta
     content="404!"
     data-react-helmet={true}
     property="og:title"

@@ -101,6 +101,7 @@ const BaseLayout = (
           />
         )}
 
+        <meta property="og:site_name" content={data.site.siteMetadata.title} />
         <meta
           property="og:title"
           content={props.title || data.site.siteMetadata.title}

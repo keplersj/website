@@ -20,6 +20,11 @@ Array [
     <meta
       content="Kepler Sticka-Jones"
       data-react-helmet={true}
+      property="og:site_name"
+    />
+    <meta
+      content="Kepler Sticka-Jones"
+      data-react-helmet={true}
       property="og:title"
     />
     <meta
