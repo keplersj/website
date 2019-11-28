@@ -93,30 +93,33 @@ const BaseLayout = (
           name="description"
           content={props.description || data.site.siteMetadata.description}
         />
+        {/* Assume the page is the canonical page, for now */}
+        {props.location && (
+          <link
+            rel="canonical"
+            href={`${data.site.siteMetadata.siteUrl}${props.location.pathname}`}
+          />
+        )}
+
         <meta
           property="og:title"
-          content={
-            (props.title &&
-              `${props.title} | ${data.site.siteMetadata.title}`) ||
-            data.site.siteMetadata.title
-          }
+          content={props.title || data.site.siteMetadata.title}
         />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={data.site.siteMetadata.siteUrl} />
-        <meta
-          property="og:image"
-          content={data.file.childImageSharp.fixed.base64}
-        />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="480" />
-        <meta property="og:image:height" content="480" />
+        {props.location && (
+          <meta
+            property="og:url"
+            content={`${data.site.siteMetadata.siteUrl}${props.location.pathname}`}
+          />
+        )}
         <meta
           property="og:description"
           content={props.description || data.site.siteMetadata.description}
         />
+
         <meta name="twitter:card" content="summary" />
         {twitter && <meta name="twitter:site" content={twitter.id} />}
         {twitter && <meta name="twitter:creator" content={twitter.id} />}
+
         {props.location && (
           <script type="application/ld+json">
             {JSON.stringify({
