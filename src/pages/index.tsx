@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, PageRendererProps } from "gatsby";
 import { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
@@ -7,9 +7,15 @@ import { WebSite } from "schema-dts";
 import { JsonLd } from "react-schemaorg";
 import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
+import { BannerBackground } from "../components/BannerBackground";
+
+const HeroBackground = styled(BannerBackground)`
+  min-height: 66vh;
+`;
 
 const Hero = styled.section`
-  min-height: 100vh;
+  min-height: 66vh;
+  backdrop-filter: blur(20px);
   align-items: stretch;
   display: flex;
   flex-direction: column;
@@ -50,6 +56,7 @@ const HeroBody = styled.div`
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+  color: #fff;
 `;
 
 const Columns = styled.div`
@@ -70,7 +77,35 @@ const CenteredColumn = styled(Centered)`
   width: 66.6666%;
 `;
 
-export const LocalButton = Hyperbutton.withComponent(Link);
+const StyledButton = styled(Hyperbutton)`
+  color: #fff;
+`;
+
+const FeaturedContentContainer = styled.section`
+  padding: 1em;
+`;
+
+const ContentCarousel = styled.div`
+  display: flex;
+  overflow: scroll;
+`;
+
+const FeaturedContent = styled.article`
+  display: flex;
+  flex-direction: column;
+  min-width: 15em;
+  padding: 1em;
+`;
+
+const FlexReadMoreLink = styled(Link)`
+  align-self: flex-end;
+`;
+
+const LocalButton = Hyperbutton.withComponent(Link);
+
+const StyledLocalButton = styled(LocalButton)`
+  color: #fff;
+`;
 
 interface IndexPageData {
   site: {
@@ -96,18 +131,22 @@ interface IndexPageData {
       fixed: FixedObject;
     };
   };
+
+  blogPosts: {
+    edges: {
+      node: {
+        id: string;
+        title: string;
+        slug: string;
+        date: string;
+        rawDate: string;
+      };
+    }[];
+  };
 }
 
-interface Props {
+interface Props extends PageRendererProps {
   data: IndexPageData;
-  path: string;
-  location: {
-    key: string;
-    pathname: string;
-    search: string;
-    hash: string;
-    state: object;
-  };
 }
 
 const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
@@ -144,32 +183,57 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
         }}
       />
 
-      <Hero>
-        <HeroBody>
-          <Container>
-            <Columns>
-              <CenteredColumn>
-                <Avatar />
-                <Name>{data.site.siteMetadata.title}</Name>
-                <br />
-                <Centered>
-                  {github && <Hyperbutton href={github.url}>Code</Hyperbutton>}
-                  {twitter && (
-                    <Hyperbutton href={twitter.url}>Tweets</Hyperbutton>
-                  )}
-                  {data.site.siteMetadata.nav.map(
-                    (link): React.ReactElement => (
-                      <LocalButton to={link.url} key={link.name}>
-                        {link.name}
-                      </LocalButton>
-                    )
-                  )}
-                </Centered>
-              </CenteredColumn>
-            </Columns>
-          </Container>
-        </HeroBody>
-      </Hero>
+      <HeroBackground highQuality>
+        <Hero>
+          <HeroBody>
+            <Container>
+              <Columns>
+                <CenteredColumn>
+                  <Avatar />
+                  <Name>{data.site.siteMetadata.title}</Name>
+                  <br />
+                  <Centered>
+                    {github && (
+                      <StyledButton href={github.url}>Code</StyledButton>
+                    )}
+                    {twitter && (
+                      <StyledButton href={twitter.url}>Tweets</StyledButton>
+                    )}
+                    {data.site.siteMetadata.nav.map(
+                      (link): React.ReactElement => (
+                        <StyledLocalButton to={link.url} key={link.name}>
+                          {link.name}
+                        </StyledLocalButton>
+                      )
+                    )}
+                  </Centered>
+                </CenteredColumn>
+              </Columns>
+            </Container>
+          </HeroBody>
+        </Hero>
+      </HeroBackground>
+      <FeaturedContentContainer>
+        <h2>Biography</h2>
+        <p>
+          I am a computer programmer and college student based out of Salt Lake
+          City, with experience in entrepreneurship, student leadership, and
+          open source software development.
+        </p>
+        <Link to="/about">Read More...</Link>
+      </FeaturedContentContainer>
+      <FeaturedContentContainer>
+        <h2>Blog Posts</h2>
+        <ContentCarousel>
+          {data.blogPosts.edges.map(({ node: post }) => (
+            <FeaturedContent key={post.id}>
+              <h3>{post.title}</h3>
+              <time dateTime={post.rawDate}>{post.date}</time>
+              <FlexReadMoreLink to={post.slug}>Read More...</FlexReadMoreLink>
+            </FeaturedContent>
+          ))}
+        </ContentCarousel>
+      </FeaturedContentContainer>
     </BaseLayout>
   );
 };
@@ -205,6 +269,18 @@ export const query = graphql`
         # Makes it trivial to update as your page's design changes.
         fixed(width: 480, height: 480) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    blogPosts: allBlogPost(sort: { order: DESC, fields: date }) {
+      edges {
+        node {
+          id
+          title
+          slug
+          date(formatString: "MMMM DD, YYYY")
+          rawDate: date
         }
       }
     }

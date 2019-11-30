@@ -5,6 +5,32 @@ import Page from "./index";
 
 beforeEach((): void => {
   (useStaticQuery as jest.Mock).mockImplementation((): object => ({
+    desktop: {
+      childImageSharp: {
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
+      }
+    },
+    desktopDark: {
+      childImageSharp: {
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
+      }
+    },
     file: {
       childImageSharp: {
         fixed: {
@@ -116,6 +142,19 @@ describe("Index Page", (): void => {
                   srcSet: ""
                 }
               }
+            },
+            blogPosts: {
+              edges: [
+                {
+                  node: {
+                    id: "",
+                    title: "",
+                    slug: "",
+                    date: "",
+                    rawDate: ""
+                  }
+                }
+              ]
             }
           }}
         />

@@ -76,8 +76,24 @@ Array [
     "url": "",
   }
   </script>,
-  .emotion-12 {
-  min-height: 100vh;
+  .emotion-13 {
+  min-height: 66vh;
+}
+
+@media (prefers-color-scheme:dark) {
+  .emotion-13::before {
+    background-image: url() !important;
+  }
+
+  .emotion-13::after {
+    background-image: url() !important;
+  }
+}
+
+.emotion-12 {
+  min-height: 66vh;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -112,6 +128,7 @@ Array [
   -ms-flex-negative: 0;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+  color: #fff;
 }
 
 .emotion-10 {
@@ -215,6 +232,7 @@ Array [
   white-space: nowrap;
   border-color: transparent;
   font-size: 1.5rem;
+  color: #fff;
 }
 
 .emotion-2:hover {
@@ -235,117 +253,257 @@ Array [
   }
 }
 
-<section
-    className="emotion-12"
+<div
+    className="emotion-13 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
+    style={
+      Object {
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "opacity": 0.99,
+        "position": "relative",
+      }
+    }
   >
-    <div
-      className="emotion-11"
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "
+          .emotion-13.gbi-00000000000-0000000000000000000000:before,
+          .emotion-13.gbi-00000000000-0000000000000000000000:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            
+            transition: opacity 0.5s ease 0.25s;
+            background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+          }
+          .emotion-13.gbi-00000000000-0000000000000000000000:before {
+            z-index: -100;
+            
+            
+            opacity: 0; 
+          }
+          .emotion-13.gbi-00000000000-0000000000000000000000:after {
+            z-index: -101;
+            
+            
+            
+          }
+        ",
+        }
+      }
+    />
+    <noscript>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    .emotion-13.gbi-00000000000-0000000000000000000000:before {
+      opacity: 1;
+      background-image: ;
+    }",
+          }
+        }
+      />
+    </noscript>
+    <section
+      className="emotion-12"
     >
       <div
-        className="emotion-10"
+        className="emotion-11"
       >
         <div
-          className="emotion-9"
+          className="emotion-10"
         >
           <div
-            className="emotion-8"
+            className="emotion-9"
           >
             <div
-              aria-label="Avatar"
-              role="img"
+              className="emotion-8"
             >
               <div
-                className="emotion-0 gatsby-image-wrapper"
-                style={
-                  Object {
-                    "display": "inline-block",
-                    "height": 100,
-                    "overflow": "hidden",
-                    "position": "relative",
-                    "width": 100,
-                  }
-                }
+                aria-label="Avatar"
+                role="img"
               >
-                
-                <picture>
-                  <source
-                    srcSet=""
-                  />
-                  <img
-                    alt="Avatar"
-                    height={100}
-                    loading="lazy"
-                    onLoad={[Function]}
-                    src=""
-                    srcSet=""
-                    style={
+                <div
+                  className="emotion-0 gatsby-image-wrapper"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "height": 100,
+                      "overflow": "hidden",
+                      "position": "relative",
+                      "width": 100,
+                    }
+                  }
+                >
+                  
+                  <picture>
+                    <source
+                      srcSet=""
+                    />
+                    <img
+                      alt="Avatar"
+                      height={100}
+                      loading="lazy"
+                      onLoad={[Function]}
+                      src=""
+                      srcSet=""
+                      style={
+                        Object {
+                          "height": "100%",
+                          "left": 0,
+                          "objectFit": "cover",
+                          "objectPosition": "center",
+                          "opacity": 0,
+                          "position": "absolute",
+                          "top": 0,
+                          "transition": "opacity 500ms",
+                          "width": "100%",
+                        }
+                      }
+                      width={100}
+                    />
+                  </picture>
+                  <noscript
+                    dangerouslySetInnerHTML={
                       Object {
-                        "height": "100%",
-                        "left": 0,
-                        "objectFit": "cover",
-                        "objectPosition": "center",
-                        "opacity": 0,
-                        "position": "absolute",
-                        "top": 0,
-                        "transition": "opacity 500ms",
-                        "width": "100%",
+                        "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"Avatar\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                       }
                     }
-                    width={100}
                   />
-                </picture>
-                <noscript
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"Avatar\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
-                    }
-                  }
-                />
+                </div>
               </div>
-            </div>
-            <h1
-              className="emotion-1"
-            >
-              Kepler Sticka-Jones
-            </h1>
-            <br />
-            <div
-              className="emotion-7"
-            >
-              <a
-                className="emotion-2"
-                href="https://github.com/test"
+              <h1
+                className="emotion-1"
               >
-                Code
-              </a>
-              <a
-                className="emotion-2"
-                href="https://twitter.com/test"
+                Kepler Sticka-Jones
+              </h1>
+              <br />
+              <div
+                className="emotion-7"
               >
-                Tweets
-              </a>
-              <a
-                className="emotion-2"
-                href="/blog"
-              >
-                Blog
-              </a>
-              <a
-                className="emotion-2"
-                href="/projects"
-              >
-                Projects
-              </a>
-              <a
-                className="emotion-2"
-                href="/about"
-              >
-                About
-              </a>
+                <a
+                  className="emotion-2"
+                  href="https://github.com/test"
+                >
+                  Code
+                </a>
+                <a
+                  className="emotion-2"
+                  href="https://twitter.com/test"
+                >
+                  Tweets
+                </a>
+                <a
+                  className="emotion-2"
+                  href="/blog"
+                >
+                  Blog
+                </a>
+                <a
+                  className="emotion-2"
+                  href="/projects"
+                >
+                  Projects
+                </a>
+                <a
+                  className="emotion-2"
+                  href="/about"
+                >
+                  About
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+  </div>,
+  .emotion-0 {
+  padding: 1em;
+}
+
+<section
+    className="emotion-0"
+  >
+    <h2>
+      Biography
+    </h2>
+    <p>
+      I am a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.
+    </p>
+    <a
+      href="/about"
+    >
+      Read More...
+    </a>
+  </section>,
+  .emotion-3 {
+  padding: 1em;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: scroll;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 15em;
+  padding: 1em;
+}
+
+.emotion-0 {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+<section
+    className="emotion-3"
+  >
+    <h2>
+      Blog Posts
+    </h2>
+    <div
+      className="emotion-2"
+    >
+      <article
+        className="emotion-1"
+      >
+        <h3>
+          
+        </h3>
+        <time
+          dateTime=""
+        >
+          
+        </time>
+        <a
+          className="emotion-0"
+          href=""
+        >
+          Read More...
+        </a>
+      </article>
     </div>
   </section>,
 ]

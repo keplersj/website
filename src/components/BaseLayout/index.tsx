@@ -9,18 +9,13 @@ import "@reach/skip-nav/styles.css";
 import { Navbar } from "../Navbar";
 import "./styles.css";
 import { BreadcrumbList, ListItem } from "schema-dts";
+import { WindowLocation } from "@reach/router";
 
 interface Props {
   title?: string;
   description?: string;
   hideNavbar?: boolean;
-  location?: {
-    key: string;
-    pathname: string;
-    search: string;
-    hash: string;
-    state: object;
-  };
+  location?: WindowLocation;
 }
 
 interface BaseLayoutData {

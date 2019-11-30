@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import BaseLayout from "../BaseLayout";
 import { Avatar } from "../Avatar";
 import { SocialLinks } from "../SocialLinks";
+import { PageRendererProps } from "gatsby";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -47,18 +48,8 @@ const Location = styled.span`
   font-size: 1em;
 `;
 
-interface AboutProps {
-  location: {
-    key: string;
-    pathname: string;
-    search: string;
-    hash: string;
-    state: object;
-  };
-}
-
 export const AboutTemplate = (
-  props: React.PropsWithChildren<AboutProps>
+  props: React.PropsWithChildren<PageRendererProps>
 ): React.ReactElement => (
   <BaseLayout location={props.location}>
     <AboutContainer role="region">
