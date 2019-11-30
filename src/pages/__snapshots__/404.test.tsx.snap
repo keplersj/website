@@ -17,6 +17,10 @@ exports[`404 Page renders correctly 1`] = `
 }
 
 .emotion-0 {
+  color: #505050;
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.5;
   height: 100vh;
   width: 100vw;
   display: -webkit-box;
@@ -85,16 +89,6 @@ exports[`404 Page renders correctly 1`] = `
     data-react-helmet={true}
     name="twitter:creator"
   />
-  <script
-    data-react-helmet={true}
-    type="application/ld+json"
-  >
-    Object {
-    "@context": "http://www.schema.org",
-    "@type": "WebPage",
-    "name": "404! | Kepler Sticka-Jones",
-  }
-  </script>
   <title
     data-react-helmet={true}
   >
