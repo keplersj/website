@@ -1,33 +1,13 @@
 import * as React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
-import { FluidObject } from "gatsby-image";
-import css from "@emotion/css";
+import { BannerBackground } from "../BannerBackground";
 
-interface StyledBackgroundImageProps {
-  fluidDark: FluidObject;
-}
-
-const StyledBackgroundImage = styled(BackgroundImage)<
-  StyledBackgroundImageProps
->(
-  props => css`
-    height: 3rem;
-    width: 100vw;
-    margin-bottom: 1em;
-
-    @media (prefers-color-scheme: dark) {
-      ::before {
-        background-image: url(${props.fluidDark.src}) !important;
-      }
-
-      ::after {
-        background-image: url(${props.fluidDark.src}) !important;
-      }
-    }
-  `
-);
+const Background = styled(BannerBackground)`
+  height: 3rem;
+  width: 100vw;
+  margin-bottom: 1em;
+`;
 
 const ContentContainer = styled.div`
   height: 3rem;
@@ -78,16 +58,6 @@ interface NavbarData {
       }[];
     };
   };
-  backdrop: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-  backdropDark: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
 }
 
 export const Navbar = (): React.ReactElement<{}> => {
@@ -102,38 +72,11 @@ export const Navbar = (): React.ReactElement<{}> => {
           }
         }
       }
-
-      backdrop: file(
-        relativePath: { eq: "banner.jpg" }
-        sourceInstanceName: { eq: "assets" }
-      ) {
-        childImageSharp {
-          fluid(quality: 10, maxWidth: 4608) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-
-      backdropDark: file(
-        relativePath: { eq: "banner_dark.jpg" }
-        sourceInstanceName: { eq: "assets" }
-      ) {
-        childImageSharp {
-          fluid(quality: 10, maxWidth: 4608) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
     }
   `);
 
   return (
-    <StyledBackgroundImage
-      Tag="nav"
-      fluid={data.backdrop.childImageSharp.fluid}
-      fluidDark={data.backdropDark.childImageSharp.fluid}
-      backgroundColor={`#040e18`}
-    >
+    <Background Tag="nav">
       <ContentContainer>
         <LeftContent>
           <StyledLink to="/">{data.site.siteMetadata.title}</StyledLink>
@@ -148,6 +91,6 @@ export const Navbar = (): React.ReactElement<{}> => {
           )}
         </RightContent>
       </ContentContainer>
-    </StyledBackgroundImage>
+    </Background>
   );
 };
