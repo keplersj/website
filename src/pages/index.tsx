@@ -1,9 +1,9 @@
 import * as React from "react";
 import { graphql, Link, PageRendererProps } from "gatsby";
-import { FixedObject } from "gatsby-image";
+import { default as Image, FixedObject, FluidObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
-import { WebSite } from "schema-dts";
+import { WebSite, BlogPosting, Blog, ImageObject } from "schema-dts";
 import { JsonLd } from "react-schemaorg";
 import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
@@ -90,11 +90,16 @@ const ContentCarousel = styled.div`
   overflow: scroll;
 `;
 
-const FeaturedContent = styled.article`
+const Featured = styled.article`
+  min-width: 15em;
+  border: 1px solid;
+  margin: 0.5em;
+`;
+
+const FeaturedContent = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 15em;
-  padding: 1em;
+  padding: 0.5em;
 `;
 
 const FlexReadMoreLink = styled(Link)`
@@ -140,6 +145,12 @@ interface IndexPageData {
         slug: string;
         date: string;
         rawDate: string;
+        excerpt: string;
+        featuredImage?: {
+          childImageSharp: {
+            fluid: FluidObject;
+          };
+        };
       };
     }[];
   };
@@ -223,14 +234,68 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
         <Link to="/about">Read More...</Link>
       </FeaturedContentContainer>
       <FeaturedContentContainer>
+        <JsonLd<Blog>
+          item={{
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "@id": `${data.site.siteMetadata.siteUrl}/blog`,
+            url: `${data.site.siteMetadata.siteUrl}/blog`,
+            mainEntityOfPage: `${data.site.siteMetadata.siteUrl}/blog`,
+            blogPost: data.blogPosts.edges.map(
+              ({ node: post }): BlogPosting => ({
+                "@type": "BlogPosting",
+                "@id": `${data.site.siteMetadata.siteUrl}${post.slug}`
+              })
+            )
+          }}
+        />
         <h2>Blog Posts</h2>
         <ContentCarousel>
           {data.blogPosts.edges.map(({ node: post }) => (
-            <FeaturedContent key={post.id}>
-              <h3>{post.title}</h3>
-              <time dateTime={post.rawDate}>{post.date}</time>
-              <FlexReadMoreLink to={post.slug}>Read More...</FlexReadMoreLink>
-            </FeaturedContent>
+            <Featured key={post.id}>
+              <JsonLd<BlogPosting>
+                item={{
+                  "@context": "https://schema.org",
+                  "@type": "BlogPosting",
+                  "@id": `${data.site.siteMetadata.siteUrl}${post.slug}`,
+                  datePublished: post.rawDate,
+                  headline: post.title,
+                  name: post.title,
+                  url: `${data.site.siteMetadata.siteUrl}${post.slug}`,
+                  mainEntityOfPage: `${data.site.siteMetadata.siteUrl}${post.slug}`,
+                  image: post.featuredImage && {
+                    "@type": "ImageObject",
+                    "@id": `${data.site.siteMetadata.siteUrl}${post.featuredImage.childImageSharp.fluid.src}`
+                  }
+                }}
+              />
+              {post.featuredImage && (
+                <Link to={post.slug}>
+                  <figure>
+                    <JsonLd<ImageObject>
+                      item={{
+                        "@context": "https://schema.org",
+                        "@type": "ImageObject",
+                        "@id": `${data.site.siteMetadata.siteUrl}${post.featuredImage.childImageSharp.fluid.src}`,
+                        representativeOfPage: false,
+                        contentUrl:
+                          post.featuredImage.childImageSharp.fluid.src,
+                        url: post.featuredImage.childImageSharp.fluid.src
+                      }}
+                    />
+                    <Image fluid={post.featuredImage.childImageSharp.fluid} />
+                  </figure>
+                </Link>
+              )}
+              <FeaturedContent>
+                <Link to={post.slug}>
+                  <h3>{post.title}</h3>
+                </Link>
+                <time dateTime={post.rawDate}>{post.date}</time>
+                <p>{post.excerpt}</p>
+                <FlexReadMoreLink to={post.slug}>Read More...</FlexReadMoreLink>
+              </FeaturedContent>
+            </Featured>
           ))}
         </ContentCarousel>
       </FeaturedContentContainer>
@@ -281,6 +346,38 @@ export const query = graphql`
           slug
           date(formatString: "MMMM DD, YYYY")
           rawDate: date
+          ... on MdxBlogPost {
+            excerpt(pruneLength: 140)
+          }
+          featuredImage {
+            childImageSharp {
+              # Generate Picture up to 8K 4:3 ratio, crop and cover as appropriate
+              fluid(
+                maxWidth: 7680
+                maxHeight: 5760
+                cropFocus: CENTER
+                fit: COVER
+                srcSetBreakpoints: [
+                  256
+                  512
+                  768
+                  1024
+                  # 720p
+                  1280
+                  # 1080p
+                  1920
+                  # 4k
+                  3840
+                  # 5k
+                  5120
+                  # 8k
+                  7680
+                ]
+              ) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

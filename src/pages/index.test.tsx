@@ -151,7 +151,8 @@ describe("Index Page", (): void => {
                     title: "",
                     slug: "",
                     date: "",
-                    rawDate: ""
+                    rawDate: "",
+                    excerpt: ""
                   }
                 }
               ]
