@@ -1,34 +1,15 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import { Link } from "gatsby";
 import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 import BaseLayout from "../components/BaseLayout";
 import { Helmet } from "react-helmet";
-import { FluidObject } from "gatsby-image";
 import { WebPage } from "schema-dts";
+import { BannerBackground } from "../components/BannerBackground";
 
-type StyledBackgroundImageProps = {
-  fluidDark: FluidObject;
-};
-
-const StyledBackgroundImage = styled(BackgroundImage)<
-  StyledBackgroundImageProps
->`
+const Background = styled(BannerBackground)`
   max-height: 100vh;
   max-width: 100vw;
-
-  @media (prefers-color-scheme: dark) {
-    ::before {
-      background-image: url(${(props): string =>
-        props.fluidDark.src}) !important;
-    }
-
-    ::after {
-      background-image: url(${(props): string =>
-        props.fluidDark.src}) !important;
-    }
-  }
 `;
 
 const Container = styled.div`
@@ -45,25 +26,7 @@ const Container = styled.div`
   }
 `;
 
-interface FourOhFourPageData {
-  desktop: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-
-  desktopDark: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-}
-
-interface Props {
-  data: FourOhFourPageData;
-}
-
-const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (
+const FourOhFourPage = (): React.ReactElement => (
   <>
     <Helmet>
       <script type="application/ld+json">
@@ -87,12 +50,7 @@ const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (
         `}
       />
 
-      <StyledBackgroundImage
-        Tag="section"
-        fluid={data.desktop.childImageSharp.fluid}
-        fluidDark={data.desktopDark.childImageSharp.fluid}
-        backgroundColor={`#040e18`}
-      >
+      <Background highQuality Tag="section">
         <Container>
           <div>
             <h1>404!</h1>
@@ -101,35 +59,9 @@ const FourOhFourPage = ({ data }: Props): React.ReactElement<Props> => (
             </span>
           </div>
         </Container>
-      </StyledBackgroundImage>
+      </Background>
     </BaseLayout>
   </>
 );
 
 export default FourOhFourPage;
-
-export const query = graphql`
-  query FourOhFourPageData {
-    desktop: file(
-      relativePath: { eq: "banner.jpg" }
-      sourceInstanceName: { eq: "assets" }
-    ) {
-      childImageSharp {
-        fluid(quality: 90, maxWidth: 4608) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-
-    desktopDark: file(
-      relativePath: { eq: "banner_dark.jpg" }
-      sourceInstanceName: { eq: "assets" }
-    ) {
-      childImageSharp {
-        fluid(quality: 90, maxWidth: 4608) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`;

@@ -4,7 +4,7 @@ import { useStaticQuery } from "gatsby";
 import { Navbar } from ".";
 
 beforeEach((): void => {
-  (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
+  (useStaticQuery as jest.Mock).mockImplementation((): object => ({
     site: {
       siteMetadata: {
         title: "Kepler Sticka-Jones",

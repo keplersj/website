@@ -26,6 +26,16 @@ const StyledBackgroundImage = styled(BackgroundImage)<
 );
 
 interface BannerData {
+  desktop: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
+  desktopDark: {
+    childImageSharp: {
+      fluid: FluidObject;
+    };
+  };
   backdrop: {
     childImageSharp: {
       fluid: FluidObject;
@@ -43,6 +53,28 @@ export const BannerBackground = (
 ): React.ReactElement => {
   const data = useStaticQuery<BannerData>(graphql`
     query BannerBackgroundData {
+      desktop: file(
+        relativePath: { eq: "banner.jpg" }
+        sourceInstanceName: { eq: "assets" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 4608) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+
+      desktopDark: file(
+        relativePath: { eq: "banner_dark.jpg" }
+        sourceInstanceName: { eq: "assets" }
+      ) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 4608) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+
       backdrop: file(
         relativePath: { eq: "banner.jpg" }
         sourceInstanceName: { eq: "assets" }
@@ -70,8 +102,16 @@ export const BannerBackground = (
   return (
     <StyledBackgroundImage
       {...props}
-      fluid={data.backdrop.childImageSharp.fluid}
-      fluidDark={data.backdropDark.childImageSharp.fluid}
+      fluid={
+        props.highQuality === true
+          ? data.desktop.childImageSharp.fluid
+          : data.backdrop.childImageSharp.fluid
+      }
+      fluidDark={
+        props.highQuality === true
+          ? data.desktopDark.childImageSharp.fluid
+          : data.backdropDark.childImageSharp.fluid
+      }
     >
       {props.children}
     </StyledBackgroundImage>

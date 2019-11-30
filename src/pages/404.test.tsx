@@ -4,8 +4,21 @@ import { useStaticQuery } from "gatsby";
 import Page from "./404";
 
 beforeEach((): void => {
-  (useStaticQuery as jest.Mock).mockImplementationOnce((): object => ({
-    backdrop: {
+  (useStaticQuery as jest.Mock).mockImplementation((): object => ({
+    desktop: {
+      childImageSharp: {
+        fluid: {
+          base64: "",
+          aspectRatio: 1.333,
+          src: "",
+          srcSet: "",
+          srcWebp: "",
+          srcSetWebp: "",
+          sizes: ""
+        }
+      }
+    },
+    desktopDark: {
       childImageSharp: {
         fluid: {
           base64: "",
@@ -53,40 +66,7 @@ beforeEach((): void => {
 
 describe("404 Page", (): void => {
   it("renders correctly", (): void => {
-    const tree = renderer
-      .create(
-        <Page
-          data={{
-            desktop: {
-              childImageSharp: {
-                fluid: {
-                  base64: "",
-                  aspectRatio: 1.333,
-                  src: "",
-                  srcSet: "",
-                  srcWebp: "",
-                  srcSetWebp: "",
-                  sizes: ""
-                }
-              }
-            },
-            desktopDark: {
-              childImageSharp: {
-                fluid: {
-                  base64: "",
-                  aspectRatio: 1.333,
-                  src: "",
-                  srcSet: "",
-                  srcWebp: "",
-                  srcSetWebp: "",
-                  sizes: ""
-                }
-              }
-            }
-          }}
-        />
-      )
-      .toJSON();
+    const tree = renderer.create(<Page />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
