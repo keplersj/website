@@ -1,7 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Index Page renders correctly 1`] = `
-.emotion-12 {
+Array [
+  <head>
+    Object {}
+    Object {
+      "lang": "en",
+    }
+    <meta
+      content="Kepler Sticka-Jones"
+      data-react-helmet={true}
+      name="author"
+    />
+    <meta
+      content=""
+      data-react-helmet={true}
+      name="description"
+    />
+    <meta
+      content=""
+      data-react-helmet={true}
+      property="og:site_name"
+    />
+    <meta
+      content=""
+      data-react-helmet={true}
+      property="og:title"
+    />
+    <meta
+      content=""
+      data-react-helmet={true}
+      property="og:description"
+    />
+    <meta
+      content="summary"
+      data-react-helmet={true}
+      name="twitter:card"
+    />
+    <meta
+      content="@test"
+      data-react-helmet={true}
+      name="twitter:site"
+    />
+    <meta
+      content="@test"
+      data-react-helmet={true}
+      name="twitter:creator"
+    />
+    <title
+      data-react-helmet={true}
+    >
+      
+    </title>
+  </head>
+
+<script
+    type="application/ld+json"
+  >
+    Object {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "about": Object {
+      "@type": "Person",
+      "description": "",
+      "image": "",
+      "name": "Kepler Sticka-Jones",
+      "sameAs": Array [
+        "https://twitter.com/test",
+        "https://github.com/test",
+      ],
+      "url": "",
+    },
+    "description": "",
+    "name": "Kepler Sticka-Jones",
+    "url": "",
+  }
+  </script>,
+  .emotion-12 {
   min-height: 100vh;
   -webkit-align-items: stretch;
   -webkit-box-align: stretch;
@@ -160,192 +235,118 @@ exports[`Index Page renders correctly 1`] = `
   }
 }
 
-<head>
-  Object {}
-  Object {
-    "lang": "en",
-  }
-  <meta
-    content="Kepler Sticka-Jones"
-    data-react-helmet={true}
-    name="author"
-  />
-  <meta
-    content=""
-    data-react-helmet={true}
-    name="description"
-  />
-  <meta
-    content=""
-    data-react-helmet={true}
-    property="og:site_name"
-  />
-  <meta
-    content=""
-    data-react-helmet={true}
-    property="og:title"
-  />
-  <meta
-    content=""
-    data-react-helmet={true}
-    property="og:description"
-  />
-  <meta
-    content="summary"
-    data-react-helmet={true}
-    name="twitter:card"
-  />
-  <meta
-    content="@test"
-    data-react-helmet={true}
-    name="twitter:site"
-  />
-  <meta
-    content="@test"
-    data-react-helmet={true}
-    name="twitter:creator"
-  />
-  <script
-    data-react-helmet={true}
-    type="application/ld+json"
-  >
-    Object {
-    "@context": "http://www.schema.org",
-    "@type": "WebSite",
-    "about": Object {
-      "@type": "Person",
-      "description": "",
-      "image": "",
-      "name": "Kepler Sticka-Jones",
-      "sameAs": Array [
-        "https://twitter.com/test",
-        "https://github.com/test",
-      ],
-      "url": "",
-    },
-    "description": "",
-    "name": "Kepler Sticka-Jones",
-    "url": "",
-  }
-  </script>
-  <title
-    data-react-helmet={true}
-  >
-    
-  </title>
-</head>
-
 <section
-  className="emotion-12"
->
-  <div
-    className="emotion-11"
+    className="emotion-12"
   >
     <div
-      className="emotion-10"
+      className="emotion-11"
     >
       <div
-        className="emotion-9"
+        className="emotion-10"
       >
         <div
-          className="emotion-8"
+          className="emotion-9"
         >
           <div
-            aria-label="Avatar"
-            role="img"
+            className="emotion-8"
           >
             <div
-              className="emotion-0 gatsby-image-wrapper"
-              style={
-                Object {
-                  "display": "inline-block",
-                  "height": 100,
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": 100,
-                }
-              }
+              aria-label="Avatar"
+              role="img"
             >
-              
-              <picture>
-                <source
-                  srcSet=""
-                />
-                <img
-                  alt="Avatar"
-                  height={100}
-                  loading="lazy"
-                  onLoad={[Function]}
-                  src=""
-                  srcSet=""
-                  style={
+              <div
+                className="emotion-0 gatsby-image-wrapper"
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "height": 100,
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": 100,
+                  }
+                }
+              >
+                
+                <picture>
+                  <source
+                    srcSet=""
+                  />
+                  <img
+                    alt="Avatar"
+                    height={100}
+                    loading="lazy"
+                    onLoad={[Function]}
+                    src=""
+                    srcSet=""
+                    style={
+                      Object {
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": "cover",
+                        "objectPosition": "center",
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transition": "opacity 500ms",
+                        "width": "100%",
+                      }
+                    }
+                    width={100}
+                  />
+                </picture>
+                <noscript
+                  dangerouslySetInnerHTML={
                     Object {
-                      "height": "100%",
-                      "left": 0,
-                      "objectFit": "cover",
-                      "objectPosition": "center",
-                      "opacity": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "transition": "opacity 500ms",
-                      "width": "100%",
+                      "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"Avatar\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
                     }
                   }
-                  width={100}
                 />
-              </picture>
-              <noscript
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "<picture><source srcset=\\"\\" /><img loading=\\"lazy\\" width=\\"100\\" height=\\"100\\" src=\\"\\" alt=\\"Avatar\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
-                  }
-                }
-              />
+              </div>
             </div>
-          </div>
-          <h1
-            className="emotion-1"
-          >
-            Kepler Sticka-Jones
-          </h1>
-          <br />
-          <div
-            className="emotion-7"
-          >
-            <a
-              className="emotion-2"
-              href="https://github.com/test"
+            <h1
+              className="emotion-1"
             >
-              Code
-            </a>
-            <a
-              className="emotion-2"
-              href="https://twitter.com/test"
+              Kepler Sticka-Jones
+            </h1>
+            <br />
+            <div
+              className="emotion-7"
             >
-              Tweets
-            </a>
-            <a
-              className="emotion-2"
-              href="/blog"
-            >
-              Blog
-            </a>
-            <a
-              className="emotion-2"
-              href="/projects"
-            >
-              Projects
-            </a>
-            <a
-              className="emotion-2"
-              href="/about"
-            >
-              About
-            </a>
+              <a
+                className="emotion-2"
+                href="https://github.com/test"
+              >
+                Code
+              </a>
+              <a
+                className="emotion-2"
+                href="https://twitter.com/test"
+              >
+                Tweets
+              </a>
+              <a
+                className="emotion-2"
+                href="/blog"
+              >
+                Blog
+              </a>
+              <a
+                className="emotion-2"
+                href="/projects"
+              >
+                Projects
+              </a>
+              <a
+                className="emotion-2"
+                href="/about"
+              >
+                About
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>,
+]
 `;

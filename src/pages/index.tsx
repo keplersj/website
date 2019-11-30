@@ -1,20 +1,12 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import { Helmet } from "react-helmet";
 import { FixedObject } from "gatsby-image";
 import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
 import { WebSite } from "schema-dts";
+import { JsonLd } from "react-schemaorg";
 import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
-
-const StyledAvatar = styled(Avatar)`
-  margin-top: -100px;
-
-  @media screen and (max-width: 768px) {
-    margin-top: -60px;
-  }
-`;
 
 const Hero = styled.section`
   min-height: 100vh;
@@ -131,35 +123,33 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
 
   return (
     <BaseLayout hideNavbar location={location}>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "http://www.schema.org",
-            "@type": "WebSite",
+      <JsonLd<WebSite>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: data.site.siteMetadata.title,
+          description: data.site.siteMetadata.description,
+          url: data.site.siteMetadata.siteUrl,
+          about: {
+            "@type": "Person",
             name: data.site.siteMetadata.title,
             description: data.site.siteMetadata.description,
             url: data.site.siteMetadata.siteUrl,
-            about: {
-              "@type": "Person",
-              name: data.site.siteMetadata.title,
-              description: data.site.siteMetadata.description,
-              url: data.site.siteMetadata.siteUrl,
-              email: email ? email.id : undefined,
-              sameAs: data.site.siteMetadata.social
-                .filter((platform): boolean => platform.isProfile === true)
-                .map((platform): string => platform.url),
-              image: data.metadataImage.childImageSharp.fixed.src
-            }
-          } as WebSite)}
-        </script>
-      </Helmet>
+            email: email ? email.id : undefined,
+            sameAs: data.site.siteMetadata.social
+              .filter((platform): boolean => platform.isProfile === true)
+              .map((platform): string => platform.url),
+            image: data.metadataImage.childImageSharp.fixed.src
+          }
+        }}
+      />
 
       <Hero>
         <HeroBody>
           <Container>
             <Columns>
               <CenteredColumn>
-                <StyledAvatar />
+                <Avatar />
                 <Name>{data.site.siteMetadata.title}</Name>
                 <br />
                 <Centered>
