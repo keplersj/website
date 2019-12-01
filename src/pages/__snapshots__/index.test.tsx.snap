@@ -76,21 +76,21 @@ Array [
     "url": "",
   }
   </script>,
-  .emotion-13 {
+  .emotion-11 {
   min-height: 66vh;
 }
 
 @media (prefers-color-scheme:dark) {
-  .emotion-13::before {
+  .emotion-11::before {
     background-image: url() !important;
   }
 
-  .emotion-13::after {
+  .emotion-11::after {
     background-image: url() !important;
   }
 }
 
-.emotion-12 {
+.emotion-10 {
   min-height: 66vh;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
@@ -111,7 +111,7 @@ Array [
   justify-content: space-between;
 }
 
-.emotion-11 {
+.emotion-9 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -131,7 +131,7 @@ Array [
   color: #fff;
 }
 
-.emotion-10 {
+.emotion-8 {
   text-align: center !important;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -146,18 +146,18 @@ Array [
 }
 
 @media screen and (min-width:1024px) {
-  .emotion-10 {
+  .emotion-8 {
     max-width: 960px;
   }
 }
 
 @media screen and (min-width:1216px) {
-  .emotion-10 {
+  .emotion-8 {
     max-width: 1152px;
   }
 }
 
-.emotion-9 {
+.emotion-7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -167,11 +167,11 @@ Array [
   margin-top: -0.75rem;
 }
 
-.emotion-9:last-child {
+.emotion-7:last-child {
   margin-bottom: -0.75rem;
 }
 
-.emotion-8 {
+.emotion-6 {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -193,7 +193,7 @@ Array [
   line-height: 1.125;
 }
 
-.emotion-7 {
+.emotion-5 {
   margin-left: auto;
   margin-right: auto;
 }
@@ -254,7 +254,7 @@ Array [
 }
 
 <div
-    className="emotion-13 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
+    className="emotion-11 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
     style={
       Object {
         "backgroundPosition": "center",
@@ -269,8 +269,8 @@ Array [
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-          .emotion-13.gbi-00000000000-0000000000000000000000:before,
-          .emotion-13.gbi-00000000000-0000000000000000000000:after {
+          .emotion-11.gbi-00000000000-0000000000000000000000:before,
+          .emotion-11.gbi-00000000000-0000000000000000000000:after {
             content: '';
             display: block;
             position: absolute;
@@ -285,13 +285,13 @@ background-repeat: no-repeat;
 background-size: cover;
 
           }
-          .emotion-13.gbi-00000000000-0000000000000000000000:before {
+          .emotion-11.gbi-00000000000-0000000000000000000000:before {
             z-index: -100;
             
             
             opacity: 0; 
           }
-          .emotion-13.gbi-00000000000-0000000000000000000000:after {
+          .emotion-11.gbi-00000000000-0000000000000000000000:after {
             z-index: -101;
             
             
@@ -306,7 +306,7 @@ background-size: cover;
         dangerouslySetInnerHTML={
           Object {
             "__html": "
-    .emotion-13.gbi-00000000000-0000000000000000000000:before {
+    .emotion-11.gbi-00000000000-0000000000000000000000:before {
       opacity: 1;
       background-image: ;
     }",
@@ -315,19 +315,19 @@ background-size: cover;
       />
     </noscript>
     <section
-      className="emotion-12"
+      className="emotion-10"
     >
       <div
-        className="emotion-11"
+        className="emotion-9"
       >
         <div
-          className="emotion-10"
+          className="emotion-8"
         >
           <div
-            className="emotion-9"
+            className="emotion-7"
           >
             <div
-              className="emotion-8"
+              className="emotion-6"
             >
               <div
                 aria-label="Avatar"
@@ -389,20 +389,8 @@ background-size: cover;
               </h1>
               <br />
               <div
-                className="emotion-7"
+                className="emotion-5"
               >
-                <a
-                  className="emotion-2"
-                  href="https://github.com/test"
-                >
-                  Code
-                </a>
-                <a
-                  className="emotion-2"
-                  href="https://twitter.com/test"
-                >
-                  Tweets
-                </a>
                 <a
                   className="emotion-2"
                   href="/blog"

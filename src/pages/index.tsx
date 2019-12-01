@@ -77,10 +77,6 @@ const CenteredColumn = styled(Centered)`
   width: 66.6666%;
 `;
 
-const StyledButton = styled(Hyperbutton)`
-  color: #fff;
-`;
-
 const FeaturedContentContainer = styled.section`
   padding: 1em;
 `;
@@ -161,12 +157,6 @@ interface Props extends PageRendererProps {
 }
 
 const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
-  const twitter = data.site.siteMetadata.social.find(
-    (social): boolean => social.name === "Twitter"
-  );
-  const github = data.site.siteMetadata.social.find(
-    (social): boolean => social.name === "GitHub"
-  );
   const email = data.site.siteMetadata.social.find(
     (social): boolean => social.name === "Email"
   );
@@ -204,12 +194,6 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
                   <Name>{data.site.siteMetadata.title}</Name>
                   <br />
                   <Centered>
-                    {github && (
-                      <StyledButton href={github.url}>Code</StyledButton>
-                    )}
-                    {twitter && (
-                      <StyledButton href={twitter.url}>Tweets</StyledButton>
-                    )}
                     {data.site.siteMetadata.nav.map(
                       (link): React.ReactElement => (
                         <StyledLocalButton to={link.url} key={link.name}>
