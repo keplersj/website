@@ -79,6 +79,14 @@ const CenteredColumn = styled(Centered)`
 
 const FeaturedContentContainer = styled.section`
   padding: 1em;
+
+  @media screen and (min-width: 512px) {
+    padding: 1em 2.5em;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 1em 5em;
+  }
 `;
 
 const ContentCarousel = styled.div`
