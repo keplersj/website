@@ -2,6 +2,7 @@
 title: "Battling Bit Rot, Link Rot, and Chaos: Hacking an 18 Year Old TiVo Hard Drive"
 date: 2019-10-12T06:00:00Z
 description: ""
+featured_image: ../assets/LinkRotBitRotTiVoHDD-01.png
 ---
 
 This past summer in-between semesters at school I set out to work on a project I've wanted to work on for a while. Some time ago I extracted the hard drive from my childhood TiVo before sending the actual unit off to an e-waste facility during a round of spring cleaning. My thought at the time was that hard drives take up way less space than an aging TiVo unit, and one day I may want to get the data off the drive. So with the free time of a summer break, I set out to work on this project.
