@@ -98,6 +98,6 @@
     "react-test-renderer": "^16.12.0",
     "remark-preset-lint-starstuff": "^1.0.1",
     "stylelint": "^12.0.0",
-    "stylelint-config-starstuff": "^1.0.3"
+    "stylelint-config-starstuff": "^1.0.4"
   }
 }
