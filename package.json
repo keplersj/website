@@ -34,7 +34,6 @@
     "@types/react": "^16.9.14",
     "@types/react-helmet": "^5.0.14",
     "gatsby": "^2.18.6",
-    "gatsby-background-image": "^0.9.11",
     "gatsby-image": "^2.2.34",
     "gatsby-link": "^2.2.25",
     "gatsby-plugin-catch-links": "^2.1.19",

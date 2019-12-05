@@ -6,18 +6,18 @@ import {
   useEffect
 } from "react";
 import { FixedObject, FluidObject } from "gatsby-image";
-import { css, jsx } from "@emotion/core";
+import { css, jsx, SerializedStyles } from "@emotion/core";
 import { backgroundImages } from "polished";
 import { useInView } from "react-intersection-observer";
 import webPCheck from "supports-webp";
 
 function createBackgrounds(
   img: FixedObject | FluidObject | FixedObject[] | FluidObject[],
-  supportsWebP: boolean = false
-) {
+  supportsWebP = false
+): SerializedStyles {
   if (Array.isArray(img)) {
     const backgroundsWithoutQuery = (img as Array<FixedObject | FluidObject>)
-      .filter(asset => !Boolean(asset.media))
+      .filter(asset => !asset.media)
       .map(asset =>
         asset.srcWebp && supportsWebP
           ? `url("${asset.srcWebp}")`
@@ -48,7 +48,9 @@ function createBackgrounds(
   }
 }
 
-function createBackupBackground(img: FixedObject | FluidObject) {
+function createBackupBackground(
+  img: FixedObject | FluidObject
+): SerializedStyles {
   if (img.media) {
     return css`
       @media ${img.media} {
@@ -64,11 +66,26 @@ function createBackupBackground(img: FixedObject | FluidObject) {
 
 function createBackupBackgrounds(
   img: FixedObject | FluidObject | FixedObject[] | FluidObject[]
-) {
+): SerializedStyles {
   if (Array.isArray(img)) {
-    return (img as Array<FixedObject | FluidObject>).map(
-      createBackupBackground
-    );
+    const backgroundsWithoutQuery = (img as Array<FixedObject | FluidObject>)
+      .filter(asset => !asset.media)
+      .map(asset => `url("${asset.base64}")`);
+
+    const backgroundsWithQuery = (img as Array<FixedObject | FluidObject>)
+      .filter(asset => Boolean(asset.media))
+      .map(
+        asset => css`
+          @media ${asset.media} {
+            background-image: url("${asset.base64}");
+          }
+        `
+      );
+
+    return css`
+      ${backgroundsWithQuery}
+      ${backgroundImages(...backgroundsWithoutQuery)}
+    `;
   } else {
     return createBackupBackground(img);
   }
@@ -80,9 +97,9 @@ interface Props {
   tag: keyof JSX.IntrinsicElements;
 }
 
-export const BackgroundImage: FunctionComponent<PropsWithChildren<
-  Props
->> = props => {
+export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
+  props: PropsWithChildren<Props>
+) => {
   // Let's pretend whatever element this is supponsed to be is a div, so the TypeScript stops freaking out about complexity.
   const ContainerElement = props.tag as "div";
   const [ref, inView] = useInView({
@@ -91,7 +108,7 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<
   const [{ webP: supportsWebP }, setWebPSupport] = useState({ webP: false });
 
   useEffect(() => {
-    const checkForSupport = async () => {
+    const checkForSupport = async (): Promise<void> => {
       const browserSupportsWebP = await webPCheck;
 
       setWebPSupport({ webP: browserSupportsWebP });
