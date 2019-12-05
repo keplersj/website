@@ -2,29 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 // import BackgroundImage from "gatsby-background-image";
 import { BackgroundImage } from "../GatsbyBackgroundImageLite";
-import styled from "@emotion/styled";
 import { FluidObject } from "gatsby-image";
-import css from "@emotion/css";
-
-interface StyledBackgroundImageProps {
-  fluidDark: FluidObject;
-}
-
-const StyledBackgroundImage = styled(BackgroundImage)<
-  StyledBackgroundImageProps
->(
-  props => css`
-    @media (prefers-color-scheme: dark) {
-      ::before {
-        background-image: url(${props.fluidDark.src}) !important;
-      }
-
-      ::after {
-        background-image: url(${props.fluidDark.src}) !important;
-      }
-    }
-  `
-);
 
 interface BannerData {
   desktop: {
@@ -101,20 +79,21 @@ export const BannerBackground = (
   `);
 
   return (
-    <StyledBackgroundImage
+    <BackgroundImage
       {...props}
-      fluid={
+      fluid={[
         props.highQuality === true
           ? data.desktop.childImageSharp.fluid
-          : data.backdrop.childImageSharp.fluid
-      }
-      fluidDark={
-        props.highQuality === true
-          ? data.desktopDark.childImageSharp.fluid
-          : data.backdropDark.childImageSharp.fluid
-      }
+          : data.backdrop.childImageSharp.fluid,
+        {
+          ...(props.highQuality === true
+            ? data.desktopDark.childImageSharp.fluid
+            : data.backdropDark.childImageSharp.fluid),
+          media: "screen and (prefers-color-scheme: dark)"
+        }
+      ]}
     >
       {props.children}
-    </StyledBackgroundImage>
+    </BackgroundImage>
   );
 };

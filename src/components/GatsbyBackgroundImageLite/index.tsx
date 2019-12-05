@@ -26,25 +26,24 @@ function createBackgrounds(
 
     const backgroundsWithQuery = (img as Array<FixedObject | FluidObject>)
       .filter(asset => Boolean(asset.media))
-      .map(
-        asset => css`
-          @media screen and (${asset.media}) {
-            background-image: ${asset.srcWebp && supportsWebP
-              ? asset.srcWebp
-              : asset.src};
+      .map(asset => {
+        const backgroundImage =
+          asset.srcWebp && supportsWebP ? asset.srcWebp : asset.src;
+        return css`
+          @media ${asset.media} {
+            background-image: url("${backgroundImage}");
           }
-        `
-      );
+        `;
+      });
 
     return css`
       ${backgroundsWithQuery}
       ${backgroundImages(...backgroundsWithoutQuery)}
     `;
   } else {
-    return `
-      background-image: url("${
-        img.srcWebp && supportsWebP ? img.srcWebp : img.src
-      }");
+    const backgroundImage = img.srcWebp && supportsWebP ? img.srcWebp : img.src;
+    return css`
+      background-image: url("${backgroundImage}");
     `;
   }
 }
@@ -52,7 +51,7 @@ function createBackgrounds(
 function createBackupBackground(img: FixedObject | FluidObject) {
   if (img.media) {
     return css`
-      @media screen and (${img.media}) {
+      @media ${img.media} {
         background-image: url("${img.base64}");
       }
     `;
