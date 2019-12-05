@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+// import BackgroundImage from "gatsby-background-image";
+import { BackgroundImage } from "../GatsbyBackgroundImageLite";
 import styled from "@emotion/styled";
 import { FluidObject } from "gatsby-image";
 import css from "@emotion/css";
