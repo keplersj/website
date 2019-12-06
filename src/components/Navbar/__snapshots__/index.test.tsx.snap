@@ -27,7 +27,7 @@ exports[`Navbar renders correctly 1`] = `
 
 .emotion-8::before {
   z-index: -100;
-  opacity: 0;
+  opacity: 1;
   background-image: url("");
 }
 

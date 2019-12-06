@@ -77,6 +77,7 @@ function createBackupBackgrounds(
 interface Props {
   fixed?: FixedObject | FixedObject[];
   fluid?: FluidObject | FluidObject[];
+  eager: boolean;
   tag: keyof JSX.IntrinsicElements;
 }
 
@@ -127,14 +128,14 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
 
         ::before {
           z-index: -100;
-          opacity: ${inView ? 1 : 0};
+          opacity: ${inView || props.eager ? 1 : 0};
           ${props.fixed && createBackgrounds(props.fixed, supportsWebP)}
           ${props.fluid && createBackgrounds(props.fluid, supportsWebP)}
         }
 
         ::after {
           z-index: -101;
-          opacity: ${inView ? 0 : 1};
+          opacity: 1;
           ${props.fixed && createBackupBackgrounds(props.fixed)}
           ${props.fluid && createBackupBackgrounds(props.fluid)}
         }
@@ -153,5 +154,6 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
 };
 
 BackgroundImage.defaultProps = {
-  tag: "div"
+  tag: "div",
+  eager: false
 };

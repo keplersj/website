@@ -80,6 +80,7 @@ export const BannerBackground = (
   return (
     <BackgroundImage
       {...props}
+      eager
       fluid={[
         props.highQuality === true
           ? data.desktop.childImageSharp.fluid

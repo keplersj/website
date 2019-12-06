@@ -27,7 +27,7 @@ exports[`404 Page renders correctly 1`] = `
 
 .emotion-2::before {
   z-index: -100;
-  opacity: 0;
+  opacity: 1;
   background-image: url("");
 }
 
