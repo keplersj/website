@@ -236,6 +236,7 @@ Array [
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.125;
+  margin-bottom: 1.5rem;
 }
 
 .emotion-6 {
@@ -377,7 +378,6 @@ Array [
               >
                 Kepler Sticka-Jones
               </h1>
-              <br />
               <div
                 className="emotion-6"
               >

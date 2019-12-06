@@ -31,6 +31,7 @@ const Name = styled.h1`
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.125;
+  margin-bottom: 1.5rem;
 `;
 
 const Container = styled.div`
@@ -200,7 +201,6 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
                 <CenteredColumn>
                   <Avatar />
                   <Name>{data.site.siteMetadata.title}</Name>
-                  <br />
                   <Centered>
                     {data.site.siteMetadata.nav.map(
                       (link): React.ReactElement => (
