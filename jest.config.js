@@ -8,8 +8,7 @@ module.exports = {
       snapshotSerializers: [
         "jest-emotion",
         "jest-serializer-react-helmet",
-        "jest-serializer-json-ld-script",
-        "<rootDir>/.jest/gatsby-background-image-serializer.js"
+        "jest-serializer-json-ld-script"
       ],
       collectCoverage: true,
       coverageReporters: ["json", "text"],
