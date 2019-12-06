@@ -65,6 +65,18 @@ export const AboutTemplate = (
           }
         }
       }
+
+      skills: file(
+        sourceInstanceName: { eq: "about" }
+        relativePath: { eq: "skills.md" }
+      ) {
+        childMdx {
+          body
+          frontmatter {
+            title
+          }
+        }
+      }
     }
   `);
 
@@ -85,6 +97,8 @@ export const AboutTemplate = (
           <h1>{data.biography.childMdx.frontmatter.title}</h1>
           <MDXRenderer>{data.biography.childMdx.body}</MDXRenderer>
           {props.children}
+          <h1>{data.skills.childMdx.frontmatter.title}</h1>
+          <MDXRenderer>{data.skills.childMdx.body}</MDXRenderer>
         </ExperienceContainer>
       </AboutContainer>
     </BaseLayout>
