@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import BaseLayout from "../BaseLayout";
 import { Avatar } from "../Avatar";
 import { SocialLinks } from "../SocialLinks";
-import { PageRendererProps } from "gatsby";
+import { PageRendererProps, useStaticQuery, graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -50,20 +51,42 @@ const Location = styled.span`
 
 export const AboutTemplate = (
   props: React.PropsWithChildren<PageRendererProps>
-): React.ReactElement => (
-  <BaseLayout location={props.location}>
-    <AboutContainer role="region">
-      <ProfileContainer>
-        <Avatar />
-        <Name role="heading" aria-level={1} title="Name">
-          Kepler Sticka-Jones
-        </Name>
-        <Location role="heading" aria-level={2} title="Location">
-          Salt Lake City, UT, USA
-        </Location>
-        <SocialLinks id="contact" />
-      </ProfileContainer>
-      <ExperienceContainer>{props.children}</ExperienceContainer>
-    </AboutContainer>
-  </BaseLayout>
-);
+): React.ReactElement => {
+  const data = useStaticQuery(graphql`
+    query AboutPageQuery {
+      biography: file(
+        sourceInstanceName: { eq: "about" }
+        relativePath: { eq: "biography.md" }
+      ) {
+        childMdx {
+          body
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <BaseLayout location={props.location}>
+      <AboutContainer role="region">
+        <ProfileContainer>
+          <Avatar />
+          <Name role="heading" aria-level={1} title="Name">
+            Kepler Sticka-Jones
+          </Name>
+          <Location role="heading" aria-level={2} title="Location">
+            Salt Lake City, UT, USA
+          </Location>
+          <SocialLinks id="contact" />
+        </ProfileContainer>
+        <ExperienceContainer>
+          <h1>{data.biography.childMdx.frontmatter.title}</h1>
+          <MDXRenderer>{data.biography.childMdx.body}</MDXRenderer>
+          {props.children}
+        </ExperienceContainer>
+      </AboutContainer>
+    </BaseLayout>
+  );
+};

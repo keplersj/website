@@ -3,6 +3,14 @@ import renderer from "react-test-renderer";
 import { useStaticQuery } from "gatsby";
 import Page from "./index";
 
+jest.mock("gatsby-plugin-mdx", () => {
+  const MDXRenderer = ({ children }: any) => <p>{children}</p>;
+
+  return {
+    MDXRenderer
+  };
+});
+
 beforeEach((): void => {
   (useStaticQuery as jest.Mock).mockImplementation((): object => ({
     desktop: {
@@ -130,6 +138,15 @@ describe("Index Page", (): void => {
                     url: "/about"
                   }
                 ]
+              }
+            },
+            biography: {
+              childMdx: {
+                frontmatter: {
+                  title: "Biography"
+                },
+                body:
+                  "I am a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development."
               }
             },
             metadataImage: {

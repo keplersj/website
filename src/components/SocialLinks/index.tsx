@@ -15,7 +15,7 @@ interface Platform {
   url: string;
 }
 
-interface AboutPageQuery {
+interface SocialLinksQuery {
   site: {
     siteMetadata: {
       social: {
@@ -34,8 +34,8 @@ export const SocialLinks = (
     site: {
       siteMetadata: { social }
     }
-  } = useStaticQuery<AboutPageQuery>(graphql`
-    query AboutPageQuery {
+  } = useStaticQuery<SocialLinksQuery>(graphql`
+    query SocialLinksQuery {
       site {
         siteMetadata {
           social {

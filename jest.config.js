@@ -16,7 +16,8 @@ module.exports = {
       moduleNameMapper: {
         "modern-normalize": "jest-transform-stub",
         "starstuff-style": "jest-transform-stub"
-      }
+      },
+      transformIgnorePatterns: ["node_modules/(?!(gatsby-plugin-mdx)/)"]
     },
     {
       runner: "eslint",

@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { Hyperbutton } from "starstuff-components";
 import { WebSite, BlogPosting, Blog, ImageObject } from "schema-dts";
 import { JsonLd } from "react-schemaorg";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import BaseLayout from "../components/BaseLayout";
 import { Avatar } from "../components/Avatar";
 import { BannerBackground } from "../components/BannerBackground";
@@ -136,6 +137,15 @@ interface IndexPageData {
     };
   };
 
+  biography: {
+    childMdx: {
+      body: string;
+      frontmatter: {
+        title: string;
+      };
+    };
+  };
+
   metadataImage: {
     childImageSharp: {
       fixed: FixedObject;
@@ -217,12 +227,8 @@ const IndexPage = ({ data, location }: Props): React.ReactElement<Props> => {
         </Hero>
       </HeroBackground>
       <FeaturedContentContainer>
-        <h2>Biography</h2>
-        <p>
-          I am a computer programmer and college student based out of Salt Lake
-          City, with experience in entrepreneurship, student leadership, and
-          open source software development.
-        </p>
+        <h2>{data.biography.childMdx.frontmatter.title}</h2>
+        <MDXRenderer>{data.biography.childMdx.body}</MDXRenderer>
         <Link to="/about">Read More...</Link>
       </FeaturedContentContainer>
       <FeaturedContentContainer>
@@ -326,6 +332,18 @@ export const query = graphql`
         # Makes it trivial to update as your page's design changes.
         fixed(width: 480, height: 480) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    biography: file(
+      sourceInstanceName: { eq: "about" }
+      relativePath: { eq: "biography.md" }
+    ) {
+      childMdx {
+        body
+        frontmatter {
+          title
         }
       }
     }

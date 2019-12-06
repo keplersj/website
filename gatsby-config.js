@@ -114,6 +114,13 @@ module.exports = {
         path: "./content/assets"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "about",
+        path: "./content/about"
+      }
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
