@@ -41,26 +41,8 @@ function createBackgrounds(
       ${backgroundImages(...backgroundsWithoutQuery)}
     `;
   } else {
-    const backgroundImage = img.srcWebp && supportsWebP ? img.srcWebp : img.src;
-    return css`
-      background-image: url("${backgroundImage}");
-    `;
-  }
-}
-
-function createBackupBackground(
-  img: FixedObject | FluidObject
-): SerializedStyles {
-  if (img.media) {
-    return css`
-      @media ${img.media} {
-        background-image: url("${img.base64}");
-      }
-    `;
-  } else {
-    return css`
-      background-image: url("${img.base64}");
-    `;
+    // Let's just pretend we were given a single FluidObject and move on
+    return createBackgrounds([img as FluidObject]);
   }
 }
 
@@ -87,7 +69,8 @@ function createBackupBackgrounds(
       ${backgroundImages(...backgroundsWithoutQuery)}
     `;
   } else {
-    return createBackupBackground(img);
+    // Let's just pretend we were given a single Fluid object and move on
+    return createBackupBackgrounds([img as FluidObject]);
   }
 }
 
