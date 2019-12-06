@@ -1,23 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navbar renders correctly 1`] = `
+.emotion-8 {
+  position: relative;
+  opacity: 0.99;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.emotion-8::before,
+.emotion-8::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.5s ease 0.25s;
+  transition: opacity 0.5s ease 0.25s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.emotion-8::before {
+  z-index: -100;
+  opacity: 1;
+  background-image: url("");
+}
+
+@media screen and (prefers-color-scheme:dark) {
+  .emotion-8::before {
+    background-image: url("");
+  }
+}
+
+.emotion-8::after {
+  z-index: -101;
+  opacity: 1;
+  background-image: url("");
+}
+
+@media screen and (prefers-color-scheme:dark) {
+  .emotion-8::after {
+    background-image: url("");
+  }
+}
+
+.emotion-0 {
+  opacity: 1;
+  background-image: url("");
+}
+
+@media screen and (prefers-color-scheme:dark) {
+  .emotion-0 {
+    background-image: url("");
+  }
+}
+
 .emotion-7 {
-  height: 3rem;
-  width: 100vw;
-  margin-bottom: 1em;
-}
-
-@media (prefers-color-scheme:dark) {
-  .emotion-7::before {
-    background-image: url() !important;
-  }
-
-  .emotion-7::after {
-    background-image: url() !important;
-  }
-}
-
-.emotion-6 {
   height: 3rem;
   max-width: 100vw;
   display: -webkit-box;
@@ -38,134 +81,79 @@ exports[`Navbar renders correctly 1`] = `
   justify-content: space-between;
 }
 
-.emotion-1 {
+.emotion-2 {
   text-align: start;
   max-width: 50%;
 }
 
-.emotion-0 {
+.emotion-1 {
   font-weight: 600;
   color: #141414;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-0:hover {
+.emotion-1:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 @media (prefers-color-scheme:dark) {
-  .emotion-0 {
+  .emotion-1 {
     color: white;
   }
 }
 
-.emotion-5 {
+.emotion-6 {
   text-align: end;
   max-width: 50%;
 }
 
-.emotion-5 > :not(:last-child) {
+.emotion-6 > :not(:last-child) {
   margin-right: 1em;
 }
 
-<nav
-  className="emotion-7 gbi-00000000000-0000000000000000000000 gatsby-image-wrapper"
-  style={
-    Object {
-      "backgroundPosition": "center",
-      "backgroundRepeat": "no-repeat",
-      "backgroundSize": "cover",
-      "opacity": 0.99,
-      "position": "relative",
-    }
-  }
+<div
+  className="emotion-8"
 >
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-          .emotion-7.gbi-00000000000-0000000000000000000000:before,
-          .emotion-7.gbi-00000000000-0000000000000000000000:after {
-            content: '';
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            
-            transition: opacity 0.5s ease 0.25s;
-            background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-
-          }
-          .emotion-7.gbi-00000000000-0000000000000000000000:before {
-            z-index: -100;
-            
-            
-            opacity: 0; 
-          }
-          .emotion-7.gbi-00000000000-0000000000000000000000:after {
-            z-index: -101;
-            
-            
-            
-          }
-        ",
-      }
-    }
+  <noscript
+    className="emotion-0"
   />
-  <noscript>
-    <style
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-    .emotion-7.gbi-00000000000-0000000000000000000000:before {
-      opacity: 1;
-      background-image: ;
-    }",
-        }
-      }
-    />
-  </noscript>
   <div
-    className="emotion-6"
+    className="emotion-7"
   >
     <div
-      className="emotion-1"
+      className="emotion-2"
     >
       <a
-        className="emotion-0"
+        className="emotion-1"
         href="/"
       >
         Kepler Sticka-Jones
       </a>
     </div>
     <div
-      className="emotion-5"
+      className="emotion-6"
     >
       <a
-        className="emotion-0"
+        className="emotion-1"
         href="/blog"
       >
         Blog
       </a>
       <a
-        className="emotion-0"
+        className="emotion-1"
         href="/projects"
       >
         Projects
       </a>
       <a
-        className="emotion-0"
+        className="emotion-1"
         href="/about"
       >
         About
       </a>
     </div>
   </div>
-</nav>
+</div>
 `;
