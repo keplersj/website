@@ -1,15 +1,10 @@
 /** @jsx jsx */
-import {
-  PropsWithChildren,
-  FunctionComponent,
-  useState,
-  useEffect
-} from "react";
+import { PropsWithChildren, FunctionComponent } from "react";
 import { FixedObject, FluidObject } from "gatsby-image";
 import { css, jsx, SerializedStyles } from "@emotion/core";
 import { backgroundImages } from "polished";
 import { useInView } from "react-intersection-observer";
-import webPCheck from "supports-webp";
+import { useWebPSupportCheck } from "./useWebPSupportCheck";
 
 function createBackgrounds(
   img: FixedObject | FluidObject | FixedObject[] | FluidObject[],
@@ -89,17 +84,7 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
   const [ref, inView] = useInView({
     triggerOnce: true
   });
-  const [{ webP: supportsWebP }, setWebPSupport] = useState({ webP: false });
-
-  useEffect(() => {
-    const checkForSupport = async (): Promise<void> => {
-      const browserSupportsWebP = await webPCheck;
-
-      setWebPSupport({ webP: browserSupportsWebP });
-    };
-
-    checkForSupport();
-  }, []);
+  const supportsWebP = useWebPSupportCheck();
 
   return (
     <ContainerElement
