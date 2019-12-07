@@ -3,10 +3,6 @@
 exports[`Navbar renders correctly 1`] = `
 .emotion-8 {
   position: relative;
-  opacity: 0.99;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .emotion-8::before,
@@ -25,26 +21,26 @@ exports[`Navbar renders correctly 1`] = `
   background-size: cover;
 }
 
-.emotion-8::before {
+.emotion-8::after {
   z-index: -100;
   opacity: 0;
   background-image: url("");
 }
 
 @media screen and (prefers-color-scheme:dark) {
-  .emotion-8::before {
+  .emotion-8::after {
     background-image: url("");
   }
 }
 
-.emotion-8::after {
+.emotion-8::before {
   z-index: -101;
   opacity: 1;
   background-image: url("");
 }
 
 @media screen and (prefers-color-scheme:dark) {
-  .emotion-8::after {
+  .emotion-8::before {
     background-image: url("");
   }
 }

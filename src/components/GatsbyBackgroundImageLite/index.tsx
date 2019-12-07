@@ -32,8 +32,8 @@ function createBackgrounds(
       });
 
     return css`
-      ${backgroundsWithQuery}
       ${backgroundImages(...backgroundsWithoutQuery)}
+      ${backgroundsWithQuery}
     `;
   } else {
     // Let's just pretend we were given a single FluidObject and move on
@@ -60,8 +60,8 @@ function createBackupBackgrounds(
       );
 
     return css`
-      ${backgroundsWithQuery}
       ${backgroundImages(...backgroundsWithoutQuery)}
+      ${backgroundsWithQuery}
     `;
   } else {
     // Let's just pretend we were given a single Fluid object and move on
@@ -91,10 +91,6 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
       ref={ref}
       css={css`
         position: relative;
-        opacity: 0.99;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
 
         ::before,
         ::after {
@@ -111,14 +107,14 @@ export const BackgroundImage: FunctionComponent<PropsWithChildren<Props>> = (
           background-size: cover;
         }
 
-        ::before {
+        ::after {
           z-index: -100;
           opacity: ${inView || props.eager ? 1 : 0};
           ${props.fixed && createBackgrounds(props.fixed, supportsWebP)}
           ${props.fluid && createBackgrounds(props.fluid, supportsWebP)}
         }
 
-        ::after {
+        ::before {
           z-index: -101;
           opacity: 1;
           ${props.fixed && createBackupBackgrounds(props.fixed)}

@@ -78,10 +78,6 @@ Array [
   </script>,
   .emotion-12 {
   position: relative;
-  opacity: 0.99;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .emotion-12::before,
@@ -100,26 +96,26 @@ Array [
   background-size: cover;
 }
 
-.emotion-12::before {
+.emotion-12::after {
   z-index: -100;
   opacity: 0;
   background-image: url("");
 }
 
 @media screen and (prefers-color-scheme:dark) {
-  .emotion-12::before {
+  .emotion-12::after {
     background-image: url("");
   }
 }
 
-.emotion-12::after {
+.emotion-12::before {
   z-index: -101;
   opacity: 1;
   background-image: url("");
 }
 
 @media screen and (prefers-color-scheme:dark) {
-  .emotion-12::after {
+  .emotion-12::before {
     background-image: url("");
   }
 }
