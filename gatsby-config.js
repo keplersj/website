@@ -1,44 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
-
-const gatsbyRemarkPlugins = [
-  "gatsby-remark-smartypants",
-  {
-    resolve: "gatsby-remark-vscode",
-    options: {
-      languageAliases: {
-        shell: "bash"
-      },
-      colorTheme: {
-        defaultTheme: "Atom One Light",
-        prefersDarkTheme: "Atom One Dark"
-      },
-      extensions: [
-        {
-          identifier: "akamud.vscode-theme-onedark",
-          version: "2.1.0"
-        },
-        {
-          identifier: "akamud.vscode-theme-onelight",
-          version: "2.1.0"
-        }
-      ]
-    }
-  },
-  "gatsby-remark-autolink-headers",
-  // gatsby-remark-relative-images must
-  // go before gatsby-remark-images
-  "gatsby-remark-relative-images",
-  {
-    resolve: "gatsby-remark-images",
-    options: {
-      // It's important to specify the maxWidth (in pixels) of
-      // the content container as this plugin uses this as the
-      // base for generating different widths of each image.
-      maxWidth: 590
-    }
-  }
-];
-
 module.exports = {
   siteMetadata: {
     title: "Kepler Sticka-Jones",
@@ -104,69 +63,7 @@ module.exports = {
     ]
   },
   plugins: [
-    "gatsby-plugin-catch-links",
-    "gatsby-plugin-robots-txt",
-    "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "assets",
-        path: "./content/assets"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "about",
-        path: "./content/about"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "experience",
-        path: "./content/experience"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "education",
-        path: "./content/education"
-      }
-    },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: [".mdx", ".md"],
-        defaultLayouts: {
-          default: require.resolve("./src/components/BaseLayout/index.tsx")
-        },
-        gatsbyRemarkPlugins
-      }
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: gatsbyRemarkPlugins
-      }
-    },
-    {
-      resolve: "gatsby-theme-early-bird",
-      options: {
-        basePath: "/blog/",
-        mdx: false
-      }
-    },
-    {
-      resolve: "gatsby-theme-curiousity",
-      options: {
-        basePath: "/portfolio/",
-        mdx: false
-      }
-    },
+    "gatsby-theme-kepler",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -181,11 +78,10 @@ module.exports = {
         userIds: ["E5D802A305BE2DD99EB4484A4B1DD90E"]
       }
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-typescript",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        /* eslint-disable @typescript-eslint/camelcase */
         name: "Kepler Sticka-Jones",
         short_name: "Kepler S-J",
         start_url: "/",
@@ -193,6 +89,7 @@ module.exports = {
         theme_color: "#409040",
         display: "minimal-ui",
         icon: "content/assets/avatar.jpg"
+        /* eslint-enable @typescript-eslint/camelcase */
       }
     },
     "gatsby-plugin-offline"
