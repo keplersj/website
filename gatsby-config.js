@@ -121,6 +121,20 @@ module.exports = {
         path: "./content/about"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "experience",
+        path: "./content/experience"
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "education",
+        path: "./content/education"
+      }
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
