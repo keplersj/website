@@ -20,9 +20,3 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test -- --ci
-      - name: Run Stryker
-        run: npx stryker run
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1.0.0
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
