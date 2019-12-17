@@ -143,7 +143,7 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "jest-runner-prettier": "^0.3.4",
-    "jest-runner-remark": "^1.0.2",
+    "jest-runner-remark": "^1.0.3",
     "prettier": "^1.19.1",
     "remark-preset-lint-starstuff": "^1.0.3"
   }
