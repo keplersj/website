@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "gatsby": {
-    "pathPrefix": "__GATSBY_IPFS_PATH_PREFIX__",
+    "pathPrefix": "/ipns/keplersj.com",
     "siteMetadata": {
       "title": "Kepler Sticka-Jones",
       "description": "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
@@ -72,7 +72,6 @@
     },
     "plugins": [
       "gatsby-theme-kepler",
-      "gatsby-plugin-ipfs",
       {
         "resolve": "gatsby-plugin-google-analytics",
         "options": {
@@ -135,7 +134,6 @@
     "carraway": "^1.0.6",
     "gatsby": "^2.18.12",
     "gatsby-plugin-google-analytics": "^2.1.31",
-    "gatsby-plugin-ipfs": "^2.0.2",
     "gatsby-plugin-manifest": "^2.2.33",
     "gatsby-plugin-offline": "^3.0.29",
     "gatsby-plugin-verify-bing": "^1.1.5",
