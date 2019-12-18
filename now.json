@@ -13,6 +13,55 @@
         "Location": "/portfolio/$1"
       }
     },
+    {
+      "src": "/blog/2016-04-14-archive-from-youth-voices-—-surveillance-and-anonymity",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2016-04-14-archive-from-youth-voices-surveillance-and-anonymity"
+      }
+    },
+    {
+      "src": "/blog/2016-04-11-archive-from-youth-voices-—-journalistic-views-on-encryption",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2016-04-11-archive-from-youth-voices-journalistic-views-on-encryption"
+      }
+    },
+    {
+      "src": "/blog/2016-02-02-archive-from-youth-voices-—-the-“issue”-of-encryption",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2016-02-02-archive-from-youth-voices-the-issue-of-encryption"
+      }
+    },
+    {
+      "src": "/blog/2015-07-10-archive-from-minecraft-forums-—-minecraft-forge-configuration-file-grammar-for-the-atom-text-editor",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2015-07-10-archive-from-minecraft-forums-minecraft-forge-configuration-file-grammar-for-the-atom-text-editor"
+      }
+    },
+    {
+      "src": "/blog/2014-05-09-archive-from-minecraft-forums-—-1-7-2-forge-boatcraft-2-0-1-the-end-of-the-great-wooden-age",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2014-05-09-archive-from-minecraft-forums-1-7-2-forge-boatcraft-2-0-1-the-end-of-the-great-wooden-age"
+      }
+    },
+    {
+      "src": "/blog/2013-11-27-archive-from-minecraft-forums-—-1-6-x-fml-cloaked-batman-mod-statistics-publisher",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2013-11-27-archive-from-minecraft-forums-1-6-x-fml-cloaked-batman-mod-statistics-publisher"
+      }
+    },
+    {
+      "src": "/blog/2013-08-19-archive-from-the-technic-pack-forums-—-1-5-2-1-6-2-cloaked-batman-fml-mcstats-wrapper",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/2013-08-19-archive-from-the-technic-pack-forums-1-5-2-1-6-2-cloaked-batman-fml-mcstats-wrapper"
+      }
+    },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404" }
   ]
