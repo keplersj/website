@@ -19,7 +19,7 @@ role:
 
 ## Install
 
-```
+```bash
 $ npm install --save-dev jest-raw-loader
 ```
 
