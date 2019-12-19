@@ -131,7 +131,7 @@
   },
   "dependencies": {
     "carraway": "^1.0.7",
-    "gatsby": "^2.18.14",
+    "gatsby": "^2.18.15",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-manifest": "^2.2.33",
     "gatsby-plugin-offline": "^3.0.29",
