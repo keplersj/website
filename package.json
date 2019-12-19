@@ -104,7 +104,8 @@
   },
   "remarkConfig": {
     "plugins": [
-      "preset-lint-starstuff"
+      "preset-lint-starstuff",
+      "preset-lint-retext-english"
     ]
   },
   "jest": {
@@ -145,6 +146,7 @@
     "jest-runner-prettier": "^0.3.4",
     "jest-runner-remark": "^1.0.3",
     "prettier": "^1.19.1",
+    "remark-preset-lint-retext-english": "^1.0.6",
     "remark-preset-lint-starstuff": "^1.0.3"
   }
 }
