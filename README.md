@@ -17,6 +17,7 @@ The following Gatsby plugins are used:
 - [`gatsby-theme-kepler`](https://github.com/keplersj/gatsby-theme-kepler)
 - [`gatsby-plugin-google-analytics`](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
 - [`gatsby-plugin-verify-bing`](https://www.gatsbyjs.org/packages/gatsby-plugin-verify-bing/)
+- [`gatsby-plugin-verify-brave`](https://www.gatsbyjs.org/packages/gatsby-plugin-verify-brave/)
 - [`gatsby-plugin-manifest`](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/)
 - [`gatsby-plugin-offline`](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/)
 

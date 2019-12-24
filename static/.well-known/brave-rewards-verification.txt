@@ -1,5 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: keplersj.com
-Token: 245d4d7a81a3fba4f21a25d3af9e801782f597de0a46ffdc4afa1cc2717ffcbe
-
