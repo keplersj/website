@@ -53,20 +53,6 @@
           "url": "https://www.instagram.com/keplersj_/",
           "isProfile": true
         }
-      ],
-      "nav": [
-        {
-          "name": "Blog",
-          "url": "/blog"
-        },
-        {
-          "name": "Portfolio",
-          "url": "/portfolio"
-        },
-        {
-          "name": "About",
-          "url": "/about"
-        }
       ]
     },
     "plugins": [
@@ -145,7 +131,7 @@
     "gatsby-plugin-offline": "^3.0.30",
     "gatsby-plugin-verify-bing": "^1.1.5",
     "gatsby-plugin-verify-brave": "^1.0.2",
-    "gatsby-theme-kepler": "^1.1.13",
+    "gatsby-theme-kepler": "^1.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
