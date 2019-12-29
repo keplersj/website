@@ -5,4 +5,6 @@ start_date: 2016-10-01
 end_date: 2018-02-01
 ---
 
-Founded the company in the Company Launch space at Lassonde Studios on the University of Utah campus with cofounder Aaron Hsu. I led the development of and oversaw the whole of Blerp's technical products including the Blerp [Progressive Web App](https://blerp.com), iOS app, Android app, and then public API. While building the products many open source projects were utilized and contributed to such as GraphQL (with Apollo), React Native, Flowtype, and TypeScript.
+- Cofounded the company, making use of resources available to student entrepreneurs at the [Lassonde Entrepreneur Institute](https://lassonde.utah.edu/)
+- Oversaw and lead the development of Blerp's software products (including [iOS](https://apps.apple.com/us/app/blerp-sound-bite-search-and-audio-meme-messaging/id1235261552), [Android](https://play.google.com/store/apps/details?id=com.lolibe.blerp), and [Progressive Web Apps](https://blerp.com/))
+- Contributed technical advancements to open source projects where applicable and helpful to the community
