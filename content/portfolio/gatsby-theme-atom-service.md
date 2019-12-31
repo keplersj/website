@@ -1,6 +1,8 @@
 ---
 title: gatsby-theme-atom-service
-description: Gatsby theme for websites that curate Atom packages that provide and consume an Atom service
+description: >-
+  Gatsby theme for websites that curate Atom packages that provide and consume
+  an Atom service
 npm_package_name: gatsby-theme-atom-service
 github_repo: keplersj/gatsby-theme-atom-service
 status:
@@ -10,96 +12,34 @@ role:
   - maintainer
 ---
 
-Gatsby theme for website that curate Atom packages that provide and consume an [Atom service](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/). Used to create the [AtomLinter](https://atomlinter.github.io) and [AtomBuild](https://atombuild.github.io) websites.
+I created `gatsby-theme-atom-service` in 2019 while working on the [AtomBuild](/portfolio/atombuild-website) and [AtomLinter](/portfolio/atomlinter-website) websites. `gatsby-theme-atom-service` is a [Gatsby Theme](https://www.gatsbyjs.org/docs/themes/) and allows organizations that create [Atom Services](https://flight-manual.atom.io/behind-atom/sections/interacting-with-other-packages-via-services/) to curate and display the packages within their ecosystem.
 
-## Installation
+Below are three example of the theme in action:
 
-In your Gatsby project, run:
+## [In-Repo Test Site](https://github.com/keplersj/gatsby-theme-atom-service/tree/master/example)
 
-```shell
-npm install gatsby-theme-atom-service
-```
+This site exists in the same repository as the theme, and allows for experimentation on working site. The example site has the smallest configuration for the site work, and can be used as an example to guide anyone interested in using `gatbsy-theme-atom-service`.
 
-## Usage
+Below is a screenshot of the site, as of December 31, 2019:
 
-Add `gatsby-theme-atom-service` to your `gatsby-config.js`
+![Screenshot of the example site from gatsby-theme-atom-service repo (As of 12/31/2019)](../assets/screenshot-localhost_8000-2019.12.31-15_31_43.png)
 
-```js
-module.exports = {
-  plugins: [
-    "gatsby-theme-atom-service",
-    /// or
-    {
-      resolve: "gatsby-theme-atom-service",
-      options: {
-        // customize any of the options below
-      }
-    }
-  ]
-};
-```
+## [AtomBuild Website](https://atombuild.github.io/)
 
-### Site Metadata
+This is the website for the [AtomBuild organization](https://github.com/AtomBuild). Because [@noseglid](https://github.com/noseglid)'s [`atom-build`](https://github.com/noseglid/atom-build) uses a consumer-provider architecture similar to [AtomLinter](https://atomlinter.github.io), a webpage based on AtomLinter's was created to curate the packages within the `build` ecosystem.
 
-In order for the theme to function please define the following in the `siteMetadata` field of your `gatsby-config.js`:
+For more on the development story of the AtomBuild website [see its entry on this portfolio](/portfolio/atombuild-website).
 
-```js
-module.exports = {
-  siteMetadata: {
-    // Your Project's Title, will also be the title of your website
-    title: "Your Project's Amazing Title!",
-    // The canonical url of your website
-    siteUrl: "https://example.dev",
-    // Description of your project, should be about a sentence in length.
-    description: "A Very Descriptive, Snippet All About Your Project.",
-    // Navigation links. Will be included in the navbar and hamburger menu.
-    nav: [
-      {
-        name: "A Helpful Link for Navigation",
-        url: "https://helpful.dev/"
-      }
-      /// ...
-    ]
-  }
-};
-```
+Below is a screenshot of the site, as of December 31, 2019:
 
-### Data
+![Screenshot of atombuild.github.io (As of 12/31/2019)](../assets/screenshot-atombuild.github.io-2019.12.31-15_33_36.png)
 
-YAML is used to curate your list of provider and consumer packages. In your content folder (`./content/` by default) create a `consumers.yml` and `providers.yml` with the following structure:
+## [AtomLinter Website](https://atombuild.github.io/)
 
-`consumers.yml`:
+This is the website for the [AtomLinter organization](https://github.com/AtomLinter). The website was originally created to solve the problem users having difficulty finding Linters for Atom in 2015. In the years since the site has transitioned from being a Jekyll site built with Bootstrap, to a Gatsby site built with this theme.
 
-```yml
-- title: ""
-  author: ""
-  url: https://atom.io/packages/example
-  code: https://github.com/example/example
-# ...
-```
+For more on the development story of the AtomLinter website [see its entry on this portfolio](/portfolio/atomlinter-website).
 
-`providers.yml`:
+Below is a screenshot of the site, as of December 31, 2019:
 
-```yml
-- type:
-  title: ""
-  modal: ""
-  types:
-    - title: ""
-      modal: ""
-      packages:
-        - title: ""
-          url: https://atom.io/packages/example
-```
-
-### Customization
-
-The following options can be passed to the theme in `gatsby-config.js` to customize the site's functionality:
-
-| Field Name        | Type      | Default Value         | Description                                                                                                       |
-| ----------------- | --------- | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `basePath`        | `string`  | `"/"`                 | The base path of the theme. Where it will render out your data. Default is the index of your site.                |
-| `assetPath`       | `string`  | `"./content/assets/"` | The directory in your Gatsby site where site assets (e.g. logos, site images) are stored.                         |
-| `contentPath`     | `string`  | `"./content/data/"`   | The folder in your Gatsby site where your data files are stored.                                                  |
-| `renderConsumers` | `boolean` | `true`                | Should the theme render content from the consumers data file. Will not check for or requre data file if `false`.  |
-| `renderProviders` | `boolean` | `true`                | Should the theme render content from the providers data file. Will not check for or require data file if `false`. |
+![Screenshot of atomlinter.github.io (As of 12/31/2019)](../assets/screenshot-atomlinter.github.io-2019.12.31-15_34_49.png)
