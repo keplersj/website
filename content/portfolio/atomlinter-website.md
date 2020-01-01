@@ -33,6 +33,6 @@ Bellow is a screenshot from the [Web Archive's April 19, 2016 capture of atomlin
 
 ![Screenshot from the Web Archive's April 19, 2016 capture of atomlinter.github.io, showing a new section for Linter consumers and a variety of provider categories.](../assets/screenshot-web.archive.org-2019.12.28-20_32_20.png)
 
-Below is a screenshot of the website after its 2019 update and transition to [`gatsby-theme-atom-service`](/portfolio/gatsby-theme-atom-service):
+Below is a screenshot of [the website](https://atomlinter.github.io) after its 2019 update and transition to [`gatsby-theme-atom-service`](/portfolio/gatsby-theme-atom-service):
 
 ![Screenshot of the AtomLinter website after transitioning to Gatsby Theme.](../assets/screenshot-localhost_5000-2019.12.29-00_39_24.png)

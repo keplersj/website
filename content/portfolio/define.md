@@ -1,6 +1,8 @@
 ---
 title: Define
-description: An application for iOS 6 exposing the system dictionary in a convienent application frontend.
+description: >-
+  An application for iOS 5 exposing the system dictionary in a convenient
+  application frontend.
 github_repo: keplersj/Define
 status:
   - inactive
@@ -9,4 +11,14 @@ role:
   - maintainer
 ---
 
-Define was an application for iOS 6 exposing the system dictionary in a convienent application frontend.
+I created Define in 2012 after discovering [iOS 5 exposed a full dictionary](https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller), but had no front-end to use it with. The application was designed after and inspired by [the Dictionary app built in to macOS](<https://en.wikipedia.org/wiki/Dictionary_(software)>).
+
+Below are screenshots of the application:
+
+![Screenshot of the beginning Define screen on the iPhone](../assets/d7ad45b5-7481-e211-914a-0025902c7e73_2_full.jpeg)
+
+![Screenshot of the definition display interface on the iPhone](../assets/d7ad45b5-7481-e211-914a-0025902c7e73_3_full.jpeg)
+
+![Screenshot of the beginning Define screen on the iPad](../assets/d7ad45b5-7481-e211-914a-0025902c7e73_4_full.jpg)
+
+![Screenshot of the definition display interface on the iPad](../assets/d7ad45b5-7481-e211-914a-0025902c7e73_5_full.jpg)
