@@ -13,6 +13,10 @@ role:
 
 I created Define in 2012 after discovering [iOS 5 exposed a full dictionary](https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller), but had no front-end to use it with. The application was designed after and inspired by [the Dictionary app built in to macOS](<https://en.wikipedia.org/wiki/Dictionary_(software)>).
 
+The Define icon:
+
+![The Define Icon](../assets/define-icon.png)
+
 Below are screenshots of the application:
 
 ![Screenshot of the beginning Define screen on the iPhone](../assets/d7ad45b5-7481-e211-914a-0025902c7e73_2_full.jpeg)
