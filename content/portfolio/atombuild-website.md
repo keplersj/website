@@ -1,7 +1,11 @@
 ---
 title: AtomBuild Website
-description: 'Website for the AtomLinter project, and its packages.'
+description: "Website for the AtomLinter project, and its packages."
+homepage: https://atombuild.github.io/
 github_repo: AtomBuild/atombuild.github.io
+type:
+  - website
+  - design
 status:
   - active
 role:
