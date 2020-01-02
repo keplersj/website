@@ -23,3 +23,7 @@ Opinionated, yet simple, base stylesheet. Designed to work alongside [`modern-no
 ```shell
 npm install starstuff-style
 ```
+
+## License
+
+Copyright 2019-2020 [Kepler Sticka-Jones](https://keplersj.com/). Licensed ISC.
