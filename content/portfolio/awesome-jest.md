@@ -1,6 +1,7 @@
 ---
 title: Awesome Jest
 description: An awesome list of Jest packages and resources
+homepage: https://github.com/jest-community/awesome-jest
 github_repo: jest-community/awesome-jest
 status:
   - active

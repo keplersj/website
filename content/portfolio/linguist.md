@@ -1,6 +1,7 @@
 ---
 title: Linguist
 description: The library used on GitHub.com to detect languages and provide correct syntax highlighting.
+homepage: https://github.com/github/linguist
 github_repo: github/linguist
 rubygems_gem_name: github-linguist
 status:
