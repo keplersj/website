@@ -87,7 +87,7 @@
           "short_name": "Kepler S-J",
           "start_url": "/",
           "background_color": "#ffffff",
-          "theme_color": "#409040",
+          "theme_color": "#4a4a4a",
           "display": "minimal-ui",
           "icon": "content/assets/avatar.jpg"
         }
