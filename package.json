@@ -140,7 +140,7 @@
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.4",
     "prettier": "^1.19.1",
-    "remark-preset-lint-retext-english": "^1.0.9",
+    "remark-preset-lint-retext-english": "^1.0.10",
     "remark-preset-lint-starstuff": "^1.0.3"
   }
 }
