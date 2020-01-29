@@ -131,7 +131,7 @@
     "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-verify-bing": "^1.1.5",
     "gatsby-plugin-verify-brave": "^1.0.5",
-    "gatsby-theme-kepler": "^1.7.76",
+    "gatsby-theme-kepler": "^1.7.77",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
