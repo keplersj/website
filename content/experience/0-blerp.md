@@ -1,8 +1,8 @@
 ---
 title: Blerp
 position: Founder & Chief Technology Officer
-start_date: 2016-10-01
-end_date: 2018-02-01
+start_date: '2016-10-01T00:00:00.000Z'
+end_date: '2018-02-01T00:00:00.000Z'
 ---
 
 - Cofounded the company, making use of resources available to student entrepreneurs at the [Lassonde Entrepreneur Institute](https://lassonde.utah.edu/)

@@ -1,8 +1,8 @@
 ---
 title: Lassonde Entrepreneur Institute
 position: Company Launch Associate
-start_date: 2018-08-01
-end_date: 2019-04-01
+start_date: '2018-08-01T00:00:00.000Z'
+end_date: '2019-04-01T00:00:00.000Z'
 ---
 
 - Developed a close, mentoring relationship with student entrepreneurs
