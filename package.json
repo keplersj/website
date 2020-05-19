@@ -128,7 +128,7 @@
     "gatsby": "^2.21.39",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-plugin-manifest": "^2.4.6",
-    "gatsby-plugin-offline": "^3.2.3",
+    "gatsby-plugin-offline": "^3.2.4",
     "gatsby-plugin-verify-bing": "^1.1.13",
     "gatsby-plugin-verify-brave": "^1.0.5",
     "gatsby-theme-kepler": "^1.7.337",
