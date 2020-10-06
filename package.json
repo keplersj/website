@@ -136,7 +136,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "jest": "^25.5.4",
+    "jest": "^26.5.0",
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.8",
     "prettier": "^2.0.5",
