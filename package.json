@@ -127,7 +127,7 @@
     "carraway": "^1.0.17",
     "gatsby": "^2.24.10",
     "gatsby-plugin-google-analytics": "^2.3.13",
-    "gatsby-plugin-manifest": "^2.4.10",
+    "gatsby-plugin-manifest": "^2.5.1",
     "gatsby-plugin-offline": "^3.2.10",
     "gatsby-plugin-verify-bing": "^1.1.13",
     "gatsby-plugin-verify-brave": "^1.0.5",
