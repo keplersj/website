@@ -5,6 +5,6 @@ start_date: '2018-06-01T00:00:00.000Z'
 end_date: '2019-03-01T00:00:00.000Z'
 ---
 
-- Created and maintained dataset of businesses offering discounts for students
-- Met with students confidentially in order to discuss sensitive and personal issues
-- Connected students with various issue-relevant on-campus resource when needed
+- Established a consortium of businesses that provided resources and discounts for students.
+- Connected students with issue relevant and on campus resources.
+- Privately counseled students on personal and sensitive issues.

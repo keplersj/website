@@ -2,4 +2,4 @@
 title: Biography
 ---
 
-I am a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.
+Kepler Sticka-Jones is a proven technologist delivering creative,solid solutions for business by combining broad knowledge and experience into meaningful and successful results.

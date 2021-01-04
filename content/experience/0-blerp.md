@@ -5,6 +5,6 @@ start_date: '2016-10-01T00:00:00.000Z'
 end_date: '2018-02-01T00:00:00.000Z'
 ---
 
-- Cofounded the company, making use of resources available to student entrepreneurs at the [Lassonde Entrepreneur Institute](https://lassonde.utah.edu/)
-- Oversaw and lead the development of Blerp's software products (including [iOS](https://apps.apple.com/us/app/blerp-sound-bite-search-and-audio-meme-messaging/id1235261552), [Android](https://play.google.com/store/apps/details?id=com.lolibe.blerp), and [Progressive Web Apps](https://blerp.com/))
-- Contributed technical advancements to open source projects where applicable and helpful to the community
+- Launched Blerp by winning venture capital resources provided by the Lassonde Entrepreneur Institute
+- Directed and contributed to the development of Blerp’s software products, for all major platforms, including iOS, Android, and Progressive Web Apps.
+- Contributed technical advancements to open source projects, facilitating the inclusion of Blerp technologies.
