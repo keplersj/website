@@ -132,7 +132,7 @@
     "gatsby-plugin-verify-bing": "^1.1.25",
     "gatsby-plugin-verify-brave": "^1.0.5",
     "gatsby-theme-kepler": "^1.7.527",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
