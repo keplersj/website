@@ -138,7 +138,7 @@
   "devDependencies": {
     "jest": "^26.6.3",
     "jest-runner-prettier": "^0.3.6",
-    "jest-runner-remark": "^1.0.28",
+    "jest-runner-remark": "^1.0.33",
     "prettier": "^2.3.2",
     "remark-preset-lint-retext-english": "^1.0.64",
     "remark-preset-lint-starstuff": "^1.0.6"
