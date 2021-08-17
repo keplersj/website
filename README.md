@@ -57,4 +57,4 @@ After successfully running the build script you will have a static copy of this 
 
 ## License
 
-Copyright [Kepler Sticka-Jones](https://keplersj.com/) 2014-2019. All Rights Reserved.
+Copyright [Kepler Sticka-Jones](https://keplersj.com/) 2014-2021. All Rights Reserved.
