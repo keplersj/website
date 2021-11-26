@@ -2,8 +2,13 @@
 <html>
   <head>
     <title>Blog Post</title>
+    <script type="module" src="/node_modules/webcomponent-markdown/"></script>
   </head>
   <body>
-    <p>This is going to be a blog post!</p>
+    <remark-markdown>
+      <script slot="content" type="text/markdown">
+        {{{rawMarkdownFile}}}
+      </script>
+    </remark-markdown>
   </body>
 </html>

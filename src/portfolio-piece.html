@@ -2,8 +2,13 @@
 <html>
   <head>
     <title>Portfolio Piece</title>
+    <script type="module" src="/node_modules/webcomponent-markdown/"></script>
   </head>
   <body>
-    <p>This is going to be a portfolio piece!</p>
+    <remark-markdown>
+      <script slot="content" type="text/markdown">
+        {{{rawMarkdownFile}}}
+      </script>
+    </remark-markdown>
   </body>
 </html>

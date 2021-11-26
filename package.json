@@ -133,10 +133,14 @@
     "gatsby-plugin-verify-bing": "^1.1.35",
     "gatsby-plugin-verify-brave": "^1.0.5",
     "gatsby-theme-kepler": "^1.7.635",
+    "modern-normalize": "^1.1.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "starstuff-style": "^1.1.19",
+    "webcomponent-markdown": "^0.1.0"
   },
   "devDependencies": {
+    "htmlnano": "^1.1.1",
     "jest": "^27.0.6",
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.28",
@@ -144,6 +148,8 @@
     "remark-preset-lint-retext-english": "^1.0.64",
     "remark-preset-lint-starstuff": "^1.0.6",
     "vite": "^2.6.14",
+    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-posthtml": "^0.0.3",
     "vite-plugin-virtual-html-template": "^1.0.8"
   }
 }

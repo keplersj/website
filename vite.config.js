@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
-import { readdir } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
+import handlebars from "vite-plugin-handlebars";
+import { posthtmlPlugin } from "vite-plugin-posthtml";
+import HTMLNano from "htmlnano";
 
 function pageAndDir(path, options) {
   return {
@@ -11,17 +14,21 @@ function pageAndDir(path, options) {
 
 async function pagesFromDir(directory, prefix, template) {
   const files = await readdir(directory);
-  const pages = files.map((filename) => filename.replace(".md", ""));
-  return Object.fromEntries(
-    pages.flatMap((post) =>
+  const pages = await Promise.all(
+    files.map(async (filename) =>
       Object.entries(
-        pageAndDir(`${prefix}/${post}`, {
+        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, {
           template: template,
           entry: `src/main.js`,
+          data: {
+            markdownSource: `${directory}/${filename}`,
+            rawMarkdownFile: await readFile(`${directory}/${filename}`),
+          },
         })
       )
     )
   );
+  return Object.fromEntries(pages.flat());
 }
 
 const postPages = await pagesFromDir(
@@ -32,7 +39,7 @@ const postPages = await pagesFromDir(
 const portfolioPages = await pagesFromDir(
   "./content/portfolio",
   "portfolio",
-  "src/blog-post.html"
+  "src/portfolio-piece.html"
 );
 
 const pages = {
@@ -49,8 +56,27 @@ const pages = {
   ...portfolioPages,
 };
 
+const pageData = Object.fromEntries(
+  Object.entries(pages).map((page) => [`/${page[0]}.html`, page[1].data || {}])
+);
+
 export default defineConfig({
-  plugins: [virtualHtmlTemplate({ pages })],
+  plugins: [
+    virtualHtmlTemplate({ pages }),
+    handlebars({
+      context(pagePath) {
+        return pageData[pagePath];
+      },
+    }),
+    // posthtmlPlugin({
+    //   plugins: [
+    //     HTMLNano({
+    //       removeComments: false, // Disable the module "removeComments"
+    //       collapseWhitespace: "conservative", // Pass options to the module "collapseWhitespace"
+    //     }),
+    //   ],
+    // }),
+  ],
   build: {
     outDir: "dist",
     rollupOptions: {
