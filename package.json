@@ -1,10 +1,11 @@
 {
   "name": "@keplersj/website",
+  "type": "module",
   "private": true,
   "scripts": {
-    "build": "carraway build",
-    "develop": "carraway develop",
-    "clean": "carraway clean",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "jest"
   },
   "gatsby": {
@@ -141,6 +142,8 @@
     "jest-runner-remark": "^1.0.28",
     "prettier": "^2.3.2",
     "remark-preset-lint-retext-english": "^1.0.64",
-    "remark-preset-lint-starstuff": "^1.0.6"
+    "remark-preset-lint-starstuff": "^1.0.6",
+    "vite": "^2.6.14",
+    "vite-plugin-virtual-html-template": "^1.0.8"
   }
 }
