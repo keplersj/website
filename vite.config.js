@@ -34,23 +34,23 @@ async function pagesFromDir(directory, prefix, template) {
 const postPages = await pagesFromDir(
   "./content/posts",
   "blog",
-  "src/blog-post.html"
+  "src/templates/blog-post.html"
 );
 const portfolioPages = await pagesFromDir(
   "./content/portfolio",
   "portfolio",
-  "src/portfolio-piece.html"
+  "src/templates/portfolio-piece.html"
 );
 
 const pages = {
-  index: { template: "src/home-page.html", entry: `src/main.js` },
+  index: { template: "src/templates/home-page.html", entry: `src/main.js` },
   ...pageAndDir("blog", {
-    template: "src/blog-index.html",
+    template: "src/templates/blog-index.html",
     entry: `src/main.js`,
   }),
   ...postPages,
   ...pageAndDir("portfolio", {
-    template: "src/portfolio-index.html",
+    template: "src/templates/portfolio-index.html",
     entry: `src/main.js`,
   }),
   ...portfolioPages,
