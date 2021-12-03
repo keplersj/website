@@ -2,13 +2,11 @@
 <html>
   <head>
     <title>Blog Post</title>
-    <script type="module" src="/node_modules/webcomponent-markdown/"></script>
+    <script type="module" src="/src/components/Markdown.js"></script>
   </head>
   <body>
-    <remark-markdown>
-      <script slot="content" type="text/markdown">
-        {{{rawMarkdownFile}}}
-      </script>
-    </remark-markdown>
+    <kepler-markdown>
+      <script slot="content" type="text/markdown">{{{rawMarkdownFile}}}</script>
+    </kepler-markdown>
   </body>
 </html>
