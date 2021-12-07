@@ -2,6 +2,7 @@ import { c, html, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import "webcomponent-markdown";
 
@@ -18,7 +19,7 @@ function component() {
       </slot>
       <remark-markdown
         remarkPlugins=${[remarkGfm, remarkFrontmatter]}
-        rehypePlugins=${[rehypeSlug]}
+        rehypePlugins=${[rehypeSlug, rehypeAutolinkHeadings]}
       >
         <script slot="content">
           ${inlineContentChildNodes[0]?.textContent || ""};

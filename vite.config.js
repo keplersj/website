@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
 import { readdir, readFile } from "fs/promises";
 import handlebars from "vite-plugin-handlebars";
-import { posthtmlPlugin } from "vite-plugin-posthtml";
-import HTMLNano from "htmlnano";
 
 function pageAndDir(path, options) {
   return {
@@ -22,7 +20,9 @@ async function pagesFromDir(directory, prefix, template) {
           entry: `src/main.js`,
           data: {
             markdownSource: `${directory}/${filename}`,
-            rawMarkdownFile: await readFile(`${directory}/${filename}`),
+            rawMarkdownFile: await readFile(`${directory}/${filename}`, {
+              encoding: "utf-8",
+            }).then((file) => file.toString()),
           },
         })
       )
@@ -47,6 +47,17 @@ const pages = {
   ...pageAndDir("blog", {
     template: "src/templates/blog-index.html",
     entry: `src/main.js`,
+    data: {
+      postsJson: JSON.stringify(
+        Object.entries(postPages)
+          // We don't want duplicates, so only include the "canonical" index file copy of the page.
+          .filter((page) => page[0].endsWith("index"))
+          .map((page) => ({
+            url: page[0],
+            date: page[1],
+          }))
+      ),
+    },
   }),
   ...postPages,
   ...pageAndDir("portfolio", {
@@ -68,14 +79,6 @@ export default defineConfig({
         return pageData[pagePath];
       },
     }),
-    // posthtmlPlugin({
-    //   plugins: [
-    //     HTMLNano({
-    //       removeComments: false, // Disable the module "removeComments"
-    //       collapseWhitespace: "conservative", // Pass options to the module "collapseWhitespace"
-    //     }),
-    //   ],
-    // }),
   ],
   build: {
     outDir: "dist",

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Blog Index</title>
+    <script type="module" src="/src/components/BlogIndex.js"></script>
   </head>
   <body>
-    <p>This is going to be the index of the blog!</p>
+    <p>
+      Blog
+      <kepler-blog-index json="{{postsJson}}"></kepler-blog-index>
+    </p>
   </body>
 </html>
