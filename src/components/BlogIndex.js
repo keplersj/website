@@ -6,15 +6,36 @@ function component({ json }) {
 
   return html`
     <host shadowDom>
-      ${posts.map(
-        (post) => html`
-          <starstuff-card key=${post.url}>
-            <div>
-              <a href=${"/" + post.url}><h2>${post.title || post.url}</h2></a>
-            </div>
-          </starstuff-card>
-        `
-      )}
+      ${posts
+        .sort(
+          (a, b) =>
+            new Date(b.frontmatter?.data?.date) -
+            new Date(a.frontmatter?.data?.date)
+        )
+        .map(
+          (post) => html`
+            <starstuff-card key=${post.url}>
+              <div>
+                <a href=${"/" + post.url}
+                  ><h2>${post.frontmatter?.data?.title || post.url}</h2></a
+                >
+                <span
+                  >Published${" "}
+                  <time datetime=${post.frontmatter?.data?.date}
+                    >${new Date(
+                      post.frontmatter?.data?.date
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}</time
+                  ></span
+                >
+                <p>${post.frontmatter?.data?.description}</p>
+              </div>
+            </starstuff-card>
+          `
+        )}
     </host>
   `;
 }

@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
 import { readdir, readFile } from "fs/promises";
 import handlebars from "vite-plugin-handlebars";
+import frontmatter from "gray-matter";
 
 function pageAndDir(path, options) {
   return {
@@ -42,6 +43,19 @@ const portfolioPages = await pagesFromDir(
   "src/templates/portfolio-piece.html"
 );
 
+const postsJson = JSON.stringify(
+  Object.entries(postPages)
+    // We don't want duplicates, so only include the "canonical" index file copy of the page.
+    .filter((page) => page[0].endsWith("index"))
+    .map((page) => ({
+      url: page[0],
+      frontmatter: {
+        ...frontmatter(page[1].data.rawMarkdownFile),
+        content: undefined,
+      },
+    }))
+);
+
 const pages = {
   index: {
     template: "src/templates/home-page.html",
@@ -50,30 +64,14 @@ const pages = {
       rawBiographyFile: await readFile("./content/about/biography.md", {
         encoding: "utf-8",
       }).then((file) => file.toString()),
-      postsJson: JSON.stringify(
-        Object.entries(postPages)
-          // We don't want duplicates, so only include the "canonical" index file copy of the page.
-          .filter((page) => page[0].endsWith("index"))
-          .map((page) => ({
-            url: page[0],
-            date: page[1],
-          }))
-      ),
+      postsJson,
     },
   },
   ...pageAndDir("blog", {
     template: "src/templates/blog-index.html",
     entry: `src/main.js`,
     data: {
-      postsJson: JSON.stringify(
-        Object.entries(postPages)
-          // We don't want duplicates, so only include the "canonical" index file copy of the page.
-          .filter((page) => page[0].endsWith("index"))
-          .map((page) => ({
-            url: page[0],
-            date: page[1],
-          }))
-      ),
+      postsJson,
     },
   }),
   ...postPages,
