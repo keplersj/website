@@ -4,8 +4,17 @@
     <meta charset="utf-8" />
     <title>Kepler Sticka-Jones</title>
     <script type="module" src="/src/components/Hero.js"></script>
+    <script type="module" src="/src/components/Markdown.js"></script>
   </head>
   <body>
     <kepler-hero></kepler-hero>
+    <section>
+      <h1>Biography</h1>
+      <kepler-markdown>
+        <!-- prettier-ignore -->
+        <script slot="content" type="text/markdown">{{{rawBiographyFile}}}</script>
+      </kepler-markdown>
+      <a href="/about">Read More...</a>
+    </section>
   </body>
 </html>

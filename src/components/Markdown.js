@@ -21,8 +21,9 @@ function component() {
         remarkPlugins=${[remarkGfm, remarkFrontmatter]}
         rehypePlugins=${[rehypeSlug, rehypeAutolinkHeadings]}
       >
+        <!-- prettier-ignore -->
         <script slot="content">
-          ${inlineContentChildNodes[0]?.textContent || ""};
+          ${inlineContentChildNodes[0]?.textContent || ""}
         </script>
       </remark-markdown>
     </host>
