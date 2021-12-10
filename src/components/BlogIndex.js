@@ -6,6 +6,7 @@ function component({ json }) {
 
   return html`
     <host shadowDom>
+      <h1>Blog</h1>
       ${posts
         .sort(
           (a, b) =>
@@ -45,12 +46,31 @@ component.props = {
 };
 
 component.styles = css`
+  :host {
+    display: block;
+    max-width: 55em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 55em) {
+    :host {
+      margin-left: 2em;
+      margin-right: 2em;
+    }
+  }
+
   starstuff-card {
     display: flex;
-    @media screen and (min-width: 512px) {
+  }
+
+  @media screen and (min-width: 512px) {
+    starstuff-card {
       min-height: 192px;
     }
-    @media screen and (max-width: 512px) {
+  }
+  @media screen and (max-width: 512px) {
+    starstuff-card {
       flex-direction: column;
     }
   }
