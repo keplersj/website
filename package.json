@@ -125,6 +125,7 @@
     ]
   },
   "dependencies": {
+    "@a11y/skip-navigation": "^0.0.10",
     "@atomico/hooks": "^3.20.2",
     "atomico": "^1.34.0",
     "gatsby-plugin-google-analytics": "^2.11.0",

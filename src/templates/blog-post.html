@@ -4,11 +4,21 @@
     <meta charset="utf-8" />
     <title>Blog Post</title>
     <script type="module" src="/src/components/Markdown.js"></script>
+    <script type="module" src="/src/components/Navbar.js"></script>
+    <script
+      type="module"
+      src="/node_modules/@a11y/skip-navigation/index.js"
+    ></script>
   </head>
   <body>
-    <kepler-markdown>
-      <!-- prettier-ignore -->
-      <script slot="content" type="text/markdown">{{{rawMarkdownFile}}}</script>
-    </kepler-markdown>
+    <skip-button></skip-button>
+    <kepler-navbar></kepler-navbar>
+    <skip-anchor></skip-anchor>
+    <main>
+      <kepler-markdown>
+        <!-- prettier-ignore -->
+        <script slot="content" type="text/markdown">{{{rawMarkdownFile}}}</script>
+      </kepler-markdown>
+    </main>
   </body>
 </html>

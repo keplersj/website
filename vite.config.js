@@ -72,6 +72,7 @@ const pageData = Object.fromEntries(
 );
 
 export default defineConfig({
+  assetsInclude: ["content/**/*"],
   plugins: [
     virtualHtmlTemplate({ pages }),
     handlebars({

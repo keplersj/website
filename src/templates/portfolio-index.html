@@ -3,8 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>Portfolio Index</title>
+    <script type="module" src="/src/components/Navbar.js"></script>
+    <script
+      type="module"
+      src="/node_modules/@a11y/skip-navigation/index.js"
+    ></script>
   </head>
   <body>
-    <p>This is going to be the index of the portfolio!</p>
+    <skip-button></skip-button>
+    <kepler-navbar></kepler-navbar>
+    <skip-anchor></skip-anchor>
+    <main>
+      <p>This is going to be the index of the portfolio!</p>
+    </main>
   </body>
 </html>
