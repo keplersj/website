@@ -109,6 +109,7 @@ export default defineConfig({
   ],
   build: {
     outDir: "dist",
+    sourcemap: true,
     rollupOptions: {
       input: Object.fromEntries(
         Object.entries(pages).map((page) => [page[0], `${page[0]}.html`])
