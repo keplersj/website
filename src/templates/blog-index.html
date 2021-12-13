@@ -15,7 +15,10 @@
     <kepler-navbar></kepler-navbar>
     <skip-anchor></skip-anchor>
     <main>
-      <kepler-blog-index json="{{postsJson}}"></kepler-blog-index>
+      <kepler-blog-index>
+        <!-- prettier-ignore -->
+        <script slot="posts" type="application/json">{{{postsJson}}}</script>
+      </kepler-blog-index>
     </main>
   </body>
 </html>

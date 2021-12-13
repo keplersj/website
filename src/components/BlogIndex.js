@@ -1,11 +1,21 @@
-import { c, css, html } from "atomico";
+import { c, css, html, useRef } from "atomico";
+import { useSlot } from "@atomico/hooks/use-slot";
 import "starstuff-components";
 
-function component({ json }) {
-  const posts = JSON.parse(json);
+function component() {
+  const inlineContentRef = useRef();
+  const inlineContentChildNodes = useSlot(inlineContentRef);
+  const content =
+    inlineContentChildNodes && inlineContentChildNodes.length !== 0
+      ? inlineContentChildNodes[0].textContent
+      : "[]";
+  const posts = JSON.parse(content);
 
   return html`
     <host shadowDom>
+      <slot name="posts" ref=${inlineContentRef}>
+        <script type="application/json"></script>
+      </slot>
       <h1>Blog</h1>
       ${posts
         .sort(
@@ -40,10 +50,6 @@ function component({ json }) {
     </host>
   `;
 }
-
-component.props = {
-  json: String,
-};
 
 component.styles = css`
   :host {

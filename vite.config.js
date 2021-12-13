@@ -5,7 +5,8 @@ import handlebars from "vite-plugin-handlebars";
 import frontmatter from "gray-matter";
 import rollupPluginRehype from "rollup-plugin-rehype";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
-import rehypeInline from "rehype-inline";
+import rehypeRemoveComments from "rehype-remove-comments";
+import rehypeMinifyJsonScript from "rehype-minify-json-script";
 
 function pageAndDir(path, options) {
   return {
@@ -99,7 +100,11 @@ export default defineConfig({
       },
     }),
     rollupPluginRehype({
-      plugins: [rehypeMinifyWhitespace],
+      plugins: [
+        rehypeMinifyWhitespace,
+        rehypeRemoveComments,
+        rehypeMinifyJsonScript,
+      ],
     }),
   ],
   build: {
