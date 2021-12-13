@@ -52,7 +52,7 @@ const postsJson = JSON.stringify(
     // We don't want duplicates, so only include the "canonical" index file copy of the page.
     .filter((page) => page[0].endsWith("index"))
     .map((page) => ({
-      url: page[0],
+      url: `${page[0]}.html`,
       frontmatter: {
         ...frontmatter(page[1].data.rawMarkdownFile),
         content: undefined,
