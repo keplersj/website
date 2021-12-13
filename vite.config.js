@@ -84,6 +84,10 @@ const pages = {
     entry: `src/main.js`,
   }),
   ...portfolioPages,
+  ...pageAndDir("about", {
+    template: "src/templates/about-page.html",
+    entry: `src/main.js`,
+  }),
 };
 
 const pageData = Object.fromEntries(
