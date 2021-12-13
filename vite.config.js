@@ -3,6 +3,9 @@ import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
 import { readdir, readFile } from "fs/promises";
 import handlebars from "vite-plugin-handlebars";
 import frontmatter from "gray-matter";
+import rollupPluginRehype from "rollup-plugin-rehype";
+import rehypeMinifyWhitespace from "rehype-minify-whitespace";
+import rehypeInline from "rehype-inline";
 
 function pageAndDir(path, options) {
   return {
@@ -94,6 +97,9 @@ export default defineConfig({
       context(pagePath) {
         return pageData[pagePath];
       },
+    }),
+    rollupPluginRehype({
+      plugins: [rehypeMinifyWhitespace],
     }),
   ],
   build: {
