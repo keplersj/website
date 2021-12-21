@@ -3,10 +3,14 @@ import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
 import { readdir, readFile } from "fs/promises";
 import handlebars from "vite-plugin-handlebars";
 import frontmatter from "gray-matter";
-import rollupPluginRehype from "rollup-plugin-rehype";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeRemoveComments from "rehype-remove-comments";
 import rehypeMinifyJsonScript from "rehype-minify-json-script";
+import { unified } from "unified";
+import rehypeParse from "rehype-parse";
+import rehypeStringify from "rehype-stringify";
+import express from "express";
+import puppeteer from "puppeteer";
 
 function pageAndDir(path, options) {
   return {
@@ -103,13 +107,72 @@ export default defineConfig({
         return pageData[pagePath];
       },
     }),
-    rollupPluginRehype({
-      plugins: [
-        rehypeMinifyWhitespace,
-        rehypeRemoveComments,
-        rehypeMinifyJsonScript,
-      ],
-    }),
+    {
+      name: "html-transform",
+      transformIndexHtml: async (html, context) => {
+        // console.log(context);
+
+        console.log(`Rendering ${context.path}`);
+
+        const app = express();
+        app.get(context.path, (req, res) => {
+          res.send(html);
+        });
+
+        for (const [path, value] of Object.entries(context.bundle)) {
+          app.get("/" + path, (req, res) => {
+            res.type(path.split(".").pop());
+            res.send(value.code || value.source || "");
+          });
+        }
+
+        const server = app.listen(3000);
+
+        const browser = await puppeteer.launch({
+          // headless: false,
+          args: [
+            //   ...puppeteer.defaultArgs(),
+            //   // IMPORTANT: you can't render shadow DOM without this flag
+            //   // getInnerHTML will be undefined without it
+            "--enable-experimental-web-platform-features",
+          ],
+        });
+        const page = await browser.newPage();
+
+        await page.goto(`http://localhost:3000${context.path}`, {
+          waitUntil: ["domcontentloaded", "networkidle0"],
+        });
+
+        const renderedHtml =
+          "<html>" +
+          (await page.$eval(
+            "html",
+            /* istanbul ignore next */
+            (element) => {
+              return element.getInnerHTML({ includeShadowRoots: true });
+            }
+          )) +
+          "</html>";
+        await browser.close();
+
+        const engine = unified()
+          .use(rehypeParse)
+          .use([
+            rehypeMinifyWhitespace,
+            rehypeRemoveComments,
+            rehypeMinifyJsonScript,
+          ])
+          .use(rehypeStringify);
+
+        const processed = await engine.process(renderedHtml);
+
+        server.close();
+
+        console.log(`Rendered ${context.path}`);
+
+        return String(processed);
+      },
+    },
   ],
   build: {
     outDir: "dist",

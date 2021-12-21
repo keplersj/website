@@ -12,10 +12,10 @@
   </head>
   <body>
     <skip-button></skip-button>
-    <kepler-navbar></kepler-navbar>
+    <kepler-navbar data-hydrate></kepler-navbar>
     <skip-anchor></skip-anchor>
     <main>
-      <kepler-blog-index>
+      <kepler-blog-index data-hydrate>
         <!-- prettier-ignore -->
         <script slot="posts" type="application/json">{{{postsJson}}}</script>
       </kepler-blog-index>
