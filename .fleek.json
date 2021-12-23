@@ -1,6 +1,6 @@
 {
   "build": {
-    "image": "node:alpine",
+    "image": "shivjm/node-chromium-alpine",
     "command": "npm ci && npm run build",
     "publicDir": "dist"
   }
