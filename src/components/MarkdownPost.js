@@ -60,6 +60,7 @@ function component(props) {
           rehypeAutolinkHeadings,
           [rehypeShiftHeading, { shift: 1 }],
         ]}
+        data-hydrate
       >
       </remark-markdown>
     </host>

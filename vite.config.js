@@ -71,9 +71,7 @@ const pages = {
     template: "src/templates/home-page.html",
     entry: `src/main.js`,
     data: {
-      rawBiographyFile: await readFile("./content/about/biography.md", {
-        encoding: "utf-8",
-      }).then((file) => file.toString()),
+      biographyMarkdownUrl: "/about/biography.md",
       postsJson,
     },
   },
@@ -101,7 +99,6 @@ const pageData = Object.fromEntries(
 );
 
 export default defineConfig({
-  assetsInclude: ["content/**/*.md"],
   plugins: [
     virtualHtmlTemplate({ pages }),
     handlebars({

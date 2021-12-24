@@ -10,9 +10,7 @@
     <kepler-hero data-hydrate></kepler-hero>
     <section>
       <h1>Biography</h1>
-      <kepler-markdown data-hydrate>
-        <!-- prettier-ignore -->
-        <script slot="content" type="text/markdown">{{{rawBiographyFile}}}</script>
+      <kepler-markdown src="{{biographyMarkdownUrl}}" data-hydrate>
       </kepler-markdown>
       <a href="/about">Read More...</a>
     </section>
