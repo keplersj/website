@@ -12,7 +12,7 @@ function component() {
   const posts = JSON.parse(content);
 
   return html`
-    <host>
+    <host shadowDom>
       <slot name="posts" ref=${inlineContentRef}>
         <script type="application/json"></script>
       </slot>
