@@ -1,6 +1,7 @@
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeRemoveComments from "rehype-remove-comments";
 import rehypeMinifyJsonScript from "rehype-minify-json-script";
+import rehypeHighlight from "rehype-highlight";
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import rehypeStringify from "rehype-stringify";
@@ -72,6 +73,7 @@ export default function vitePluginLazySSR() {
           rehypeMinifyWhitespace,
           rehypeRemoveComments,
           rehypeMinifyJsonScript,
+          rehypeHighlight,
         ])
         .use(rehypeStringify);
 

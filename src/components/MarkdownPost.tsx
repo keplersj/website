@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeShiftHeading from "rehype-shift-heading";
+import rehypeHighlight from "rehype-highlight";
 import yaml from "js-yaml";
 import "webcomponent-markdown";
 
@@ -59,6 +60,7 @@ function component(props: Props<typeof component.props>) {
           rehypeSlug,
           rehypeAutolinkHeadings,
           [rehypeShiftHeading, { shift: 1 }],
+          rehypeHighlight,
         ]}
         data-hydrate
       ></remark-markdown>

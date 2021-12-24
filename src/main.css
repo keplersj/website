@@ -1,2 +1,5 @@
 @import url("/node_modules/modern-normalize/modern-normalize.css");
 @import url("/node_modules/starstuff-style/index.css");
+@import url("/node_modules/highlight.js/styles/atom-one-light.css");
+@import url("/node_modules/highlight.js/styles/atom-one-dark.css") only screen
+  and (prefers-color-scheme: dark);
