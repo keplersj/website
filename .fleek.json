@@ -1,7 +1,11 @@
 {
   "build": {
-    "image": "shivjm/node-chromium-alpine:16",
+    "image": "shivjm/node-chromium-alpine:node16-chromium93",
     "command": "npm ci && npm run build",
-    "publicDir": "dist"
+    "publicDir": "dist",
+    "environment": {
+      "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "1",
+      "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium-browser"
+    }
   }
 }
