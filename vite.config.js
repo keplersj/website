@@ -11,8 +11,7 @@ import rehypeParse from "rehype-parse";
 import rehypeStringify from "rehype-stringify";
 import express from "express";
 import puppeteer from "puppeteer";
-import { promisify } from "node:util";
-import { resolve } from "path";
+import { babel } from "@rollup/plugin-babel";
 
 function pageAndDir(path, options) {
   return {
@@ -107,6 +106,7 @@ export default defineConfig({
         return pageData[pagePath];
       },
     }),
+    babel({ plugins: ["@emotion"] }),
     {
       name: "html-transform",
       transformIndexHtml: async (html, context) => {

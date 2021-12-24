@@ -143,6 +143,8 @@
     "webcomponent-markdown": "^0.2.1"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.7.2",
+    "@rollup/plugin-babel": "^5.3.0",
     "express": "^4.17.2",
     "gray-matter": "^4.0.3",
     "htmlnano": "^1.1.1",
