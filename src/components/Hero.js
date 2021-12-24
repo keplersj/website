@@ -6,7 +6,7 @@ import avatarUrl from "../../content/assets/avatar.jpg";
 
 function component() {
   return html`
-    <host shadowDom>
+    <host>
       <section>
         <div class="heroBody">
           <div class="container">

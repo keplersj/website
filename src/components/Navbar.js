@@ -5,7 +5,7 @@ import bannerUrlDark from "../../content/assets/banner_dark.jpg";
 
 function component() {
   return html`
-    <host shadowDom>
+    <host>
       <nav class="background">
         <div class="contentContainer">
           <div class="leftContent">

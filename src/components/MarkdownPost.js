@@ -36,7 +36,7 @@ function component(props) {
   );
 
   return html`
-    <host shadowDom>
+    <host>
       <header>
         <h1>${title}</h1>
         <div>
