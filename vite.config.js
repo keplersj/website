@@ -160,7 +160,7 @@ export default defineConfig({
             )) +
             "</html>";
           await browser.close();
-          await promisify(server.close)();
+          server.close();
         }
 
         const engine = unified()
