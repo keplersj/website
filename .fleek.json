@@ -5,7 +5,8 @@
     "publicDir": "dist",
     "environment": {
       "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": "1",
-      "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium-browser"
+      "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/chromium-browser",
+      "CI": "1"
     }
   }
 }

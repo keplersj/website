@@ -135,7 +135,8 @@ export default defineConfig({
             //   // IMPORTANT: you can't render shadow DOM without this flag
             //   // getInnerHTML will be undefined without it
             "--enable-experimental-web-platform-features",
-          ],
+            process.env.CI && "--no-sandbox",
+          ].filter(Boolean),
         });
         const page = await browser.newPage();
 
