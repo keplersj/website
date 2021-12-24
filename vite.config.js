@@ -11,6 +11,7 @@ import rehypeParse from "rehype-parse";
 import rehypeStringify from "rehype-stringify";
 import express from "express";
 import puppeteer from "puppeteer";
+import { promisify } from "node:util";
 
 function pageAndDir(path, options) {
   return {
@@ -29,6 +30,7 @@ async function pagesFromDir(directory, prefix, template) {
           entry: `src/main.js`,
           data: {
             markdownSource: `${directory}/${filename}`,
+            markdownUrl: `/${prefix}/${filename}`,
             rawMarkdownFile: await readFile(`${directory}/${filename}`, {
               encoding: "utf-8",
             }).then((file) => file.toString()),
@@ -41,12 +43,12 @@ async function pagesFromDir(directory, prefix, template) {
 }
 
 const postPages = await pagesFromDir(
-  "./content/posts",
+  "./public/blog",
   "blog",
   "src/templates/blog-post.html"
 );
 const portfolioPages = await pagesFromDir(
-  "./content/portfolio",
+  "./public/portfolio",
   "portfolio",
   "src/templates/portfolio-piece.html"
 );
@@ -99,7 +101,7 @@ const pageData = Object.fromEntries(
 );
 
 export default defineConfig({
-  assetsInclude: ["content/**/*"],
+  assetsInclude: ["content/**/*.md"],
   plugins: [
     virtualHtmlTemplate({ pages }),
     handlebars({
@@ -112,49 +114,54 @@ export default defineConfig({
       transformIndexHtml: async (html, context) => {
         // console.log(context);
 
-        console.log(`Rendering ${context.path}`);
+        let renderedHtml = html;
 
-        const app = express();
-        app.get(context.path, (req, res) => {
-          res.send(html);
-        });
+        if (!process.env.NO_SSR) {
+          console.log(`Rendering ${context.path}`);
 
-        for (const [path, value] of Object.entries(context.bundle)) {
-          app.get("/" + path, (req, res) => {
-            res.type(path.split(".").pop());
-            res.send(value.code || value.source || "");
+          const app = express();
+          app.get(context.path, (req, res) => {
+            res.send(html);
           });
+
+          for (const [path, value] of Object.entries(context.bundle)) {
+            app.get("/" + path, (req, res) => {
+              res.type(path.split(".").pop());
+              res.send(value.code || value.source || "");
+            });
+          }
+
+          const server = app.listen(3000);
+
+          const browser = await puppeteer.launch({
+            // headless: false,
+            args: [
+              //   ...puppeteer.defaultArgs(),
+              //   // IMPORTANT: you can't render shadow DOM without this flag
+              //   // getInnerHTML will be undefined without it
+              "--enable-experimental-web-platform-features",
+              process.env.CI && "--no-sandbox",
+            ].filter(Boolean),
+          });
+          const page = await browser.newPage();
+
+          await page.goto(`http://localhost:3000${context.path}`, {
+            waitUntil: ["domcontentloaded", "networkidle0"],
+          });
+
+          renderedHtml =
+            "<!DOCTYPE html><html>" +
+            (await page.$eval(
+              "html",
+              /* istanbul ignore next */
+              (element) => {
+                return element.getInnerHTML({ includeShadowRoots: true });
+              }
+            )) +
+            "</html>";
+          await browser.close();
+          await promisify(server.close)();
         }
-
-        const server = app.listen(3000);
-
-        const browser = await puppeteer.launch({
-          // headless: false,
-          args: [
-            //   ...puppeteer.defaultArgs(),
-            //   // IMPORTANT: you can't render shadow DOM without this flag
-            //   // getInnerHTML will be undefined without it
-            "--enable-experimental-web-platform-features",
-            process.env.CI && "--no-sandbox",
-          ].filter(Boolean),
-        });
-        const page = await browser.newPage();
-
-        await page.goto(`http://localhost:3000${context.path}`, {
-          waitUntil: ["domcontentloaded", "networkidle0"],
-        });
-
-        const renderedHtml =
-          "<html>" +
-          (await page.$eval(
-            "html",
-            /* istanbul ignore next */
-            (element) => {
-              return element.getInnerHTML({ includeShadowRoots: true });
-            }
-          )) +
-          "</html>";
-        await browser.close();
 
         const engine = unified()
           .use(rehypeParse)
@@ -166,8 +173,6 @@ export default defineConfig({
           .use(rehypeStringify);
 
         const processed = await engine.process(renderedHtml);
-
-        server.close();
 
         console.log(`Rendered ${context.path}`);
 

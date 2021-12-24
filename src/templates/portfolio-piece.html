@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Portfolio Piece</title>
-    <script type="module" src="/src/components/MarkdownPost.js"></script>
+    <script type="module" src="/src/components/Markdown.js"></script>
     <script type="module" src="/src/components/Navbar.js"></script>
     <script
       type="module"
@@ -15,10 +15,14 @@
     <kepler-navbar data-hydrate></kepler-navbar>
     <skip-anchor></skip-anchor>
     <main>
-      <kepler-markdown-post data-hydrate>
-        <!-- prettier-ignore -->
-        <script slot="content" type="text/markdown">{{{rawMarkdownFile}}}</script>
-      </kepler-markdown-post>
+      <link
+        as="fetch"
+        href="{{markdownUrl}}"
+        crossorigin=""
+        type="text/markdown"
+        rel="preload"
+      />
+      <kepler-markdown src="{{markdownUrl}}" data-hydrate></kepler-markdown>
     </main>
   </body>
 </html>

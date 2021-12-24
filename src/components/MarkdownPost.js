@@ -10,11 +10,9 @@ import "webcomponent-markdown";
 
 // This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
 
-function component() {
+function component(props) {
   const [title, setTitle] = useState("");
   const [datePublished, setDatePublished] = useState("");
-  const inlineContentRef = useRef();
-  const inlineContentChildNodes = useSlot(inlineContentRef);
 
   const frontMatterExtract = useCallback(
     () => (tree) => {
@@ -39,9 +37,6 @@ function component() {
 
   return html`
     <host shadowDom>
-      <slot name="content" ref="${inlineContentRef}">
-        <script type="text/markdown"></script>
-      </slot>
       <header>
         <h1>${title}</h1>
         <div>
@@ -58,6 +53,7 @@ function component() {
         </div>
       </header>
       <remark-markdown
+        src=${props.src}
         remarkPlugins=${[remarkGfm, remarkFrontmatter, frontMatterExtract]}
         rehypePlugins=${[
           rehypeSlug,
@@ -65,13 +61,13 @@ function component() {
           [rehypeShiftHeading, { shift: 1 }],
         ]}
       >
-        <!-- prettier-ignore -->
-        <script slot="content">
-          ${inlineContentChildNodes[0]?.textContent || ""}
-        </script>
       </remark-markdown>
     </host>
   `;
 }
+
+component.props = {
+  src: String,
+};
 
 customElements.define("kepler-markdown-post", c(component));
