@@ -139,7 +139,7 @@
     "remark-gfm": "^3.0.1",
     "starstuff-components": "^4.0.0",
     "starstuff-style": "^1.1.19",
-    "webcomponent-markdown": "^0.2.0"
+    "webcomponent-markdown": "^0.2.1"
   },
   "devDependencies": {
     "express": "^4.17.2",
