@@ -1,4 +1,4 @@
-import { c, html } from "atomico";
+import { c } from "atomico";
 import { css } from "@emotion/css";
 import "starstuff-components";
 import bannerUrlLight from "../../content/assets/banner.jpg";
@@ -6,10 +6,10 @@ import bannerUrlDark from "../../content/assets/banner_dark.jpg";
 import avatarUrl from "../../content/assets/avatar.jpg";
 
 function component() {
-  return html`
+  return (
     <host>
       <section
-        class=${css`
+        class={css`
           /* position: relative; */
           min-height: 66vh;
 
@@ -44,7 +44,7 @@ function component() {
         `}
       >
         <div
-          class=${css`
+          class={css`
             align-items: center;
             display: flex;
             flex-grow: 1;
@@ -54,7 +54,7 @@ function component() {
           `}
         >
           <div
-            class=${css`
+            class={css`
               text-align: center !important;
               flex-grow: 1;
               flex-shrink: 1;
@@ -70,7 +70,7 @@ function component() {
             `}
           >
             <div
-              class=${css`
+              class={css`
                 align-items: center;
                 margin-left: -0.75rem;
                 margin-right: -0.75rem;
@@ -81,7 +81,7 @@ function component() {
               `}
             >
               <div
-                class=${css`
+                class={css`
                   margin-left: auto;
                   margin-right: auto;
                   display: block;
@@ -91,7 +91,7 @@ function component() {
                 `}
               >
                 <div
-                  class=${css`
+                  class={css`
                     margin-bottom: 10px;
                     border-radius: 140px;
                     position: relative;
@@ -102,7 +102,7 @@ function component() {
                   `}
                 >
                   <img
-                    class=${css`
+                    class={css`
                       position: absolute;
                       top: 0px;
                       left: 0px;
@@ -111,11 +111,11 @@ function component() {
                       object-fit: cover;
                       object-position: center center;
                     `}
-                    src=${avatarUrl}
+                    src={avatarUrl}
                   />
                 </div>
                 <h1
-                  class=${css`
+                  class={css`
                     font-size: 2.5rem;
                     font-weight: 600;
                     line-height: 1.125;
@@ -125,7 +125,7 @@ function component() {
                   Kepler Sticka-Jones
                 </h1>
                 <div
-                  class=${css`
+                  class={css`
                     margin-left: auto;
                     margin-right: auto;
                   `}
@@ -133,8 +133,9 @@ function component() {
                   <starstuff-hyperbutton
                     style="color: #fff !important"
                     href="/blog/"
-                    >Blog</starstuff-hyperbutton
                   >
+                    Blog
+                  </starstuff-hyperbutton>
                   <starstuff-hyperbutton
                     style="color: #fff !important"
                     href="/portfolio/"
@@ -144,8 +145,9 @@ function component() {
                   <starstuff-hyperbutton
                     style="color: #fff !important"
                     href="/about/"
-                    >About</starstuff-hyperbutton
                   >
+                    About
+                  </starstuff-hyperbutton>
                 </div>
               </div>
             </div>
@@ -153,7 +155,7 @@ function component() {
         </div>
       </section>
     </host>
-  `;
+  );
 }
 
 customElements.define("kepler-hero", c(component));

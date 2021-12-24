@@ -1,5 +1,4 @@
-import { c, html, useRef, useState, useCallback } from "atomico";
-import { useSlot } from "@atomico/hooks/use-slot";
+import { c, useState, useCallback } from "atomico";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -12,7 +11,6 @@ import "webcomponent-markdown";
 
 function component(props) {
   const [title, setTitle] = useState("");
-  const [datePublished, setDatePublished] = useState("");
 
   const frontMatterExtract = useCallback(
     () => (tree) => {
@@ -26,49 +24,35 @@ function component(props) {
         //   datePublished: parsed.date,
         // });
         setTitle(parsed.title);
-        setDatePublished(String(parsed.date));
         return;
       } else {
         // console.log("No YAML node found");
       }
     },
-    [setDatePublished, setTitle]
+    [setTitle]
   );
 
-  return html`
+  return (
     <host>
       <header>
-        <h1>${title}</h1>
-        <div>
-          <span>
-            Published${" "}
-            <time datetime=${datePublished}>
-              ${new Date(datePublished).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </time>
-          </span>
-        </div>
+        <h1>{title}</h1>
       </header>
       <remark-markdown
-        src=${props.src}
-        remarkPlugins=${[remarkGfm, remarkFrontmatter, frontMatterExtract]}
-        rehypePlugins=${[
+        src={props.src}
+        remarkPlugins={[remarkGfm, remarkFrontmatter]}
+        rehypePlugins={[
           rehypeSlug,
           rehypeAutolinkHeadings,
           [rehypeShiftHeading, { shift: 1 }],
         ]}
         data-hydrate
-      >
-      </remark-markdown>
+      ></remark-markdown>
     </host>
-  `;
+  );
 }
 
 component.props = {
   src: String,
 };
 
-customElements.define("kepler-markdown-post", c(component));
+customElements.define("kepler-markdown", c(component));

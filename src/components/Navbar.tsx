@@ -18,10 +18,10 @@ const AnchorStyle = css`
 `;
 
 function component() {
-  return html`
+  return (
     <host>
       <nav
-        class=${css`
+        class={css`
           width: 100vw;
           height: 3rem;
           margin-bottom: 1em;
@@ -36,7 +36,7 @@ function component() {
         `}
       >
         <div
-          class=${css`
+          class={css`
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -48,15 +48,17 @@ function component() {
           `}
         >
           <div
-            class=${css`
+            class={css`
               max-width: 50%;
               text-align: start;
             `}
           >
-            <a class=${AnchorStyle} href="/">Kepler Sticka-Jones</a>
+            <a class={AnchorStyle} href="/">
+              Kepler Sticka-Jones
+            </a>
           </div>
           <div
-            class=${css`
+            class={css`
               max-width: 50%;
               text-align: end;
 
@@ -65,14 +67,20 @@ function component() {
               }
             `}
           >
-            <a class=${AnchorStyle} href="/blog">Blog</a>
-            <a class=${AnchorStyle} href="/portfolio">Portfolio</a>
-            <a class=${AnchorStyle} href="/about">About</a>
+            <a class={AnchorStyle} href="/blog">
+              Blog
+            </a>
+            <a class={AnchorStyle} href="/portfolio">
+              Portfolio
+            </a>
+            <a class={AnchorStyle} href="/about">
+              About
+            </a>
           </div>
         </div>
       </nav>
     </host>
-  `;
+  );
 }
 
 component.props = {};

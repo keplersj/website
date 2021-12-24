@@ -92,6 +92,10 @@ const pageData = Object.fromEntries(
 );
 
 export default defineConfig({
+  esbuild: {
+    jsxFactory: "h",
+    jsxInject: `import {h} from 'atomico'`,
+  },
   plugins: [
     virtualHtmlTemplate({ pages }),
     handlebars({
@@ -99,7 +103,11 @@ export default defineConfig({
         return pageData[pagePath];
       },
     }),
-    babel({ plugins: ["@emotion"] }),
+    babel({
+      babelHelpers: "bundled",
+      extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
+      plugins: ["@emotion"],
+    }),
     lazySSRPlugin(),
   ],
   build: {
