@@ -12,6 +12,7 @@ import rehypeStringify from "rehype-stringify";
 import express from "express";
 import puppeteer from "puppeteer";
 import { promisify } from "node:util";
+import { resolve } from "path";
 
 function pageAndDir(path, options) {
   return {
@@ -120,6 +121,9 @@ export default defineConfig({
           app.get(context.path, (req, res) => {
             res.send(html);
           });
+
+          // TODO: Set this using Vite config API?
+          app.use(express.static("public"));
 
           for (const [path, value] of Object.entries(context.bundle)) {
             app.get("/" + path, (req, res) => {
