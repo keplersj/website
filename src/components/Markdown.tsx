@@ -1,4 +1,4 @@
-import { c, useState, useCallback } from "atomico";
+import { c, useState, useCallback, Props } from "atomico";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -9,7 +9,7 @@ import "webcomponent-markdown";
 
 // This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
 
-function component(props) {
+function component(props: Props<typeof component.props>) {
   const [title, setTitle] = useState("");
 
   const frontMatterExtract = useCallback(

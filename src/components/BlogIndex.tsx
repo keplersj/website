@@ -7,9 +7,9 @@ function component() {
   const inlineContentChildNodes = useSlot(inlineContentRef);
   const content =
     inlineContentChildNodes && inlineContentChildNodes.length !== 0
-      ? inlineContentChildNodes[0].textContent
+      ? inlineContentChildNodes[0].textContent || "[]"
       : "[]";
-  const posts = JSON.parse(content);
+  const posts: any[] = JSON.parse(content);
 
   return (
     <host shadowDom>

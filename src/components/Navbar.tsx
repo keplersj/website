@@ -1,4 +1,4 @@
-import { c, html } from "atomico";
+import { c } from "atomico";
 import { css } from "@emotion/css";
 import "starstuff-components";
 import bannerUrlLight from "../../content/assets/banner.jpg";
