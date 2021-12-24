@@ -48,6 +48,7 @@ export default function vitePluginLazySSR() {
         const page = await browser.newPage();
 
         await page.goto(`http://localhost:3000${context.path}`, {
+          timeout: 0,
           waitUntil: ["domcontentloaded", "networkidle0"],
         });
 
