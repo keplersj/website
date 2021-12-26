@@ -4,7 +4,7 @@ import { readdir, readFile } from "fs/promises";
 import handlebars from "vite-plugin-handlebars";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
-import lazySSRPlugin from "./src/util/ssr.js";
+import lazySSRPlugin from "vite-plugin-lazy-ssr";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeRemoveComments from "rehype-remove-comments";
