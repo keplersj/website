@@ -59,7 +59,7 @@ Or in `jest.config.js`
 module.exports = {
   runner: "jest-runner-stylelint",
   moduleFileExtensions: ["css"],
-  testMatch: ["**/*.css"]
+  testMatch: ["**/*.css"],
 };
 ```
 

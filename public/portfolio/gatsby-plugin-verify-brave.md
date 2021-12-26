@@ -29,10 +29,10 @@ module.exports = {
       resolve: "gatsby-plugin-verify-brave",
       options: {
         token: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-        domain: "test.dev"
-      }
-    }
-  ]
+        domain: "test.dev",
+      },
+    },
+  ],
 };
 ```
 

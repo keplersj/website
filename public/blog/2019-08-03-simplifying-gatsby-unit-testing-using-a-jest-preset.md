@@ -22,20 +22,20 @@ I've created [a module](/portfolio/jest-preset-gatsby) which exports [the defaul
 ```js
 module.exports = {
   transform: {
-    "^.+\\.jsx?$": "<rootDir>/.jest/gatsby-preprocess.js"
+    "^.+\\.jsx?$": "<rootDir>/.jest/gatsby-preprocess.js",
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?)$",
   moduleNameMapper: {
     ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
     ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "jest-raw-loader"
+      "jest-raw-loader",
   },
   moduleFileExtensions: ["js", "jsx", "json", "node"],
   testPathIgnorePatterns: ["node_modules", ".cache"],
   transformIgnorePatterns: ["node_modules/(?!(gatsby)/)"],
   globals: { __PATH_PREFIX__: "" },
   testURL: "http://localhost",
-  setupFiles: ["<rootDir>/.jest/loadershim.js"]
+  setupFiles: ["<rootDir>/.jest/loadershim.js"],
 };
 ```
 

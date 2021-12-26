@@ -29,10 +29,10 @@ module.exports = {
       resolve: "gatsby-plugin-verify-bing",
       options: {
         userIds: ["E5D802A305BE2DD99ESampleAuthCode"],
-        xmlFileName: "BingSiteAuth.xml" // optional
-      }
-    }
-  ]
+        xmlFileName: "BingSiteAuth.xml", // optional
+      },
+    },
+  ],
 };
 ```
 

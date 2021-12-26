@@ -91,7 +91,7 @@ module.exports = {
     "scss",
     "graphql",
     "md",
-    "markdown"
+    "markdown",
   ],
   testMatch: [
     "**/*.js",
@@ -104,8 +104,8 @@ module.exports = {
     "**/*.scss",
     "**/*.graphql",
     "**/*.md",
-    "**/*.markdown"
-  ]
+    "**/*.markdown",
+  ],
 };
 ```
 

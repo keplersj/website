@@ -49,7 +49,7 @@ Or in `jest.config.js`
 module.exports = {
   runner: "jest-runner-tslint",
   moduleFileExtensions: ["ts"],
-  testMatch: ["**/*.ts"]
+  testMatch: ["**/*.ts"],
 };
 ```
 
@@ -85,7 +85,7 @@ or in `jest-runner-tslint.config.js`
 module.exports = {
   cliOptions: {
     // Options here
-  }
+  },
 };
 ```
 
