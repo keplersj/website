@@ -113,7 +113,10 @@ export default defineConfig({
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
       plugins: ["@emotion"],
     }),
-    lazySSRPlugin(),
+    !process.env.NO_SSR &&
+      lazySSRPlugin({
+        puppeteerArgs: [process.env.CI && "--no-sandbox"].filter(Boolean),
+      }),
     vitePluginRehype({
       plugins: [
         rehypeMinifyWhitespace,
@@ -122,7 +125,7 @@ export default defineConfig({
         rehypeHighlight,
       ],
     }),
-  ],
+  ].filter(Boolean),
   build: {
     outDir: "dist",
     sourcemap: true,
