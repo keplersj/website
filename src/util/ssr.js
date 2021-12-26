@@ -1,10 +1,3 @@
-import rehypeMinifyWhitespace from "rehype-minify-whitespace";
-import rehypeRemoveComments from "rehype-remove-comments";
-import rehypeMinifyJsonScript from "rehype-minify-json-script";
-import rehypeHighlight from "rehype-highlight";
-import { unified } from "unified";
-import rehypeParse from "rehype-parse";
-import rehypeStringify from "rehype-stringify";
 import express from "express";
 import puppeteer from "puppeteer";
 
@@ -12,8 +5,6 @@ export default function vitePluginLazySSR() {
   return {
     name: "html-transform",
     transformIndexHtml: async (html, context) => {
-      // console.log(context);
-
       let renderedHtml = html;
 
       if (!process.env.NO_SSR) {
@@ -39,7 +30,6 @@ export default function vitePluginLazySSR() {
         const browser = await puppeteer.launch({
           // headless: false,
           args: [
-            //   ...puppeteer.defaultArgs(),
             //   // IMPORTANT: you can't render shadow DOM without this flag
             //   // getInnerHTML will be undefined without it
             "--enable-experimental-web-platform-features",
@@ -67,21 +57,9 @@ export default function vitePluginLazySSR() {
         server.close();
       }
 
-      const engine = unified()
-        .use(rehypeParse)
-        .use([
-          rehypeMinifyWhitespace,
-          rehypeRemoveComments,
-          rehypeMinifyJsonScript,
-          rehypeHighlight,
-        ])
-        .use(rehypeStringify);
-
-      const processed = await engine.process(renderedHtml);
-
       console.log(`Rendered ${context.path}`);
 
-      return String(processed);
+      return renderedHtml;
     },
   };
 }

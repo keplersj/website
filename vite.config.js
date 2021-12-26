@@ -5,6 +5,11 @@ import handlebars from "vite-plugin-handlebars";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import lazySSRPlugin from "./src/util/ssr.js";
+import vitePluginRehype from "vite-plugin-rehype";
+import rehypeMinifyWhitespace from "rehype-minify-whitespace";
+import rehypeRemoveComments from "rehype-remove-comments";
+import rehypeMinifyJsonScript from "rehype-minify-json-script";
+import rehypeHighlight from "rehype-highlight";
 
 function pageAndDir(path, options) {
   return {
@@ -109,6 +114,14 @@ export default defineConfig({
       plugins: ["@emotion"],
     }),
     lazySSRPlugin(),
+    vitePluginRehype({
+      plugins: [
+        rehypeMinifyWhitespace,
+        rehypeRemoveComments,
+        rehypeMinifyJsonScript,
+        rehypeHighlight,
+      ],
+    }),
   ],
   build: {
     outDir: "dist",
