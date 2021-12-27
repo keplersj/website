@@ -24,7 +24,7 @@ function component() {
             new Date(a.frontmatter?.data?.date)
         )
         .map((post) => (
-          <starstuff-card key={post.url}>
+          <starstuff-card key={post.url} data-hydrate>
             <div>
               <a href={"/" + post.url}>
                 <h2>{post.frontmatter?.data?.title || post.url}</h2>

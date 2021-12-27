@@ -135,18 +135,21 @@ function component() {
                   <starstuff-hyperbutton
                     style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/blog/"
+                    data-hydrate
                   >
                     Blog
                   </starstuff-hyperbutton>
                   <starstuff-hyperbutton
                     style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/portfolio/"
+                    data-hydrate
                   >
                     Portfolio
                   </starstuff-hyperbutton>
                   <starstuff-hyperbutton
                     style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/about/"
+                    data-hydrate
                   >
                     About
                   </starstuff-hyperbutton>
