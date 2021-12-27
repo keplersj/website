@@ -125,7 +125,6 @@ export default defineConfig({
           {
             selector: "html",
             rewrite: (node) => {
-              console.log(node);
               if (node.type === "element") {
                 delete node.properties.dataPrerender;
               }
