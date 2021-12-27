@@ -10,7 +10,7 @@ function component() {
     <host
       class={css`
         display: block;
-        position: relative
+        position: relative;
         min-height: 66vh;
 
         :after {
