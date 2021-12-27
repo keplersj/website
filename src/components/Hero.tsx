@@ -7,40 +7,42 @@ import avatarUrl from "../../content/assets/avatar.jpg";
 
 function component() {
   return (
-    <host>
-      <section
-        class={css`
-          /* position: relative; */
-          min-height: 66vh;
+    <host
+      class={css`
+        display: block;
+        position: relative
+        min-height: 66vh;
 
+        :after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+
+          z-index: -100;
+
+          background-image: url(${bannerUrlLight});
+
+          @media (prefers-color-scheme: dark) {
+            background-image: url(${bannerUrlDark});
+          }
+        }
+      `}
+    >
+      <header
+        class={css`
           min-height: 66vh;
           backdrop-filter: blur(20px);
           align-items: stretch;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-
-          :after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            /* height: 100%; */
-            min-height: 66vh;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-
-            z-index: -100;
-
-            background-image: url(${bannerUrlLight});
-
-            @media (prefers-color-scheme: dark) {
-              background-image: url(${bannerUrlDark});
-            }
-          }
         `}
       >
         <div
@@ -131,19 +133,19 @@ function component() {
                   `}
                 >
                   <starstuff-hyperbutton
-                    style="color: #fff !important"
+                    style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/blog/"
                   >
                     Blog
                   </starstuff-hyperbutton>
                   <starstuff-hyperbutton
-                    style="color: #fff !important"
+                    style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/portfolio/"
                   >
                     Portfolio
                   </starstuff-hyperbutton>
                   <starstuff-hyperbutton
-                    style="color: #fff !important"
+                    style="--starstuff-hyperbutton-color: 255, 255, 255"
                     href="/about/"
                   >
                     About
@@ -153,7 +155,7 @@ function component() {
             </div>
           </div>
         </div>
-      </section>
+      </header>
     </host>
   );
 }

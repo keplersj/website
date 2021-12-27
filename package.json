@@ -140,7 +140,7 @@
     "rehype-slug": "^5.0.0",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
-    "starstuff-components": "^4.0.0",
+    "starstuff-components": "^4.0.1",
     "starstuff-style": "^1.1.19",
     "webcomponent-markdown": "^0.2.1"
   },

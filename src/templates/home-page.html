@@ -5,14 +5,31 @@
     <title>Kepler Sticka-Jones</title>
     <script type="module" src="/src/components/Hero.tsx"></script>
     <script type="module" src="/src/components/Markdown.tsx"></script>
+    <style>
+      main {
+        padding: 1em;
+      }
+
+      @media screen and (min-width: 512px) {
+        main {
+          padding: 1em 2.5em;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        main {
+          padding: 1em 5em;
+        }
+      }
+    </style>
   </head>
   <body>
     <kepler-hero data-hydrate></kepler-hero>
-    <section>
-      <h1>Biography</h1>
+    <main>
+      <h2>Biography</h2>
       <kepler-markdown src="{{biographyMarkdownUrl}}" data-hydrate>
       </kepler-markdown>
       <a href="/about">Read More...</a>
-    </section>
+    </main>
   </body>
 </html>
