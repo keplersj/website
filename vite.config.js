@@ -10,6 +10,7 @@ import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeRemoveComments from "rehype-remove-comments";
 import rehypeMinifyJsonScript from "rehype-minify-json-script";
 import rehypeHighlight from "rehype-highlight";
+import rehypeRewrite from "rehype-rewrite";
 
 function pageAndDir(path, options) {
   return {
@@ -119,6 +120,18 @@ export default defineConfig({
       }),
     vitePluginRehype({
       plugins: [
+        [
+          rehypeRewrite,
+          {
+            selector: "html",
+            rewrite: (node) => {
+              console.log(node);
+              if (node.type === "element") {
+                delete node.properties.dataPrerender;
+              }
+            },
+          },
+        ],
         rehypeMinifyWhitespace,
         rehypeRemoveComments,
         rehypeMinifyJsonScript,
