@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Portfolio Index</title>
+    <script type="module" src="/src/components/PortfolioIndex.tsx"></script>
     <script type="module" src="/src/components/Navbar.tsx"></script>
     <script
       type="module"
@@ -19,7 +20,10 @@
     <kepler-navbar data-hydrate></kepler-navbar>
     <skip-anchor></skip-anchor>
     <main>
-      <p>This is going to be the index of the portfolio!</p>
+      <kepler-portfolio-index data-hydrate>
+        <!-- prettier-ignore -->
+        <script slot="posts" type="application/json">{{{portfolioPiecesJson}}}</script>
+      </kepler-portfolio-index>
     </main>
   </body>
 </html>

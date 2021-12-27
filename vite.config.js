@@ -65,6 +65,19 @@ const postsJson = JSON.stringify(
     }))
 );
 
+const portfolioPiecesJson = JSON.stringify(
+  Object.entries(portfolioPages)
+    // We don't want duplicates, so only include the "canonical" index file copy of the page.
+    .filter((page) => page[0].endsWith("index"))
+    .map((page) => ({
+      url: `${page[0]}.html`,
+      frontmatter: {
+        ...frontmatter(page[1].data.rawMarkdownFile),
+        content: undefined,
+      },
+    }))
+);
+
 const pages = {
   index: {
     template: "src/templates/home-page.html",
@@ -85,6 +98,9 @@ const pages = {
   ...pageAndDir("portfolio", {
     template: "src/templates/portfolio-index.html",
     entry: `src/main.js`,
+    data: {
+      portfolioPiecesJson,
+    },
   }),
   ...portfolioPages,
   ...pageAndDir("about", {

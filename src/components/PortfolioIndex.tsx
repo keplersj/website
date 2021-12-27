@@ -1,7 +1,7 @@
 import { c } from "atomico";
-import { css } from "@emotion/css";
 import { useChildNodes } from "@atomico/hooks/use-child-nodes";
 import "starstuff-components";
+import { css } from "@emotion/css";
 
 function component() {
   const [childNodes] = useChildNodes();
@@ -15,41 +15,41 @@ function component() {
     <host
       class={css`
         display: block;
-        max-width: 55em;
-        margin-left: auto;
-        margin-right: auto;
-
-        @media (max-width: 55em) {
-          margin-left: 2em;
-          margin-right: 2em;
-        }
+        margin-left: 2em;
+        margin-right: 2em;
       `}
     >
-      <h1>Blog</h1>
-      {posts
-        .sort(
-          (a, b) =>
-            new Date(b.frontmatter?.data?.date).getTime() -
-            new Date(a.frontmatter?.data?.date).getTime()
-        )
-        .map((post) => (
+      <h1>Portfolio</h1>
+      <div
+        class={css`
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        `}
+      >
+        {posts.map((post) => (
           <starstuff-card
             key={post.url}
             data-hydrate
             class={css`
-              display: flex;
-
-              @media screen and (min-width: 512px) {
+              @media screen and (min-width: 1024px) {
                 min-height: 192px;
               }
               @media screen and (max-width: 512px) {
-                flex-direction: column;
+                max-width: 100vw;
+              }
+              @media screen and (min-width: 768px) {
+                max-width: 33vw;
+              }
+              @media screen and (min-width: 1024px) {
+                max-width: 25vw;
               }
             `}
           >
             <div
               class={css`
-                margin: 1rem;
+                padding: 1rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -58,25 +58,13 @@ function component() {
               <a href={"/" + post.url}>
                 <h2>{post.frontmatter?.data?.title || post.url}</h2>
               </a>
-              <span>
-                Published{" "}
-                <time datetime={post.frontmatter?.data?.date}>
-                  {new Date(post.frontmatter?.data?.date).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    }
-                  )}
-                </time>
-              </span>
               <p>{post.frontmatter?.data?.description}</p>
             </div>
           </starstuff-card>
         ))}
+      </div>
     </host>
   );
 }
 
-customElements.define("kepler-blog-index", c(component));
+customElements.define("kepler-portfolio-index", c(component));
