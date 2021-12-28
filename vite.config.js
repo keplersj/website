@@ -41,15 +41,11 @@ async function pagesFromDir(directory, prefix, template) {
   return Object.fromEntries(pages.flat());
 }
 
-const postPages = await pagesFromDir(
-  "./public/blog",
-  "blog",
-  "src/templates/blog-post.html"
-);
+const postPages = await pagesFromDir("./public/blog", "blog", "src/index.html");
 const portfolioPages = await pagesFromDir(
   "./public/portfolio",
   "portfolio",
-  "src/templates/portfolio-piece.html"
+  "src/index.html"
 );
 
 const postsJson = JSON.stringify(
@@ -58,6 +54,8 @@ const postsJson = JSON.stringify(
     .filter((page) => page[0].endsWith("index"))
     .map((page) => ({
       url: `${page[0]}.html`,
+      slug: page[0].split("/").at(-2),
+      markdownUrl: page[1].data.markdownUrl,
       frontmatter: {
         ...frontmatter(page[1].data.rawMarkdownFile),
         content: undefined,
@@ -71,6 +69,8 @@ const portfolioPiecesJson = JSON.stringify(
     .filter((page) => page[0].endsWith("index"))
     .map((page) => ({
       url: `${page[0]}.html`,
+      slug: page[0].split("/").at(-2),
+      markdownUrl: page[1].data.markdownUrl,
       frontmatter: {
         ...frontmatter(page[1].data.rawMarkdownFile),
         content: undefined,
@@ -80,23 +80,16 @@ const portfolioPiecesJson = JSON.stringify(
 
 const pages = {
   index: {
-    template: "src/templates/home-page.html",
+    template: "src/index.html",
     entry: `src/main.js`,
-    data: {
-      biographyMarkdownUrl: "/about/biography.md",
-      postsJson,
-    },
   },
   ...pageAndDir("blog", {
-    template: "src/templates/blog-index.html",
+    template: "src/index.html",
     entry: `src/main.js`,
-    data: {
-      postsJson,
-    },
   }),
   ...postPages,
   ...pageAndDir("portfolio", {
-    template: "src/templates/portfolio-index.html",
+    template: "src/index.html",
     entry: `src/main.js`,
     data: {
       portfolioPiecesJson,
@@ -104,7 +97,7 @@ const pages = {
   }),
   ...portfolioPages,
   ...pageAndDir("about", {
-    template: "src/templates/about-page.html",
+    template: "src/index.html",
     entry: `src/main.js`,
   }),
 };
@@ -112,6 +105,24 @@ const pages = {
 const pageData = Object.fromEntries(
   Object.entries(pages).map((page) => [`/${page[0]}.html`, page[1].data || {}])
 );
+
+const dataVirtualFile = (virtualModuleId, data) => {
+  const resolvedVirtualModuleId = "\0" + virtualModuleId;
+
+  return {
+    name: "posts-virtual-file", // required, will show up in warnings and errors
+    resolveId(id) {
+      if (id === virtualModuleId) {
+        return resolvedVirtualModuleId;
+      }
+    },
+    load(id) {
+      if (id === resolvedVirtualModuleId) {
+        return `export default ${data}`;
+      }
+    },
+  };
+};
 
 export default defineConfig({
   esbuild: {
@@ -130,6 +141,8 @@ export default defineConfig({
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
       plugins: ["@emotion"],
     }),
+    dataVirtualFile("@kepler/blog", postsJson),
+    dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
     !process.env.NO_SSR &&
       lazySSRPlugin({
         puppeteerArgs: [process.env.CI && "--no-sandbox"].filter(Boolean),
