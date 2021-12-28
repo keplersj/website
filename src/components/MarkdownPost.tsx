@@ -1,5 +1,4 @@
-import { c, useRef, useState, useCallback, Props } from "atomico";
-import { useSlot } from "@atomico/hooks/use-slot";
+import { c, useState, useCallback, Props } from "atomico";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -8,62 +7,90 @@ import rehypeShiftHeading from "rehype-shift-heading";
 import rehypeHighlight from "rehype-highlight";
 import yaml from "js-yaml";
 import "webcomponent-markdown";
+import { css } from "@emotion/css";
+import rehypeRewrite from "rehype-rewrite";
 
 // This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
 
 function component(props: Props<typeof component.props>) {
   const [title, setTitle] = useState("");
   const [datePublished, setDatePublished] = useState("");
+  const [featuredImageUrl, setFeaturedImageUrl] = useState("");
 
   const frontMatterExtract = useCallback(
     () => (tree) => {
       const yamlNode = tree.children.find((child) => child.type === "yaml");
       if (yamlNode) {
-        // console.dir(yamlNode);
         const parsed = yaml.load(yamlNode.value);
-        // console.log(parsed);
-        // setMetadata({
-        //   title: parsed.title,
-        //   datePublished: parsed.date,
-        // });
         setTitle(parsed.title);
         setDatePublished(String(parsed.date));
+        setFeaturedImageUrl(parsed.featured_image);
         return;
-      } else {
-        // console.log("No YAML node found");
       }
     },
-    [setDatePublished, setTitle]
+    [setDatePublished, setTitle, setFeaturedImageUrl]
   );
+
+  const relativeImgUrl = (imgUrl: string): string =>
+    new URL(imgUrl, new URL(props.src!, window.location.href)).href;
 
   return (
     <host>
-      <header>
-        <h1>{title}</h1>
-        <div>
-          <span>
-            Published{" "}
-            <time datetime={datePublished}>
-              {new Date(datePublished).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </time>
-          </span>
-        </div>
-      </header>
-      <remark-markdown
-        src={props.src}
-        remarkPlugins={[remarkGfm, remarkFrontmatter, frontMatterExtract]}
-        rehypePlugins={[
-          rehypeSlug,
-          rehypeAutolinkHeadings,
-          [rehypeShiftHeading, { shift: 1 }],
-          rehypeHighlight,
-        ]}
-        data-hydrate
-      ></remark-markdown>
+      <article
+        class={css`
+          max-width: 55em;
+          margin-left: auto;
+          margin-right: auto;
+
+          @media (max-width: 55em) {
+            margin-left: 2em;
+            margin-right: 2em;
+          }
+        `}
+      >
+        <header>
+          <h1>{title}</h1>
+          <div>
+            <span>
+              Published{" "}
+              <time datetime={datePublished}>
+                {new Date(datePublished).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
+            </span>
+          </div>
+          {featuredImageUrl && (
+            <figure>
+              <img src={relativeImgUrl(featuredImageUrl)}></img>
+            </figure>
+          )}
+        </header>
+        <remark-markdown
+          src={props.src}
+          remarkPlugins={[remarkGfm, remarkFrontmatter, frontMatterExtract]}
+          rehypePlugins={[
+            rehypeSlug,
+            rehypeAutolinkHeadings,
+            [rehypeShiftHeading, { shift: 1 }],
+            rehypeHighlight,
+            [
+              rehypeRewrite,
+              {
+                selector: "img",
+                rewrite: (node) => {
+                  if (node.type === "element" && node.properties.src) {
+                    node.properties.src = relativeImgUrl(node.properties.src);
+                  }
+                },
+              },
+            ],
+          ]}
+          data-hydrate
+        ></remark-markdown>
+      </article>
     </host>
   );
 }

@@ -1,9 +1,9 @@
 import { c } from "atomico";
 import { css } from "@emotion/css";
 import "starstuff-components";
-import bannerUrlLight from "../../content/assets/banner.jpg";
-import bannerUrlDark from "../../content/assets/banner_dark.jpg";
-import avatarUrl from "../../content/assets/avatar.jpg";
+import bannerUrlLight from "../../public/assets/images/banner.jpg";
+import bannerUrlDark from "../../public/assets/images/banner_dark.jpg";
+import avatarUrl from "../../public/assets/images/avatar.jpg";
 
 function component() {
   return (

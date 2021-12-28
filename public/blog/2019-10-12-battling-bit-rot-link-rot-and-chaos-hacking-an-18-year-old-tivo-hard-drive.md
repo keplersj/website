@@ -2,7 +2,7 @@
 title: "Battling Bit Rot, Link Rot, and Chaos: Hacking an 18 Year Old TiVo Hard Drive"
 date: 2019-10-12T06:00:00Z
 description: ""
-featured_image: ../assets/LinkRotBitRotTiVoHDD-01.png
+featured_image: ../assets/images/LinkRotBitRotTiVoHDD-01.png
 ---
 
 This past summer in-between semesters at school I set out to work on a project I've wanted to work on for a while. Some time ago I extracted the hard drive from my childhood TiVo before sending the actual unit off to an e-waste facility during a round of spring cleaning. My thought at the time was that hard drives take up way less space than an aging TiVo unit, and one day I may want to get the data off the drive. So with the free time of a summer break, I set out to work on this project.
@@ -99,13 +99,13 @@ While looking for anymore information on Apple Partition Map before completely j
 
 Loading up the byte swapped ISO image I created into a Hex Viewer yields the following:
 
-![](/content/assets/annotation-2019-06-26-153435.png)
+![](../assets/images/annotation-2019-06-26-153435.png)
 
 Here we can see `0x1492` in the first two bytes of the image, so we know this should be a valid TiVo disk image. As well, we can see `0x504d` in the 200 & 201st bytes indicating an Apple Partition Map Partition Entry.
 
 Thanks to the Wikipedia entry on APM, we know that the drive is likely divided into logical blocks of 512 bytes. Setting the hex viewer to display bytes in rows of 512 bytes yields the following:
 
-![](/content/assets/annotation-2019-06-26-154008.png)
+![](../assets/images/annotation-2019-06-26-154008.png)
 
 Cool. Now we can more easily see the 13 partition entries on the drive. We can see the partition that contains the partition map we’re currently interacting with. As well, as eight partitions related to the Linux install on the drive. The two `Ext2` partitions on there could be cool to poke around one day. We can see two MFS application partitions, and most importantly two MFS media regions. Awesome. Being able to visualize the disk like this has been incredibly helpful, and being able to reference the [partition map entry layout from Wikipedia](https://en.wikipedia.org/wiki/Apple_Partition_Map#Layout) is going to be very helpful as we charge forward.
 
@@ -123,7 +123,7 @@ While watching Carol’s talk it occurred to me that while writing all of oViT b
 
 Going to use the [`cc` crate](https://crates.io/crates/cc) to build the existing C code into oViT. Because it is very likely I’m going to need to patch and modify the C code for these projects, I’m not going to use git submodules to clone the codebases in. I’ve cloned `mfs-utils` from the [elitak/mfs-utils](https://github.com/elitak/mfs-utils) repo on GitHub, and `mfs-tools` from their [SourceForge page](https://sourceforge.net/p/mfstools/mfstools/ci/master/tree/). This should ensure I am working against the most recent copies of both codebases; with `mfs-utils`’s last commit in 2009 and `mfs-tools`’s last commit in 2015.
 
-![](/content/assets/wet_painters_063.jpg)
+![](../assets/images/wet_painters_063.jpg)
 
 _Three Hours Later_
 
@@ -135,7 +135,7 @@ Sadly, I never wrote anything more on this write-up after the 18th. I did contin
 
 This project was often very frustrating to work on. Going into the project I knew that much of the material I was going to be referring to wasn't going to be from first-hand sources. But as I continued to research and work on this drive I kept encountering the issue of [link rot](https://en.wikipedia.org/wiki/Link_rot) in the increasingly aging pages I was looking for. While [Tivopedia](http://www.tivopedia.com/) and [The TiVo Community Forum](https://www.tivocommunity.com/community/index.php) remain online after all of these years, many of the hyperlinks in the 14-18-year-old posts I was reading had simply gone dead. People hosting information, software, and source code on personal websites that they have long stopped paying for hosting, domain registration, and otherwise abandoned. While looking for information from others who reverse-engineered the first-generation TiVo before me, I often related to Randell Monroe's [xkcd #979](https://xkcd.com/979/):
 
-![xkcd #979: Wisdom of the Ancients](/content/assets/wisdom_of_the_ancients.png)
+![xkcd #979: Wisdom of the Ancients](../assets/images/wisdom_of_the_ancients.png)
 
 There is a bright side to this experience though. Before starting work on oViT, I was incredibly burnt out of software development. Working on oViT allowed me to work on and research an incredibly interesting problem, allowed me to learn a new programming language in Rust, and reignited my interest in website development. Writing this write-up gave me a reason to build my website up, and get back into development.
 
