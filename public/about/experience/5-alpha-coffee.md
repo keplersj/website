@@ -1,8 +1,8 @@
 ---
 title: Alpha Coffee
 position: Back of House Manager
-start_date: '2020-02-01T00:00:00.000Z'
-end_date: '2021-09-30T00:00:00.000Z'
+start_date: "2020-02-01T00:00:00.000Z"
+end_date: "2021-09-30T00:00:00.000Z"
 ---
 
 - Supplied the technological foundation for a rapidly growing entrepreneurial venture facilitating its growth and expansion.
