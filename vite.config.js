@@ -1,16 +1,15 @@
 import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
-import { readdir, readFile } from "fs/promises";
-import handlebars from "vite-plugin-handlebars";
+import { readdir, readFile, writeFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
-import lazySSRPlugin from "vite-plugin-lazy-ssr";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypeMinifyWhitespace from "rehype-minify-whitespace";
 import rehypeRemoveComments from "rehype-remove-comments";
 import rehypeMinifyJsonScript from "rehype-minify-json-script";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRewrite from "rehype-rewrite";
+import { fork } from "node:child_process";
 
 function pageAndDir(path, options) {
   return {
@@ -110,7 +109,7 @@ const dataVirtualFile = (virtualModuleId, data) => {
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
 
   return {
-    name: "posts-virtual-file", // required, will show up in warnings and errors
+    name: `virtual-file (${virtualModuleId})`, // required, will show up in warnings and errors
     resolveId(id) {
       if (id === virtualModuleId) {
         return resolvedVirtualModuleId;
@@ -131,11 +130,6 @@ export default defineConfig({
   },
   plugins: [
     virtualHtmlTemplate({ pages }),
-    handlebars({
-      context(pagePath) {
-        return pageData[pagePath];
-      },
-    }),
     babel({
       babelHelpers: "bundled",
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
@@ -143,10 +137,28 @@ export default defineConfig({
     }),
     dataVirtualFile("@kepler/blog", postsJson),
     dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
-    !process.env.NO_SSR &&
-      lazySSRPlugin({
-        puppeteerArgs: [process.env.CI && "--no-sandbox"].filter(Boolean),
-      }),
+    process.env.SSG && {
+      name: "ssg",
+      transformIndexHtml: async (html, context) => {
+        console.log(context.path);
+
+        const child = fork("./prerender.js", [context.path]);
+
+        let rendered = "";
+
+        child.on("message", (message) => {
+          rendered = rendered + message;
+        });
+
+        await new Promise((resolve) => {
+          child.on("exit", resolve);
+        });
+
+        console.log(rendered);
+
+        return html.replace("<!-- SSG -->", rendered);
+      },
+    },
     vitePluginRehype({
       plugins: [
         [
