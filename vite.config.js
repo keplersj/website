@@ -4,12 +4,8 @@ import { readdir, readFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
-import rehypeMinifyWhitespace from "rehype-minify-whitespace";
-import rehypeRemoveComments from "rehype-remove-comments";
-import rehypeMinifyJsonScript from "rehype-minify-json-script";
-import rehypeHighlight from "rehype-highlight";
-import rehypeRewrite from "rehype-rewrite";
-import { fork } from "node:child_process";
+import rehypePlugins from "./src/util/rehype-preset-build";
+import viteJsdomSsg from "./src/util/vite-jsdom-ssg";
 
 function pageAndDir(path, options) {
   return {
@@ -159,46 +155,9 @@ export default defineConfig({
     dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
     dataVirtualFile("@kepler/experience", experienceJson),
     dataVirtualFile("@kepler/education", educationJson),
-    process.env.SSG && {
-      name: "ssg",
-      transformIndexHtml: async (html, context) => {
-        console.log(context.path);
-
-        const child = fork("./prerender.js", [context.path]);
-
-        let rendered = { styles: "", body: "" };
-
-        child.on("message", (message) => {
-          rendered = message;
-        });
-
-        await new Promise((resolve) => {
-          child.on("exit", resolve);
-        });
-
-        return html
-          .replace("<!-- SSG-Style -->", rendered.styles)
-          .replace("<!-- SSG-Body -->", rendered.body);
-      },
-    },
+    process.env.SSG && viteJsdomSsg,
     vitePluginRehype({
-      plugins: [
-        [
-          rehypeRewrite,
-          {
-            selector: "html",
-            rewrite: (node) => {
-              if (node.type === "element") {
-                delete node.properties.dataPrerender;
-              }
-            },
-          },
-        ],
-        rehypeMinifyWhitespace,
-        rehypeRemoveComments,
-        rehypeMinifyJsonScript,
-        rehypeHighlight,
-      ],
+      plugins: rehypePlugins,
     }),
   ].filter(Boolean),
   optimizeDeps: {
