@@ -50,6 +50,17 @@ await new Promise((resolve) => {
   });
 });
 
-process.send(window.document.body.innerHTML);
+const styles = Array.from(
+  window.document.head.querySelectorAll("style[data-emotion=css]")
+)
+  .map((style) => style.outerHTML)
+  .join();
+
+const body = window.document.body.innerHTML;
+
+process.send({
+  styles,
+  body,
+});
 
 server.close();

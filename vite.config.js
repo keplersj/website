@@ -97,8 +97,6 @@ const experienceJson = JSON.stringify(
   await markdownFiles("./public/about/experience", "/about/experience/")
 );
 
-console.log(experienceJson);
-
 const educationJson = JSON.stringify(
   await markdownFiles("./public/about/education", "/about/education/")
 );
@@ -168,19 +166,19 @@ export default defineConfig({
 
         const child = fork("./prerender.js", [context.path]);
 
-        let rendered = "";
+        let rendered = { styles: "", body: "" };
 
         child.on("message", (message) => {
-          rendered = rendered + message;
+          rendered = message;
         });
 
         await new Promise((resolve) => {
           child.on("exit", resolve);
         });
 
-        console.log(rendered);
-
-        return html.replace("<!-- SSG -->", rendered);
+        return html
+          .replace("<!-- SSG-Style -->", rendered.styles)
+          .replace("<!-- SSG-Body -->", rendered.body);
       },
     },
     vitePluginRehype({
