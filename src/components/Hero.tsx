@@ -3,7 +3,7 @@ import { css } from "@emotion/css";
 import "starstuff-components";
 import bannerUrlLight from "../../public/assets/images/banner.jpg";
 import bannerUrlDark from "../../public/assets/images/banner_dark.jpg";
-import avatarUrl from "../../public/assets/images/avatar.jpg";
+import { Avatar } from "../components/Avatar";
 
 function component() {
   return (
@@ -92,30 +92,7 @@ function component() {
                   width: 66.6666%;
                 `}
               >
-                <div
-                  class={css`
-                    margin-bottom: 10px;
-                    border-radius: 140px;
-                    position: relative;
-                    overflow: hidden;
-                    display: inline-block;
-                    width: 200px;
-                    height: 200px;
-                  `}
-                >
-                  <img
-                    class={css`
-                      position: absolute;
-                      top: 0px;
-                      left: 0px;
-                      width: 100%;
-                      height: 100%;
-                      object-fit: cover;
-                      object-position: center center;
-                    `}
-                    src={avatarUrl}
-                  />
-                </div>
+                <Avatar />
                 <h1
                   class={css`
                     font-size: 2.5rem;

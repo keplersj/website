@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
-import { readdir, readFile, writeFile } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
@@ -77,6 +77,32 @@ const portfolioPiecesJson = JSON.stringify(
     }))
 );
 
+async function markdownFiles(srcDirectory, publicDirectory) {
+  const files = await readdir(srcDirectory);
+  return Promise.all(
+    files.map(async (file) => ({
+      markdownUrl: `${publicDirectory}${file}`,
+      frontmatter: {
+        ...frontmatter(
+          await readFile(`${srcDirectory}/${file}`, {
+            encoding: "utf-8",
+          }).then((file) => file.toString())
+        ).data,
+      },
+    }))
+  );
+}
+
+const experienceJson = JSON.stringify(
+  await markdownFiles("./public/about/experience", "/about/experience/")
+);
+
+console.log(experienceJson);
+
+const educationJson = JSON.stringify(
+  await markdownFiles("./public/about/education", "/about/education/")
+);
+
 const pages = {
   index: {
     template: "src/index.html",
@@ -100,10 +126,6 @@ const pages = {
     entry: `src/main.js`,
   }),
 };
-
-const pageData = Object.fromEntries(
-  Object.entries(pages).map((page) => [`/${page[0]}.html`, page[1].data || {}])
-);
 
 const dataVirtualFile = (virtualModuleId, data) => {
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
@@ -137,6 +159,8 @@ export default defineConfig({
     }),
     dataVirtualFile("@kepler/blog", postsJson),
     dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
+    dataVirtualFile("@kepler/experience", experienceJson),
+    dataVirtualFile("@kepler/education", educationJson),
     process.env.SSG && {
       name: "ssg",
       transformIndexHtml: async (html, context) => {
@@ -179,6 +203,9 @@ export default defineConfig({
       ],
     }),
   ].filter(Boolean),
+  optimizeDeps: {
+    include: ["@vaadin/router", "atomico"],
+  },
   build: {
     outDir: "dist",
     sourcemap: true,

@@ -147,6 +147,7 @@
     "remark-gfm": "^3.0.1",
     "starstuff-components": "^4.0.1",
     "starstuff-style": "^1.1.19",
+    "styled-custom-elements": "^0.1.2",
     "webcomponent-markdown": "^0.2.1"
   },
   "devDependencies": {
