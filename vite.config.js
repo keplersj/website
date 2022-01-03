@@ -4,8 +4,8 @@ import { readdir, readFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
-import rehypePlugins from "./src/util/rehype-preset-build";
-import viteJsdomSsg from "./src/util/vite-jsdom-ssg";
+import rehypePlugins from "./src/util/rehype-preset-build.js";
+import viteJsdomSsg from "./src/util/vite-jsdom-ssg.js";
 
 function pageAndDir(path, options) {
   return {
