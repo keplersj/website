@@ -124,4 +124,11 @@ router.setRoutes([
       },
     })
   ),
+  {
+    path: "(.*)",
+    action: async () => {
+      await import("./pages/404");
+    },
+    component: "kepler-page-not-found",
+  },
 ]);

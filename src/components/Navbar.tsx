@@ -1,10 +1,11 @@
 import { c } from "atomico";
+import styled from "styled-custom-elements";
 import { css } from "@emotion/css";
 import "starstuff-components";
 import bannerUrlLight from "../../public/assets/images/banner.jpg";
 import bannerUrlDark from "../../public/assets/images/banner_dark.jpg";
 
-const AnchorStyle = css`
+const Anchor = styled.a`
   color: #141414;
   font-weight: 600;
   text-decoration: none;
@@ -16,6 +17,8 @@ const AnchorStyle = css`
     color: white;
   }
 `;
+
+customElements.define("kepler-navbar-anchor", Anchor, { extends: "a" });
 
 function component() {
   return (
@@ -53,7 +56,7 @@ function component() {
               text-align: start;
             `}
           >
-            <a class={AnchorStyle} href="/">
+            <a is="kepler-navbar-anchor" href="/">
               Kepler Sticka-Jones
             </a>
           </div>
@@ -67,13 +70,13 @@ function component() {
               }
             `}
           >
-            <a class={AnchorStyle} href="/blog">
+            <a is="kepler-navbar-anchor" href="/blog">
               Blog
             </a>
-            <a class={AnchorStyle} href="/portfolio">
+            <a is="kepler-navbar-anchor" href="/portfolio">
               Portfolio
             </a>
-            <a class={AnchorStyle} href="/about">
+            <a is="kepler-navbar-anchor" href="/about">
               About
             </a>
           </div>

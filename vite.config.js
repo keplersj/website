@@ -97,28 +97,20 @@ const educationJson = JSON.stringify(
   await markdownFiles("./public/about/education", "/about/education/")
 );
 
+const defaultPage = {
+  template: "src/index.html",
+  entry: `src/main.js`,
+};
+
 const pages = {
-  index: {
-    template: "src/index.html",
-    entry: `src/main.js`,
-  },
-  ...pageAndDir("blog", {
-    template: "src/index.html",
-    entry: `src/main.js`,
-  }),
+  index: defaultPage,
+  ...pageAndDir("blog", defaultPage),
   ...postPages,
-  ...pageAndDir("portfolio", {
-    template: "src/index.html",
-    entry: `src/main.js`,
-    data: {
-      portfolioPiecesJson,
-    },
-  }),
+  ...pageAndDir("portfolio", defaultPage),
   ...portfolioPages,
-  ...pageAndDir("about", {
-    template: "src/index.html",
-    entry: `src/main.js`,
-  }),
+  ...pageAndDir("about", defaultPage),
+  "ipfs-404": defaultPage,
+  ...pageAndDir("404", defaultPage),
 };
 
 const dataVirtualFile = (virtualModuleId, data) => {
