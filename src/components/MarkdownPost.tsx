@@ -1,14 +1,11 @@
 import { c, useState, useCallback, Props } from "atomico";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
-import rehypeShiftHeading from "rehype-shift-heading";
-import rehypeHighlight from "rehype-highlight";
+import remarkPreset from "../util/remark-preset-client";
+import rehypePreset from "../util/rehype-preset-client";
+import rehypeRewrite from "rehype-rewrite";
 import yaml from "js-yaml";
 import "webcomponent-markdown";
 import { css } from "@emotion/css";
-import rehypeRewrite from "rehype-rewrite";
+import { Image } from "../components/Image";
 
 // This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
 
@@ -64,18 +61,21 @@ function component(props: Props<typeof component.props>) {
           </div>
           {featuredImageUrl && (
             <figure>
-              <img src={relativeImgUrl(featuredImageUrl)}></img>
+              <Image src={relativeImgUrl(featuredImageUrl)}></Image>
             </figure>
           )}
         </header>
         <remark-markdown
           src={props.src}
-          remarkPlugins={[remarkGfm, remarkFrontmatter, frontMatterExtract]}
+          class={css`
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+          `}
+          remarkPlugins={[...remarkPreset, frontMatterExtract]}
           rehypePlugins={[
-            rehypeSlug,
-            rehypeAutolinkHeadings,
-            [rehypeShiftHeading, { shift: 1 }],
-            rehypeHighlight,
+            ...rehypePreset,
             [
               rehypeRewrite,
               {
@@ -83,6 +83,7 @@ function component(props: Props<typeof component.props>) {
                 rewrite: (node) => {
                   if (node.type === "element" && node.properties.src) {
                     node.properties.src = relativeImgUrl(node.properties.src);
+                    node.tagName = "kepler-image";
                   }
                 },
               },

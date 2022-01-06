@@ -1,10 +1,7 @@
 import { c, useState, useCallback, Props } from "atomico";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
-import rehypeShiftHeading from "rehype-shift-heading";
-import rehypeHighlight from "rehype-highlight";
+import { css } from "@emotion/css";
+import remarkPresetClient from "../util/remark-preset-client";
+import rehypePresetClient from "../util/rehype-preset-client";
 import yaml from "js-yaml";
 import "webcomponent-markdown";
 
@@ -40,13 +37,14 @@ function component(props: Props<typeof component.props>) {
       </header>
       <remark-markdown
         src={props.src}
-        remarkPlugins={[remarkGfm, remarkFrontmatter]}
-        rehypePlugins={[
-          rehypeSlug,
-          rehypeAutolinkHeadings,
-          [rehypeShiftHeading, { shift: 1 }],
-          rehypeHighlight,
-        ]}
+        class={css`
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        `}
+        remarkPlugins={[...remarkPresetClient, frontMatterExtract]}
+        rehypePlugins={rehypePresetClient}
         data-hydrate
       ></remark-markdown>
     </host>
