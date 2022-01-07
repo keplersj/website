@@ -4,7 +4,8 @@ import "../components/Markdown";
 import "@a11y/skip-navigation";
 
 function component({ location }: Props<typeof component.props>) {
-  const src = location?.params.slug.replace(".html", "") + ".md";
+  const src =
+    "/portfolio/" + location?.params.slug.replace(".html", "") + ".md";
 
   return (
     <host>
@@ -31,7 +32,8 @@ component.props = {
 
 class Element extends c(component) {
   async onBeforeEnter(location, commands, router) {
-    const src = location?.params.slug.replace(".html", "") + ".md";
+    const src =
+      "/portfolio/" + location?.params.slug.replace(".html", "") + ".md";
     const srcFetch = await fetch(src);
 
     if (!srcFetch.ok) {
