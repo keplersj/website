@@ -14,7 +14,12 @@ function component(props: Props<typeof component.props>) {
   return (
     <host>
       <picture>
-        <img is="kepler-image-img" alt={props.alt} src={props.src}></img>
+        <img
+          is="kepler-image-img"
+          alt={props.alt}
+          src={props.src}
+          loading="lazy"
+        ></img>
       </picture>
     </host>
   );
