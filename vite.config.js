@@ -14,63 +14,50 @@ function pageAndDir(path, options) {
   };
 }
 
-async function pagesFromDir(directory, prefix, template) {
+const defaultPage = {
+  template: "src/index.html",
+  entry: `src/main.js`,
+};
+
+async function pagesFromDir(directory, prefix) {
   const files = await readdir(directory);
   const pages = await Promise.all(
     files.map(async (filename) =>
       Object.entries(
-        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, {
-          template: template,
-          entry: `src/main.js`,
-          data: {
-            markdownSource: `${directory}/${filename}`,
-            markdownUrl: `/${prefix}/${filename}`,
-            rawMarkdownFile: await readFile(`${directory}/${filename}`, {
-              encoding: "utf-8",
-            }).then((file) => file.toString()),
-          },
-        })
+        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, defaultPage)
       )
     )
   );
   return Object.fromEntries(pages.flat());
 }
 
-const postPages = await pagesFromDir("./public/blog", "blog", "src/index.html");
-const portfolioPages = await pagesFromDir(
-  "./public/portfolio",
-  "portfolio",
-  "src/index.html"
-);
+const postPages = await pagesFromDir("./public/blog", "blog");
+const portfolioPages = await pagesFromDir("./public/portfolio", "portfolio");
 
-const postsJson = JSON.stringify(
-  Object.entries(postPages)
-    // We don't want duplicates, so only include the "canonical" index file copy of the page.
-    .filter((page) => page[0].endsWith("index"))
-    .map((page) => ({
-      url: `${page[0]}.html`,
-      slug: page[0].split("/").at(-2),
-      markdownUrl: page[1].data.markdownUrl,
+async function markdownArray(directory, prefix) {
+  const files = await readdir(directory);
+
+  return Promise.all(
+    files.map(async (file) => ({
+      url: `/${prefix}/${file.replace(".md", ".html")}`,
+      slug: file.replace(".md", ""),
+      markdownUrl: `/${prefix}/${file}`,
       frontmatter: {
-        ...frontmatter(page[1].data.rawMarkdownFile),
+        ...frontmatter(
+          await readFile(`${directory}/${file}`, {
+            encoding: "utf-8",
+          })
+        ),
         content: undefined,
       },
     }))
-);
+  );
+}
+
+const postsJson = JSON.stringify(await markdownArray("./public/blog", "blog"));
 
 const portfolioPiecesJson = JSON.stringify(
-  Object.entries(portfolioPages)
-    // We don't want duplicates, so only include the "canonical" index file copy of the page.
-    .filter((page) => page[0].endsWith("index"))
-    .map((page) => ({
-      url: `${page[0]}.html`,
-      slug: page[0].split("/").at(-2),
-      markdownUrl: page[1].data.markdownUrl,
-      frontmatter: {
-        ...frontmatter(page[1].data.rawMarkdownFile),
-        content: undefined,
-      },
-    }))
+  await markdownArray("./public/portfolio", "portfolio")
 );
 
 async function markdownFiles(srcDirectory, publicDirectory) {
@@ -82,7 +69,7 @@ async function markdownFiles(srcDirectory, publicDirectory) {
         ...frontmatter(
           await readFile(`${srcDirectory}/${file}`, {
             encoding: "utf-8",
-          }).then((file) => file.toString())
+          })
         ).data,
       },
     }))
@@ -96,11 +83,6 @@ const experienceJson = JSON.stringify(
 const educationJson = JSON.stringify(
   await markdownFiles("./public/about/education", "/about/education/")
 );
-
-const defaultPage = {
-  template: "src/index.html",
-  entry: `src/main.js`,
-};
 
 const pages = {
   index: defaultPage,
