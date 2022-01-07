@@ -29,4 +29,17 @@ component.props = {
   location: Object,
 };
 
-customElements.define("kepler-blog-post", c(component));
+class Element extends c(component) {
+  async onBeforeEnter(location, commands, router) {
+    const src = location?.params.slug.replace(".html", "") + ".md";
+    const srcFetch = await fetch(src);
+
+    if (!srcFetch.ok) {
+      return commands.redirect("/404");
+    }
+  }
+}
+
+export default Element;
+
+customElements.define("kepler-blog-post", Element);
