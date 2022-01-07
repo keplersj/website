@@ -1,6 +1,4 @@
 import { Route, Router } from "@vaadin/router";
-import posts from "@kepler/blog";
-import pieces from "@kepler/portfolio";
 
 // This is so hacky, and I hate this so much.
 // But if the router won't hydrate, we'll just have to work around it.
@@ -57,73 +55,49 @@ router.setRoutes([
   },
   ...singlePage("about", "kepler-about", "About"),
   ...singlePage("blog", "kepler-blog-index", "BlogIndex"),
-  ...posts.map(
-    (post): Route => ({
-      path: `/blog/${post.slug}`,
-      action: async (context, commands) => {
-        await import("./pages/BlogPost");
-        const stubElement = commands.component("kepler-blog-post");
-        stubElement.src = post.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
-  ...posts.map(
-    (post): Route => ({
-      path: `/blog/${post.slug}.html`,
-      action: async (context, commands) => {
-        await import("./pages/BlogPost");
-        const stubElement = commands.component("kepler-blog-post");
-        stubElement.src = post.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
-  ...posts.map(
-    (post): Route => ({
-      path: `/blog/${post.slug}/index.html`,
-      action: async (context, commands) => {
-        await import("./pages/BlogPost");
-        const stubElement = commands.component("kepler-blog-post");
-        stubElement.src = post.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
+  {
+    path: "/blog/:slug",
+    action: async () => {
+      await import("./pages/BlogPost");
+    },
+    component: "kepler-blog-post",
+  },
+  {
+    path: "/blog/:slug.html",
+    action: async () => {
+      await import("./pages/BlogPost");
+    },
+    component: "kepler-blog-post",
+  },
+  {
+    path: "/blog/:slug/index.html",
+    action: async () => {
+      await import("./pages/BlogPost");
+    },
+    component: "kepler-blog-post",
+  },
   ...singlePage("portfolio", "kepler-portfolio-index", "PortfolioIndex"),
-  ...pieces.map(
-    (piece): Route => ({
-      path: `/portfolio/${piece.slug}`,
-      action: async (context, commands) => {
-        await import("./pages/PortfolioPiece");
-        const stubElement = commands.component("kepler-portfolio-piece");
-        stubElement.src = piece.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
-  ...pieces.map(
-    (piece): Route => ({
-      path: `/portfolio/${piece.slug}.html`,
-      action: async (context, commands) => {
-        await import("./pages/PortfolioPiece");
-        const stubElement = commands.component("kepler-portfolio-piece");
-        stubElement.src = piece.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
-  ...pieces.map(
-    (piece): Route => ({
-      path: `/portfolio/${piece.slug}/index.html`,
-      action: async (context, commands) => {
-        await import("./pages/PortfolioPiece");
-        const stubElement = commands.component("kepler-portfolio-piece");
-        stubElement.src = piece.markdownUrl;
-        return stubElement;
-      },
-    })
-  ),
+  {
+    path: "/portfolio/:slug",
+    action: async () => {
+      await import("./pages/PortfolioPiece");
+    },
+    component: "kepler-portfolio-piece",
+  },
+  {
+    path: "/portfolio/:slug.html",
+    action: async () => {
+      await import("./pages/PortfolioPiece");
+    },
+    component: "kepler-portfolio-piece",
+  },
+  {
+    path: "/portfolio/:slug/index.html",
+    action: async () => {
+      await import("./pages/PortfolioPiece");
+    },
+    component: "kepler-portfolio-piece",
+  },
   {
     path: "(.*)",
     action: async () => {

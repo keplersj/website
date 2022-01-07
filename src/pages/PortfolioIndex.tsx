@@ -54,7 +54,7 @@ function component() {
                   justify-content: center;
                 `}
               >
-                <a href={"/" + post.url}>
+                <a href={post.url}>
                   <h2>{post.frontmatter?.data?.title || post.url}</h2>
                 </a>
                 <p>{post.frontmatter?.data?.description}</p>

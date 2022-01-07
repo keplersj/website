@@ -3,7 +3,9 @@ import "../components/Navbar";
 import "../components/Markdown";
 import "@a11y/skip-navigation";
 
-function component({ src }: Props<typeof component.props>) {
+function component({ location }: Props<typeof component.props>) {
+  const src = location?.params.slug.replace(".html", "") + ".md";
+
   return (
     <host>
       <skip-button></skip-button>
@@ -24,7 +26,7 @@ function component({ src }: Props<typeof component.props>) {
 }
 
 component.props = {
-  src: String,
+  location: Object,
 };
 
 customElements.define("kepler-portfolio-piece", c(component));
