@@ -46,7 +46,12 @@ async function markdownArray(directory, prefix) {
         ...frontmatter(
           await readFile(`${directory}/${file}`, {
             encoding: "utf-8",
-          })
+          }),
+          {
+            excerpt: (file) => {
+              file.excerpt = file.content.slice(0, 140) + "...";
+            },
+          }
         ),
         content: undefined,
       },
