@@ -55,49 +55,9 @@ router.setRoutes([
   },
   ...singlePage("about", "kepler-about", "About"),
   ...singlePage("blog", "kepler-blog-index", "BlogIndex"),
-  {
-    path: "/blog/:slug",
-    action: async () => {
-      await import("./pages/BlogPost");
-    },
-    component: "kepler-blog-post",
-  },
-  {
-    path: "/blog/:slug.html",
-    action: async () => {
-      await import("./pages/BlogPost");
-    },
-    component: "kepler-blog-post",
-  },
-  {
-    path: "/blog/:slug/index.html",
-    action: async () => {
-      await import("./pages/BlogPost");
-    },
-    component: "kepler-blog-post",
-  },
+  ...singlePage("blog/:slug", "kepler-blog-post", "BlogPost"),
   ...singlePage("portfolio", "kepler-portfolio-index", "PortfolioIndex"),
-  {
-    path: "/portfolio/:slug",
-    action: async () => {
-      await import("./pages/PortfolioPiece");
-    },
-    component: "kepler-portfolio-piece",
-  },
-  {
-    path: "/portfolio/:slug.html",
-    action: async () => {
-      await import("./pages/PortfolioPiece");
-    },
-    component: "kepler-portfolio-piece",
-  },
-  {
-    path: "/portfolio/:slug/index.html",
-    action: async () => {
-      await import("./pages/PortfolioPiece");
-    },
-    component: "kepler-portfolio-piece",
-  },
+  ...singlePage("portfolio/:slug", "kepler-portfolio-piece", "PortfolioPiece"),
   {
     path: "(.*)",
     action: async () => {

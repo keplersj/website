@@ -86,13 +86,13 @@ const educationJson = JSON.stringify(
 
 const pages = {
   index: defaultPage,
-  // ...pageAndDir("blog", defaultPage),
-  // ...postPages,
-  // ...pageAndDir("portfolio", defaultPage),
-  // ...portfolioPages,
-  // ...pageAndDir("about", defaultPage),
-  // "ipfs-404": defaultPage,
-  // ...pageAndDir("404", defaultPage),
+  ...pageAndDir("blog", defaultPage),
+  ...postPages,
+  ...pageAndDir("portfolio", defaultPage),
+  ...portfolioPages,
+  ...pageAndDir("about", defaultPage),
+  "ipfs-404": defaultPage,
+  ...pageAndDir("404", defaultPage),
 };
 
 const dataVirtualFile = (virtualModuleId, data) => {
