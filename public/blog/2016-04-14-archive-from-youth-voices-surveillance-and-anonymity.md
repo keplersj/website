@@ -4,7 +4,7 @@ date: 2016-04-14T06:00:00.000Z
 description: >-
   An archive of a prompted discussion post discussing Anonymity and Governmental
   Surveillance.
-featured_image: ../assets/Anonymous_Scientology_1_by_David_Shankbone.jpeg
+featured_image: ../assets/images/Anonymous_Scientology_1_by_David_Shankbone.jpeg
 ---
 
 I was incredibly fortunate to have taken an AP English class during my senior year of high school. In this class, we analyzed and discussed a variety of books ranging from Robert Reich’s Aftershock: The Next Economy and America’s Future to George Orwell’s 1984. But more than the rich curriculum of literature we studied I’m thankful for the writing we did in the later part of the course.

@@ -17,8 +17,8 @@ I created the logo and website for the AtomBuild project. The website is based o
 
 Below a screenshot from the [Web Archive's January 18, 2016 capture of atombuild.github.io](https://web.archive.org/web/20160118122709/https://atombuild.github.io/):
 
-![Screenshot from the Web Archive's January 18, 2016 capture of atombuild.github.io](../assets/screenshot-web.archive.org-2019.12.29-00_55_47.png)
+![Screenshot from the Web Archive's January 18, 2016 capture of atombuild.github.io](../assets/images/screenshot-web.archive.org-2019.12.29-00_55_47.png)
 
 Below is a screenshot of [the website](https://atombuild.github.io) after its 2019 update and transition to [`gatsby-theme-atom-service`](/portfolio/gatsby-theme-atom-service):
 
-![Screenshot of atombuild.github.io website after transitioning to Gatsby Theme.](../assets/screenshot-atombuild.github.io-2019.12.29-01_01_03.png)
+![Screenshot of atombuild.github.io website after transitioning to Gatsby Theme.](../assets/images/screenshot-atombuild.github.io-2019.12.29-01_01_03.png)
