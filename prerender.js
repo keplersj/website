@@ -56,9 +56,7 @@ await new Promise((resolve) => {
   });
 });
 
-const html =
-  (document.doctype ? document.doctype : "") +
-  window.document.documentElement.outerHTML;
+const html = $jsdom.serialize();
 
 process.send(html);
 
