@@ -56,7 +56,9 @@ await new Promise((resolve) => {
   });
 });
 
-const html = window.document.documentElement.outerHTML;
+const html =
+  (document.doctype ? document.doctype : "") +
+  window.document.documentElement.outerHTML;
 
 process.send(html);
 
