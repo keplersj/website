@@ -84,7 +84,7 @@ const FeaturedImage = styled(Image)`
   }
 `;
 
-customElements.define("kepler-blog-featureBlogd-image", FeaturedImage);
+customElements.define("kepler-blog-featured-image", FeaturedImage);
 
 function component() {
   return (

@@ -7,12 +7,18 @@ const app = express();
 
 app.use(express.static("./dist/server"));
 
-const server = app.listen(3000);
+const server = await new Promise((resolve) => {
+  const server = app.listen(() => {
+    resolve(server);
+  });
+});
 
-const file = await readFile("./dist/server/index.html");
+const file = await readFile("./dist/client/index.html");
 
 jsdomGlobal(file.toString(), {
-  url: `http://localhost:3000${process.argv[2] || "/index.html"}`,
+  url: `http://127.0.0.1:${server.address().port}${
+    process.argv[2] || "/index.html"
+  }`,
 });
 
 const { sheet } = await import("@emotion/css");
@@ -27,7 +33,7 @@ sheet.speedy(false);
 // options.ssr = true;
 
 try {
-  await import("./dist/server/index.js");
+  await import("./dist/server/main.js");
 } catch (e) {
   console.error(e);
 }
@@ -50,17 +56,8 @@ await new Promise((resolve) => {
   });
 });
 
-const styles = Array.from(
-  window.document.head.querySelectorAll("style[data-emotion=css]")
-)
-  .map((style) => style.outerHTML)
-  .join();
+const html = window.document.documentElement.outerHTML;
 
-const body = window.document.body.innerHTML;
-
-process.send({
-  styles,
-  body,
-});
+process.send(html);
 
 server.close();

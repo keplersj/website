@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
-import { readdir, readFile } from "fs/promises";
+import { readdir, readFile, writeFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
@@ -89,7 +89,7 @@ const educationJson = JSON.stringify(
   await markdownFiles("./public/about/education", "/about/education/")
 );
 
-const pages = {
+const pages = Object.keys({
   index: defaultPage,
   ...pageAndDir("blog", defaultPage),
   ...postPages,
@@ -98,7 +98,12 @@ const pages = {
   ...pageAndDir("about", defaultPage),
   "ipfs-404": defaultPage,
   ...pageAndDir("404", defaultPage),
-};
+});
+
+await writeFile(
+  "./dist/server/files.json",
+  JSON.stringify(pages, undefined, 2)
+);
 
 const dataVirtualFile = (virtualModuleId, data) => {
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
@@ -124,7 +129,6 @@ export default defineConfig({
     jsxInject: `import {h} from 'atomico'`,
   },
   plugins: [
-    virtualHtmlTemplate({ pages }),
     babel({
       babelHelpers: "bundled",
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
@@ -134,7 +138,6 @@ export default defineConfig({
     dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
     dataVirtualFile("@kepler/experience", experienceJson),
     dataVirtualFile("@kepler/education", educationJson),
-    process.env.SSG && viteJsdomSsg,
     vitePluginRehype({
       plugins: rehypePlugins,
     }),
@@ -145,10 +148,5 @@ export default defineConfig({
   build: {
     outDir: "dist",
     sourcemap: true,
-    rollupOptions: {
-      input: Object.fromEntries(
-        Object.entries(pages).map((page) => [page[0], `${page[0]}.html`])
-      ),
-    },
   },
 });

@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && SSG=1 npm run build:client",
+    "build": "npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && npm run build:client && npm run build:generate",
     "build:client": "vite build --outDir dist/client --ssrManifest",
-    "build:server": "vite build --ssr --outDir dist/server",
+    "build:server": "vite build --ssr src/main.js --outDir dist/server",
+    "build:generate": "node generate.js",
     "preview": "npm run build && npm run serve",
     "serve": "serve dist/client",
     "test": "jest"
@@ -90,6 +91,7 @@
     "highlight.js": "^11.3.1",
     "js-yaml": "^4.1.0",
     "modern-normalize": "^1.1.0",
+    "p-map": "^5.3.0",
     "rehype-autolink-headings": "^6.1.0",
     "rehype-highlight": "^5.0.1",
     "rehype-rewrite": "^3.0.4",
@@ -114,6 +116,7 @@
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.28",
     "jsdom": "^19.0.0",
+    "make-dir": "^3.1.0",
     "prettier": "^2.3.2",
     "rehype-minify-json-script": "^3.0.0",
     "rehype-minify-whitespace": "^5.0.0",
