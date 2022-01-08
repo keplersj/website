@@ -127,7 +127,10 @@ function component() {
                         }
                       )}
                     </time>
-                    <p>{post.frontmatter.excerpt}</p>
+                    <p>
+                      {post.frontmatter?.data?.description ||
+                        post.frontmatter.excerpt}
+                    </p>
                     <a is="kepler-home-flex-read-more" href={post.url}>
                       Read More...
                     </a>

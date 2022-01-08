@@ -57,7 +57,10 @@ function component() {
                 <a href={post.url}>
                   <h2>{post.frontmatter?.data?.title || post.url}</h2>
                 </a>
-                <p>{post.frontmatter?.data?.description}</p>
+                <p>
+                  {post.frontmatter?.data?.description ||
+                    post.frontmatter.excerpt}
+                </p>
               </div>
             </starstuff-card>
           ))}
