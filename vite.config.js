@@ -6,6 +6,7 @@ import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypePlugins from "./src/util/rehype-preset-build.js";
 import viteJsdomSsg from "./src/util/vite-jsdom-ssg.js";
+import makeDir from "make-dir";
 
 function pageAndDir(path, options) {
   return {
@@ -99,6 +100,8 @@ const pages = Object.keys({
   "ipfs-404": defaultPage,
   ...pageAndDir("404", defaultPage),
 });
+
+await makeDir("./dist/server/");
 
 await writeFile(
   "./dist/server/files.json",
