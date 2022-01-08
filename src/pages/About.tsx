@@ -6,6 +6,9 @@ import { Avatar } from "../components/Avatar";
 import "../components/Markdown";
 import education from "@kepler/education";
 import experience from "@kepler/experience";
+import { social } from "../../public/about/settings.json";
+import "@fortawesome/fontawesome-free/js/all.js";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -76,12 +79,39 @@ const Detail = styled.span`
 
 customElements.define("kepler-about-detail", Detail, { extends: "span" });
 
+const ProfileLinksContainer = styled("address")`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+customElements.define("kepler-about-social-container", ProfileLinksContainer, {
+  extends: "address",
+});
+
+const SocialLink = styled.a`
+  font-size: 1.5em;
+  padding: 0.5em;
+`;
+
+customElements.define("kepler-about-social-link", SocialLink, { extends: "a" });
+
 function getDateString(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     month: "long",
     year: "numeric",
   });
 }
+
+const faClassForSocial: { [name: string]: string } = {
+  Email: "fas fa-envelope",
+  PGP: "fas fa-key",
+  GitHub: "fab fa-github",
+  Twitter: "fab fa-twitter",
+  LinkedIn: "fab fa-linkedin",
+  Keybase: "fab fa-keybase",
+  Instagram: "fab fa-instagram",
+};
 
 function component() {
   return (
@@ -108,6 +138,20 @@ function component() {
           >
             Salt Lake City, UT, USA
           </span>
+          <address is="kepler-about-social-container" role="list">
+            {social.map((profile) => (
+              <a
+                is="kepler-about-social-link"
+                role="listitem"
+                key={`${profile.name}__${profile.id}__${profile.url}`}
+                href={profile.url}
+                name={profile.name}
+                aria-label={`${profile.name}: ${profile.id}`}
+              >
+                <i class={faClassForSocial[profile.name]}></i>
+              </a>
+            ))}
+          </address>
         </header>
         <main is="kepler-about-experience-container">
           <div>

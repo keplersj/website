@@ -12,53 +12,6 @@
     "test": "jest"
   },
   "gatsby": {
-    "siteMetadata": {
-      "title": "Kepler Sticka-Jones",
-      "description": "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
-      "siteUrl": "https://keplersj.com",
-      "social": [
-        {
-          "name": "Email",
-          "id": "kepler@stickajones.org",
-          "url": "mailto:kepler@stickajones.org"
-        },
-        {
-          "name": "PGP",
-          "id": "BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C",
-          "url": "https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
-        },
-        {
-          "name": "GitHub",
-          "id": "keplersj",
-          "url": "https://github.com/keplersj",
-          "isProfile": true
-        },
-        {
-          "name": "Twitter",
-          "id": "@realKeplerSJ",
-          "url": "https://twitter.com/realKeplerSJ",
-          "isProfile": true
-        },
-        {
-          "name": "LinkedIn",
-          "id": "keplersj",
-          "url": "https://www.linkedin.com/in/keplersj/",
-          "isProfile": true
-        },
-        {
-          "name": "Keybase",
-          "id": "keplersj",
-          "url": "https://keybase.io/keplersj",
-          "isProfile": true
-        },
-        {
-          "name": "Instagram",
-          "id": "keplersj_",
-          "url": "https://www.instagram.com/keplersj_/",
-          "isProfile": true
-        }
-      ]
-    },
     "plugins": [
       "gatsby-theme-kepler",
       {
@@ -131,13 +84,12 @@
     "@a11y/skip-navigation": "^0.0.10",
     "@atomico/hooks": "^3.20.2",
     "@emotion/css": "^11.7.1",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@vaadin/router": "^1.7.4",
     "atomico": "^1.34.0",
     "highlight.js": "^11.3.1",
     "js-yaml": "^4.1.0",
     "modern-normalize": "^1.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "rehype-autolink-headings": "^6.1.0",
     "rehype-highlight": "^5.0.1",
     "rehype-rewrite": "^3.0.4",
