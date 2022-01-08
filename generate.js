@@ -4,11 +4,20 @@ import { fork } from "node:child_process";
 import { parse } from "node:path";
 import pMap from "p-map";
 import makeDir from "make-dir";
+import { unified } from "unified";
+import rehypeParse from "rehype-parse";
+import rehypeStringify from "rehype-stringify";
+import rehypePresetBuild from "./src/util/rehype-preset-build.js";
 
 const cpuCount = cpus().length;
 
 const filesJson = await readFile("./dist/server/files.json");
 const files = JSON.parse(filesJson);
+
+const engine = unified()
+  .use(rehypeParse)
+  .use(rehypePresetBuild)
+  .use(rehypeStringify);
 
 const mapper = async (fileName) => {
   fileName = "/" + fileName + ".html";
@@ -32,8 +41,13 @@ const mapper = async (fileName) => {
 
   await makeDir(dir);
 
-  await writeFile(destination, rendered.replace('<base href="/">', ""));
+  await writeFile(
+    destination,
+    await engine
+      .process(rendered.replace('<base href="/">', ""))
+      .then((file) => file.toString("utf-8"))
+  );
   console.log(`Rendered ${fileName}`);
 };
 
-await pMap(files, mapper, { concurrency: cpuCount / 2 });
+await pMap(files, mapper, { concurrency: process.env.CI ? 1 : cpuCount / 2 });

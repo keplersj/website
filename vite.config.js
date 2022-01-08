@@ -1,11 +1,9 @@
 import { defineConfig } from "vite";
-import virtualHtmlTemplate from "vite-plugin-virtual-html-template";
 import { readdir, readFile, writeFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypePlugins from "./src/util/rehype-preset-build.js";
-import viteJsdomSsg from "./src/util/vite-jsdom-ssg.js";
 import makeDir from "make-dir";
 
 function pageAndDir(path, options) {

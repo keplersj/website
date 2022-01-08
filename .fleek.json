@@ -2,6 +2,9 @@
   "build": {
     "image": "node:alpine",
     "command": "npm ci && npm run build",
-    "publicDir": "dist/client"
+    "publicDir": "dist/client",
+    "environment": {
+      "CI": "1"
+    }
   }
 }
