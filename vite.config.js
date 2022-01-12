@@ -1,37 +1,10 @@
 import { defineConfig } from "vite";
-import { readdir, readFile, writeFile } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
 import frontmatter from "gray-matter";
 import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypePlugins from "./src/util/rehype-preset-build.js";
-import makeDir from "make-dir";
-
-function pageAndDir(path, options) {
-  return {
-    [path]: options,
-    [`${path}/index`]: options,
-  };
-}
-
-const defaultPage = {
-  template: "src/index.html",
-  entry: `src/main.js`,
-};
-
-async function pagesFromDir(directory, prefix) {
-  const files = await readdir(directory);
-  const pages = await Promise.all(
-    files.map(async (filename) =>
-      Object.entries(
-        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, defaultPage)
-      )
-    )
-  );
-  return Object.fromEntries(pages.flat());
-}
-
-const postPages = await pagesFromDir("./public/blog", "blog");
-const portfolioPages = await pagesFromDir("./public/portfolio", "portfolio");
+import dataVirtualFile from "./src/util/vite-plugin-virtual-file.js";
 
 async function markdownArray(directory, prefix) {
   const files = await readdir(directory);
@@ -88,43 +61,8 @@ const educationJson = JSON.stringify(
   await markdownFiles("./public/about/education", "/about/education/")
 );
 
-const pages = Object.keys({
-  index: defaultPage,
-  ...pageAndDir("blog", defaultPage),
-  ...postPages,
-  ...pageAndDir("portfolio", defaultPage),
-  ...portfolioPages,
-  ...pageAndDir("about", defaultPage),
-  "ipfs-404": defaultPage,
-  ...pageAndDir("404", defaultPage),
-});
-
-await makeDir("./dist/server/");
-
-await writeFile(
-  "./dist/server/files.json",
-  JSON.stringify(pages, undefined, 2)
-);
-
-const dataVirtualFile = (virtualModuleId, data) => {
-  const resolvedVirtualModuleId = "\0" + virtualModuleId;
-
-  return {
-    name: `virtual-file (${virtualModuleId})`, // required, will show up in warnings and errors
-    resolveId(id) {
-      if (id === virtualModuleId) {
-        return resolvedVirtualModuleId;
-      }
-    },
-    load(id) {
-      if (id === resolvedVirtualModuleId) {
-        return `export default ${data}`;
-      }
-    },
-  };
-};
-
 export default defineConfig({
+  publicDir: process.env.PREBUILD ? "node_modules/.prynne/public" : "public",
   esbuild: {
     jsxFactory: "h",
     jsxInject: `import {h} from 'atomico'`,

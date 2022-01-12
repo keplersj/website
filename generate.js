@@ -1,5 +1,5 @@
 import { cpus } from "node:os";
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, writeFile } from "node:fs/promises";
 import { fork } from "node:child_process";
 import { parse } from "node:path";
 import pMap from "p-map";
@@ -11,8 +11,43 @@ import rehypePresetBuild from "./src/util/rehype-preset-build.js";
 
 const cpuCount = cpus().length;
 
-const filesJson = await readFile("./dist/server/files.json");
-const files = JSON.parse(filesJson);
+function pageAndDir(path, options) {
+  return {
+    [path]: options,
+    [`${path}/index`]: options,
+  };
+}
+
+const defaultPage = {
+  template: "src/index.html",
+  entry: `src/main.js`,
+};
+
+async function pagesFromDir(directory, prefix) {
+  const files = await readdir(directory);
+  const pages = await Promise.all(
+    files.map(async (filename) =>
+      Object.entries(
+        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, defaultPage)
+      )
+    )
+  );
+  return Object.fromEntries(pages.flat());
+}
+
+const postPages = await pagesFromDir("./public/blog", "blog");
+const portfolioPages = await pagesFromDir("./public/portfolio", "portfolio");
+
+const files = Object.keys({
+  index: defaultPage,
+  ...pageAndDir("blog", defaultPage),
+  ...postPages,
+  ...pageAndDir("portfolio", defaultPage),
+  ...portfolioPages,
+  ...pageAndDir("about", defaultPage),
+  "ipfs-404": defaultPage,
+  ...pageAndDir("404", defaultPage),
+});
 
 const engine = unified()
   .use(rehypeParse)
