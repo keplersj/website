@@ -80,7 +80,7 @@ export default defineConfig({
     vitePluginRehype({
       plugins: rehypePlugins,
     }),
-  ].filter(Boolean),
+  ],
   optimizeDeps: {
     include: ["@vaadin/router", "atomico"],
   },

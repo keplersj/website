@@ -11,43 +11,29 @@ import rehypePresetBuild from "./src/util/rehype-preset-build.js";
 
 const cpuCount = cpus().length;
 
-function pageAndDir(path, options) {
-  return {
-    [path]: options,
-    [`${path}/index`]: options,
-  };
-}
-
-const defaultPage = {
-  template: "src/index.html",
-  entry: `src/main.js`,
-};
+const pageAndDir = (path) => [path, `${path}/index`];
 
 async function pagesFromDir(directory, prefix) {
   const files = await readdir(directory);
-  const pages = await Promise.all(
-    files.map(async (filename) =>
-      Object.entries(
-        pageAndDir(`${prefix}/${filename.replace(".md", "")}`, defaultPage)
-      )
-    )
+
+  return files.flatMap((filename) =>
+    pageAndDir(`${prefix}/${filename.replace(".md", "")}`)
   );
-  return Object.fromEntries(pages.flat());
 }
 
 const postPages = await pagesFromDir("./public/blog", "blog");
 const portfolioPages = await pagesFromDir("./public/portfolio", "portfolio");
 
-const files = Object.keys({
-  index: defaultPage,
-  ...pageAndDir("blog", defaultPage),
+const files = [
+  "index",
+  ...pageAndDir("blog"),
   ...postPages,
-  ...pageAndDir("portfolio", defaultPage),
+  ...pageAndDir("portfolio"),
   ...portfolioPages,
-  ...pageAndDir("about", defaultPage),
-  "ipfs-404": defaultPage,
-  ...pageAndDir("404", defaultPage),
-});
+  ...pageAndDir("about"),
+  "ipfs-404",
+  ...pageAndDir("404"),
+];
 
 const engine = unified()
   .use(rehypeParse)
