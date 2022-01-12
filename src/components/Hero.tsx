@@ -1,8 +1,6 @@
 import { c } from "atomico";
 import { css } from "@emotion/css";
 import "starstuff-components";
-import bannerUrlLight from "../../public/assets/images/banner.jpg";
-import bannerUrlDark from "../../public/assets/images/banner_dark.jpg";
 import { Avatar } from "../components/Avatar";
 
 function component() {
@@ -27,10 +25,22 @@ function component() {
 
           z-index: -100;
 
-          background-image: url(${bannerUrlLight});
+          background-image: url("/assets/images/banner.jpg");
+          background-image: url("/assets/images/banner-opt.jpeg");
+          background-image: image-set(
+            url("/assets/images/banner-opt.avif") type("image/avif"),
+            url("/assets/images/banner-opt.wpeg") type("image/webp"),
+            url("/assets/images/banner-opt.jpeg") type("image/jpeg")
+          );
 
           @media (prefers-color-scheme: dark) {
-            background-image: url(${bannerUrlDark});
+            background-image: url("/assets/images/banner_dark.jpg");
+            background-image: url("/assets/images/banner_dark-opt.jpeg");
+            background-image: image-set(
+              url("/assets/images/banner_dark-opt.avif") type("image/avif"),
+              url("/assets/images/banner_dark-opt.webp") type("image/webp"),
+              url("/assets/images/banner_dark-opt.jpeg") type("image/jpeg")
+            );
           }
         }
       `}
