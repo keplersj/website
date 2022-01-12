@@ -2,7 +2,8 @@ import { cpus } from "node:os";
 import { readdir, writeFile } from "node:fs/promises";
 import { fork } from "node:child_process";
 import { parse } from "node:path";
-import pMap from "p-map";
+import PQueue from "p-queue";
+import ora from "ora";
 import makeDir from "make-dir";
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
@@ -40,35 +41,56 @@ const engine = unified()
   .use(rehypePresetBuild)
   .use(rehypeStringify);
 
-const mapper = async (fileName) => {
-  fileName = "/" + fileName + ".html";
-  console.log(`Rendering ${fileName}`);
+const spinner = ora("Processing Images").start();
+const queue = new PQueue({ concurrency: process.env.CI ? 1 : cpuCount / 2 });
 
-  const process = fork("./prerender.js", [fileName]);
+let count = 0;
 
-  let rendered = "";
-
-  process.on("message", (message) => {
-    rendered = message;
-  });
-
-  await new Promise((resolve, reject) => {
-    process.on("exit", resolve);
-    process.on("error", reject);
-  });
-
-  const destination = `./dist/client${fileName}`;
-  const { dir } = parse(destination);
-
-  await makeDir(dir);
-
-  await writeFile(
-    destination,
-    await engine
-      .process(rendered.replace('<base href="/">', ""))
-      .then((file) => file.toString("utf-8"))
+queue.on("active", () => {
+  spinner.start(
+    `Working on item #${++count}.  Size: ${queue.size}  Pending: ${
+      queue.pending
+    }`
   );
-  console.log(`Rendered ${fileName}`);
-};
+});
 
-await pMap(files, mapper, { concurrency: process.env.CI ? 1 : cpuCount / 2 });
+queue.on("completed", (result) => {
+  spinner.succeed(`Completed item ${count} ${result}`);
+});
+
+queue.on("error", (error) => {
+  spinner.warn(`Error on item ${count}: ${error}`);
+});
+
+queue.addAll(
+  files.map((fileName) => async () => {
+    fileName = "/" + fileName + ".html";
+
+    const process = fork("./prerender.js", [fileName]);
+
+    let rendered = "";
+
+    process.on("message", (message) => {
+      rendered = message;
+    });
+
+    await new Promise((resolve, reject) => {
+      process.on("exit", resolve);
+      process.on("error", reject);
+    });
+
+    const destination = `./dist/client${fileName}`;
+    const { dir } = parse(destination);
+
+    await makeDir(dir);
+
+    await writeFile(
+      destination,
+      await engine
+        .process(rendered.replace('<base href="/">', ""))
+        .then((file) => file.toString("utf-8"))
+    );
+
+    return fileName;
+  })
+);
