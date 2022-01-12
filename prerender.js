@@ -1,24 +1,11 @@
 import { readFile } from "node:fs/promises";
 import jsdomGlobal from "global-jsdom";
 import "whatwg-fetch";
-import express from "express";
-
-const app = express();
-
-app.use(express.static("./dist/server"));
-
-const server = await new Promise((resolve) => {
-  const server = app.listen(() => {
-    resolve(server);
-  });
-});
 
 const file = await readFile("./dist/client/index.html");
 
 jsdomGlobal(file.toString(), {
-  url: `http://127.0.0.1:${server.address().port}${
-    process.argv[2] || "/index.html"
-  }`,
+  url: `http://127.0.0.1:${process.argv[3]}${process.argv[2] || "/index.html"}`,
 });
 
 const { sheet } = await import("@emotion/css");
@@ -59,5 +46,3 @@ await new Promise((resolve) => {
 const html = $jsdom.serialize();
 
 process.send(html);
-
-server.close();

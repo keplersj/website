@@ -8,6 +8,7 @@ import makeDir from "make-dir";
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import rehypeStringify from "rehype-stringify";
+import express from "express";
 import rehypePresetBuild from "./src/util/rehype-preset-build.js";
 
 const cpuCount = cpus().length;
@@ -41,8 +42,20 @@ const engine = unified()
   .use(rehypePresetBuild)
   .use(rehypeStringify);
 
-const spinner = ora("Processing Images").start();
-const queue = new PQueue({ concurrency: process.env.CI ? 1 : cpuCount / 2 });
+const app = express();
+
+app.use(express.static("./dist/server"));
+
+const server = await new Promise((resolve) => {
+  const server = app.listen(() => {
+    resolve(server);
+  });
+});
+
+const port = server.address().port;
+
+const spinner = ora("Rendering Pages").start();
+const queue = new PQueue({ concurrency: cpuCount * 2 });
 
 let count = 0;
 
@@ -62,11 +75,17 @@ queue.on("error", (error) => {
   spinner.warn(`Error on item ${count}: ${error}`);
 });
 
+queue.on("idle", () => {
+  console.log(`Queue is idle.  Size: ${queue.size}  Pending: ${queue.pending}`);
+  console.log("Closing server.");
+  server.close();
+});
+
 queue.addAll(
   files.map((fileName) => async () => {
     fileName = "/" + fileName + ".html";
 
-    const process = fork("./prerender.js", [fileName]);
+    const process = fork("./prerender.js", [fileName, port]);
 
     let rendered = "";
 
