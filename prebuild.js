@@ -1,7 +1,7 @@
 import { cpus } from "node:os";
 import makeDir from "make-dir";
 import copy from "cpy";
-import { constants } from "node:fs";
+import { constants, createReadStream } from "node:fs";
 import { access } from "node:fs/promises";
 import { globby } from "globby";
 import sharp from "sharp";
@@ -75,7 +75,8 @@ function sharpResize(sharpStream, path, width, height, options = {}) {
 }
 
 const spinner = ora("Processing Images").start();
-const queue = new PQueue({ concurrency: process.env.CI ? 1 : cpuCount });
+// const queue = new PQueue({ concurrency: process.env.CI ? 1 : cpuCount });
+const queue = new PQueue({ concurrency: cpuCount });
 
 let count = 0;
 
@@ -99,45 +100,45 @@ queue.on("error", (error) => {
   );
 });
 
-queue.addAll(
-  images
-    .filter((filename) => !filename.includes("-opt"))
-    .flatMap((filename) => {
-      const path = parse(filename);
+for (const filename of images.filter(
+  (filename) => !filename.includes("-opt")
+)) {
+  const path = parse(filename);
 
-      const sharpStream = sharp(filename, {
-        failOnError: false,
-        // Might improve performance on CI?
-        sequentialRead: true,
-      });
+  const sharpStream = sharp({
+    failOnError: false,
+    // Might improve performance on CI?
+    sequentialRead: true,
+  });
 
-      const sizeBreakpoints = [
-        256, 512, 768, 1024,
-        // 720p
-        1280,
-        // 1080p
-        1920,
-        // 4k
-        // 3840,
-        // 5k
-        // 5120,
-        // 8k
-        // 7680,
-      ];
+  createReadStream(filename).pipe(sharpStream);
 
-      return [
-        ...sharpOptimize(sharpStream, path),
-        ...sizeBreakpoints.flatMap((width) =>
-          sharpResize(sharpStream, path, width, "retain", {
-            withoutEnlargement: true,
-          })
-        ),
-        // 16:9 Images
-        // ...sizeBreakpoints.flatMap((width) =>
-        //   sharpResize(sharpStream, path, width, width * (9 / 16), {
-        //     withoutEnlargement: true,
-        //   })
-        // ),
-      ];
-    })
-);
+  const sizeBreakpoints = [
+    256, 512, 768, 1024,
+    // 720p
+    1280,
+    // 1080p
+    1920,
+    // 4k
+    // 3840,
+    // 5k
+    // 5120,
+    // 8k
+    // 7680,
+  ];
+
+  await queue.addAll([
+    ...sharpOptimize(sharpStream, path),
+    ...sizeBreakpoints.flatMap((width) =>
+      sharpResize(sharpStream, path, width, "retain", {
+        withoutEnlargement: true,
+      })
+    ),
+    // 16:9 Images
+    // ...sizeBreakpoints.flatMap((width) =>
+    //   sharpResize(sharpStream, path, width, width * (9 / 16), {
+    //     withoutEnlargement: true,
+    //   })
+    // ),
+  ]);
+}
