@@ -1,7 +1,8 @@
 import { cpus } from "node:os";
 import makeDir from "make-dir";
 import copy from "cpy";
-import { rm } from "node:fs/promises";
+import { constants } from "node:fs";
+import { access } from "node:fs/promises";
 import { globby } from "globby";
 import sharp from "sharp";
 import { format, parse } from "node:path";
@@ -10,7 +11,6 @@ import ora from "ora";
 
 const cpuCount = cpus().length;
 
-await rm("./node_modules/.prynne/public", { recursive: true, force: true });
 await makeDir("./node_modules/.prynne/");
 await copy("./public/", "./node_modules/.prynne/", { parents: true });
 
@@ -33,58 +33,94 @@ function changeExtWithSuffix(path, extension, suffix = "") {
   };
 }
 
+const exists = (path) =>
+  access(path, constants.F_OK)
+    .then(() => true)
+    .catch(() => false);
+
 function sharpOptimize(sharpStream, path) {
   return [
-    () =>
-      sharpStream
-        .clone()
-        .jpeg()
-        .toFile(format(changeExtWithSuffix(path, "jpeg", "-opt")))
-        .catch(console.error),
-    () =>
-      sharpStream
-        .clone()
-        .avif()
-        .toFile(format(changeExtWithSuffix(path, "avif", "-opt")))
-        .catch(console.error),
-    () =>
-      sharpStream
-        .clone()
-        .webp()
-        .toFile(format(changeExtWithSuffix(path, "webp", "-opt")))
-        .catch(console.error),
+    async () => {
+      const output = format(changeExtWithSuffix(path, "jpeg", "-opt"));
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
+      await sharpStream.clone().jpeg().toFile(output).catch(console.error);
+
+      return `Created ${output}`;
+    },
+    async () => {
+      const output = format(changeExtWithSuffix(path, "avif", "-opt"));
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
+      await sharpStream.clone().avif().toFile(output).catch(console.error);
+      return `Created ${output}`;
+    },
+    async () => {
+      const output = format(changeExtWithSuffix(path, "webp", "-opt"));
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
+      await sharpStream.clone().webp().toFile(output).catch(console.error);
+      return `Created ${output}`;
+    },
   ];
 }
 
 function sharpResize(sharpStream, path, width, height, options = {}) {
   return [
-    () =>
-      sharpStream
+    async () => {
+      const output = format(
+        changeExtWithSuffix(path, "jpeg", `-opt-${width}-${height}`)
+      );
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
+      await sharpStream
         .clone()
         .resize(width, height === "retain" ? undefined : height, options)
         .jpeg()
-        .toFile(
-          format(changeExtWithSuffix(path, "jpeg", `-opt-${width}-${height}`))
-        )
-        .catch(console.error),
-    () =>
+        .toFile(output)
+        .catch(console.error);
+      return `Created ${output}`;
+    },
+    async () => {
+      const output = format(
+        changeExtWithSuffix(path, "avif", `-opt-${width}-${height}`)
+      );
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
       sharpStream
         .clone()
         .resize(width, height === "retain" ? undefined : height, options)
         .avif()
-        .toFile(
-          format(changeExtWithSuffix(path, "avif", `-opt-${width}-${height}`))
-        )
-        .catch(console.error),
-    () =>
+        .toFile(output)
+        .catch(console.error);
+      return `Created ${output}`;
+    },
+    async () => {
+      const output = format(
+        changeExtWithSuffix(path, "webp", `-opt-${width}-${height}`)
+      );
+      if (await exists(output)) {
+        return `Output ${output} exists. Passing.`;
+      }
+
       sharpStream
         .clone()
         .resize(width, height === "retain" ? undefined : height, options)
         .webp()
-        .toFile(
-          format(changeExtWithSuffix(path, "webp", `-opt-${width}-${height}`))
-        )
-        .catch(console.error),
+        .toFile(output)
+        .catch(console.error);
+      return `Created ${output}`;
+    },
   ];
 }
 
@@ -102,7 +138,7 @@ queue.on("active", () => {
 });
 
 queue.on("completed", (result) => {
-  spinner.succeed(`Completed item ${count} ${JSON.stringify(result)}`);
+  spinner.succeed(`Completed item ${count} ${result}`);
 });
 
 queue.on("error", (error) => {
@@ -110,40 +146,42 @@ queue.on("error", (error) => {
 });
 
 queue.addAll(
-  images.flatMap((filename) => {
-    const path = parse(filename);
+  images
+    .filter((filename) => !filename.includes("-opt"))
+    .flatMap((filename) => {
+      const path = parse(filename);
 
-    const sharpStream = sharp(filename, {
-      failOnError: false,
-    });
+      const sharpStream = sharp(filename, {
+        failOnError: false,
+      });
 
-    const sizeBreakpoints = [
-      256, 512, 768, 1024,
-      // 720p
-      1280,
-      // 1080p
-      1920,
-      // 4k
-      3840,
-      // 5k
-      5120,
-      // 8k
-      7680,
-    ];
+      const sizeBreakpoints = [
+        256, 512, 768, 1024,
+        // 720p
+        1280,
+        // 1080p
+        1920,
+        // 4k
+        3840,
+        // 5k
+        5120,
+        // 8k
+        7680,
+      ];
 
-    return [
-      ...sharpOptimize(sharpStream, path),
-      ...sizeBreakpoints.flatMap((width) =>
-        sharpResize(sharpStream, path, width, "retain", {
-          withoutEnlargement: true,
-        })
-      ),
-      // 16:9 Images
-      ...sizeBreakpoints.flatMap((width) =>
-        sharpResize(sharpStream, path, width, width * (9 / 16), {
-          withoutEnlargement: true,
-        })
-      ),
-    ];
-  })
+      return [
+        ...sharpOptimize(sharpStream, path),
+        ...sizeBreakpoints.flatMap((width) =>
+          sharpResize(sharpStream, path, width, "retain", {
+            withoutEnlargement: true,
+          })
+        ),
+        // 16:9 Images
+        // ...sizeBreakpoints.flatMap((width) =>
+        //   sharpResize(sharpStream, path, width, width * (9 / 16), {
+        //     withoutEnlargement: true,
+        //   })
+        // ),
+      ];
+    })
 );
