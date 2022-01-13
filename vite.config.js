@@ -71,7 +71,18 @@ export default defineConfig({
     babel({
       babelHelpers: "bundled",
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
-      plugins: ["@emotion"],
+      plugins: [
+        [
+          "@emotion",
+          {
+            importMap: {
+              "styled-custom-elements": {
+                default: { canonicalImport: ["@emotion/styled", "default"] },
+              },
+            },
+          },
+        ],
+      ],
     }),
     dataVirtualFile("@kepler/blog", postsJson),
     dataVirtualFile("@kepler/portfolio", portfolioPiecesJson),
