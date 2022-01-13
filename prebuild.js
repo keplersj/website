@@ -75,7 +75,7 @@ function sharpResize(sharpStream, path, width, height, options = {}) {
 }
 
 const spinner = ora("Processing Images").start();
-const queue = new PQueue({ concurrency: cpuCount });
+const queue = new PQueue({ concurrency: process.env.CI ? 1 : cpuCount });
 
 let count = 0;
 
