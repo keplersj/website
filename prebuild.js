@@ -42,24 +42,24 @@ const exists = (path) =>
     .catch(() => false);
 
 function sharpOptimize(sharpStream, path) {
+  const sharpInstance = sharpStream.clone();
+
   return ["jpeg", "avif", "webp"].map((format) => async () => {
     const output = formatPath(changeExtWithSuffix(path, format, "-opt"));
     if (await exists(output)) {
       return `Output ${output} exists. Passing.`;
     }
 
-    await sharpStream[format]().toFile(output).catch(console.error);
+    await sharpInstance.toFormat(format).toFile(output).catch(console.error);
 
     return `Created ${output}`;
   });
 }
 
 function sharpResize(sharpStream, path, width, height, options = {}) {
-  const sharpInstance = sharpStream.resize(
-    width,
-    height === "retain" ? undefined : height,
-    options
-  );
+  const sharpInstance = sharpStream
+    .clone()
+    .resize(width, height === "retain" ? undefined : height, options);
 
   return ["jpeg", "avif", "webp"].map((format) => async () => {
     const output = formatPath(
@@ -69,7 +69,7 @@ function sharpResize(sharpStream, path, width, height, options = {}) {
       return `Output ${output} exists. Passing.`;
     }
 
-    await sharpInstance[format]().toFile(output).catch(console.error);
+    await sharpInstance.toFormat(format).toFile(output).catch(console.error);
     return `Created ${output}`;
   });
 }
@@ -100,45 +100,60 @@ queue.on("error", (error) => {
   );
 });
 
-for (const filename of images.filter(
-  (filename) => !filename.includes("-opt")
-)) {
-  const path = parse(filename);
+// Set a Budget of 10 minutes (in seconds) for all images processing
+const totalImageBudget = 10 * 60;
 
-  const sharpStream = sharp({
-    failOnError: false,
-    // Might improve performance on CI?
-    sequentialRead: true,
-  });
+console.log("Seconds Allocated to Image Processing: " + totalImageBudget);
 
-  createReadStream(filename).pipe(sharpStream);
+const opsPerImage = /* formats */ 3 * /* transformations */ 2;
 
-  const sizeBreakpoints = [
-    256, 512, 768, 1024,
-    // 720p
-    1280,
-    // 1080p
-    1920,
-    // 4k
-    // 3840,
-    // 5k
-    // 5120,
-    // 8k
-    // 7680,
-  ];
+const totalOperations = images.length * opsPerImage;
 
-  await queue.addAll([
-    ...sharpOptimize(sharpStream, path),
-    ...sizeBreakpoints.flatMap((width) =>
-      sharpResize(sharpStream, path, width, "retain", {
-        withoutEnlargement: true,
-      })
-    ),
-    // 16:9 Images
-    // ...sizeBreakpoints.flatMap((width) =>
-    //   sharpResize(sharpStream, path, width, width * (9 / 16), {
-    //     withoutEnlargement: true,
-    //   })
-    // ),
-  ]);
-}
+console.log("Total Operations to Run: " + totalOperations);
+
+const operationBudget = Math.round(totalImageBudget / totalOperations);
+
+console.log("Budgetted Time Per Operation: " + operationBudget);
+
+queue.addAll(
+  images
+    .filter((filename) => !filename.includes("-opt"))
+    .flatMap((filename) => {
+      const path = parse(filename);
+
+      const sharpStream = sharp(filename, {
+        failOnError: false,
+        // Might improve performance on CI?
+        // sequentialRead: true,
+      }).timeout({ seconds: operationBudget });
+
+      const sizeBreakpoints = [
+        256, 512, 768, 1024,
+        // 720p
+        1280,
+        // 1080p
+        1920,
+        // 4k
+        // 3840,
+        // 5k
+        // 5120,
+        // 8k
+        // 7680,
+      ];
+
+      return [
+        ...sharpOptimize(sharpStream, path),
+        ...sizeBreakpoints.flatMap((width) =>
+          sharpResize(sharpStream, path, width, "retain", {
+            withoutEnlargement: true,
+          })
+        ),
+        // 16:9 Images
+        // ...sizeBreakpoints.flatMap((width) =>
+        //   sharpResize(sharpStream, path, width, width * (9 / 16), {
+        //     withoutEnlargement: true,
+        //   })
+        // ),
+      ];
+    })
+);
