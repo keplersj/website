@@ -68,11 +68,15 @@ queue.on("active", () => {
 });
 
 queue.on("completed", (result) => {
-  spinner.succeed(`Completed item ${count} ${result}`);
+  spinner.succeed(
+    `Completed item ${count} ${result}.  Size: ${queue.size}  Pending: ${queue.pending}`
+  );
 });
 
 queue.on("error", (error) => {
-  spinner.warn(`Error on item ${count}: ${error}`);
+  spinner.warn(
+    `Error on item ${count}: ${error}.  Size: ${queue.size}  Pending: ${queue.pending}`
+  );
 });
 
 queue.on("idle", () => {

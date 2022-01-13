@@ -9,6 +9,9 @@ import { format as formatPath, parse } from "node:path";
 import PQueue from "p-queue";
 import ora from "ora";
 
+sharp.simd(true);
+sharp.concurrency(1);
+
 const cpuCount = cpus().length;
 
 await makeDir("./node_modules/.prynne/");
@@ -45,13 +48,19 @@ function sharpOptimize(sharpStream, path) {
       return `Output ${output} exists. Passing.`;
     }
 
-    await sharpStream.clone()[format]().toFile(output).catch(console.error);
+    await sharpStream[format]().toFile(output).catch(console.error);
 
     return `Created ${output}`;
   });
 }
 
 function sharpResize(sharpStream, path, width, height, options = {}) {
+  const sharpInstance = sharpStream.resize(
+    width,
+    height === "retain" ? undefined : height,
+    options
+  );
+
   return ["jpeg", "avif", "webp"].map((format) => async () => {
     const output = formatPath(
       changeExtWithSuffix(path, format, `-opt-${width}-${height}`)
@@ -60,18 +69,13 @@ function sharpResize(sharpStream, path, width, height, options = {}) {
       return `Output ${output} exists. Passing.`;
     }
 
-    await sharpStream
-      .clone()
-      .resize(width, height === "retain" ? undefined : height, options)
-      [format]()
-      .toFile(output)
-      .catch(console.error);
+    await sharpInstance[format]().toFile(output).catch(console.error);
     return `Created ${output}`;
   });
 }
 
 const spinner = ora("Processing Images").start();
-const queue = new PQueue({ concurrency: cpuCount * 4 });
+const queue = new PQueue({ concurrency: cpuCount });
 
 let count = 0;
 
@@ -84,11 +88,15 @@ queue.on("active", () => {
 });
 
 queue.on("completed", (result) => {
-  spinner.succeed(`Completed item ${count} ${result}`);
+  spinner.succeed(
+    `Completed item ${count} ${result}.  Size: ${queue.size}  Pending: ${queue.pending}`
+  );
 });
 
 queue.on("error", (error) => {
-  spinner.warn(`Error on item ${count}: ${error}`);
+  spinner.warn(
+    `Error on item ${count}: ${error}.  Size: ${queue.size}  Pending: ${queue.pending}`
+  );
 });
 
 queue.addAll(
@@ -99,6 +107,8 @@ queue.addAll(
 
       const sharpStream = sharp(filename, {
         failOnError: false,
+        // Might improve performance on CI?
+        sequentialRead: true,
       });
 
       const sizeBreakpoints = [
