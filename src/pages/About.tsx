@@ -29,7 +29,7 @@ customElements.define("kepler-about-container", AboutContainer, {
   extends: "div",
 });
 
-const ProfileContainer = styled("header")`
+const ProfileContainer = styled.header`
   margin: 1em;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ customElements.define("kepler-about-profile-container", ProfileContainer, {
   extends: "header",
 });
 
-const ExperienceContainer = styled("main")`
+const ExperienceContainer = styled.main`
   margin: 1em;
   flex-grow: 1;
   display: flex;
@@ -79,7 +79,7 @@ const Detail = styled.span`
 
 customElements.define("kepler-about-detail", Detail, { extends: "span" });
 
-const ProfileLinksContainer = styled("address")`
+const ProfileLinksContainer = styled.address`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

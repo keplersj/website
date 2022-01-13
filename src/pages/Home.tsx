@@ -6,7 +6,7 @@ import posts from "@kepler/blog";
 import "starstuff-components";
 import { Image } from "../components/Image";
 
-const Content = styled("section")`
+const Content = styled.section`
   padding: 1em;
 
   @media screen and (min-width: 512px) {

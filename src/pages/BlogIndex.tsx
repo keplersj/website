@@ -6,7 +6,7 @@ import "@a11y/skip-navigation";
 import "starstuff-components";
 import { Image } from "../components/Image";
 
-const Main = styled("main")`
+const Main = styled.main`
   display: block;
   max-width: 55em;
   margin-left: auto;
@@ -42,7 +42,7 @@ const Info = styled.div`
 
 customElements.define("kepler-blog-info", Info, { extends: "div" });
 
-const Figure = styled("figure")`
+const Figure = styled.figure`
   height: 100%;
   /* min-width: 256px; */
   max-width: 55em;
