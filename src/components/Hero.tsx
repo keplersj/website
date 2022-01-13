@@ -29,7 +29,7 @@ function component() {
           background-image: url("/assets/images/banner-opt.jpeg");
           background-image: image-set(
             url("/assets/images/banner-opt.avif") type("image/avif"),
-            url("/assets/images/banner-opt.wpeg") type("image/webp"),
+            url("/assets/images/banner-opt.webp") type("image/webp"),
             url("/assets/images/banner-opt.jpeg") type("image/jpeg")
           );
 

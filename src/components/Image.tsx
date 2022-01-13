@@ -17,11 +17,11 @@ const sizeBreakpoints = [
   // 1080p
   1920,
   // 4k
-  3840,
+  // 3840,
   // 5k
-  5120,
+  // 5120,
   // 8k
-  7680,
+  // 7680,
 ];
 
 function srcset(srcParts: string[], format: string) {

@@ -5,7 +5,7 @@ import { constants } from "node:fs";
 import { access } from "node:fs/promises";
 import { globby } from "globby";
 import sharp from "sharp";
-import { format, parse } from "node:path";
+import { format as formatPath, parse } from "node:path";
 import PQueue from "p-queue";
 import ora from "ora";
 
@@ -39,93 +39,39 @@ const exists = (path) =>
     .catch(() => false);
 
 function sharpOptimize(sharpStream, path) {
-  return [
-    async () => {
-      const output = format(changeExtWithSuffix(path, "jpeg", "-opt"));
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
+  return ["jpeg", "avif", "webp"].map((format) => async () => {
+    const output = formatPath(changeExtWithSuffix(path, format, "-opt"));
+    if (await exists(output)) {
+      return `Output ${output} exists. Passing.`;
+    }
 
-      await sharpStream.clone().jpeg().toFile(output).catch(console.error);
+    await sharpStream.clone()[format]().toFile(output).catch(console.error);
 
-      return `Created ${output}`;
-    },
-    async () => {
-      const output = format(changeExtWithSuffix(path, "avif", "-opt"));
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
-
-      await sharpStream.clone().avif().toFile(output).catch(console.error);
-      return `Created ${output}`;
-    },
-    async () => {
-      const output = format(changeExtWithSuffix(path, "webp", "-opt"));
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
-
-      await sharpStream.clone().webp().toFile(output).catch(console.error);
-      return `Created ${output}`;
-    },
-  ];
+    return `Created ${output}`;
+  });
 }
 
 function sharpResize(sharpStream, path, width, height, options = {}) {
-  return [
-    async () => {
-      const output = format(
-        changeExtWithSuffix(path, "jpeg", `-opt-${width}-${height}`)
-      );
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
+  return ["jpeg", "avif", "webp"].map((format) => async () => {
+    const output = formatPath(
+      changeExtWithSuffix(path, format, `-opt-${width}-${height}`)
+    );
+    if (await exists(output)) {
+      return `Output ${output} exists. Passing.`;
+    }
 
-      await sharpStream
-        .clone()
-        .resize(width, height === "retain" ? undefined : height, options)
-        .jpeg()
-        .toFile(output)
-        .catch(console.error);
-      return `Created ${output}`;
-    },
-    async () => {
-      const output = format(
-        changeExtWithSuffix(path, "avif", `-opt-${width}-${height}`)
-      );
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
-
-      sharpStream
-        .clone()
-        .resize(width, height === "retain" ? undefined : height, options)
-        .avif()
-        .toFile(output)
-        .catch(console.error);
-      return `Created ${output}`;
-    },
-    async () => {
-      const output = format(
-        changeExtWithSuffix(path, "webp", `-opt-${width}-${height}`)
-      );
-      if (await exists(output)) {
-        return `Output ${output} exists. Passing.`;
-      }
-
-      sharpStream
-        .clone()
-        .resize(width, height === "retain" ? undefined : height, options)
-        .webp()
-        .toFile(output)
-        .catch(console.error);
-      return `Created ${output}`;
-    },
-  ];
+    await sharpStream
+      .clone()
+      .resize(width, height === "retain" ? undefined : height, options)
+      [format]()
+      .toFile(output)
+      .catch(console.error);
+    return `Created ${output}`;
+  });
 }
 
 const spinner = ora("Processing Images").start();
-const queue = new PQueue({ concurrency: cpuCount * 2 });
+const queue = new PQueue({ concurrency: cpuCount * 4 });
 
 let count = 0;
 
@@ -162,11 +108,11 @@ queue.addAll(
         // 1080p
         1920,
         // 4k
-        3840,
+        // 3840,
         // 5k
-        5120,
+        // 5120,
         // 8k
-        7680,
+        // 7680,
       ];
 
       return [
