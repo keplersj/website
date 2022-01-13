@@ -100,12 +100,12 @@ queue.on("error", (error) => {
   );
 });
 
-// Set a Budget of half of CI allocation (in seconds) for all images processing
-const totalImageBudget = (15 / 2) * 60;
+// Set a Budget of 5 minutes (in seconds) for all images processing
+const totalImageBudget = 5 * 60;
 
 console.log("Seconds Allocated to Image Processing: " + totalImageBudget);
 
-const opsPerImage = /* formats */ 3 * /* transformations */ 2;
+const opsPerImage = /* formats */ 3 * /* transformations */ 1;
 
 const totalOperations =
   images.filter((filename) => !filename.includes("-opt")).length * opsPerImage;
@@ -129,27 +129,27 @@ queue.addAll(
         // sequentialRead: true,
       }).timeout({ seconds: operationBudget });
 
-      const sizeBreakpoints = [
-        256, 512, 768, 1024,
-        // 720p
-        1280,
-        // 1080p
-        1920,
-        // 4k
-        // 3840,
-        // 5k
-        // 5120,
-        // 8k
-        // 7680,
-      ];
+      // const sizeBreakpoints = [
+      //   256, 512, 768, 1024,
+      //   // 720p
+      //   1280,
+      //   // 1080p
+      //   1920,
+      //   // 4k
+      //   // 3840,
+      //   // 5k
+      //   // 5120,
+      //   // 8k
+      //   // 7680,
+      // ];
 
       return [
         ...sharpOptimize(sharpStream, path),
-        ...sizeBreakpoints.flatMap((width) =>
-          sharpResize(sharpStream, path, width, "retain", {
-            withoutEnlargement: true,
-          })
-        ),
+        // ...sizeBreakpoints.flatMap((width) =>
+        //   sharpResize(sharpStream, path, width, "retain", {
+        //     withoutEnlargement: true,
+        //   })
+        // ),
         // 16:9 Images
         // ...sizeBreakpoints.flatMap((width) =>
         //   sharpResize(sharpStream, path, width, width * (9 / 16), {
