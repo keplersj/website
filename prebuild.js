@@ -30,9 +30,9 @@ function changeExtWithSuffix(path, extension, suffix = "") {
 
   return {
     ...path,
-    base: [...baseParts, suffix, "." + extension].join(""),
+    base: [baseParts.join("."), suffix, "." + extension].join(""),
     ext: "." + extension,
-    name: [...baseParts, suffix, "." + extension].join(""),
+    name: [baseParts.join("."), suffix, "." + extension].join(""),
   };
 }
 

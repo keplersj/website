@@ -29,7 +29,7 @@ function srcset(srcParts: string[], format: string) {
     // ...sizeBreakpoints.map((width) =>
     //   [...srcParts, `-opt-${width}-retain`, `.${format}`, ` ${width}w`].join("")
     // ),
-    [...srcParts, "-opt", `.${format}`].join(""),
+    [srcParts.join("."), "-opt", `.${format}`].join(""),
   ].join(", ");
 }
 
