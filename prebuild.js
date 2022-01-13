@@ -100,18 +100,20 @@ queue.on("error", (error) => {
   );
 });
 
-// Set a Budget of 10 minutes (in seconds) for all images processing
-const totalImageBudget = 10 * 60;
+// Set a Budget of half of CI allocation (in seconds) for all images processing
+const totalImageBudget = (15 / 2) * 60;
 
 console.log("Seconds Allocated to Image Processing: " + totalImageBudget);
 
 const opsPerImage = /* formats */ 3 * /* transformations */ 2;
 
-const totalOperations = images.length * opsPerImage;
+const totalOperations =
+  images.filter((filename) => !filename.includes("-opt")).length * opsPerImage;
 
 console.log("Total Operations to Run: " + totalOperations);
 
-const operationBudget = Math.round(totalImageBudget / totalOperations);
+// At least one second. Sharp will go to infinite if provided a timeout of 0.
+const operationBudget = Math.round(totalImageBudget / totalOperations) || 1;
 
 console.log("Budgetted Time Per Operation: " + operationBudget);
 
