@@ -3,6 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "clean": "rimraf dist/ node_modules/.prynne/ node_modules/.vite/",
     "dev": "vite",
     "build": "node prebuild.js && PREBUILD=1 npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && PREBUILD=1 npm run build:client && npm run build:generate",
     "build:client": "vite build --outDir dist/client --ssrManifest",
@@ -101,7 +102,7 @@
     "starstuff-components": "^4.0.1",
     "starstuff-style": "^1.1.19",
     "styled-custom-elements": "^0.1.7",
-    "webcomponent-markdown": "^0.2.5"
+    "webcomponent-markdown": "^0.2.6"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
@@ -128,6 +129,7 @@
     "rehype-stringify": "^9.0.2",
     "remark-preset-lint-retext-english": "^1.0.64",
     "remark-preset-lint-starstuff": "^1.0.6",
+    "rimraf": "^3.0.2",
     "serve": "^13.0.2",
     "sharp": "^0.29.3",
     "typescript": "^4.5.2",
