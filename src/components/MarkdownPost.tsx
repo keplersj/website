@@ -6,6 +6,7 @@ import yaml from "js-yaml";
 import "webcomponent-markdown";
 import { css } from "@emotion/css";
 import { Image } from "../components/Image";
+import { useHead } from "atomico-use-head";
 
 // This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
 
@@ -13,6 +14,14 @@ function component(props: Props<typeof component.props>) {
   const [title, setTitle] = useState("");
   const [datePublished, setDatePublished] = useState("");
   const [featuredImageUrl, setFeaturedImageUrl] = useState("");
+  useHead(
+    {
+      title: `${title} | Kepler Sticka-Jones`,
+    },
+    {
+      hydrate: true,
+    }
+  );
 
   const frontMatterExtract = useCallback(
     () => (tree) => {

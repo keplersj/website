@@ -5,6 +5,7 @@ import "../components/Markdown";
 import posts from "@kepler/blog";
 import "starstuff-components";
 import { Image } from "../components/Image";
+import { useHead } from "atomico-use-head";
 
 const Content = styled.section`
   padding: 1em;
@@ -78,6 +79,13 @@ customElements.define("kepler-home-flex-read-more", FlexReadMoreLink, {
 });
 
 function component() {
+  useHead(
+    {
+      title: "Kepler Sticka-Jones",
+    },
+    { hydrate: true }
+  );
+
   return (
     <host>
       <kepler-hero data-hydrate></kepler-hero>

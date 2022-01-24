@@ -5,6 +5,7 @@ import "../components/Navbar";
 import "@a11y/skip-navigation";
 import "starstuff-components";
 import { Image } from "../components/Image";
+import { useHead } from "atomico-use-head";
 
 const Main = styled.main`
   display: block;
@@ -87,6 +88,13 @@ const FeaturedImage = styled(Image)`
 customElements.define("kepler-blog-featured-image", FeaturedImage);
 
 function component() {
+  useHead(
+    {
+      title: "Blog | Kepler Sticka-Jones",
+    },
+    { hydrate: true }
+  );
+
   return (
     <host>
       <skip-button></skip-button>

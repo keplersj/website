@@ -4,8 +4,16 @@ import "starstuff-components";
 import "@a11y/skip-navigation";
 import "../components/Navbar";
 import { css } from "@emotion/css";
+import { useHead } from "atomico-use-head";
 
 function component() {
+  useHead(
+    {
+      title: "Portfolio | Kepler Sticka-Jones",
+    },
+    { hydrate: true }
+  );
+
   return (
     <host>
       <skip-button></skip-button>

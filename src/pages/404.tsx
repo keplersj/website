@@ -1,5 +1,6 @@
 import { c } from "atomico";
 import styled from "styled-custom-elements";
+import { useHead } from "atomico-use-head";
 
 const BackgroundImage = styled.div`
   width: 100vw;
@@ -52,6 +53,13 @@ customElements.define("kepler-page-not-found-content", Container, {
 });
 
 function component() {
+  useHead(
+    {
+      title: "404 | Kepler Sticka-Jones",
+    },
+    { hydrate: true }
+  );
+
   return (
     <host>
       <div is="kepler-page-not-found-background">

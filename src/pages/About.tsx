@@ -7,6 +7,7 @@ import "../components/Markdown";
 import education from "@kepler/education";
 import experience from "@kepler/experience";
 import { social } from "../../public/about/settings.json";
+import { useHead } from "atomico-use-head";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -114,6 +115,13 @@ const faClassForSocial: { [name: string]: string } = {
 };
 
 function component() {
+  useHead(
+    {
+      title: "About | Kepler Sticka-Jones",
+    },
+    { hydrate: true }
+  );
+
   return (
     <host>
       <skip-button></skip-button>
