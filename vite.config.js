@@ -62,7 +62,8 @@ const educationJson = JSON.stringify(
 );
 
 export default defineConfig({
-  publicDir: process.env.PREBUILD ? "node_modules/.prynne/public" : "public",
+  // publicDir: process.env.PREBUILD ? "node_modules/.prynne/public" : "public",
+  publicDir: process.env.PREBUILD ? ".prynne/bake/public" : "public",
   esbuild: {
     jsxFactory: "h",
     jsxInject: `import {h} from 'atomico'`,

@@ -5,13 +5,15 @@
   "scripts": {
     "clean": "rimraf dist/ node_modules/.prynne/ node_modules/.vite/",
     "dev": "node server.js",
-    "build": "node prebuild.js && PREBUILD=1 npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && PREBUILD=1 npm run build:client && npm run build:generate",
+    "bake": "npm run clean && node prebuild.js && git add .prynne/bake",
+    "build": "PREBUILD=1 npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && PREBUILD=1 npm run build:client && npm run build:generate",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --ssr src/main.js --outDir dist/server",
     "build:generate": "node generate.js",
     "preview": "npm run build && npm run serve",
     "serve": "serve dist/client",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "gatsby": {
     "plugins": [
@@ -115,6 +117,7 @@
     "globby": "^12.0.2",
     "gray-matter": "^4.0.3",
     "htmlnano": "^1.1.1",
+    "husky": "^7.0.4",
     "jest": "^27.4.5",
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.28",

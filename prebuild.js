@@ -14,10 +14,19 @@ sharp.concurrency(1);
 
 const cpuCount = cpus().length;
 
-await makeDir("./node_modules/.prynne/");
-await copy("./public/", "./node_modules/.prynne/", { parents: true });
+// await makeDir("./node_modules/.prynne/");
+// await copy("./public/", "./node_modules/.prynne/", { parents: true });
 
-const images = await globby("./node_modules/.prynne/public", {
+await makeDir("./.prynne/bake/");
+await copy("./public/", "./.prynne/bake/", { parents: true });
+
+// const images = await globby("./node_modules/.prynne/public", {
+//   expandDirectories: {
+//     extensions: ["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"],
+//   },
+// });
+
+const images = await globby("./.prynne/bake/public", {
   expandDirectories: {
     extensions: ["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"],
   },
