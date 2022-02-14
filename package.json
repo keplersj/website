@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf dist/ node_modules/.prynne/ node_modules/.vite/",
     "dev": "node server.js",
-    "bake": "npm run clean && node prebuild.js && git add .prynne/bake",
+    "bake": "node prebuild.js && git add .prynne/bake",
     "build": "PREBUILD=1 npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && PREBUILD=1 npm run build:client && npm run build:generate",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --ssr src/main.js --outDir dist/server",
