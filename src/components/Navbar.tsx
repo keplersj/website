@@ -1,9 +1,73 @@
 import { c } from "atomico";
 import styled from "styled-custom-elements";
-import { css } from "@emotion/css";
 import "starstuff-components";
-import bannerUrlLight from "../../public/assets/images/banner.jpg";
-import bannerUrlDark from "../../public/assets/images/banner_dark.jpg";
+
+const Navigation = styled.nav`
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("/assets/images/banner.jpg");
+  background-image: url("/assets/images/banner-opt.jpeg");
+  background-image: image-set(
+    url("/assets/images/banner-opt.avif") type("image/avif"),
+    url("/assets/images/banner-opt.wpeg") type("image/webp"),
+    url("/assets/images/banner-opt.jpeg") type("image/jpeg")
+  );
+
+  @media (prefers-color-scheme: dark) {
+    background-image: url("/assets/images/banner_dark.jpg");
+    background-image: url("/assets/images/banner_dark-opt.jpeg");
+    background-image: image-set(
+      url("/assets/images/banner_dark-opt.avif") type("image/avif"),
+      url("/assets/images/banner_dark-opt.webp") type("image/webp"),
+      url("/assets/images/banner_dark-opt.jpeg") type("image/jpeg")
+    );
+  }
+`;
+
+customElements.define("kepler-navbar-navigation", Navigation, {
+  extends: "nav",
+});
+
+const NavigationContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 3rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  backdrop-filter: blur(5px);
+`;
+
+customElements.define("kepler-navbar-content", NavigationContent, {
+  extends: "div",
+});
+
+const LeftAlignLinks = styled.div`
+  max-width: 50%;
+  text-align: start;
+`;
+
+customElements.define("kepler-navbar-left-links", LeftAlignLinks, {
+  extends: "div",
+});
+
+const RightAlignLinks = styled.div`
+  max-width: 50%;
+  text-align: end;
+
+  & > :not(:last-child) {
+    margin-right: 1em;
+  }
+`;
+
+customElements.define("kepler-navbar-right-links", RightAlignLinks, {
+  extends: "div",
+});
 
 const Anchor = styled.a`
   color: #141414;
@@ -23,65 +87,18 @@ customElements.define("kepler-navbar-anchor", Anchor, { extends: "a" });
 function component() {
   return (
     <host>
-      <nav
-        class={css`
-          width: 100vw;
-          height: 3rem;
-          margin-bottom: 1em;
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover;
-          background-image: url(${bannerUrlLight});
-
-          @media (prefers-color-scheme: dark) {
-            background-image: url(${bannerUrlDark});
-          }
-        `}
-      >
-        <div
-          class={css`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 100vw;
-            height: 3rem;
-            padding-right: 1rem;
-            padding-left: 1rem;
-            backdrop-filter: blur(5px);
-          `}
-        >
-          <div
-            class={css`
-              max-width: 50%;
-              text-align: start;
-            `}
-          >
-            <a is="kepler-navbar-anchor" href="/">
-              Kepler Sticka-Jones
-            </a>
-          </div>
-          <div
-            class={css`
-              max-width: 50%;
-              text-align: end;
-
-              & > :not(:last-child) {
-                margin-right: 1em;
-              }
-            `}
-          >
-            <a is="kepler-navbar-anchor" href="/blog">
-              Blog
-            </a>
-            <a is="kepler-navbar-anchor" href="/portfolio">
-              Portfolio
-            </a>
-            <a is="kepler-navbar-anchor" href="/about">
-              About
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Navigation>
+        <NavigationContent>
+          <LeftAlignLinks>
+            <Anchor href="/">Kepler Sticka-Jones</Anchor>
+          </LeftAlignLinks>
+          <RightAlignLinks>
+            <Anchor href="/blog">Blog</Anchor>
+            <Anchor href="/portfolio">Portfolio</Anchor>
+            <Anchor href="/about">About</Anchor>
+          </RightAlignLinks>
+        </NavigationContent>
+      </Navigation>
     </host>
   );
 }
