@@ -1,19 +1,68 @@
-import { c, useState, useCallback, Props } from "atomico";
-import remarkPreset from "../util/remark-preset-client";
-import rehypePreset from "../util/rehype-preset-client";
+import { c, Props } from "atomico";
+import { Plugin } from "unified";
 import rehypeRewrite from "rehype-rewrite";
 import yaml from "js-yaml";
-import "webcomponent-markdown";
-import { css } from "@emotion/css";
+import styled from "styled-custom-elements";
 import { Image } from "../components/Image";
 import { useHead } from "atomico-use-head";
+import { useMarkdown } from "../util/use-markdown";
 
-// This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
+const Article = styled.article`
+  max-width: 55em;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 55em) {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+`;
+customElements.define("kepler-markdown-post-article", Article, {
+  extends: "article",
+});
+
+const ContentContainer = styled.div`
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+customElements.define("kepler-markdown-post-content", ContentContainer, {
+  extends: "div",
+});
 
 function component(props: Props<typeof component.props>) {
-  const [title, setTitle] = useState("");
-  const [datePublished, setDatePublished] = useState("");
-  const [featuredImageUrl, setFeaturedImageUrl] = useState("");
+  const [tree, vfile] = useMarkdown(props.src!, {
+    additionalRehypePlugins: [
+      [
+        rehypeRewrite,
+        {
+          selector: "img",
+          rewrite: (node) => {
+            if (node.type === "element" && node.properties.src) {
+              node.tagName = "kepler-image";
+            }
+          },
+        },
+      ] as unknown as Plugin,
+    ],
+    additionalRemarkPlugins: [
+      () => (root, file) => {
+        const yamlNode = root.children.find((child) => child.type === "yaml");
+        if (yamlNode) {
+          const parsed = yaml.load(yamlNode.value);
+          file.data.frontmatter = parsed;
+        }
+      },
+    ],
+  });
+
+  const title: String = (vfile as any).data.frontmatter?.title;
+  const datePublished: Date = (vfile as any).data.frontmatter?.date;
+  const featuredImageUrl: String = (vfile as any).data.frontmatter
+    ?.featured_image;
+
   useHead(
     {
       title: `${title} | Kepler Sticka-Jones`,
@@ -23,34 +72,9 @@ function component(props: Props<typeof component.props>) {
     }
   );
 
-  const frontMatterExtract = useCallback(
-    () => (tree) => {
-      const yamlNode = tree.children.find((child) => child.type === "yaml");
-      if (yamlNode) {
-        const parsed = yaml.load(yamlNode.value);
-        setTitle(parsed.title);
-        setDatePublished(String(parsed.date));
-        setFeaturedImageUrl(parsed.featured_image);
-        return;
-      }
-    },
-    [setDatePublished, setTitle, setFeaturedImageUrl]
-  );
-
   return (
     <host>
-      <article
-        class={css`
-          max-width: 55em;
-          margin-left: auto;
-          margin-right: auto;
-
-          @media (max-width: 55em) {
-            margin-left: 2em;
-            margin-right: 2em;
-          }
-        `}
-      >
+      <Article>
         <header>
           <h1>{title}</h1>
           <div>
@@ -71,32 +95,8 @@ function component(props: Props<typeof component.props>) {
             </figure>
           )}
         </header>
-        <remark-markdown
-          src={props.src}
-          class={css`
-            img {
-              max-width: 100%;
-              height: auto;
-            }
-          `}
-          remarkPlugins={[...remarkPreset, frontMatterExtract]}
-          rehypePlugins={[
-            ...rehypePreset,
-            [
-              rehypeRewrite,
-              {
-                selector: "img",
-                rewrite: (node) => {
-                  if (node.type === "element" && node.properties.src) {
-                    node.tagName = "kepler-image";
-                  }
-                },
-              },
-            ],
-          ]}
-          data-hydrate
-        ></remark-markdown>
-      </article>
+        <ContentContainer>{tree}</ContentContainer>
+      </Article>
     </host>
   );
 }

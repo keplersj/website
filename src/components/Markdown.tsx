@@ -1,26 +1,24 @@
 import { c, Props } from "atomico";
-import { css } from "@emotion/css";
-import remarkPresetClient from "../util/remark-preset-client";
-import rehypePresetClient from "../util/rehype-preset-client";
-import "webcomponent-markdown";
+import styled from "styled-custom-elements";
+import { useMarkdown } from "../util/use-markdown";
 
-// This is so hacky and I hate it, but I don't want to have to configure unified plugins more than once
+const ContentContainer = styled.div`
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+customElements.define("kepler-markdown-container", ContentContainer, {
+  extends: "div",
+});
 
 function component(props: Props<typeof component.props>) {
+  const [tree] = useMarkdown(props.src!);
+
   return (
     <host>
-      <remark-markdown
-        src={props.src}
-        class={css`
-          img {
-            max-width: 100%;
-            height: auto;
-          }
-        `}
-        remarkPlugins={remarkPresetClient}
-        rehypePlugins={rehypePresetClient}
-        data-hydrate
-      ></remark-markdown>
+      <ContentContainer>{tree}</ContentContainer>
     </host>
   );
 }

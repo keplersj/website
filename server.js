@@ -20,7 +20,8 @@ const vite = await createViteServer({
 });
 
 app.get("/assets/images/:path-opt.:format", async (req, res) => {
-  const cachedPath = `./node_modules/.prynne/public/assets/images/${req.params.path}-opt.${req.params.format}`;
+  // const cachedPath = `./node_modules/.prynne/public/assets/images/${req.params.path}-opt.${req.params.format}`;
+  const cachedPath = `./.prynne/bake/public/assets/images/${req.params.path}-opt.${req.params.format}`;
 
   if (await exists(cachedPath)) {
     const cachedFile = await readFile(cachedPath);
