@@ -4,7 +4,7 @@ date: 2019-08-03T20:25:20.524Z
 description: >-
   Introducing jest-preset-gatsby, a preset for Jest to simplify unit testing
   Gatsby codebases.
-featured_image: ../assets/images/SimplifyGatsbyTestingWithJestPreset-01.png
+featured_image: /assets/images/SimplifyGatsbyTestingWithJestPreset-01.png
 ---
 
 Recently I have been expanding [the codebase for this website and blog](https://github.com/keplersj/website) in order to have a more robust web presence. Part of this of course includes unit testing the source code using Jest. This code base's test suite is primarilly composed of [Jest Snapshot Tests](https://jestjs.io/docs/en/snapshot-testing) to ensure components and the pages they build are behaving and rendering as expected. Like any codebase, creating robust unit tests like this has many advantages; the primary ones for this code base being automated dependency updates using [Dependabot](https://dependabot.com) and mutation testing (to ensure tests are working effectively) using [Stryker](https://stryker-mutator.io).

@@ -31,4 +31,4 @@ A browser extension that incrementally improves on the University of Utah CIS ex
 - (Planned) Google Calendar export for class registration
 - (Planned) CIS Search
 
-![](../assets/images/screenshot-1-chrome.png)
+![](/assets/images/screenshot-1-chrome.png)

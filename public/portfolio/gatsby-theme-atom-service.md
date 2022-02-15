@@ -22,7 +22,7 @@ This site exists in the same repository as the theme, and allows for experimenta
 
 Below is a screenshot of the site, as of December 31, 2019:
 
-![Screenshot of the example site from gatsby-theme-atom-service repo (As of 12/31/2019)](../assets/images/screenshot-localhost_8000-2019.12.31-15_31_43.png)
+![Screenshot of the example site from gatsby-theme-atom-service repo (As of 12/31/2019)](/assets/images/screenshot-localhost_8000-2019.12.31-15_31_43.png)
 
 ## [AtomBuild Website](https://atombuild.github.io/)
 
@@ -32,7 +32,7 @@ For more on the development story of the AtomBuild website [see its entry on thi
 
 Below is a screenshot of the site, as of December 31, 2019:
 
-![Screenshot of atombuild.github.io (As of 12/31/2019)](../assets/images/screenshot-atombuild.github.io-2019.12.31-15_33_36.png)
+![Screenshot of atombuild.github.io (As of 12/31/2019)](/assets/images/screenshot-atombuild.github.io-2019.12.31-15_33_36.png)
 
 ## [AtomLinter Website](https://atombuild.github.io/)
 
@@ -42,4 +42,4 @@ For more on the development story of the AtomLinter website [see its entry on th
 
 Below is a screenshot of the site, as of December 31, 2019:
 
-![Screenshot of atomlinter.github.io (As of 12/31/2019)](../assets/images/screenshot-atomlinter.github.io-2019.12.31-15_34_49.png)
+![Screenshot of atomlinter.github.io (As of 12/31/2019)](/assets/images/screenshot-atomlinter.github.io-2019.12.31-15_34_49.png)

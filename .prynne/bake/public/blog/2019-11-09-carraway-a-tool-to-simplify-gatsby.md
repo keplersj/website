@@ -1,7 +1,7 @@
 ---
 title: "Carraway: A Tool to Simplify Gatsby"
 date: 2019-11-09T06:00:00Z
-featured_image: ../assets/images/CarrawayLovesGatsby.jpg
+featured_image: /assets/images/CarrawayLovesGatsby.jpg
 ---
 
 Gatsby is an incredible tool. It allows web developers to build fast, modular, and powerful websites with minimal effort. However, like all great software, there is room for improvement. This is why I've created Carraway.

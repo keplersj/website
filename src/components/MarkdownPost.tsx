@@ -37,9 +37,6 @@ function component(props: Props<typeof component.props>) {
     [setDatePublished, setTitle, setFeaturedImageUrl]
   );
 
-  const relativeImgUrl = (imgUrl: string): string =>
-    new URL(imgUrl, new URL(props.src!, window.location.href)).href;
-
   return (
     <host>
       <article
@@ -70,7 +67,7 @@ function component(props: Props<typeof component.props>) {
           </div>
           {featuredImageUrl && (
             <figure>
-              <Image src={relativeImgUrl(featuredImageUrl)}></Image>
+              <Image src={featuredImageUrl}></Image>
             </figure>
           )}
         </header>
@@ -91,7 +88,6 @@ function component(props: Props<typeof component.props>) {
                 selector: "img",
                 rewrite: (node) => {
                   if (node.type === "element" && node.properties.src) {
-                    node.properties.src = relativeImgUrl(node.properties.src);
                     node.tagName = "kepler-image";
                   }
                 },

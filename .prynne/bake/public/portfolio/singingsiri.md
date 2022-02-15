@@ -38,18 +38,18 @@ singingSiri was built using [iOSOpenDev](http://iosopendev.com) for the [Assista
 
 Screenshots of singingSiri in Action:
 
-![Siri singing Viva la Vida by Coldplay](../assets/images/singingSiri-1.PNG)
+![Siri singing Viva la Vida by Coldplay](/assets/images/singingSiri-1.PNG)
 
-![Siri singing Still Alive by Jonathan Coulton](../assets/images/singingSiri-2.PNG)
+![Siri singing Still Alive by Jonathan Coulton](/assets/images/singingSiri-2.PNG)
 
-![Siri singing Sexy and I Know It by LMFAO](../assets/images/singingSiri-3.PNG)
+![Siri singing Sexy and I Know It by LMFAO](/assets/images/singingSiri-3.PNG)
 
-![Siri singing American Idiot by Green Day](../assets/images/singingSiri-4.PNG)
+![Siri singing American Idiot by Green Day](/assets/images/singingSiri-4.PNG)
 
-![Siri singing Viva la Vida by Coldplay (with Inline Album Artwork)](../assets/images/singingSiri-5.PNG)
+![Siri singing Viva la Vida by Coldplay (with Inline Album Artwork)](/assets/images/singingSiri-5.PNG)
 
-![Siri singing Magical Mystery Tour by The Beatles (with Inline Album Artwork)](../assets/images/singingSiri-6.PNG)
+![Siri singing Magical Mystery Tour by The Beatles (with Inline Album Artwork)](/assets/images/singingSiri-6.PNG)
 
-![singingSiri Listed in Cydia](../assets/images/singingSiri-7.PNG)
+![singingSiri Listed in Cydia](/assets/images/singingSiri-7.PNG)
 
-![Siri singing Viva la Vida by Coldplay (with Inline Album Artwork)](../assets/images/singingSiri-8.PNG)
+![Siri singing Viva la Vida by Coldplay (with Inline Album Artwork)](/assets/images/singingSiri-8.PNG)

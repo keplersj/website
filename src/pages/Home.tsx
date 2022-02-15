@@ -112,12 +112,7 @@ function component() {
                   {post.frontmatter.data.featured_image && (
                     <a href={post.url}>
                       <FeaturedImage
-                        src={
-                          new URL(
-                            post.frontmatter.data.featured_image,
-                            new URL(post.markdownUrl, window.location.href)
-                          ).href
-                        }
+                        src={post.frontmatter.data.featured_image}
                       ></FeaturedImage>
                     </a>
                   )}
