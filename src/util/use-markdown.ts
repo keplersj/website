@@ -5,7 +5,7 @@ import rehypeRewrite from "rehype-rewrite";
 import remarkPresetClient from "../util/remark-preset-client";
 import rehypePresetClient from "../util/rehype-preset-client";
 import { useEffect } from "atomico";
-import "../components/Image"; // Need to load component if document has `img`
+import "../components/Hyperimage"; // Need to load component if document has `img`
 
 interface MarkdownHookOptions {
   additionalRemarkPlugins: Plugin[];
@@ -30,7 +30,7 @@ export function useMarkdown(
           selector: "img",
           rewrite: (node) => {
             if (node.type === "element" && node.properties.src) {
-              node.tagName = "kepler-image";
+              node.tagName = "kepler-hyperimage";
             }
           },
         },
