@@ -4,6 +4,34 @@ import { useHead } from "atomico-use-head";
 import { useMarkdown } from "../util/use-markdown";
 import { MarkdownContentContainer } from "./MarkdownContentContainer";
 import { Article } from "./Article";
+import styled from "styled-custom-elements";
+
+const FeaturedImage = styled.figure`
+  picture {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: ${(9 / 16) * 100}% 0 0 0;
+  }
+
+  picture img {
+    display: block;
+    /* max-width: 100%; */
+    /* max-height: 100%; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+`;
+
+customElements.define("kepler-blog-post-featured-image", FeaturedImage, {
+  extends: "figure",
+});
 
 function component(props: Props<typeof component.props>) {
   const [tree, vfile] = useMarkdown(props.src!);
@@ -40,9 +68,9 @@ function component(props: Props<typeof component.props>) {
             </span>
           </div>
           {featuredImageUrl && (
-            <figure>
+            <FeaturedImage>
               <Image src={featuredImageUrl}></Image>
-            </figure>
+            </FeaturedImage>
           )}
         </header>
         <main>
