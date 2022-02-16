@@ -3,8 +3,43 @@ import posts from "@kepler/portfolio";
 import "starstuff-components";
 import "@a11y/skip-navigation";
 import "../components/Navbar";
-import { css } from "@emotion/css";
+import styled from "styled-custom-elements";
 import { useHead } from "atomico-use-head";
+
+const Portfolio = styled.main`
+  display: block;
+  margin-left: 2em;
+  margin-right: 2em;
+`;
+
+customElements.define("kepler-portfolio-main", Portfolio, { extends: "main" });
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+
+customElements.define("kepler-portfolio-content", Content, { extends: "div" });
+
+const Card = styled("starstuff-card")`
+  width: 20em;
+`;
+
+customElements.define("kepler-portfolio-card", Card);
+
+const CardContent = styled.div`
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+customElements.define("kepler-portfolio-card-content", CardContent, {
+  extends: "div",
+});
 
 function component() {
   useHead(
@@ -19,49 +54,12 @@ function component() {
       <skip-button></skip-button>
       <kepler-navbar data-hydrate></kepler-navbar>
       <skip-anchor></skip-anchor>
-      <main
-        class={css`
-          display: block;
-          margin-left: 2em;
-          margin-right: 2em;
-        `}
-      >
+      <Portfolio>
         <h1>Portfolio</h1>
-        <div
-          class={css`
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-          `}
-        >
+        <Content>
           {posts.map((post) => (
-            <starstuff-card
-              key={post.url}
-              data-hydrate
-              class={css`
-                @media screen and (min-width: 1024px) {
-                  min-height: 192px;
-                }
-                @media screen and (max-width: 512px) {
-                  max-width: 100vw;
-                }
-                @media screen and (min-width: 768px) {
-                  max-width: 33vw;
-                }
-                @media screen and (min-width: 1024px) {
-                  max-width: 25vw;
-                }
-              `}
-            >
-              <div
-                class={css`
-                  padding: 1rem;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                `}
-              >
+            <Card key={post.url} data-hydrate>
+              <CardContent>
                 <a href={post.url}>
                   <h2>{post.frontmatter?.data?.title || post.url}</h2>
                 </a>
@@ -69,11 +67,11 @@ function component() {
                   {post.frontmatter?.data?.description ||
                     post.frontmatter.excerpt}
                 </p>
-              </div>
-            </starstuff-card>
+              </CardContent>
+            </Card>
           ))}
-        </div>
-      </main>
+        </Content>
+      </Portfolio>
     </host>
   );
 }
