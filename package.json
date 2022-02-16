@@ -95,6 +95,7 @@
     "highlight.js": "^11.4.0",
     "js-yaml": "^4.1.0",
     "modern-normalize": "^1.1.0",
+    "polished": "^4.1.4",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-highlight": "^5.0.2",
     "rehype-rewrite": "^3.0.4",

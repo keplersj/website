@@ -42,6 +42,7 @@ const NavigationContent = styled.div`
   padding-left: 1rem;
   backdrop-filter: blur(5px);
 `;
+import "../components/Markdown";
 
 customElements.define("kepler-navbar-content", NavigationContent, {
   extends: "div",
@@ -105,4 +106,6 @@ function component() {
 
 component.props = {};
 
-customElements.define("kepler-navbar", c(component));
+export const NavBar = c(component);
+
+customElements.define("kepler-navbar", NavBar);

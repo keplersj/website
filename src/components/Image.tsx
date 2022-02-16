@@ -40,17 +40,19 @@ function component(props: Props<typeof component.props>) {
 
   return (
     <host>
-      <picture>
-        <source srcset={srcset(srcParts!, "avif")} type="image/avif"></source>
-        <source srcset={srcset(srcParts!, "webp")} type="image/webp"></source>
-        <source srcset={srcset(srcParts!, "jpeg")} type="image/jpeg"></source>
-        <img
-          is="kepler-image-img"
-          alt={props.alt}
-          src={props.src}
-          loading="lazy"
-        ></img>
-      </picture>
+      <a href={props.src}>
+        <picture>
+          <source srcset={srcset(srcParts!, "avif")} type="image/avif"></source>
+          <source srcset={srcset(srcParts!, "webp")} type="image/webp"></source>
+          <source srcset={srcset(srcParts!, "jpeg")} type="image/jpeg"></source>
+          <img
+            is="kepler-image-img"
+            alt={props.alt}
+            src={props.src}
+            loading="lazy"
+          ></img>
+        </picture>
+      </a>
     </host>
   );
 }
