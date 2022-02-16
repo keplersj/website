@@ -50,7 +50,8 @@ const Container = styled.div`
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-content: center;
+  justify-content: center;
 `;
 
 customElements.define("kepler-hero-container", Container, { extends: "div" });
