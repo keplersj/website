@@ -6,6 +6,7 @@ import "@a11y/skip-navigation";
 import "starstuff-components";
 import { Image } from "../components/Image";
 import { useHead } from "atomico-use-head";
+import { useSEO } from "../util/use-seo";
 
 const Main = styled.main`
   display: block;
@@ -88,12 +89,9 @@ const FeaturedImage = styled(Image)`
 customElements.define("kepler-blog-featured-image", FeaturedImage);
 
 function component() {
-  useHead(
-    {
-      title: "Blog | Kepler Sticka-Jones",
-    },
-    { hydrate: true }
-  );
+  useSEO({
+    title: "Blog",
+  });
 
   return (
     <host>

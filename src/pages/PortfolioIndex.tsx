@@ -5,6 +5,7 @@ import "@a11y/skip-navigation";
 import "../components/Navbar";
 import styled from "styled-custom-elements";
 import { useHead } from "atomico-use-head";
+import { useSEO } from "../util/use-seo";
 
 const Portfolio = styled.main`
   display: block;
@@ -42,12 +43,9 @@ customElements.define("kepler-portfolio-card-content", CardContent, {
 });
 
 function component() {
-  useHead(
-    {
-      title: "Portfolio | Kepler Sticka-Jones",
-    },
-    { hydrate: true }
-  );
+  useSEO({
+    title: "Portfolio",
+  });
 
   return (
     <host>

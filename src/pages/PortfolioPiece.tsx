@@ -6,6 +6,7 @@ import { Article } from "../components/Article";
 import { MarkdownContentContainer } from "../components/MarkdownContentContainer";
 import styled from "styled-custom-elements";
 import { readableColor } from "polished";
+import { useSEO } from "../util/use-seo";
 
 const SupportingDetails = styled.div`
   margin: 0.5em 0;
@@ -78,6 +79,10 @@ function component({ location }: Props<typeof component.props>) {
 
   const title: string = (vfile as any).data.frontmatter?.title;
   const frontmatter = (vfile as any).data.frontmatter || {};
+
+  useSEO({
+    title,
+  });
 
   return (
     <host>

@@ -5,6 +5,7 @@ import { useMarkdown } from "../util/use-markdown";
 import { MarkdownContentContainer } from "./MarkdownContentContainer";
 import { Article } from "./Article";
 import styled from "styled-custom-elements";
+import { useSEO } from "../util/use-seo";
 
 const FeaturedImage = styled.figure`
   picture {
@@ -41,14 +42,9 @@ function component(props: Props<typeof component.props>) {
   const featuredImageUrl: string = (vfile as any).data.frontmatter
     ?.featured_image;
 
-  useHead(
-    {
-      title: `${title} | Kepler Sticka-Jones`,
-    },
-    {
-      hydrate: true,
-    }
-  );
+  useSEO({
+    title,
+  });
 
   return (
     <host>

@@ -10,6 +10,7 @@ import { social } from "../../public/about/settings.json";
 import { useHead } from "atomico-use-head";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
+import { useSEO } from "../util/use-seo";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -115,12 +116,9 @@ const faClassForSocial: { [name: string]: string } = {
 };
 
 function component() {
-  useHead(
-    {
-      title: "About | Kepler Sticka-Jones",
-    },
-    { hydrate: true }
-  );
+  useSEO({
+    title: "About",
+  });
 
   return (
     <host>
