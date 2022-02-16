@@ -1,6 +1,6 @@
 import { c } from "atomico";
 import styled from "styled-custom-elements";
-import "../components/Hero";
+import { Hero } from "../components/Hero";
 import "../components/Markdown";
 import posts from "@kepler/blog";
 import "starstuff-components";
@@ -88,17 +88,17 @@ function component() {
 
   return (
     <host>
-      <kepler-hero data-hydrate></kepler-hero>
+      <Hero data-hydrate></Hero>
       <main>
-        <section is="kepler-home-content">
+        <Content>
           <h2>Biography</h2>
           <kepler-markdown
             src="/about/biography.md"
             data-hydrate
           ></kepler-markdown>
           <a href="/about">Read More...</a>
-        </section>
-        <section is="kepler-home-content">
+        </Content>
+        <Content>
           <h2>Blog Posts</h2>
           <div is="kepler-home-carousel">
             {posts
@@ -141,7 +141,7 @@ function component() {
                 </Featured>
               ))}
           </div>
-        </section>
+        </Content>
       </main>
     </host>
   );
