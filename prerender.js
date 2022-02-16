@@ -8,12 +8,12 @@ jsdomGlobal(file.toString(), {
   url: `http://127.0.0.1:${process.argv[3]}${process.argv[2] || "/index.html"}`,
 });
 
-const { sheet } = await import("@emotion/css");
+// const { sheet } = await import("@emotion/css");
 // const { options } = await import("atomico");
 
 // speedy is disabled when the app is being prerendered so that styles render into the DOM
 // speedy is significantly faster though so it should only be disabled during prerendering
-sheet.speedy(false);
+// sheet.speedy(false);
 
 // Optimize Atomico for SSR
 // options.sheet = false;
