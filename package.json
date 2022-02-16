@@ -87,7 +87,6 @@
   "dependencies": {
     "@a11y/skip-navigation": "^0.0.10",
     "@atomico/hooks": "^3.29.0",
-    "@emotion/css": "^11.7.1",
     "@fortawesome/fontawesome-free": "^6.0.0",
     "@vaadin/router": "^1.7.4",
     "atomico": "^1.45.1",
@@ -106,7 +105,6 @@
     "starstuff-components": "^4.0.1",
     "starstuff-style": "^1.1.19",
     "styled-custom-elements": "^0.1.9",
-    "webcomponent": "^1.2.2",
     "webcomponent-markdown": "^0.2.6"
   },
   "devDependencies": {
