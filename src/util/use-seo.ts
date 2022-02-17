@@ -25,7 +25,8 @@ export function useSEO(metadata: Partial<Metadata> = defaultMetadata) {
           : defaultMetadata.title,
     },
     {
-      dirty: false,
+      hydrate: true,
+      dirty: true,
     }
   );
 }
