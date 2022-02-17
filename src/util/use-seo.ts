@@ -14,13 +14,18 @@ export function useSEO(metadata: Partial<Metadata> = defaultMetadata) {
     ...metadata,
   };
 
-  useHead({
-    htmlAttrs: {
-      lang: "en",
+  useHead(
+    {
+      htmlAttrs: {
+        lang: "en",
+      },
+      title:
+        metadata.title && metadata.title !== defaultMetadata.title
+          ? `${metadata.title} | ${defaultMetadata.title}`
+          : defaultMetadata.title,
     },
-    title:
-      metadata.title && metadata.title !== defaultMetadata.title
-        ? `${metadata.title} | ${defaultMetadata.title}`
-        : defaultMetadata.title,
-  });
+    {
+      dirty: true,
+    }
+  );
 }
