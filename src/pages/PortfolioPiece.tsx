@@ -82,6 +82,8 @@ function component({ location }: Props<typeof component.props>) {
 
   useSEO({
     title,
+    path: `/portfolio/${location?.params.slug.replace(".html", "")}`,
+    description: frontmatter.description,
   });
 
   return (

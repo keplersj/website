@@ -118,6 +118,7 @@ const faClassForSocial: { [name: string]: string } = {
 function component() {
   useSEO({
     title: "About",
+    path: "/about",
   });
 
   return (

@@ -80,7 +80,9 @@ customElements.define("kepler-home-flex-read-more", FlexReadMoreLink, {
 });
 
 function component() {
-  useSEO({});
+  useSEO({
+    path: "/",
+  });
 
   return (
     <host>

@@ -91,6 +91,7 @@ customElements.define("kepler-blog-featured-image", FeaturedImage);
 function component() {
   useSEO({
     title: "Blog",
+    path: "/blog",
   });
 
   return (

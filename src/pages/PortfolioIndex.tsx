@@ -45,6 +45,7 @@ customElements.define("kepler-portfolio-card-content", CardContent, {
 function component() {
   useSEO({
     title: "Portfolio",
+    path: "/portfolio",
   });
 
   return (
