@@ -1,60 +1,21 @@
 {
   "name": "@keplersj/website",
+  "type": "module",
   "private": true,
   "scripts": {
-    "build": "carraway build",
-    "develop": "carraway develop",
-    "clean": "carraway clean",
-    "test": "jest"
+    "clean": "rimraf dist/ node_modules/.prynne/ node_modules/.vite/",
+    "dev": "node server.js",
+    "bake": "node prebuild.js && git add .prynne/bake",
+    "build": "PREBUILD=1 npm run build:server && echo '{\"type\":\"commonjs\"}' > ./dist/server/package.json && PREBUILD=1 npm run build:client && npm run build:generate",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --ssr src/main.js --outDir dist/server",
+    "build:generate": "node generate.js",
+    "preview": "npm run build && npm run serve",
+    "serve": "serve dist/client",
+    "test": "jest",
+    "prepare": "husky install"
   },
   "gatsby": {
-    "siteMetadata": {
-      "title": "Kepler Sticka-Jones",
-      "description": "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
-      "siteUrl": "https://keplersj.com",
-      "social": [
-        {
-          "name": "Email",
-          "id": "kepler@stickajones.org",
-          "url": "mailto:kepler@stickajones.org"
-        },
-        {
-          "name": "PGP",
-          "id": "BD03 EB59 2620 3455 CF0A 838E F711 C2D5 38D9 CF6C",
-          "url": "https://keybase.io/keplersj/pgp_keys.asc?fingerprint=bd03eb5926203455cf0a838ef711c2d538d9cf6c"
-        },
-        {
-          "name": "GitHub",
-          "id": "keplersj",
-          "url": "https://github.com/keplersj",
-          "isProfile": true
-        },
-        {
-          "name": "Twitter",
-          "id": "@realKeplerSJ",
-          "url": "https://twitter.com/realKeplerSJ",
-          "isProfile": true
-        },
-        {
-          "name": "LinkedIn",
-          "id": "keplersj",
-          "url": "https://www.linkedin.com/in/keplersj/",
-          "isProfile": true
-        },
-        {
-          "name": "Keybase",
-          "id": "keplersj",
-          "url": "https://keybase.io/keplersj",
-          "isProfile": true
-        },
-        {
-          "name": "Instagram",
-          "id": "keplersj_",
-          "url": "https://www.instagram.com/keplersj_/",
-          "isProfile": true
-        }
-      ]
-    },
     "plugins": [
       "gatsby-theme-kepler",
       {
@@ -79,20 +40,7 @@
           "token": "245d4d7a81a3fba4f21a25d3af9e801782f597de0a46ffdc4afa1cc2717ffcbe",
           "domain": "keplersj.com"
         }
-      },
-      {
-        "resolve": "gatsby-plugin-manifest",
-        "options": {
-          "name": "Kepler Sticka-Jones",
-          "short_name": "Kepler S-J",
-          "start_url": "/",
-          "background_color": "#ffffff",
-          "theme_color": "#4a4a4a",
-          "display": "minimal-ui",
-          "icon": "content/assets/avatar.jpg"
-        }
-      },
-      "gatsby-plugin-offline"
+      }
     ]
   },
   "remarkConfig": {
@@ -111,7 +59,7 @@
           "/.forestry/",
           "/content/",
           "/node_modules/",
-          "/public/",
+          "/dist/",
           "/static/",
           "/package-lock.json",
           "/package.json"
@@ -124,23 +72,63 @@
     ]
   },
   "dependencies": {
-    "carraway": "^1.0.52",
-    "gatsby": "^2.32.13",
-    "gatsby-plugin-google-analytics": "^2.11.0",
-    "gatsby-plugin-manifest": "^3.10.0",
-    "gatsby-plugin-offline": "^3.10.2",
-    "gatsby-plugin-verify-bing": "^1.1.35",
-    "gatsby-plugin-verify-brave": "^1.0.5",
-    "gatsby-theme-kepler": "^1.7.635",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@a11y/skip-navigation": "^0.0.10",
+    "@atomico/hooks": "^3.29.0",
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "@vaadin/router": "^1.7.4",
+    "atomico": "^1.45.1",
+    "atomico-use-head": "^1.2.0",
+    "atomico-use-remark": "^1.1.0",
+    "highlight.js": "^11.4.0",
+    "js-yaml": "^4.1.0",
+    "modern-normalize": "^1.1.0",
+    "polished": "^4.1.4",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-highlight": "^5.0.2",
+    "rehype-rewrite": "^3.0.4",
+    "rehype-shift-heading": "^1.0.2",
+    "rehype-slug": "^5.0.1",
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
+    "starstuff-components": "^4.0.1",
+    "starstuff-style": "^1.1.19",
+    "styled-custom-elements": "^0.1.9",
+    "webcomponent-markdown": "^0.2.6"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
+    "@emotion/babel-plugin": "^11.7.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@types/js-yaml": "^4.0.5",
+    "cpy": "^8.1.2",
+    "express": "^4.17.2",
+    "global-jsdom": "^8.4.0",
+    "globby": "^12.0.2",
+    "gray-matter": "^4.0.3",
+    "htmlnano": "^1.1.1",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-remark": "^1.0.28",
+    "jsdom": "^19.0.0",
+    "make-dir": "^3.1.0",
+    "ora": "^6.0.1",
+    "p-queue": "^7.1.0",
     "prettier": "^2.3.2",
+    "rehype-minify-json-script": "^3.0.0",
+    "rehype-minify-whitespace": "^5.0.0",
+    "rehype-parse": "^8.0.3",
+    "rehype-remove-comments": "^5.0.0",
+    "rehype-stringify": "^9.0.2",
     "remark-preset-lint-retext-english": "^1.0.64",
-    "remark-preset-lint-starstuff": "^1.0.6"
+    "remark-preset-lint-starstuff": "^1.0.6",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2",
+    "sharp": "^0.29.3",
+    "typescript": "^4.5.2",
+    "unified": "^10.1.1",
+    "vite": "^2.6.14",
+    "vite-plugin-pwa": "^0.11.13",
+    "vite-plugin-rehype": "^0.1.0",
+    "whatwg-fetch": "^3.6.2"
   }
 }
