@@ -55,11 +55,26 @@ export function useSEO(metadata: Partial<Metadata> = defaultMetadata) {
           name: "twitter:card",
           content: "summary",
         },
+        {
+          name: "theme-color",
+          content: "#4a4a4a",
+        },
       ],
       link: [
         {
           rel: "canonical",
           href: `${siteUrlBase}${metadataComposite.path}`,
+        },
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+          type: "image/png",
+          sizes: "16x16",
+        },
+        {
+          rel: "apple-touch-icon",
+          href: "/apple-touch-icon.png",
+          sizes: "180x180",
         },
       ],
     },

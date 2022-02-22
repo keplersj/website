@@ -40,20 +40,7 @@
           "token": "245d4d7a81a3fba4f21a25d3af9e801782f597de0a46ffdc4afa1cc2717ffcbe",
           "domain": "keplersj.com"
         }
-      },
-      {
-        "resolve": "gatsby-plugin-manifest",
-        "options": {
-          "name": "Kepler Sticka-Jones",
-          "short_name": "Kepler S-J",
-          "start_url": "/",
-          "background_color": "#ffffff",
-          "theme_color": "#4a4a4a",
-          "display": "minimal-ui",
-          "icon": "content/assets/avatar.jpg"
-        }
-      },
-      "gatsby-plugin-offline"
+      }
     ]
   },
   "remarkConfig": {
@@ -140,6 +127,7 @@
     "typescript": "^4.5.2",
     "unified": "^10.1.1",
     "vite": "^2.6.14",
+    "vite-plugin-pwa": "^0.11.13",
     "vite-plugin-rehype": "^0.1.0",
     "whatwg-fetch": "^3.6.2"
   }

@@ -5,6 +5,7 @@ import { babel } from "@rollup/plugin-babel";
 import vitePluginRehype from "vite-plugin-rehype";
 import rehypePlugins from "./src/util/rehype-preset-build.js";
 import dataVirtualFile from "./src/util/vite-plugin-virtual-file.js";
+import { VitePWA } from "vite-plugin-pwa";
 
 async function markdownArray(directory, prefix) {
   const files = await readdir(directory);
@@ -69,6 +70,37 @@ export default defineConfig({
     jsxInject: `import {h} from 'atomico'`,
   },
   plugins: [
+    VitePWA({
+      includeAssets: ["favicon.ico", "robots.txt", "apple-touch-icon.png"],
+      manifest: {
+        name: "Kepler Sticka-Jones",
+        short_name: "Kepler S-J",
+        start_url: "/",
+        description:
+          "Kepler Sticka-Jones is a computer programmer and college student based out of Salt Lake City, with experience in entrepreneurship, student leadership, and open source software development.",
+        background_color: "#ffffff",
+        theme_color: "#4a4a4a",
+        display: "minimal-ui",
+        icons: [
+          {
+            src: "pwa-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
+        ],
+      },
+    }),
     babel({
       babelHelpers: "bundled",
       extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".tsx"],
