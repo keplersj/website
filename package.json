@@ -93,7 +93,7 @@
     "starstuff-components": "4.0.1",
     "starstuff-style": "1.1.19",
     "styled-custom-elements": "0.1.9",
-    "webcomponent-markdown": "0.2.6"
+    "webcomponent-markdown": "0.2.7"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.7.2",
