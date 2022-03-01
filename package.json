@@ -107,7 +107,7 @@
     "husky": "7.0.4",
     "jest": "27.5.1",
     "jest-runner-prettier": "1.0.0",
-    "jest-runner-remark": "1.0.28",
+    "jest-runner-remark": "1.0.34",
     "jsdom": "19.0.0",
     "make-dir": "3.1.0",
     "ora": "6.1.0",
