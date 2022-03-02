@@ -13,3 +13,7 @@ declare module "@kepler/experience" {
 declare module "@kepler/education" {
   export default Array<any>();
 }
+
+declare module "*.json" {
+  export default any;
+}

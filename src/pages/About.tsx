@@ -7,7 +7,6 @@ import "../components/Markdown";
 import education from "@kepler/education";
 import experience from "@kepler/experience";
 import { social } from "../../public/about/settings.json";
-import { useHead } from "atomico-use-head";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useSEO } from "../util/use-seo";
@@ -18,13 +17,27 @@ import { KeplerMarkdown } from "../components/Markdown";
 const MobileBreakPoint = "839px";
 
 const AboutContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+
   justify-content: center;
   padding: 1em;
-  @media (max-width: ${MobileBreakPoint}) {
-    flex-direction: column;
+
+  @media screen and (max-width: ${MobileBreakPoint}) {
+    grid-template-columns: initial;
+  }
+
+  @media print {
+    font-size: 12px;
+    grid-template-rows: repeat(4, 15vh);
+
+    line-height: 1.25;
+
+    ul {
+      margin: 0;
+    }
   }
 `;
 
@@ -38,8 +51,21 @@ const ProfileContainer = styled.header`
   flex-direction: column;
   align-items: center;
   min-width: 33vw;
+
   @media (max-width: ${MobileBreakPoint}) {
     min-width: inherit;
+  }
+
+  @media screen and (max-width: ${MobileBreakPoint}) {
+    grid-row: 1;
+    grid-column: 1 / 4;
+  }
+
+  @media print {
+    grid-row: 1;
+    grid-column: 1 / 4;
+
+    display: grid;
   }
 `;
 
@@ -49,9 +75,19 @@ customElements.define("kepler-about-profile-container", ProfileContainer, {
 
 const ExperienceContainer = styled.main`
   margin: 1em;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
+
+  grid-row: 2;
+  grid-column: 2 / 4;
+
+  @media screen and (min-width: ${MobileBreakPoint}) {
+    grid-row: 1 / 4;
+  }
+
+  @media print {
+    margin: auto;
+  }
 `;
 
 customElements.define(
@@ -62,12 +98,22 @@ customElements.define(
 
 const Name = styled.span`
   font-size: 2em;
+
+  @media print {
+    grid-column: 2;
+    grid-row: 1;
+  }
 `;
 
 customElements.define("kepler-about-name", Name, { extends: "span" });
 
 const Location = styled.span`
   font-size: 1em;
+
+  @media print {
+    grid-row: 1;
+    grid-column: 3;
+  }
 `;
 
 customElements.define("kepler-about-location", Location, { extends: "span" });
@@ -86,6 +132,10 @@ const ProfileLinksContainer = styled.address`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media print {
+    display: none;
+  }
 `;
 
 customElements.define("kepler-about-social-container", ProfileLinksContainer, {
@@ -98,6 +148,51 @@ const SocialLink = styled.a`
 `;
 
 customElements.define("kepler-about-social-link", SocialLink, { extends: "a" });
+
+const SkillsContainer = styled.div`
+  grid-row: 2;
+  grid-column: 1;
+
+  @media screen and (max-width: ${MobileBreakPoint}) {
+    grid-row: 3;
+    grid-column: 1 / 4;
+  }
+`;
+
+customElements.define("kepler-about-skills-container", SkillsContainer, {
+  extends: "div",
+});
+
+const Article = styled.article`
+  &[data-noprint="true"] {
+    @media print {
+      display: none;
+    }
+  }
+`;
+
+customElements.define("kepler-about-article", Article, { extends: "article" });
+
+const AvatarContainer = styled.div`
+  @media print {
+    max-width: 200px;
+    max-height: 200px;
+
+    height: 150px;
+    width: 150px;
+
+    div {
+      height: 150px;
+      width: 150px;
+    }
+
+    justify-self: center;
+  }
+`;
+
+customElements.define("kepler-about-avatar-container", AvatarContainer, {
+  extends: "div",
+});
 
 function getDateString(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -129,7 +224,9 @@ function component() {
       <skip-anchor></skip-anchor>
       <AboutContainer>
         <ProfileContainer>
-          <Avatar />
+          <AvatarContainer>
+            <Avatar />
+          </AvatarContainer>
           <Name role="heading" aria-level={1} title="Name">
             Kepler Sticka-Jones
           </Name>
@@ -137,7 +234,7 @@ function component() {
             Salt Lake City, UT, USA
           </Location>
           <ProfileLinksContainer role="list">
-            {social.map((profile) => (
+            {social.map((profile: any) => (
               <SocialLink
                 role="listitem"
                 key={`${profile.name}__${profile.id}__${profile.url}`}
@@ -151,13 +248,13 @@ function component() {
           </ProfileLinksContainer>
         </ProfileContainer>
         <ExperienceContainer>
-          <div>
+          <Article data-noprint="true">
             <h1>Biography</h1>
             <KeplerMarkdown
               src="/about/biography.md"
               data-hydrate
             ></KeplerMarkdown>
-          </div>
+          </Article>
           <div>
             <h1>Experience</h1>
             {experience
@@ -175,11 +272,12 @@ function component() {
                       position,
                       start_date: startDate,
                       end_date: endDate,
+                      no_print: noPrint,
                     },
                   },
                   index
                 ) => (
-                  <article key={`experience-${index}`}>
+                  <Article data-noprint={noPrint} key={`experience-${index}`}>
                     <h2>{position}</h2>
                     <Detail>{title}</Detail>
                     <Detail>
@@ -197,7 +295,7 @@ function component() {
                       src={markdownUrl}
                       data-hydrate
                     ></KeplerMarkdown>
-                  </article>
+                  </Article>
                 )
               )}
           </div>
@@ -218,11 +316,12 @@ function component() {
                       degree,
                       start_date: startDate,
                       end_date: endDate,
+                      no_print: noPrint,
                     },
                   },
                   index
                 ) => (
-                  <article key={`education-${index}`}>
+                  <Article data-noprint={noPrint} key={`education-${index}`}>
                     <h2>{title}</h2>
                     {degree && <Detail>{degree}</Detail>}
                     <Detail>
@@ -240,18 +339,15 @@ function component() {
                       src={markdownUrl}
                       data-hydrate
                     ></KeplerMarkdown>
-                  </article>
+                  </Article>
                 )
               )}
           </div>
-          <div>
-            <h1>Skills</h1>
-            <KeplerMarkdown
-              src="/about/skills.md"
-              data-hydrate
-            ></KeplerMarkdown>
-          </div>
         </ExperienceContainer>
+        <SkillsContainer>
+          <h1>Skills</h1>
+          <KeplerMarkdown src="/about/skills.md" data-hydrate></KeplerMarkdown>
+        </SkillsContainer>
       </AboutContainer>
     </host>
   );
