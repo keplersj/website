@@ -26,6 +26,10 @@ const Navigation = styled.nav`
       url("/assets/images/banner_dark-opt.jpeg") type("image/jpeg")
     );
   }
+
+  @media print {
+    display: none;
+  }
 `;
 
 customElements.define("kepler-navbar-navigation", Navigation, {
