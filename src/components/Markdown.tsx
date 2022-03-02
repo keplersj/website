@@ -16,4 +16,6 @@ component.props = {
   src: String,
 };
 
-customElements.define("kepler-markdown", c(component));
+export const KeplerMarkdown = c(component);
+
+customElements.define("kepler-markdown", KeplerMarkdown);

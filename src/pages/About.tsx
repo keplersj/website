@@ -1,5 +1,5 @@
 import { c } from "atomico";
-import "../components/Navbar";
+import { NavBar } from "../components/Navbar";
 import "@a11y/skip-navigation";
 import styled from "styled-custom-elements";
 import { Avatar } from "../components/Avatar";
@@ -11,6 +11,7 @@ import { useHead } from "atomico-use-head";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useSEO } from "../util/use-seo";
+import { KeplerMarkdown } from "../components/Markdown";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -124,31 +125,20 @@ function component() {
   return (
     <host>
       <skip-button></skip-button>
-      <kepler-navbar data-hydrate></kepler-navbar>
+      <NavBar data-hydrate></NavBar>
       <skip-anchor></skip-anchor>
-      <div is="kepler-about-container">
-        <header is="kepler-about-profile-container">
+      <AboutContainer>
+        <ProfileContainer>
           <Avatar />
-          <span
-            is="kepler-about-name"
-            role="heading"
-            aria-level={1}
-            title="Name"
-          >
+          <Name role="heading" aria-level={1} title="Name">
             Kepler Sticka-Jones
-          </span>
-          <span
-            is="kepler-about-location"
-            role="heading"
-            aria-level={2}
-            title="Location"
-          >
+          </Name>
+          <Location role="heading" aria-level={2} title="Location">
             Salt Lake City, UT, USA
-          </span>
-          <address is="kepler-about-social-container" role="list">
+          </Location>
+          <ProfileLinksContainer role="list">
             {social.map((profile) => (
-              <a
-                is="kepler-about-social-link"
+              <SocialLink
                 role="listitem"
                 key={`${profile.name}__${profile.id}__${profile.url}`}
                 href={profile.url}
@@ -156,17 +146,17 @@ function component() {
                 aria-label={`${profile.name}: ${profile.id}`}
               >
                 <i class={faClassForSocial[profile.name]}></i>
-              </a>
+              </SocialLink>
             ))}
-          </address>
-        </header>
-        <main is="kepler-about-experience-container">
+          </ProfileLinksContainer>
+        </ProfileContainer>
+        <ExperienceContainer>
           <div>
             <h1>Biography</h1>
-            <kepler-markdown
+            <KeplerMarkdown
               src="/about/biography.md"
               data-hydrate
-            ></kepler-markdown>
+            ></KeplerMarkdown>
           </div>
           <div>
             <h1>Experience</h1>
@@ -191,8 +181,8 @@ function component() {
                 ) => (
                   <article key={`experience-${index}`}>
                     <h2>{position}</h2>
-                    <span is="kepler-about-detail">{title}</span>
-                    <span is="kepler-about-detail">
+                    <Detail>{title}</Detail>
+                    <Detail>
                       <time dateTime={startDate}>
                         {getDateString(startDate)}
                       </time>
@@ -202,11 +192,11 @@ function component() {
                       ) : (
                         <time dateTime={new Date().toISOString()}>Present</time>
                       )}
-                    </span>
-                    <kepler-markdown
+                    </Detail>
+                    <KeplerMarkdown
                       src={markdownUrl}
                       data-hydrate
-                    ></kepler-markdown>
+                    ></KeplerMarkdown>
                   </article>
                 )
               )}
@@ -234,8 +224,8 @@ function component() {
                 ) => (
                   <article key={`education-${index}`}>
                     <h2>{title}</h2>
-                    {degree && <span is="kepler-about-detail">{degree}</span>}
-                    <span is="kepler-about-detail">
+                    {degree && <Detail>{degree}</Detail>}
+                    <Detail>
                       <time dateTime={startDate}>
                         {getDateString(startDate)}
                       </time>
@@ -245,24 +235,24 @@ function component() {
                       ) : (
                         <time dateTime={new Date().toISOString()}>Present</time>
                       )}
-                    </span>
-                    <kepler-markdown
+                    </Detail>
+                    <KeplerMarkdown
                       src={markdownUrl}
                       data-hydrate
-                    ></kepler-markdown>
+                    ></KeplerMarkdown>
                   </article>
                 )
               )}
           </div>
           <div>
             <h1>Skills</h1>
-            <kepler-markdown
+            <KeplerMarkdown
               src="/about/skills.md"
               data-hydrate
-            ></kepler-markdown>
+            ></KeplerMarkdown>
           </div>
-        </main>
-      </div>
+        </ExperienceContainer>
+      </AboutContainer>
     </host>
   );
 }
