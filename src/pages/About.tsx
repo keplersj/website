@@ -32,6 +32,7 @@ const AboutContainer = styled.div`
   @media print {
     font-size: 12px;
     grid-template-rows: repeat(4, 15vh);
+    padding: 0;
 
     line-height: 1.25;
 
@@ -66,6 +67,20 @@ const ProfileContainer = styled.header`
     grid-column: 1 / 4;
 
     display: grid;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("/assets/images/banner.jpg");
+    background-image: url("/assets/images/banner-opt.jpeg");
+    background-image: image-set(
+      url("/assets/images/banner-opt.avif") type("image/avif"),
+      url("/assets/images/banner-opt.wpeg") type("image/webp"),
+      url("/assets/images/banner-opt.jpeg") type("image/jpeg")
+    );
+
+    width: 100%;
+    margin: 0;
   }
 `;
 

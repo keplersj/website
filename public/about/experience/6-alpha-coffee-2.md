@@ -1,7 +1,7 @@
 ---
 title: Alpha Coffee
-position: Back of House Manager
-start_date: "2020-02-01T00:00:00.000Z"
+position: Distribution & Logistics Manager
+start_date: "2020-11-01T00:00:00.000Z"
 end_date: "2021-09-30T00:00:00.000Z"
 ---
 
