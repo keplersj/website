@@ -7,10 +7,15 @@ import "../components/Markdown";
 import education from "@kepler/education";
 import experience from "@kepler/experience";
 import { social } from "../../public/about/settings.json";
-import "@fortawesome/fontawesome-free/js/all.js";
-import "@fortawesome/fontawesome-free/css/all.css";
 import { useSEO } from "../util/use-seo";
 import { KeplerMarkdown } from "../components/Markdown";
+import { FaSKey } from "../components/SVGFaSKey";
+import { FaSEnvelope } from "../components/SVGFaSEnveolope";
+import { FaBGitHub } from "../components/SVGFaBGitHub";
+import { FaBTwitter } from "../components/SVGFaBTwitter";
+import { FaBLinkedIn } from "../components/SVGFaBLinkedin";
+import { FaBKeybase } from "../components/SVGFaBKeybase";
+import { FaBInstagram } from "../components/SVGFaBInstagram";
 
 // This is approximately the horizontal pixel measurement where the page begins to feel crampt,
 //  and more vainly and subjectively when the hyphen in my last name wraps to a second line :D
@@ -216,14 +221,14 @@ function getDateString(date: string) {
   });
 }
 
-const faClassForSocial: { [name: string]: string } = {
-  Email: "fas fa-envelope",
-  PGP: "fas fa-key",
-  GitHub: "fab fa-github",
-  Twitter: "fab fa-twitter",
-  LinkedIn: "fab fa-linkedin",
-  Keybase: "fab fa-keybase",
-  Instagram: "fab fa-instagram",
+const faClassForSocial: { [name: string]: typeof HTMLElement } = {
+  Email: FaSEnvelope,
+  PGP: FaSKey,
+  GitHub: FaBGitHub,
+  Twitter: FaBTwitter,
+  LinkedIn: FaBLinkedIn,
+  Keybase: FaBKeybase,
+  Instagram: FaBInstagram,
 };
 
 function component() {
@@ -249,17 +254,21 @@ function component() {
             Salt Lake City, UT, USA
           </Location>
           <ProfileLinksContainer role="list">
-            {social.map((profile: any) => (
-              <SocialLink
-                role="listitem"
-                key={`${profile.name}__${profile.id}__${profile.url}`}
-                href={profile.url}
-                name={profile.name}
-                aria-label={`${profile.name}: ${profile.id}`}
-              >
-                <i class={faClassForSocial[profile.name]}></i>
-              </SocialLink>
-            ))}
+            {social.map((profile: any) => {
+              const Icon = faClassForSocial[profile.name];
+
+              return (
+                <SocialLink
+                  role="listitem"
+                  key={`${profile.name}__${profile.id}__${profile.url}`}
+                  href={profile.url}
+                  name={profile.name}
+                  aria-label={`${profile.name}: ${profile.id}`}
+                >
+                  <Icon />
+                </SocialLink>
+              );
+            })}
           </ProfileLinksContainer>
         </ProfileContainer>
         <ExperienceContainer>
