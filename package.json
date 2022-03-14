@@ -93,7 +93,7 @@
     "polished": "4.1.4",
     "rehype-autolink-headings": "6.1.1",
     "rehype-highlight": "5.0.2",
-    "rehype-rewrite": "3.0.5",
+    "rehype-rewrite": "3.0.6",
     "rehype-shift-heading": "1.0.2",
     "rehype-slug": "5.0.1",
     "remark-frontmatter": "4.0.1",
