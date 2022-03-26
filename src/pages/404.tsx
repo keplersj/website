@@ -74,4 +74,6 @@ function component() {
   );
 }
 
-customElements.define("kepler-page-not-found", c(component));
+export const PageNotFoundPage = c(component);
+
+customElements.define("kepler-page-not-found", PageNotFoundPage);
