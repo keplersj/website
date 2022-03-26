@@ -152,4 +152,7 @@ function component() {
   );
 }
 
-customElements.define("kepler-blog-index", c(component));
+const BlogIndexPage = c(component);
+export default BlogIndexPage;
+
+customElements.define("kepler-blog-index", BlogIndexPage);
