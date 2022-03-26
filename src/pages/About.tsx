@@ -377,4 +377,7 @@ function component() {
   );
 }
 
-customElements.define("kepler-about", c(component));
+const AboutPage = c(component);
+export default AboutPage;
+
+customElements.define("kepler-about", AboutPage);

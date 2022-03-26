@@ -75,4 +75,7 @@ function component() {
   );
 }
 
-customElements.define("kepler-portfolio-index", c(component));
+const PortfolioIndexPage = c(component);
+export default PortfolioIndexPage;
+
+customElements.define("kepler-portfolio-index", PortfolioIndexPage);
