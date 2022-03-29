@@ -21,74 +21,60 @@ export function useSEO(metadata: Partial<Metadata> = defaultMetadata) {
     ...metadata,
   };
 
-  console.log(
-    `useSEO call stubbed due to incompatibility with @atomico/router: ${JSON.stringify(
-      metadata,
-      undefined,
-      2
-    )}`
-  );
-
-  // useHead(
-  //   {
-  //     htmlAttrs: {
-  //       lang: "en",
-  //     },
-  //     title:
-  //       metadata.title && metadata.title !== defaultMetadata.title
-  //         ? `${metadata.title} | ${defaultMetadata.title}`
-  //         : defaultMetadata.title,
-  //     meta: [
-  //       {
-  //         name: "description",
-  //         content: metadataComposite.description,
-  //       },
-  //       {
-  //         name: "og:site_name",
-  //         content: defaultMetadata.title,
-  //       },
-  //       {
-  //         name: "og:title",
-  //         content: metadataComposite.title,
-  //       },
-  //       {
-  //         name: "og:url",
-  //         content: `${siteUrlBase}${metadataComposite.path}`,
-  //       },
-  //       {
-  //         name: "og:description",
-  //         content: metadataComposite.description,
-  //       },
-  //       {
-  //         name: "twitter:card",
-  //         content: "summary",
-  //       },
-  //       {
-  //         name: "theme-color",
-  //         content: "#4a4a4a",
-  //       },
-  //     ],
-  //     link: [
-  //       {
-  //         rel: "canonical",
-  //         href: `${siteUrlBase}${metadataComposite.path}`,
-  //       },
-  //       {
-  //         rel: "icon",
-  //         href: "/favicon.ico",
-  //         type: "image/png",
-  //         sizes: "16x16",
-  //       },
-  //       {
-  //         rel: "apple-touch-icon",
-  //         href: "/apple-touch-icon.png",
-  //         sizes: "180x180",
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     hydrate: true,
-  //     dirty: true,
-  //   }
-  // );
+  useHead({
+    htmlAttrs: {
+      lang: "en",
+    },
+    title:
+      metadata.title && metadata.title !== defaultMetadata.title
+        ? `${metadata.title} | ${defaultMetadata.title}`
+        : defaultMetadata.title,
+    meta: [
+      {
+        name: "description",
+        content: metadataComposite.description,
+      },
+      {
+        name: "og:site_name",
+        content: defaultMetadata.title,
+      },
+      {
+        name: "og:title",
+        content: metadataComposite.title,
+      },
+      {
+        name: "og:url",
+        content: `${siteUrlBase}${metadataComposite.path}`,
+      },
+      {
+        name: "og:description",
+        content: metadataComposite.description,
+      },
+      {
+        name: "twitter:card",
+        content: "summary",
+      },
+      {
+        name: "theme-color",
+        content: "#4a4a4a",
+      },
+    ],
+    link: [
+      {
+        rel: "canonical",
+        href: `${siteUrlBase}${metadataComposite.path}`,
+      },
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+        type: "image/png",
+        sizes: "16x16",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
+  });
 }
