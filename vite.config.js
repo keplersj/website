@@ -126,7 +126,7 @@ export default defineConfig({
     }),
   ],
   optimizeDeps: {
-    include: ["@vaadin/router", "atomico"],
+    include: ["atomico"],
   },
   build: {
     outDir: "dist",

@@ -72,9 +72,8 @@ customElements.define("kepler-portfolio-supporting-detail", SupportingDetail, {
   extends: "span",
 });
 
-function component({ location }: Props<typeof component.props>) {
-  const src =
-    "/portfolio/" + location?.params.slug.replace(".html", "") + ".md";
+function component({ slug }: Props<typeof component.props>) {
+  const src = "/portfolio/" + slug?.replace(".html", "") + ".md";
   const [tree, vfile] = useMarkdown(src);
 
   const title: string = (vfile as any).data.frontmatter?.title;
@@ -82,7 +81,7 @@ function component({ location }: Props<typeof component.props>) {
 
   useSEO({
     title,
-    path: `/portfolio/${location?.params.slug.replace(".html", "")}`,
+    path: `/portfolio/${slug?.replace(".html", "")}`,
     description: frontmatter.description,
   });
 
@@ -207,21 +206,11 @@ function component({ location }: Props<typeof component.props>) {
 }
 
 component.props = {
-  location: Object,
+  slug: String,
 };
 
-class Element extends c(component) {
-  async onBeforeEnter(location, commands, router) {
-    const src =
-      "/portfolio/" + location?.params.slug.replace(".html", "") + ".md";
-    const srcFetch = await fetch(src);
+const PortfolioPiece = c(component);
 
-    if (!srcFetch.ok) {
-      return commands.redirect("/404");
-    }
-  }
-}
+export default PortfolioPiece;
 
-export default Element;
-
-customElements.define("kepler-portfolio-piece", Element);
+customElements.define("kepler-portfolio-piece", PortfolioPiece);

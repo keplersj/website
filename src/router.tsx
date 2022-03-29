@@ -1,30 +1,44 @@
-import { Route, Router } from "@vaadin/router";
 import { render } from "atomico";
 import { RouterSwitch, RouterCase } from "@atomico/router";
 
-const loadDefaultComponent = (fileName: string) => async () => {
-  const { default: Component } = await import(`./pages/${fileName}.tsx`);
+type RouterParameters = { [key: string]: string };
+type AdditionalCheck = (parameters: RouterParameters) => Promise<boolean>;
 
-  return <Component />;
-};
+const loadDefaultComponent =
+  (fileName: string, check?: AdditionalCheck) =>
+  async (parameters: RouterParameters) => {
+    if (check && (await check(parameters)) == false) {
+      const { default: PageNotFound } = await import("./pages/404");
 
-function singlePage(slug: string, fileName: string) {
+      return <PageNotFound />;
+    }
+
+    const { default: Component } = await import(`./pages/${fileName}.tsx`);
+
+    return <Component {...parameters} />;
+  };
+
+function singlePage(
+  slug: string,
+  fileName: string,
+  additionalCheck?: AdditionalCheck
+) {
   return [
     <RouterCase
       path={`/${slug}.html`}
-      load={loadDefaultComponent(fileName)}
+      load={loadDefaultComponent(fileName, additionalCheck)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}`}
-      load={loadDefaultComponent(fileName)}
+      load={loadDefaultComponent(fileName, additionalCheck)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}/`}
-      load={loadDefaultComponent(fileName)}
+      load={loadDefaultComponent(fileName, additionalCheck)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}/index.html`}
-      load={loadDefaultComponent(fileName)}
+      load={loadDefaultComponent(fileName, additionalCheck)}
     ></RouterCase>,
   ];
 }
@@ -32,34 +46,29 @@ function singlePage(slug: string, fileName: string) {
 render(
   <host>
     <RouterSwitch>
-      <RouterCase
-        path="/"
-        load={async () => {
-          const { HomePage } = await import("./pages/Home");
-
-          return <HomePage />;
-        }}
-      ></RouterCase>
+      <RouterCase path="/" load={loadDefaultComponent("Home")}></RouterCase>
       <RouterCase
         path="/index.html"
-        load={async () => {
-          const { HomePage } = await import("./pages/Home");
-
-          return <HomePage />;
-        }}
+        load={loadDefaultComponent("Home")}
       ></RouterCase>
       {...singlePage("about", "About")}
       {...singlePage("blog", "BlogIndex")}
-      {...singlePage("blog/{slug}", "BlogPost")}
+      {...singlePage("blog/{slug}", "BlogPost", async ({ slug }) => {
+        const src = "/blog/" + slug.replace(".html", "") + ".md";
+        const srcFetch = await fetch(src);
+
+        return srcFetch.ok;
+      })}
       {...singlePage("portfolio", "PortfolioIndex")}
-      {...singlePage("portfolio/{slug}", "PortfolioPiece")}
+      {...singlePage("portfolio/{slug}", "PortfolioPiece", async ({ slug }) => {
+        const src = "/portfolio/" + slug.replace(".html", "") + ".md";
+        const srcFetch = await fetch(src);
+
+        return srcFetch.ok;
+      })}
       <RouterCase
         path="/{...notFound}"
-        load={async () => {
-          const { PageNotFoundPage } = await import("./pages/404");
-
-          return <PageNotFoundPage />;
-        }}
+        load={loadDefaultComponent("404")}
       ></RouterCase>
     </RouterSwitch>
   </host>,
