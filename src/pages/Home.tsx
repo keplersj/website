@@ -145,4 +145,7 @@ function component() {
   );
 }
 
-customElements.define("kepler-home", c(component));
+export const HomePage = c(component);
+export default HomePage;
+
+customElements.define("kepler-home", HomePage);
