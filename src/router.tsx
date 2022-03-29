@@ -2,39 +2,29 @@ import { Route, Router } from "@vaadin/router";
 import { render } from "atomico";
 import { RouterSwitch, RouterCase } from "@atomico/router";
 
+const loadDefaultComponent = (fileName: string) => async () => {
+  const { default: Component } = await import(`./pages/${fileName}.tsx`);
+
+  return <Component />;
+};
+
 function singlePage(slug: string, fileName: string) {
   return [
     <RouterCase
       path={`/${slug}.html`}
-      load={async () => {
-        const { default: Component } = await import(`./pages/${fileName}.tsx`);
-
-        return <Component />;
-      }}
+      load={loadDefaultComponent(fileName)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}`}
-      load={async () => {
-        const { default: Component } = await import(`./pages/${fileName}.tsx`);
-
-        return <Component />;
-      }}
+      load={loadDefaultComponent(fileName)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}/`}
-      load={async () => {
-        const { default: Component } = await import(`./pages/${fileName}.tsx`);
-
-        return <Component />;
-      }}
+      load={loadDefaultComponent(fileName)}
     ></RouterCase>,
     <RouterCase
       path={`/${slug}/index.html`}
-      load={async () => {
-        const { default: Component } = await import(`./pages/${fileName}.tsx`);
-
-        return <Component />;
-      }}
+      load={loadDefaultComponent(fileName)}
     ></RouterCase>,
   ];
 }
