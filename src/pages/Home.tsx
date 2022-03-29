@@ -146,5 +146,6 @@ function component() {
 }
 
 export const HomePage = c(component);
+export default HomePage;
 
 customElements.define("kepler-home", HomePage);

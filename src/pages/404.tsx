@@ -75,5 +75,6 @@ function component() {
 }
 
 export const PageNotFoundPage = c(component);
+export default PageNotFoundPage;
 
 customElements.define("kepler-page-not-found", PageNotFoundPage);

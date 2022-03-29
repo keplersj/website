@@ -3,8 +3,8 @@ import "../components/Navbar";
 import "../components/MarkdownPost";
 import "@a11y/skip-navigation";
 
-function component({ location }: Props<typeof component.props>) {
-  const src = "/blog/" + location?.params.slug.replace(".html", "") + ".md";
+function component({ slug }: Props<typeof component.props>) {
+  const src = "/blog/" + slug?.replace(".html", "") + ".md";
 
   return (
     <host>
@@ -26,20 +26,11 @@ function component({ location }: Props<typeof component.props>) {
 }
 
 component.props = {
-  location: Object,
+  slug: String,
 };
 
-class Element extends c(component) {
-  async onBeforeEnter(location, commands, router) {
-    const src = "/blog/" + location?.params.slug.replace(".html", "") + ".md";
-    const srcFetch = await fetch(src);
+const BlogPost = c(component);
 
-    if (!srcFetch.ok) {
-      return commands.redirect("/404");
-    }
-  }
-}
+export default BlogPost;
 
-export default Element;
-
-customElements.define("kepler-blog-post", Element);
+customElements.define("kepler-blog-post", BlogPost);
