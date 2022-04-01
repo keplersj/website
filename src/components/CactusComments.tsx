@@ -1,16 +1,6 @@
 import { c, Props, useEffect, useRef, useState } from "atomico";
-import { useHead } from "atomico-use-head";
 
 function component({ sectionId }: Props<typeof component.props>) {
-  useHead({
-    link: [
-      {
-        href: "https://latest.cactus.chat/style.css",
-        rel: "stylesheet",
-        type: "text/css",
-      },
-    ],
-  });
   const cactusContainerRef = useRef();
   const [cactusLoaded, setCactusLoaded] = useState(false);
   useEffect(() => {
