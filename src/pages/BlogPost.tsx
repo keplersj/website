@@ -19,7 +19,11 @@ function component({ slug }: Props<typeof component.props>) {
           type="text/markdown"
           rel="preload"
         />
-        <kepler-markdown-post src={src} data-hydrate></kepler-markdown-post>
+        <kepler-markdown-post
+          src={src}
+          slug={slug?.replace(".html", "")}
+          data-hydrate
+        ></kepler-markdown-post>
       </main>
     </host>
   );

@@ -6,6 +6,7 @@ import { MarkdownContentContainer } from "./MarkdownContentContainer";
 import { Article } from "./Article";
 import styled from "styled-custom-elements";
 import { useSEO } from "../util/use-seo";
+import CactusComments from "./CactusComments";
 
 const FeaturedImage = styled.figure`
   picture {
@@ -72,6 +73,8 @@ function component(props: Props<typeof component.props>) {
         <main>
           <MarkdownContentContainer>{tree}</MarkdownContentContainer>
         </main>
+        <hr />
+        <CactusComments sectionId={props.slug} />
       </Article>
     </host>
   );
@@ -79,6 +82,7 @@ function component(props: Props<typeof component.props>) {
 
 component.props = {
   src: String,
+  slug: String,
 };
 
 customElements.define("kepler-markdown-post", c(component));
