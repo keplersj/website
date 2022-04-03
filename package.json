@@ -90,7 +90,7 @@
     "highlight.js": "11.5.0",
     "js-yaml": "4.1.0",
     "modern-normalize": "1.1.0",
-    "polished": "4.1.4",
+    "polished": "4.2.0",
     "rehype-autolink-headings": "6.1.1",
     "rehype-highlight": "5.0.2",
     "rehype-rewrite": "3.0.6",
