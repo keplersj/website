@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "@a11y/skip-navigation": "0.0.10",
-    "@atomico/hooks": "3.33.5",
+    "@atomico/hooks": "3.33.6",
     "@atomico/router": "1.2.0",
     "@emotion/css": "11.9.0",
     "@fortawesome/free-brands-svg-icons": "6.1.1",
