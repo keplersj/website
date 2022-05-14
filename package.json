@@ -84,7 +84,7 @@
     "@fortawesome/free-brands-svg-icons": "6.1.1",
     "@fortawesome/free-solid-svg-icons": "6.1.1",
     "@ungap/custom-elements": "1.0.2",
-    "atomico": "1.57.0",
+    "atomico": "1.58.0",
     "atomico-use-head": "1.2.1",
     "atomico-use-remark": "1.1.0",
     "highlight.js": "11.5.1",
