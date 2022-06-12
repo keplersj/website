@@ -110,7 +110,7 @@
     "cpy": "9.0.1",
     "express": "4.18.1",
     "global-jsdom": "8.4.0",
-    "globby": "13.1.1",
+    "globby": "13.1.2",
     "gray-matter": "4.0.3",
     "husky": "8.0.1",
     "jest": "28.1.1",
