@@ -134,7 +134,7 @@
     "typescript": "4.9.4",
     "unified": "10.1.2",
     "vite": "3.2.5",
-    "vite-plugin-pwa": "0.13.3",
+    "vite-plugin-pwa": "0.14.0",
     "vite-plugin-rehype": "0.1.0",
     "whatwg-fetch": "3.6.2"
   }
