@@ -130,7 +130,7 @@
     "remark-preset-lint-starstuff": "2.0.2",
     "rimraf": "5.0.0",
     "serve": "14.2.0",
-    "sharp": "0.32.0",
+    "sharp": "0.32.1",
     "typescript": "5.0.4",
     "unified": "10.1.2",
     "vite": "4.3.3",
