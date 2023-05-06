@@ -80,7 +80,7 @@
     "@a11y/skip-navigation": "0.0.10",
     "@atomico/hooks": "3.49.1",
     "@atomico/router": "2.0.1",
-    "@emotion/css": "11.10.8",
+    "@emotion/css": "11.11.0",
     "@fortawesome/free-brands-svg-icons": "6.4.0",
     "@fortawesome/free-solid-svg-icons": "6.4.0",
     "@ungap/custom-elements": "1.2.0",
@@ -104,7 +104,7 @@
     "webcomponent-markdown": "0.2.7"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "11.10.8",
+    "@emotion/babel-plugin": "11.11.0",
     "@rollup/plugin-babel": "6.0.3",
     "@types/js-yaml": "4.0.5",
     "cpy": "10.0.0",
