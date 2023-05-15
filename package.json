@@ -89,7 +89,7 @@
     "atomico-use-remark": "1.1.0",
     "highlight.js": "11.8.0",
     "js-yaml": "4.1.0",
-    "modern-normalize": "1.1.0",
+    "modern-normalize": "2.0.0",
     "polished": "4.2.2",
     "rehype-autolink-headings": "6.1.1",
     "rehype-highlight": "6.0.0",
