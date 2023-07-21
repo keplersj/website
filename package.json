@@ -136,6 +136,6 @@
     "vite": "4.4.5",
     "vite-plugin-pwa": "0.16.4",
     "vite-plugin-rehype": "0.1.0",
-    "whatwg-fetch": "3.6.16"
+    "whatwg-fetch": "3.6.17"
   }
 }
