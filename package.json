@@ -118,7 +118,7 @@
     "jest-runner-remark": "2.0.4",
     "jsdom": "21.1.2",
     "make-dir": "4.0.0",
-    "ora": "6.3.1",
+    "ora": "7.0.0",
     "p-queue": "7.3.4",
     "prettier": "3.0.0",
     "rehype-minify-json-script": "3.0.0",
