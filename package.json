@@ -132,7 +132,7 @@
     "serve": "14.2.0",
     "sharp": "0.32.5",
     "typescript": "5.1.6",
-    "unified": "11.0.0",
+    "unified": "11.0.1",
     "vite": "4.4.9",
     "vite-plugin-pwa": "0.16.4",
     "vite-plugin-rehype": "0.1.0",
