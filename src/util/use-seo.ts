@@ -75,6 +75,10 @@ export function useSEO(metadata: Partial<Metadata> = defaultMetadata) {
         href: "/apple-touch-icon.png",
         sizes: "180x180",
       },
+      {
+        rel: "me",
+        href: "https://mas.to/@keplersj",
+      },
     ],
   });
 }
