@@ -1,6 +1,6 @@
 ---
 title: Alpha Coffee
-position: Inegration Engineer
+position: Integration Engineer
 start_date: "2021-10-01T00:00:00.000Z"
 end_date: "2021-12-31T00:00:00.000Z"
 ---
