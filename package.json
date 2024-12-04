@@ -120,7 +120,7 @@
     "make-dir": "4.0.0",
     "ora": "8.1.1",
     "p-queue": "8.0.1",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "rehype-minify-json-script": "4.0.1",
     "rehype-minify-whitespace": "6.0.2",
     "rehype-parse": "9.0.1",
