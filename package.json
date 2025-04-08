@@ -127,7 +127,7 @@
     "rehype-remove-comments": "6.1.1",
     "rehype-stringify": "10.0.1",
     "remark-preset-lint-retext-english": "2.0.7",
-    "remark-preset-lint-starstuff": "2.0.6",
+    "remark-preset-lint-starstuff": "2.0.7",
     "rimraf": "6.0.1",
     "serve": "14.2.4",
     "sharp": "0.34.1",
