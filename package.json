@@ -133,7 +133,7 @@
     "sharp": "0.34.3",
     "typescript": "5.9.2",
     "unified": "11.0.5",
-    "vite": "7.1.1",
+    "vite": "7.1.2",
     "vite-plugin-pwa": "1.0.2",
     "vite-plugin-rehype": "0.1.0",
     "whatwg-fetch": "3.6.20"
