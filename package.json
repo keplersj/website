@@ -113,7 +113,7 @@
     "globby": "14.1.0",
     "gray-matter": "4.0.3",
     "husky": "9.1.7",
-    "jest": "30.1.0",
+    "jest": "30.1.1",
     "jest-runner-prettier": "1.0.0",
     "jest-runner-remark": "2.0.7",
     "jsdom": "21.1.2",
