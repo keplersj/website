@@ -131,7 +131,7 @@
     "rimraf": "6.0.1",
     "serve": "14.2.5",
     "sharp": "0.34.4",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "unified": "11.0.5",
     "vite": "7.1.7",
     "vite-plugin-pwa": "1.0.3",
