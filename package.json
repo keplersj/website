@@ -108,7 +108,7 @@
     "@rollup/plugin-babel": "6.1.0",
     "@types/js-yaml": "4.0.9",
     "cpy": "12.1.0",
-    "express": "5.1.0",
+    "express": "5.2.0",
     "global-jsdom": "8.8.0",
     "globby": "16.0.0",
     "gray-matter": "4.0.3",
