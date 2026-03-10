@@ -109,7 +109,7 @@
     "@types/js-yaml": "4.0.9",
     "cpy": "13.2.1",
     "express": "5.2.1",
-    "global-jsdom": "8.8.0",
+    "global-jsdom": "28.0.0",
     "globby": "16.1.1",
     "gray-matter": "4.0.3",
     "husky": "9.1.7",
