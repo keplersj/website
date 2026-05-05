@@ -107,7 +107,7 @@
     "@emotion/babel-plugin": "11.13.5",
     "@rollup/plugin-babel": "7.0.0",
     "@types/js-yaml": "4.0.9",
-    "cpy": "13.2.1",
+    "cpy": "13.2.2",
     "express": "5.2.1",
     "global-jsdom": "8.8.0",
     "globby": "16.2.0",
