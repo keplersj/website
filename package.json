@@ -105,7 +105,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.13.5",
-    "@rollup/plugin-babel": "7.0.0",
+    "@rollup/plugin-babel": "7.1.0",
     "@types/js-yaml": "4.0.9",
     "cpy": "13.2.2",
     "express": "5.2.1",
